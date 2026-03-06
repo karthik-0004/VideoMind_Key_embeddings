@@ -491,6 +491,24 @@ class VideoViewSet(viewsets.ModelViewSet):
             'processing_stage': video.processing_stage,
             'error_message': video.error_message,
         })
+
+    @action(detail=True, methods=['post'])
+    def retry(self, request, pk=None):
+        """Retry processing a failed video from where it left off."""
+        video = self.get_object()
+        if video.status != 'failed':
+            return Response(
+                {'error': 'Only failed videos can be retried'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        video.status = 'processing'
+        video.error_message = None
+        video.save()
+
+        from video_processor.pipeline import process_video_async
+        process_video_async(video.id)
+
+        return Response({'id': video.id, 'status': 'processing', 'message': 'Retrying...'})
     
     @action(detail=True, methods=['get', 'head'])
     def audio(self, request, pk=None):

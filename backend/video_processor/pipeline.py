@@ -306,7 +306,7 @@ def _process_video_sync(video_id):
         
         # Step 3/5: Generate embeddings (OpenAI text-embedding-3-small, 1536-dim)
         logger.info("Step 3/5: Generating embeddings...")
-        video.processing_stage = 'embedded'
+        video.processing_stage = 'embedding'
         video.save()
 
         # Load or create embeddings dataframe
@@ -336,7 +336,10 @@ def _process_video_sync(video_id):
             OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
             if not OPENAI_API_KEY:
                 raise EnvironmentError("OPENAI_API_KEY is not set in environment / .env")
-            openai_client = _OpenAI(api_key=OPENAI_API_KEY)
+            openai_client = _OpenAI(
+                api_key=OPENAI_API_KEY,
+                timeout=120.0,  # prevent indefinite hangs
+            )
             OPENAI_EMBED_MODEL = "text-embedding-3-small"  # 1536-dim vectors
             OPENAI_BATCH_SIZE = 2048  # OpenAI allows up to 2048 texts per request
 
@@ -376,11 +379,14 @@ def _process_video_sync(video_id):
         else:
             logger.info("No new chunks to embed")
 
+        video.processing_stage = 'embedded'
+        video.save()
         logger.info("Embeddings generation complete")
         
         # Step 4/5: Generate PDF
         logger.info("Step 4/5: Generating PDF...")
-        # Note: stage stays 'embedded' during PDF gen; set to 'pdf_generated' only on success
+        video.processing_stage = 'generating_pdf'
+        video.save()
 
         from . import pdf_gen
         logger.info(f"Calling generate_pdf for video {video.id}")

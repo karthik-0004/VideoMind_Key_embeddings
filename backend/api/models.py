@@ -21,7 +21,9 @@ class Video(models.Model):
         ('audio_converted', 'Audio Converted'),
         ('transcribing', 'Transcribing Audio'),
         ('transcribed', 'Transcribed'),
+        ('embedding', 'Generating Embeddings'),
         ('embedded', 'Embeddings Generated'),
+        ('generating_pdf', 'Generating PDF'),
         ('pdf_generated', 'PDF Generated'),
     ]
     

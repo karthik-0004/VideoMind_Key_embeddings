@@ -109,6 +109,9 @@ export const videoAPI = {
     // Delete video
     deleteVideo: (id) => api.delete(`/videos/${id}/`),
 
+    // Retry failed video
+    retryVideo: (id) => api.post(`/videos/${id}/retry/`),
+
     // Daily tracking endpoints
     getVideosByDate: (params = {}) => {
         const queryParams = new URLSearchParams();

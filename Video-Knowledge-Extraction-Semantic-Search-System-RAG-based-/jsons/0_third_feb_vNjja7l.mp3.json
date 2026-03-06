@@ -1,0 +1,124 @@
+{
+  "chunks": [
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 0.0,
+      "end": 5.28,
+      "text": "not asynchronous iterators. What this will do is give you the next value in an iterable sequence,"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 5.6,
+      "end": 10.64,
+      "text": "assuming that whatever you're calling this on is an iterator. So I have my custom iterator object"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 10.64,
+      "end": 16.06,
+      "text": "here. Notice that I implement my iter method as well as my next method. And now what I can do is"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 16.06,
+      "end": 21.3,
+      "text": "create an iter or an iterator, sorry, from my custom object. So I create an iterator and then"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 21.3,
+      "end": 25.98,
+      "text": "I can call next on it and I will get the next value in the iterable sequence. And I can do the"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 25.98,
+      "end": 31.18,
+      "text": "same thing using, um, like a built-in object, right? So if I have a list, I can actually get"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 31.18,
+      "end": 36.36,
+      "text": "an iterator for this list, and then I can call next on that list iterator and get the next value."
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 36.64,
+      "end": 42.16,
+      "text": "So let me show you this. We have one, two, three, ABC, again, very similar to the a next function,"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 42.26,
+      "end": 46.54,
+      "text": "just for regular iterators, not asynchronous iterators. All right. So moving on, we have the"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 46.54,
+      "end": 51.68,
+      "text": "object function. This is going to create an empty object for you. If you didn't know every single"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 51.68,
+      "end": 52.94,
+      "text": "class in Python by"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 52.94,
+      "end": 54.14,
+      "text": "default inherits from"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 54.14,
+      "end": 55.52,
+      "text": "object. So it has some"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 55.52,
+      "end": 56.78,
+      "text": "prebuilt functionality."
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 57.02,
+      "end": 58.04,
+      "text": "It's not super useful,"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 58.04,
+      "end": 59.12,
+      "text": "but I will run the code"
+    },
+    {
+      "number": "0",
+      "title": "third_feb_vNjja7l",
+      "start": 59.28,
+      "end": 59.64,
+      "text": "and show"
+    }
+  ],
+  "text": "not asynchronous iterators. What this will do is give you the next value in an iterable sequence, assuming that whatever you're calling this on is an iterator. So I have my custom iterator object here. Notice that I implement my iter method as well as my next method. And now what I can do is create an iter or an iterator, sorry, from my custom object. So I create an iterator and then I can call next on it and I will get the next value in the iterable sequence. And I can do the same thing using, um, like a built-in object, right? So if I have a list, I can actually get an iterator for this list, and then I can call next on that list iterator and get the next value. So let me show you this. We have one, two, three, ABC, again, very similar to the a next function, just for regular iterators, not asynchronous iterators. All right. So moving on, we have the object function. This is going to create an empty object for you. If you didn't know every single class in Python by default inherits from object. So it has some prebuilt functionality. It's not super useful, but I will run the code and show"
+}

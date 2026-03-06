@@ -26,10 +26,16 @@ export const ProcessingScreen = ({ videos, processingStage = 'uploaded' }) => {
                 return 'Compressing video...';
             case 'audio_converted':
                 return 'Converting video to audio...';
+            case 'transcribing':
+                return 'Transcribing audio...';
             case 'transcribed':
-                return 'Transcribing audio to text...';
-            case 'embedded':
+                return 'Transcription complete...';
+            case 'embedding':
                 return 'Generating embeddings...';
+            case 'embedded':
+                return 'Embeddings complete...';
+            case 'generating_pdf':
+                return 'Creating PDF...';
             case 'pdf_generated':
             case 'completed':
                 return 'Finalizing...';
