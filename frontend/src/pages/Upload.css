@@ -1,0 +1,278 @@
+/* ═══════════════════════════════════════════════════════════════
+   Upload Page
+   ═══════════════════════════════════════════════════════════════ */
+.upload-page {
+    width: 100%;
+}
+
+.upload-page h1 {
+    margin-bottom: var(--space-6);
+    font-size: var(--font-h1);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.upload-mode-toggle {
+    display: inline-flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-1);
+}
+
+.mode-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.mode-btn.active {
+    background: rgba(37, 99, 235, 0.08);
+    color: #2563eb;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.mode-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.youtube-panel {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    padding: var(--space-6);
+    margin-bottom: var(--space-8);
+}
+
+.youtube-label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+    margin-bottom: var(--space-2);
+}
+
+.youtube-input-row {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
+.youtube-input {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--font-sm);
+    margin-bottom: var(--space-4);
+}
+
+.youtube-input-row .youtube-input {
+    margin-bottom: 0;
+}
+
+.youtube-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.youtube-clear-btn {
+    flex-shrink: 0;
+}
+
+.youtube-error {
+    color: var(--error);
+    margin-top: calc(-1 * var(--space-2));
+    margin-bottom: var(--space-3);
+    font-size: var(--font-sm);
+}
+
+.youtube-submit-btn {
+    border: none;
+    background: var(--primary);
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--font-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.youtube-submit-btn:hover:not(:disabled) {
+    filter: brightness(1.05);
+}
+
+.youtube-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ── Dropzone ── */
+.dropzone {
+    border: 2px dashed rgba(37, 99, 235, 0.25);
+    border-radius: var(--radius-lg);
+    padding: var(--space-16) var(--space-8);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background: rgba(37, 99, 235, 0.03);
+    margin-bottom: var(--space-8);
+}
+
+.dropzone:hover,
+.dropzone.active {
+    border-color: #2563eb;
+    background: rgba(37, 99, 235, 0.06);
+    box-shadow: var(--shadow-sm);
+}
+
+.dropzone svg {
+    color: #2563eb !important;
+    opacity: 0.7;
+}
+
+.dropzone-text {
+    margin: var(--space-4) 0 var(--space-2);
+    font-size: var(--font-h3);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.dropzone-hint {
+    color: var(--text-tertiary);
+    font-size: var(--font-sm);
+}
+
+/* ── Upload Queue ── */
+.upload-queue h2 {
+    margin-bottom: var(--space-4);
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.upload-item {
+    margin-bottom: var(--space-4);
+}
+
+.upload-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.upload-info {
+    flex: 1;
+}
+
+.upload-filename {
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+    font-size: var(--font-sm);
+}
+
+/* ── Progress Bar ── */
+.progress-bar {
+    height: 4px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin: var(--space-2) 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary);
+    transition: width var(--transition-smooth);
+    border-radius: var(--radius-full);
+}
+
+.upload-status {
+    margin-top: var(--space-2);
+}
+
+/* ── Remove Button ── */
+.remove-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    padding: var(--space-2);
+    color: var(--text-tertiary);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-btn:hover {
+    background: var(--error-light);
+    border-color: var(--error);
+    color: var(--error);
+    transform: scale(1.05);
+}
+
+/* ── Dark Theme Overrides ── */
+[data-theme="dark"] .mode-btn.active {
+    background: rgba(123, 123, 255, 0.12);
+    color: #7b7bff;
+    border-color: rgba(123, 123, 255, 0.3);
+}
+
+[data-theme="dark"] .dropzone {
+    border-color: rgba(123, 123, 255, 0.2);
+    background: rgba(123, 123, 255, 0.03);
+}
+
+[data-theme="dark"] .dropzone:hover,
+[data-theme="dark"] .dropzone.active {
+    border-color: #7b7bff;
+    background: rgba(123, 123, 255, 0.08);
+}
+
+[data-theme="dark"] .dropzone svg {
+    color: #7b7bff !important;
+}
+
+/* ── Stage-based Progress Bar (while backend is processing) ── */
+.stage-progress-bar {
+    height: 6px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin: var(--space-2) 0 var(--space-1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.stage-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: var(--radius-full);
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 8px rgba(123, 123, 255, 0.3);
+}
+
+.stage-label {
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: var(--space-1);
+    letter-spacing: 0.01em;
+}

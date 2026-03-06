@@ -1,0 +1,5367 @@
+{
+  "chunks": [
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 0.0,
+      "end": 13.8,
+      "text": "Hello everybody. And welcome to part two of this CSS for non web developers series."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 13.8,
+      "end": 18.48,
+      "text": "In the last video, I gave you a pretty long, but hopefully fairly comprehensive overview"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 18.48,
+      "end": 23.36,
+      "text": "of kind of the core CSS properties you should know and kind of be memorizing. If you want"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 23.36,
+      "end": 27.84,
+      "text": "to be efficient at writing CSS. Now in this video, I want to actually take all of that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 27.84,
+      "end": 28.64,
+      "text": "theory, all of that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 28.64,
+      "end": 30.0,
+      "text": "knowledge and apply that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 30.16,
+      "end": 31.4,
+      "text": "by building out kind of a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 31.4,
+      "end": 32.84,
+      "text": "basic layout and showing"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 32.84,
+      "end": 33.84,
+      "text": "you how we would nest"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 33.84,
+      "end": 34.92,
+      "text": "different flex boxes"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 34.92,
+      "end": 36.24,
+      "text": "inside of each other, how"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 36.24,
+      "end": 37.64,
+      "text": "we would align items, how"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 37.64,
+      "end": 38.34,
+      "text": "we would just kind of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 38.34,
+      "end": 39.24,
+      "text": "create something by"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 39.24,
+      "end": 40.84,
+      "text": "looking at a visual. So"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 40.84,
+      "end": 41.72,
+      "text": "I'll walk you through my"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 41.72,
+      "end": 42.92,
+      "text": "thought process on doing"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 42.92,
+      "end": 44.34,
+      "text": "that and show you kind of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 44.34,
+      "end": 45.02,
+      "text": "how we design that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 45.02,
+      "end": 46.38,
+      "text": "basic layout. I'm hoping"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 46.38,
+      "end": 47.28,
+      "text": "this shouldn't take too"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 47.28,
+      "end": 48.78,
+      "text": "long. Um, but yeah,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 48.82,
+      "end": 49.5,
+      "text": "that's, that's kind of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 49.5,
+      "end": 50.4,
+      "text": "what we're doing. So what"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 50.4,
+      "end": 50.96,
+      "text": "I'm actually going to be"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 50.96,
+      "end": 51.9,
+      "text": "doing is designing a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 51.9,
+      "end": 52.74,
+      "text": "component from the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 52.74,
+      "end": 53.66,
+      "text": "programming expert"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 53.66,
+      "end": 54.48,
+      "text": "website. So if you guys"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 54.48,
+      "end": 55.0,
+      "text": "don't know, I have a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 55.0,
+      "end": 55.68,
+      "text": "course called"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 55.68,
+      "end": 56.98,
+      "text": "programming expert. If"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 56.98,
+      "end": 57.76,
+      "text": "you are not interested"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 57.76,
+      "end": 62.2,
+      "text": "in web development, but you want to learn Python, Golang, software design, software engineering"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 62.2,
+      "end": 66.32,
+      "text": "tools, there's all kinds of stuff here. I mean, I'm on the website right now, then definitely"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 66.32,
+      "end": 70.24,
+      "text": "check it out. I think this is great value for people looking to get better at programming."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 70.24,
+      "end": 73.7,
+      "text": "If you want, you can use discount code Tim. However, I thought, okay, well, it would be"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 73.7,
+      "end": 77.72,
+      "text": "kind of a cool idea to just design one of these components from the programming expert"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 77.72,
+      "end": 82.14,
+      "text": "website. Again, I mean, I haven't actually made this. I wasn't the one who coded like"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 82.14,
+      "end": 86.8,
+      "text": "the UI for this website. I just did the content. So I'm kind of doing this from scratch, if"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 86.8,
+      "end": 91.52,
+      "text": "you will. Anyways, what we're going to build is kind of this right here, which is like one of the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 91.52,
+      "end": 96.32,
+      "text": "cards for one of the sections. So I'm going to show you how we do the header, how we do everything"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 96.32,
+      "end": 100.72,
+      "text": "laid out, how we have these kinds of things inside, how we add a shadow, how we have a hover effect"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 100.72,
+      "end": 105.12,
+      "text": "for a button, uh, how we have images beside each other. You know, it seems pretty simple, but when"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 105.12,
+      "end": 109.12,
+      "text": "you actually think about building out this layout, if you're not familiar with CSS, this can look a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 109.12,
+      "end": 113.28,
+      "text": "little bit intimidating if we want it to look exactly like this. So that's what I'm going to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 113.28,
+      "end": 116.72,
+      "text": "to try to do, uh, with the exception of the progress bar, which we're not going to add."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 117.4,
+      "end": 121.24,
+      "text": "Okay. So let's, uh, let's try that then let's put this on the right hand side of my screen."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 121.56,
+      "end": 126.96,
+      "text": "I have my HTML document here. I have HTML and CSS, excuse me at times. You probably won't be able to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 126.96,
+      "end": 131.44,
+      "text": "see both of them just because, you know, it's not really enough screen real estate for that. Uh, but"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 131.44,
+      "end": 136.2,
+      "text": "let's start by, by trying to design this and we'll try to make it responsive as well so that it kind"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 136.2,
+      "end": 142.38,
+      "text": "of looks like this on this screen size. Right? So the first thing I usually do, uh, is kind of just"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 142.38,
+      "end": 144.48,
+      "text": "build out the HTML layout"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 144.48,
+      "end": 156.00163,
+      "text": "myself I start adding classes to it and then I go style it after um you know there times when I style before but usually I like to just get all the content on the page And then once the contents there we can kind of lay it out how we need"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 156.00163,
+      "end": 157.92163,
+      "text": "to. So let's begin by"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 157.92163,
+      "end": 159.84163,
+      "text": "creating a div in this div"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 159.84163,
+      "end": 161.20163,
+      "text": "will be kind of the card."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 161.20163,
+      "end": 162.52164,
+      "text": "I'm going to call this white"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 162.52164,
+      "end": 163.76163,
+      "text": "thing, like a card on the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 163.76163,
+      "end": 165.00163,
+      "text": "page. And then that way we"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 165.00163,
+      "end": 166.20163,
+      "text": "could reuse this div and"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 166.20163,
+      "end": 167.36163,
+      "text": "make multiple cards and see"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 167.36163,
+      "end": 168.28163,
+      "text": "how those are kind of laid"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 168.28163,
+      "end": 169.36163,
+      "text": "out. So I'm going to say"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 169.36163,
+      "end": 171.04163,
+      "text": "class is equal to card."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 172.00163,
+      "end": 172.88164,
+      "text": "Okay. So that's div one."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 172.88164,
+      "end": 173.40163,
+      "text": "That's going to be the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 173.40163,
+      "end": 174.56163,
+      "text": "container for everything."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 175.00163,
+      "end": 177.96164,
+      "text": "inside of this div, we need a header. So let's have an H one tag."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 178.50163,
+      "end": 181.24164,
+      "text": "Let's say class is equal to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 182.24164,
+      "end": 183.96164,
+      "text": "header text."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 183.96164,
+      "end": 187.40164,
+      "text": "And then this is going to be two dash programming"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 188.46164,
+      "end": 190.60162,
+      "text": "fundamentals."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 190.60162,
+      "end": 192.76163,
+      "text": "Is that how you spell it? Yeah. Fundamentals like that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 192.76163,
+      "end": 193.64163,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 193.64163,
+      "end": 197.46164,
+      "text": "After we have that, we have kind of three icons of sorts."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 197.46164,
+      "end": 199.90164,
+      "text": "Let me just make these a little bit larger so we can see."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 199.90164,
+      "end": 203.46164,
+      "text": "So we have, you know, 17 hours, 25 videos, 131 practice questions."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 203.46164,
+      "end": 204.42163,
+      "text": "and I see immediately"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 204.42163,
+      "end": 204.90164,
+      "text": "that I'm going to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 204.90164,
+      "end": 205.58163,
+      "text": "probably need these"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 205.58163,
+      "end": 206.42163,
+      "text": "in some kind of row,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 206.42163,
+      "end": 206.62163,
+      "text": "right?"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 206.62163,
+      "end": 207.38164,
+      "text": "Because they need to be"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 207.38164,
+      "end": 208.84163,
+      "text": "kind of aligned with each other."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 208.84163,
+      "end": 210.24164,
+      "text": "If I just put three P tags,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 210.24164,
+      "end": 211.40164,
+      "text": "they're going to be block style"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 211.40164,
+      "end": 211.96164,
+      "text": "and they're not really"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 211.96164,
+      "end": 213.12164,
+      "text": "going to work very well."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 213.12164,
+      "end": 213.72163,
+      "text": "So what I'm going to do"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 213.72163,
+      "end": 215.22163,
+      "text": "is make a div"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 215.22163,
+      "end": 216.54163,
+      "text": "and I'm going to say class"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 216.54163,
+      "end": 217.92163,
+      "text": "is equal to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 217.92163,
+      "end": 218.96164,
+      "text": "let's just call this stats"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 218.96164,
+      "end": 219.38162,
+      "text": "or something."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 219.38162,
+      "end": 219.96164,
+      "text": "I mean,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 219.96164,
+      "end": 220.90164,
+      "text": "the naming is not super"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 220.90164,
+      "end": 221.48163,
+      "text": "important right now"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 221.48163,
+      "end": 222.02164,
+      "text": "because we don't have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 222.02164,
+      "end": 223.22163,
+      "text": "a lot of content."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 223.22163,
+      "end": 223.94164,
+      "text": "So I'll just call this"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 223.94164,
+      "end": 226.90164,
+      "text": "the stats container."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 226.90164,
+      "end": 228.04163,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 228.04163,
+      "end": 229.32162,
+      "text": "Now inside of here,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 229.32162,
+      "end": 230.08163,
+      "text": "I'm now going to make"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 230.08163,
+      "end": 230.82162,
+      "text": "three divs,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 230.82162,
+      "end": 232.02164,
+      "text": "one for each"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 232.02164,
+      "end": 233.20163,
+      "text": "of these kind of things,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 233.20163,
+      "end": 236.96164,
+      "text": "because we're going to have the logo or like the little emblem and then the text."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 237.12164,
+      "end": 239.84163,
+      "text": "And I think I should kind of keep those in a container"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 240.16164,
+      "end": 245.16164,
+      "text": "so that we can then space them out differently from from the text itself."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 245.64163,
+      "end": 247.24164,
+      "text": "There's a bunch of ways to do this, by the way."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 247.24164,
+      "end": 250.24164,
+      "text": "So don't think that how I'm doing this is the only way you can challenge yourself"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 250.24164,
+      "end": 251.56163,
+      "text": "to do this as well."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 251.56163,
+      "end": 256.48163,
+      "text": "So let's say class is equal to and let's say stat item like that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 257.16162,
+      "end": 260.08163,
+      "text": "Now I'll make three of these because we're going to have three stat items."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 260.44165,
+      "end": 261.64163,
+      "text": "and inside of the stat"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 261.64163,
+      "end": 262.92163,
+      "text": "item container, I want"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 262.92163,
+      "end": 264.08163,
+      "text": "to have a paragraph tag."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 264.92163,
+      "end": 266.14163,
+      "text": "This first one will be 17"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 266.14163,
+      "end": 269.04163,
+      "text": "hours and my icon,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 269.04163,
+      "end": 269.80164,
+      "text": "which I will show you"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 269.80164,
+      "end": 270.72162,
+      "text": "how we can add that in a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 270.72162,
+      "end": 271.72162,
+      "text": "second."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 272.08163,
+      "end": 273.28162,
+      "text": "Okay. So 17 hours,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 274.16162,
+      "end": 275.14163,
+      "text": "we're going to have 25"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 275.14163,
+      "end": 277.58163,
+      "text": "videos, let's say 25"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 277.58163,
+      "end": 279.56165,
+      "text": "videos and then 131"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 279.56165,
+      "end": 280.8416,
+      "text": "practice questions."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 280.8416,
+      "end": 283.22162,
+      "text": "So practice"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 284.24164,
+      "end": 285.16162,
+      "text": "questions like that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 285.88165,
+      "end": 286.68164,
+      "text": "Okay. And then of course,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 286.68164,
+      "end": 287.72162,
+      "text": "again, we need that icon."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 287.72162,
+      "end": 288.58163,
+      "text": "But again, I will, I will"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 288.58163,
+      "end": 289.58163,
+      "text": "add that later. All right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 289.58163,
+      "end": 290.94165,
+      "text": "So we have this div"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 290.94165,
+      "end": 292.12164,
+      "text": "now outside of this div,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 292.12164,
+      "end": 292.74164,
+      "text": "we're going to have our"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 292.74164,
+      "end": 293.42163,
+      "text": "description."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 293.42163,
+      "end": 294.48163,
+      "text": "So let's make a P tag."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 294.48163,
+      "end": 306.60327,
+      "text": "I say class is equal to description like that I spell that correctly I believe I did And we just copy this and dump this here inside of the description OK beyond the description"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 306.60327,
+      "end": 307.96326,
+      "text": "we have these things, right?"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 307.96326,
+      "end": 309.40326,
+      "text": "So we have kind of this."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 309.40326,
+      "end": 309.76328,
+      "text": "I don't know."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 309.76328,
+      "end": 310.32327,
+      "text": "I don't know what you want"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 310.32327,
+      "end": 312.64325,
+      "text": "to call this button container,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 312.96326,
+      "end": 314.80325,
+      "text": "you know, pressable item."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 314.80325,
+      "end": 316.96326,
+      "text": "I'll just call it a great card"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 316.96326,
+      "end": 317.48328,
+      "text": "or something."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 317.48328,
+      "end": 318.24326,
+      "text": "I don't really know"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 318.24326,
+      "end": 319.24326,
+      "text": "what we would want to call that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 319.24326,
+      "end": 322.44327,
+      "text": "So let's say div like that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 323.16327,
+      "end": 324.76328,
+      "text": "slash div, by the way,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 324.76328,
+      "end": 328.66327,
+      "text": "notice how whenever I open a tag, I close it right away. Usually just makes sure I don't"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 328.66327,
+      "end": 332.68326,
+      "text": "forget that tickles the tags. That's why I'm doing that. I'm going to say class is equal"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 332.68326,
+      "end": 337.68326,
+      "text": "to, and let's say gray container. Now we're going to need two of those gray containers."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 337.68326,
+      "end": 340.22327,
+      "text": "So let's just copy them here and we'll use the same class name, right? Cause they're going"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 340.22327,
+      "end": 344.62326,
+      "text": "to have the same styles now inside of the gray container. Uh, let's make this a bit larger"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 344.62326,
+      "end": 347.92328,
+      "text": "so we can kind of analyze how it would look in the proper format. We're going to have a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 347.92328,
+      "end": 351.46326,
+      "text": "button. We're going to have, I got another like logo of some sort, and then we're going"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 351.46326,
+      "end": 354.72327,
+      "text": "to have the text. So I'll just put those in there and then we'll wrap them in some kind"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 354.72327,
+      "end": 362.22327,
+      "text": "a div later on. Let me just close this for right now. Okay. So let's make a, uh, I guess we'll make"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 362.22327,
+      "end": 370.62326,
+      "text": "this like an H three tag and we can just say lessons and then copy this. And this will be"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 370.62326,
+      "end": 380.58325,
+      "text": "assessment. Okay. Assessment like that. Uh, okay. And then we need a button. So let's say button and"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 380.58325,
+      "end": 382.24326,
+      "text": "class will be equal to,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 382.32327,
+      "end": 383.04327,
+      "text": "we can just call this"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 383.04327,
+      "end": 384.34326,
+      "text": "button. And for this one,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 384.34326,
+      "end": 386.64325,
+      "text": "we'll say class is equal"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 386.64325,
+      "end": 389.58325,
+      "text": "to, um, sub header."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 390.54327,
+      "end": 391.42328,
+      "text": "Okay. That's fine."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 391.58325,
+      "end": 393.00327,
+      "text": "Just copy this and put"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 393.00327,
+      "end": 395.10327,
+      "text": "that here. And then for"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 395.10327,
+      "end": 396.24326,
+      "text": "the button, this needs to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 396.24326,
+      "end": 397.96326,
+      "text": "say resume and then we'll"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 397.96326,
+      "end": 400.50327,
+      "text": "just add an arrow. Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 401.46326,
+      "end": 402.66327,
+      "text": "Nice. So we've just built"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 402.66327,
+      "end": 403.96326,
+      "text": "out pretty well the content"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 403.96326,
+      "end": 404.74326,
+      "text": "for this right now. Of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 404.74326,
+      "end": 405.60327,
+      "text": "course, when we look at"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 405.60327,
+      "end": 406.44327,
+      "text": "this, um, you know,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 406.44327,
+      "end": 407.08325,
+      "text": "actually it doesn't even"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 407.08325,
+      "end": 407.88327,
+      "text": "look that bad to be"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 407.88327,
+      "end": 409.02325,
+      "text": "honest, obviously it's not"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 409.02325,
+      "end": 409.92328,
+      "text": "looking like this card,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 409.92328,
+      "end": 410.80328,
+      "text": "but we kind of have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 410.80328,
+      "end": 411.54327,
+      "text": "all the content that we"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 411.54327,
+      "end": 412.32327,
+      "text": "need and now we need to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 412.32327,
+      "end": 413.32327,
+      "text": "lay everything out. And"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 413.32327,
+      "end": 413.92328,
+      "text": "we also want to add"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 413.92328,
+      "end": 415.20325,
+      "text": "some icons. Uh, and I'm"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 415.20325,
+      "end": 415.74326,
+      "text": "going to show you how"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 415.74326,
+      "end": 416.74326,
+      "text": "we add kind of these"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 416.74326,
+      "end": 417.72327,
+      "text": "little icons by using"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 417.72327,
+      "end": 418.56326,
+      "text": "something called font."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 418.56326,
+      "end": 419.72327,
+      "text": "Awesome. Let me load"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 419.72327,
+      "end": 420.38327,
+      "text": "that up and then I'll"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 420.38327,
+      "end": 420.94327,
+      "text": "show you how we add"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 420.94327,
+      "end": 421.78326,
+      "text": "that. Okay. So in"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 421.78326,
+      "end": 422.28326,
+      "text": "front of me, I have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 422.28326,
+      "end": 423.00327,
+      "text": "something called font."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 423.04327,
+      "end": 424.32327,
+      "text": "Awesome. Now font."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 424.32327,
+      "end": 425.36328,
+      "text": "Awesome is just kind of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 425.36328,
+      "end": 427.14325,
+      "text": "a free CDN that, uh,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 427.14325,
+      "end": 428.10327,
+      "text": "lets you use kind of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 428.10327,
+      "end": 429.54327,
+      "text": "prebuilt icons. Now,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 429.54327,
+      "end": 430.34326,
+      "text": "the way it works is you"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 430.34326,
+      "end": 431.40326,
+      "text": "need to, uh, enter"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 431.40326,
+      "end": 432.76324,
+      "text": "your email and then"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 432.76324,
+      "end": 433.32327,
+      "text": "kind of create an"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 433.32327,
+      "end": 434.22327,
+      "text": "account. And once you"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 434.22327,
+      "end": 435.2433,
+      "text": "do that, it will give"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 435.2433,
+      "end": 436.7433,
+      "text": "you access to a CDN."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 437.18326,
+      "end": 438.00327,
+      "text": "And anyways, you can"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 438.00327,
+      "end": 438.46326,
+      "text": "just follow this"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 438.46326,
+      "end": 439.00327,
+      "text": "website, it's very"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 439.00327,
+      "end": 439.64325,
+      "text": "straightforward, but"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 439.64325,
+      "end": 440.44327,
+      "text": "essentially it involves"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 440.44327,
+      "end": 441.90326,
+      "text": "just copying a tag into"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 441.90326,
+      "end": 443.08325,
+      "text": "the head of your HTML"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 443.08325,
+      "end": 444.70325,
+      "text": "document. Once that tag"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 444.70325,
+      "end": 458.60492,
+      "text": "is in there you can then use some predefined class names Like I going to show you uh to use some predefined icons So go to this website font awesome I try to leave it in the description And someone remind me if I forget and uh download or get access to your CDN copy that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 458.60492,
+      "end": 461.9649,
+      "text": "into your head tag. It should give you the instructions on how to do that. And then you"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 461.9649,
+      "end": 469.6449,
+      "text": "can start accessing the different icons. Okay. So let me, uh, start using this now. So for the icons,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 469.6449,
+      "end": 474.20493,
+      "text": "I'm just going to copy in mine, which is this, I mean, I guess you could copy mine as well, but"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 475.0049,
+      "end": 476.36493,
+      "text": "I don't know exactly how that works."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 476.36493,
+      "end": 478.16492,
+      "text": "If I'm going to get rate limited or something."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 478.16492,
+      "end": 480.70493,
+      "text": "And now the way that you add an icon"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 481.54492,
+      "end": 483.0049,
+      "text": "is you do the following."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 483.0049,
+      "end": 485.20493,
+      "text": "You go here, you go I"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 485.20493,
+      "end": 487.70493,
+      "text": "and I kind of stands for icon, the tag."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 487.70493,
+      "end": 489.9649,
+      "text": "And then you say class is equal to."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 489.9649,
+      "end": 491.70493,
+      "text": "And then you write the class of the icon."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 491.70493,
+      "end": 493.7449,
+      "text": "Now I'm just going to pull up a cheat sheet here"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 493.7449,
+      "end": 494.94492,
+      "text": "and find the different icons."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 494.94492,
+      "end": 496.0049,
+      "text": "So I have to search for them."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 496.0049,
+      "end": 497.20493,
+      "text": "Okay. So the first one, actually,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 497.20493,
+      "end": 498.7449,
+      "text": "I'm just going to copy this in"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 498.7449,
+      "end": 501.0049,
+      "text": "is going to be FAA, FAA clock dash."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 501.0049,
+      "end": 503.44492,
+      "text": "Oh, Aria hidden is going to be true."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 503.9649,
+      "end": 505.32492,
+      "text": "Okay. Next one."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 505.32492,
+      "end": 508.60492,
+      "text": "This is going to be F a video."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 509.76492,
+      "end": 510.2049,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 510.2049,
+      "end": 510.92493,
+      "text": "I'm just trying to get ones"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 510.92493,
+      "end": 512.0049,
+      "text": "that look similar to the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 512.0049,
+      "end": 513.56494,
+      "text": "the programming extra ones here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 513.56494,
+      "end": 516.4049,
+      "text": "And then I think this is just F a pencil."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 516.80493,
+      "end": 519.4849,
+      "text": "And then we also need two icons for this."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 520.0449,
+      "end": 521.9649,
+      "text": "So let me grab those."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 521.9649,
+      "end": 522.3649,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 522.3649,
+      "end": 524.0449,
+      "text": "I'm just going to copy them in here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 524.0449,
+      "end": 526.4849,
+      "text": "So go lessons."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 526.4849,
+      "end": 528.9649,
+      "text": "We're going to have F a solid F a clapper board."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 529.3249,
+      "end": 530.3649,
+      "text": "And then"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 532.0049,
+      "end": 533.2849,
+      "text": "I'm going to have this one here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 533.44495,
+      "end": 536.7649,
+      "text": "uh, which is F a solid F a file lines. They won't look exactly the same,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 536.7649,
+      "end": 538.8649,
+      "text": "but they should be good enough. Okay. So there you go."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 538.8649,
+      "end": 542.62494,
+      "text": "We can see our icons are kind of showing up here. Obviously nothing's really"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 542.62494,
+      "end": 546.0049,
+      "text": "laid out how we want it to be. So now that's what we need to do now."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 546.0449,
+      "end": 548.9649,
+      "text": "One thing, I don't know why these are getting like,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 548.9649,
+      "end": 552.9649,
+      "text": "why is lessons getting, um, highlighted like that? All right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 552.9649,
+      "end": 554.4249,
+      "text": "So I was kind of tripping out there for a second."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 554.4249,
+      "end": 556.30493,
+      "text": "I just forgot to close one of my icon tags."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 556.30493,
+      "end": 559.1049,
+      "text": "So it was like messing up the whole document and showing it like a bunch of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 559.1049,
+      "end": 562.9249,
+      "text": "times. Uh, anyways, I just, I closed it here. So now that that looks good. Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 562.9249,
+      "end": 566.74493,
+      "text": "so let's just go back here and figure out what we want to do first. So I probably want to start"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 566.74493,
+      "end": 571.9849,
+      "text": "with the exterior container. That's usually what I do set its color, um, set like a little box"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 571.9849,
+      "end": 576.74493,
+      "text": "shadow for it. Uh, I guess the border of some sort, kind of the interior margin. And then once I"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 576.74493,
+      "end": 581.68494,
+      "text": "have that, I will go with the rest. So the first thing I need to do is kind of cover the card. So"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 581.68494,
+      "end": 590.6449,
+      "text": "let's open up our styles here. Okay. Let me just close that and go split right here. And we have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 590.6449,
+      "end": 592.1249,
+      "text": "card. So I'm going to say"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 592.1249,
+      "end": 593.56494,
+      "text": "dark card. And the first"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 593.56494,
+      "end": 594.1649,
+      "text": "thing I'm going to do is"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 594.1649,
+      "end": 595.4249,
+      "text": "say background color. I'm"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 595.4249,
+      "end": 596.1449,
+      "text": "going to set that to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 596.1449,
+      "end": 597.7849,
+      "text": "white. Now I'm also going"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 597.7849,
+      "end": 599.4249,
+      "text": "to say margin. I'm just"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 599.4249,
+      "end": 599.94495,
+      "text": "going to add a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 599.993469,
+      "end": 601.553469,
+      "text": "a 5% margin here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 601.973469,
+      "end": 603.173469,
+      "text": "And that will be 5%"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 603.173469,
+      "end": 604.4334690000001,
+      "text": "margin based on the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 604.4334690000001,
+      "end": 605.673469,
+      "text": "height of the body."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 606.113469,
+      "end": 607.133469,
+      "text": "Now, what I also want"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 607.133469,
+      "end": 608.073469,
+      "text": "to do is just add a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 608.073469,
+      "end": 608.913469,
+      "text": "background color to the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 608.913469,
+      "end": 609.673469,
+      "text": "body here. So we"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 609.673469,
+      "end": 610.973469,
+      "text": "actually see the, uh,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 611.073469,
+      "end": 612.233469,
+      "text": "the background color of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 612.233469,
+      "end": 613.553469,
+      "text": "the card. So I'm going"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 613.553469,
+      "end": 614.633469,
+      "text": "to say background color,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 614.633469,
+      "end": 616.193469,
+      "text": "and then this will be"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 617.153469,
+      "end": 619.273469,
+      "text": "light gray. Uh, and now"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 619.273469,
+      "end": 620.053469,
+      "text": "we can actually see the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 620.053469,
+      "end": 622.193469,
+      "text": "card. Okay. Next, I'm"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 622.193469,
+      "end": 624.613469,
+      "text": "going to make the body"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 624.613469,
+      "end": 625.213469,
+      "text": "a hundred percent"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 625.213469,
+      "end": 626.093469,
+      "text": "height. So we're going"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 626.093469,
+      "end": 628.993469,
+      "text": "to say height, a hundred"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 628.993469,
+      "end": 630.073469,
+      "text": "percent vertical height,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 630.413469,
+      "end": 631.633469,
+      "text": "just so that my margin now"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 631.633469,
+      "end": 632.893469,
+      "text": "is going to be based on"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 632.953469,
+      "end": 634.633469,
+      "text": "the height of the screen,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 635.173469,
+      "end": 636.4334690000001,
+      "text": "not based on just the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 636.4334690000001,
+      "end": 637.393469,
+      "text": "body content. Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 638.233469,
+      "end": 639.633469,
+      "text": "Continuing. I want to add"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 639.633469,
+      "end": 641.153469,
+      "text": "some rounded edges here"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 641.213469,
+      "end": 642.853469,
+      "text": "for the card. Now to do"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 642.853469,
+      "end": 644.213469,
+      "text": "that, there is a property"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 644.233469,
+      "end": 646.573469,
+      "text": "called border radius, and"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 646.573469,
+      "end": 647.473469,
+      "text": "I'll just set this to be"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 647.473469,
+      "end": 648.773469,
+      "text": "five pixels. And now we"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 648.773469,
+      "end": 649.753469,
+      "text": "have kind of some rounded"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 649.753469,
+      "end": 651.533469,
+      "text": "edges. Now, the next thing"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 651.533469,
+      "end": 652.213469,
+      "text": "I want to do is add a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 652.213469,
+      "end": 653.093469,
+      "text": "little bit of a shadow"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 653.093469,
+      "end": 654.113469,
+      "text": "here. So I'm going to say"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 654.113469,
+      "end": 656.993469,
+      "text": "box shadow. Now for the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 656.993469,
+      "end": 657.973469,
+      "text": "box shadow, I don't"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 657.973469,
+      "end": 662.653469,
+      "text": "remember all of the properties for this, but I believe you do the offset in the X Y direction"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 662.653469,
+      "end": 669.973469,
+      "text": "and then the color. So I'm going to say one pixel, one pixel, and then RGBA and then zero, zero,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 670.093469,
+      "end": 677.393469,
+      "text": "zero and 0.9. So we have some kind of opacity. Okay. And then you see, I'm getting a bit of a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 677.393469,
+      "end": 681.393469,
+      "text": "shadow. However, I want to kind of blur this shadow. So I'm going to add one more property"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 681.393469,
+      "end": 685.633469,
+      "text": "here, which is five pixels. And now notice I kind of get a blur around this. And I'm also going to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 685.633469,
+      "end": 692.273469,
+      "text": "change the opacity to be like 0.7. So it's not quite as thick. However, I also want to get this"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 692.273469,
+      "end": 696.793469,
+      "text": "box shadow, um, on the other side, cause right now it's kind of heavily on the bottom, right?"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 696.793469,
+      "end": 701.193469,
+      "text": "Based on the way I've done it. So the way you do this, and I apologize that it's kind of hard to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 701.193469,
+      "end": 707.753469,
+      "text": "see here is you copy this, you put a comma and then you put it again, and then it should do this"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 707.753469,
+      "end": 712.233469,
+      "text": "in the opposite direction, but I need to change these now to be negative. So negative two pixels,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 712.233469,
+      "end": 713.533469,
+      "text": "negative two pixels."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 713.533469,
+      "end": 714.453469,
+      "text": "And now notice I'm"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 714.453469,
+      "end": 715.233469,
+      "text": "getting a shadow kind"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 715.233469,
+      "end": 716.233469,
+      "text": "of on all sides."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 716.233469,
+      "end": 716.973469,
+      "text": "Uh, there might be a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 716.973469,
+      "end": 717.6734690000001,
+      "text": "better way to do this,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 717.6734690000001,
+      "end": 718.333469,
+      "text": "but this is the way"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 718.333469,
+      "end": 719.193469,
+      "text": "that I'm familiar with."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 719.193469,
+      "end": 719.9334690000001,
+      "text": "So that's what we'll"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 719.9334690000001,
+      "end": 720.573469,
+      "text": "go with for now."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 720.793469,
+      "end": 721.533469,
+      "text": "And again, the opacity"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 721.533469,
+      "end": 722.4334690000001,
+      "text": "is very, very thick."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 722.4334690000001,
+      "end": 724.873469,
+      "text": "So let's go with 0.5,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 725.4334690000001,
+      "end": 726.993469,
+      "text": "uh, and make it a little,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 727.033469,
+      "end": 727.893469,
+      "text": "a little more blurred"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 727.893469,
+      "end": 728.733469,
+      "text": "there."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 728.733469,
+      "end": 729.033469,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 729.033469,
+      "end": 730.093469,
+      "text": "I think that's, uh,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 730.093469,
+      "end": 731.4334690000001,
+      "text": "that's fine for now."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 731.4334690000001,
+      "end": 731.773469,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 731.773469,
+      "end": 732.9334690000001,
+      "text": "So now that we have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 732.9334690000001,
+      "end": 734.973469,
+      "text": "that, uh, let's make"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 734.973469,
+      "end": 735.773469,
+      "text": "this a bit smaller,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 735.773469,
+      "end": 736.593469,
+      "text": "just so we can see this"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 736.593469,
+      "end": 737.493469,
+      "text": "a little bit easier."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 737.493469,
+      "end": 739.773469,
+      "text": "I want to make it so"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 739.773469,
+      "end": 740.4334690000001,
+      "text": "that there is kind of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 740.4334690000001,
+      "end": 742.093469,
+      "text": "margin within the card,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 742.093469,
+      "end": 743.353469,
+      "text": "Greg's if we go here,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 743.353469,
+      "end": 744.453469,
+      "text": "obviously these items"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 744.453469,
+      "end": 755.455109,
+      "text": "are not hitting the card There some margin between them So how are we going to do that Well we going to add another div inside of here and then add margin to it So this is a common practice What you do is you have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 755.455109,
+      "end": 756.635099,
+      "text": "kind of a main container"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 756.635099,
+      "end": 757.095109,
+      "text": "and then you'll have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 757.095109,
+      "end": 758.635099,
+      "text": "an interior container"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 758.635099,
+      "end": 760.035099,
+      "text": "and that interior container"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 760.035099,
+      "end": 761.555099,
+      "text": "will kind of be"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 761.555099,
+      "end": 763.195099,
+      "text": "have a margin to the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 763.295109,
+      "end": 764.555099,
+      "text": "the outside container."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 764.555099,
+      "end": 765.435109,
+      "text": "Now, I also just realized"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 765.435109,
+      "end": 766.195099,
+      "text": "though that we can probably"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 766.195099,
+      "end": 767.535099,
+      "text": "just add padding to the card"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 767.535099,
+      "end": 768.555099,
+      "text": "and avoid doing that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 768.555099,
+      "end": 769.635099,
+      "text": "So let's try that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 769.635099,
+      "end": 770.355099,
+      "text": "There's many different ways"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 770.355099,
+      "end": 771.355099,
+      "text": "to do stuff here in CSS."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 771.355099,
+      "end": 772.935109,
+      "text": "So let's say padding"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 772.935109,
+      "end": 774.435109,
+      "text": "let's just go with 10 pixels"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 774.435109,
+      "end": 777.235109,
+      "text": "And it's because I didn't have a semicolon here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 777.235109,
+      "end": 778.235109,
+      "text": "So let's add that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 778.235109,
+      "end": 780.035099,
+      "text": "And notice when I have my 10 pixels of padding,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 780.035099,
+      "end": 782.195099,
+      "text": "now it actually pads the content inside."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 782.195099,
+      "end": 785.195099,
+      "text": "However, I want kind of the same padding on top and bottom."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 785.575099,
+      "end": 787.8751090000001,
+      "text": "So I'm going to say"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 787.8751090000001,
+      "end": 792.135099,
+      "text": "five pixels, 10 pixels, five pixels, 10 pixels,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 792.435109,
+      "end": 795.575099,
+      "text": "so that it looks a little less extreme on the vertical padding."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 795.575099,
+      "end": 798.635099,
+      "text": "But we still have the same horizontal padding that we wanted before."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 799.195099,
+      "end": 803.535099,
+      "text": "Okay, so that's actually good right now for the kind of container of the card."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 803.535099,
+      "end": 808.475099,
+      "text": "going here. Now we want to lay these out in a row and kind of change this, this font style. So it"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 808.475099,
+      "end": 815.395109,
+      "text": "looks a little bit nicer. So for the font, let's just say font family and we'll set this just to,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 815.6151090000001,
+      "end": 820.735109,
+      "text": "I don't know, what do we want to have here? Uh, let's set it to this. That looks fine to me for"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 820.735109,
+      "end": 825.795109,
+      "text": "now. I don't really care to, to pick the font and actually, why is there so many? Let's just set it"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 825.795109,
+      "end": 830.235109,
+      "text": "to Ariel. Yeah. Ariel is fine. Okay. So font family will be Ariel. When I set that on the body, it"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 830.235109,
+      "end": 834.315089,
+      "text": "set for all of the other elements. So that's why I'm doing that. All right. Now we want to lay"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 834.315089,
+      "end": 839.915099,
+      "text": "these out. Um, what do you call this? Want to lay out these, these items here. So they're in the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 839.915099,
+      "end": 844.955109,
+      "text": "correct position. So the first thing I want to do is make it. So this icon is beside my text."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 844.955109,
+      "end": 848.875089,
+      "text": "So the way I'm going to do that is I'm going to first look for what I need to change, which is"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 848.875089,
+      "end": 854.235109,
+      "text": "going to be stat items. So I want the stat item to be a, uh, flex box essentially that has the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 854.235109,
+      "end": 855.9951189999999,
+      "text": "items lined out,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 855.9951189999999,
+      "end": 857.195099,
+      "text": "layout laid out,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 857.235109,
+      "end": 858.275089,
+      "text": "sorry, horizontally."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 858.275089,
+      "end": 859.275089,
+      "text": "So let's say stat"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 860.775089,
+      "end": 861.775089,
+      "text": "item."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 863.1550890000001,
+      "end": 863.815089,
+      "text": "If we could get that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 863.815089,
+      "end": 865.1550890000001,
+      "text": "correctly, and this will"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 865.1550890000001,
+      "end": 867.455109,
+      "text": "be display"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 869.035099,
+      "end": 870.035099,
+      "text": "flex."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 870.6550890000001,
+      "end": 871.1151090000001,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 871.1151090000001,
+      "end": 872.095089,
+      "text": "When I make that display"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 872.095089,
+      "end": 873.3151290000001,
+      "text": "flex, now they are"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 873.3151290000001,
+      "end": 874.575099,
+      "text": "aligned in a row."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 874.915099,
+      "end": 875.535099,
+      "text": "Now, the next thing I"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 875.535099,
+      "end": 876.875119,
+      "text": "need to do is say align"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 876.875119,
+      "end": 878.555119,
+      "text": "items center."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 878.975099,
+      "end": 880.1350990000001,
+      "text": "So now I'm going to align"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 880.1350990000001,
+      "end": 881.235109,
+      "text": "on the vertical axis, the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 881.235109,
+      "end": 882.595089,
+      "text": "cross axis in the center."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 883.355099,
+      "end": 883.6350990000001,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 883.6350990000001,
+      "end": 884.355099,
+      "text": "Now that I've done that,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 884.355099,
+      "end": 885.855099,
+      "text": "let's add a gap between"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 885.855099,
+      "end": 887.575099,
+      "text": "the items of five pixel."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 887.855099,
+      "end": 888.675109,
+      "text": "And now they're kind of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 888.675109,
+      "end": 889.5151089999999,
+      "text": "spaced out a little bit."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 889.5151089999999,
+      "end": 889.935119,
+      "text": "So that's nice."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 889.935119,
+      "end": 890.975099,
+      "text": "And actually let's just do"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 891.0151089999999,
+      "end": 893.275089,
+      "text": "one EM as the spacing,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 893.275089,
+      "end": 894.0151089999999,
+      "text": "just so that that will"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 894.0151089999999,
+      "end": 894.795109,
+      "text": "kind of scale with the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 894.795109,
+      "end": 907.556729,
+      "text": "font size All right And that nice Now for our text within the stat item container I want it to be bold So I going to say stat item P and I say font weight and this will be bold like that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 908.036739,
+      "end": 911.6367190000001,
+      "text": "I could add a strong tag, but I think it's better to do it in CSS styling. So that's how I'm going"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 911.6367190000001,
+      "end": 916.036739,
+      "text": "to do it. And just to show you how that works now that these are laid out properly, I would like to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 916.036739,
+      "end": 923.556729,
+      "text": "change the color of my icons. So to do that again, I can say stat item, and then I can say I, and I"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 923.556729,
+      "end": 927.656739,
+      "text": "can say that my color is red."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 928.196749,
+      "end": 929.316739,
+      "text": "And now I've changed my icon"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 929.316739,
+      "end": 930.856749,
+      "text": "color to be red."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 930.856749,
+      "end": 932.856749,
+      "text": "Now, I also want to have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 932.856749,
+      "end": 935.316739,
+      "text": "some padding or kind of like"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 935.396729,
+      "end": 937.416749,
+      "text": "a box around my icons."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 937.656739,
+      "end": 939.256749,
+      "text": "So there's a few ways to do"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 939.256749,
+      "end": 940.956729,
+      "text": "this again, but let's do the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 940.956729,
+      "end": 942.216739,
+      "text": "following."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 942.216739,
+      "end": 944.4967389999999,
+      "text": "Let's say padding 10 pixels."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 944.856749,
+      "end": 945.4967389999999,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 945.4967389999999,
+      "end": 947.9967389999999,
+      "text": "And that's going to pad the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 947.9967389999999,
+      "end": 948.356749,
+      "text": "what is it?"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 948.356749,
+      "end": 949.696749,
+      "text": "The content box here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 949.696749,
+      "end": 950.696749,
+      "text": "Then I'm going to say my"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 950.696749,
+      "end": 952.4967389999999,
+      "text": "background color is and let's"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 952.4967389999999,
+      "end": 953.4967389999999,
+      "text": "just go with red."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 953.4967389999999,
+      "end": 956.396729,
+      "text": "All right. So that's fine,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 956.396729,
+      "end": 960.6367190000001,
+      "text": "but I would like it to be transparent."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 960.6367190000001,
+      "end": 962.856749,
+      "text": "So we're going to say,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 962.856749,
+      "end": 964.456729,
+      "text": "let's do it in hex this time,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 964.456729,
+      "end": 967.1367190000001,
+      "text": "FF zero, zero, zero, zero,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 967.1367190000001,
+      "end": 967.936739,
+      "text": "20."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 967.936739,
+      "end": 968.836729,
+      "text": "And now we have kind of"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 968.836729,
+      "end": 971.1367190000001,
+      "text": "this transparent box around."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 971.1367190000001,
+      "end": 972.556729,
+      "text": "And then I'm going to say"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 972.556729,
+      "end": 976.0967390000001,
+      "text": "my border radius is five pixel."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 976.0967390000001,
+      "end": 976.356749,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 976.356749,
+      "end": 977.856749,
+      "text": "So that kind of now matches up"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 977.856749,
+      "end": 979.396729,
+      "text": "with what programming expert one had."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 979.396729,
+      "end": 980.956729,
+      "text": "My boxes are slightly different size"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 980.956729,
+      "end": 982.056729,
+      "text": "because it's a sizing"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 982.056729,
+      "end": 983.356749,
+      "text": "based on the icon size."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 983.356749,
+      "end": 988.056729,
+      "text": "but that's fine. I won't get that picky right now. Okay. So already looking much better."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 988.396729,
+      "end": 992.7767289999999,
+      "text": "Uh, the next thing I need to do now is lay all these out in a row. So I see I have my stats"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 992.7767289999999,
+      "end": 997.576719,
+      "text": "container, so I'm just going to now apply flex styling to my stats containers. I'm going to say"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 997.576719,
+      "end": 1005.236729,
+      "text": "stats container. I'm going to say display and then flex. Okay. And now automatically they're"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1005.236729,
+      "end": 1012.576719,
+      "text": "going to go into row. Now we need some gap. So let's say gap B one AM and there we go. And then"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1012.576719,
+      "end": 1014.536739,
+      "text": "I will align items"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1015.936739,
+      "end": 1017.2767289999999,
+      "text": "in the center"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1017.2767289999999,
+      "end": 1018.6367190000001,
+      "text": "and I will justify content"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1018.6367190000001,
+      "end": 1020.216739,
+      "text": "flex start."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1020.216739,
+      "end": 1020.916749,
+      "text": "So now let's make this"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1020.916749,
+      "end": 1021.836729,
+      "text": "a bit bigger"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1021.836729,
+      "end": 1023.416749,
+      "text": "and this is looking good."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1023.416749,
+      "end": 1025.376739,
+      "text": "OK, so good looking card"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1025.376739,
+      "end": 1026.116729,
+      "text": "so far, of course,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1026.116729,
+      "end": 1026.916749,
+      "text": "obviously we got to add"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1026.916749,
+      "end": 1027.836729,
+      "text": "these down below."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1027.836729,
+      "end": 1029.376739,
+      "text": "But if we go look at this,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1029.376739,
+      "end": 1031.716739,
+      "text": "you know, we're not too far off"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1031.716739,
+      "end": 1033.0767190000001,
+      "text": "somewhat from from what"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1033.0767190000001,
+      "end": 1034.8167389999999,
+      "text": "the layout is looking like."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1034.8167389999999,
+      "end": 1036.5367390000001,
+      "text": "Let's look at that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1036.5367390000001,
+      "end": 1037.5367390000001,
+      "text": "We might want more"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1037.5367390000001,
+      "end": 1038.836729,
+      "text": "a slightly more of a margin there,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1038.836729,
+      "end": 1041.216739,
+      "text": "but for now, that's fine."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1041.216739,
+      "end": 1043.516719,
+      "text": "So let's add more of a margin on our"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1045.116729,
+      "end": 1056.058369,
+      "text": "interior padding So let go 10 15 10 15 Now we just squished it in a little bit more That looks a bit nicer"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1056.058369,
+      "end": 1057.178369,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1057.178369,
+      "end": 1057.958369,
+      "text": "Continuing, we now"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1057.958369,
+      "end": 1060.058369,
+      "text": "need to handle the bottom"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1060.058369,
+      "end": 1061.358399,
+      "text": "of what we need here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1061.358399,
+      "end": 1063.1983989999999,
+      "text": "So the bottom section"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1063.1983989999999,
+      "end": 1065.098389,
+      "text": "is our gray container."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1065.838369,
+      "end": 1066.538389,
+      "text": "So I'll start with that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1066.538389,
+      "end": 1067.078369,
+      "text": "and then we can do"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1067.078369,
+      "end": 1068.9783889999999,
+      "text": "what's inside of the container."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1068.9783889999999,
+      "end": 1069.398369,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1069.398369,
+      "end": 1072.538389,
+      "text": "So let's say dot gray"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1072.538389,
+      "end": 1074.798369,
+      "text": "container."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1074.798369,
+      "end": 1077.038389,
+      "text": "Okay. Background color"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1077.038389,
+      "end": 1079.098389,
+      "text": "will be"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1079.098389,
+      "end": 1081.1983989999999,
+      "text": "light gray."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1081.1983989999999,
+      "end": 1081.758389,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1081.758389,
+      "end": 1084.238369,
+      "text": "And then we want to add"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1084.238369,
+      "end": 1085.458369,
+      "text": "a border radius."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1085.458369,
+      "end": 1086.558369,
+      "text": "So border radius"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1086.558369,
+      "end": 1087.678369,
+      "text": "of five pixels"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1087.678369,
+      "end": 1091.598389,
+      "text": "add some rounded edges here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1091.598389,
+      "end": 1091.798369,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1091.798369,
+      "end": 1093.258389,
+      "text": "So now we have our rounded edges"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1093.258389,
+      "end": 1094.458369,
+      "text": "now that we need to align"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1094.458369,
+      "end": 1095.998369,
+      "text": "the items within the gray container."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1095.998369,
+      "end": 1098.158389,
+      "text": "So I'm going to say display"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1098.158389,
+      "end": 1099.658389,
+      "text": "flex."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1099.658389,
+      "end": 1099.998369,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1099.998369,
+      "end": 1101.838369,
+      "text": "And now we've aligned on row."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1101.838369,
+      "end": 1102.6983989999999,
+      "text": "That's good."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1102.6983989999999,
+      "end": 1104.438389,
+      "text": "But we want to push the button"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1104.438389,
+      "end": 1108.818389,
+      "text": "to the right hand side and keep the icon and the text on the left hand side."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1108.818389,
+      "end": 1109.198369,
+      "text": "Right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1109.198369,
+      "end": 1112.478369,
+      "text": "So if you look here, we have kind of if we make this larger,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1113.2383989999998,
+      "end": 1116.018369,
+      "text": "this kind of stays on the left hand side and then the button gets pushed to the right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1116.198369,
+      "end": 1118.198369,
+      "text": "So we'll do that with Flexbox."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1118.198369,
+      "end": 1119.658369,
+      "text": "Let's not minimize that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1119.658369,
+      "end": 1121.298399,
+      "text": "Let's put that over here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1121.298399,
+      "end": 1125.158369,
+      "text": "The way we will do that is we'll change this slightly."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1125.158369,
+      "end": 1126.958369,
+      "text": "So we have three items here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1126.958369,
+      "end": 1130.778369,
+      "text": "Now, what I want to do is I want to use the property space between when I use space"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1130.778369,
+      "end": 1133.498369,
+      "text": "between it's going to push my items out with the space between."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1133.898369,
+      "end": 1134.858369,
+      "text": "Now, the issue is since I"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1134.858369,
+      "end": 1136.0783689999998,
+      "text": "have three items, if I do"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1136.0783689999998,
+      "end": 1137.438419,
+      "text": "space between right now"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1137.638369,
+      "end": 1138.338369,
+      "text": "and actually, I mean,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1138.338369,
+      "end": 1138.958369,
+      "text": "might as well just add"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1138.958369,
+      "end": 1139.398369,
+      "text": "it because we're going to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1139.398369,
+      "end": 1140.2583690000001,
+      "text": "add it anyways. Let's say"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1140.2583690000001,
+      "end": 1142.6184090000002,
+      "text": "justify content space,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1143.098369,
+      "end": 1144.958369,
+      "text": "not around space between"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1145.438419,
+      "end": 1146.198369,
+      "text": "you'll see that we get"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1146.198369,
+      "end": 1147.418369,
+      "text": "them kind of all aligned,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1147.418369,
+      "end": 1148.1184090000002,
+      "text": "right? I don't want"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1148.1184090000002,
+      "end": 1148.898369,
+      "text": "lessons in the middle. I"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1148.898369,
+      "end": 1150.178409,
+      "text": "want this pushed to the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1150.178409,
+      "end": 1151.378369,
+      "text": "left. So the way I have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1151.378369,
+      "end": 1152.298399,
+      "text": "to fix that is I have to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1152.298399,
+      "end": 1153.178409,
+      "text": "make it. So I only have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1153.178409,
+      "end": 1155.2583690000001,
+      "text": "two items here. So to do"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1155.2583690000001,
+      "end": 1157.138369,
+      "text": "that, I will now take my"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1157.138369,
+      "end": 1159.058409,
+      "text": "eye and my lessons, wrap"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1159.058409,
+      "end": 1160.358369,
+      "text": "those in a div. And then"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1160.358369,
+      "end": 1161.2583690000001,
+      "text": "by wrapping those in a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1161.2583690000001,
+      "end": 1162.7383989999998,
+      "text": "div, the two direct flex"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1162.7383989999998,
+      "end": 1166.418369,
+      "text": "items will be the div and the button. So the contents of the div"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1166.418369,
+      "end": 1169.018369,
+      "text": "would push to the left and then the button will be pushed to the right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1170.138369,
+      "end": 1171.898369,
+      "text": "Hopefully that makes a bit of sense."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1171.898369,
+      "end": 1174.018369,
+      "text": "I don't even need to give this a class right now."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1174.018369,
+      "end": 1175.458369,
+      "text": "I just need to wrap it in a div."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1175.458369,
+      "end": 1177.858369,
+      "text": "And when I do that, we get pushed to the left, right?"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1179.018369,
+      "end": 1182.018369,
+      "text": "So let's say div div."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1182.018369,
+      "end": 1186.058409,
+      "text": "Now I will add a class because as you can see, since I have my H3 tag,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1186.058409,
+      "end": 1188.2183690000002,
+      "text": "which is display block, I'm going down."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1188.2183690000002,
+      "end": 1190.858369,
+      "text": "What I want to do instead is I want to push them."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1191.318419,
+      "end": 1192.658369,
+      "text": "So they're on the same line."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1192.658369,
+      "end": 1194.318419,
+      "text": "So to do that, we'll add our class"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1195.058409,
+      "end": 1197.098369,
+      "text": "and we'll say"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1197.098369,
+      "end": 1198.7583690000001,
+      "text": "class is equal to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1198.7583690000001,
+      "end": 1199.978369,
+      "text": "I'll just call this left."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1200.0,
+      "end": 1201.8,
+      "text": "for right now."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1201.8,
+      "end": 1203.16,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1203.16,
+      "end": 1204.1,
+      "text": "And now let's go here"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1204.1,
+      "end": 1205.0,
+      "text": "and add our left."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1205.0,
+      "end": 1208.24,
+      "text": "So we're going to say dot left."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1208.24,
+      "end": 1208.7,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1208.7,
+      "end": 1210.96,
+      "text": "And then this is going to be display"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1212.44,
+      "end": 1214.44,
+      "text": "flex like that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1214.44,
+      "end": 1217.5,
+      "text": "And now they are kind of pushed together."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1217.9,
+      "end": 1219.3,
+      "text": "However, again, we're having this issue"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1219.3,
+      "end": 1221.94,
+      "text": "where this icon here, right,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1221.94,
+      "end": 1224.04,
+      "text": "is not in line with less."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1224.04,
+      "end": 1227.74,
+      "text": "So to fix that, we just say align items"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1228.14,
+      "end": 1229.9,
+      "text": "and then this is going to be center."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1229.9,
+      "end": 1231.1,
+      "text": "And now we've aligned them."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1231.1,
+      "end": 1232.0,
+      "text": "Now, of course, the problem is"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1232.0,
+      "end": 1232.94,
+      "text": "we want some padding here"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1232.94,
+      "end": 1233.56,
+      "text": "and some margin."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1233.56,
+      "end": 1234.3,
+      "text": "So let's add that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1234.3,
+      "end": 1236.3,
+      "text": "We're going to say gap"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1236.3,
+      "end": 1237.4,
+      "text": "five pixels."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1237.4,
+      "end": 1238.54,
+      "text": "Now we're separating slightly"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1238.54,
+      "end": 1240.6,
+      "text": "from the icon, which is what we want."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1240.6,
+      "end": 1243.56,
+      "text": "OK, so that's going well."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1243.56,
+      "end": 1245.34,
+      "text": "Continuing, we want to style the button."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1245.34,
+      "end": 1246.6,
+      "text": "Want to add some space now"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1246.6,
+      "end": 1248.9,
+      "text": "between our two gray containers."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1248.9,
+      "end": 1250.26,
+      "text": "And how are we going to do that?"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1250.26,
+      "end": 1251.2,
+      "text": "Well, there's multiple ways"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1251.2,
+      "end": 1253.04,
+      "text": "to add space between the gray containers."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1253.04,
+      "end": 1254.4,
+      "text": "The first way is just to add"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1254.4,
+      "end": 1256.6,
+      "text": "a margin bottom property"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1256.6,
+      "end": 1258.84,
+      "text": "or alternatively a margin top property."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1258.84,
+      "end": 1259.96,
+      "text": "So I'll show you the first way."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1259.96,
+      "end": 1261.0,
+      "text": "If I do something like"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1261.0,
+      "end": 1263.04,
+      "text": "margin dash top of,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1263.04,
+      "end": 1264.54,
+      "text": "let's say 5%."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1264.54,
+      "end": 1265.32,
+      "text": "Now you see that we just"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1265.32,
+      "end": 1267.0,
+      "text": "have a 5% gap based on"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1267.0,
+      "end": 1268.68,
+      "text": "the height of this card"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1268.68,
+      "end": 1269.84,
+      "text": "between the items."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1269.84,
+      "end": 1270.88,
+      "text": "Now, the reason why you may"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1270.88,
+      "end": 1271.76,
+      "text": "not want to do that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1271.76,
+      "end": 1273.54,
+      "text": "is because that adds 5%"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1273.54,
+      "end": 1275.04,
+      "text": "margin to both of these,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1275.04,
+      "end": 1276.8,
+      "text": "not just the assessment one,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1276.8,
+      "end": 1277.26,
+      "text": "right?"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1277.26,
+      "end": 1278.04,
+      "text": "Because you have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1278.04,
+      "end": 1279.3,
+      "text": "the same class for both."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1279.3,
+      "end": 1280.22,
+      "text": "So now you're getting 5%"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1280.22,
+      "end": 1281.84,
+      "text": "margin from the description"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1281.84,
+      "end": 1282.42,
+      "text": "tech."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1282.42,
+      "end": 1283.9,
+      "text": "Now, I actually don't think"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1283.9,
+      "end": 1297.595505,
+      "text": "that too bad but then you see when you do something like this okay well now 5 looks really really big Right So maybe we don want to use 5 Maybe we want to use something else So rather than 5 maybe we just do 1 a And now we have the same amount of margin"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1297.67551,
+      "end": 1303.53551,
+      "text": "no matter how big the size is. And that looks fine to me. Uh, okay. Yeah, that's, that's good"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1303.53551,
+      "end": 1308.53551,
+      "text": "for, for right now. Uh, okay. Looks good. All right. So actually let's just leave the margin"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1308.53551,
+      "end": 1314.095505,
+      "text": "top of 1 a.m. And I'll show you if you change this to bottom, now you just get some margin at"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1314.095505,
+      "end": 1318.67551,
+      "text": "the bottom, right? So you're getting a margin of this plus the margin of the original content."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1319.35551,
+      "end": 1324.5155,
+      "text": "So just to continue this, there's a lot of stuff to go through here. If I now change my margin"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1324.5155,
+      "end": 1332.47551,
+      "text": "bottom, which is this to be zero pixels. Um, okay. No, actually I don't want to do that. Um,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1333.3755,
+      "end": 1336.2355,
+      "text": "okay. I don't know where I was going with that. Anyways, you get the point. The point is we have,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1336.3155,
+      "end": 1340.5155,
+      "text": "you know, the padding here, right for the card padding the content, but then we also have added"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1340.5155,
+      "end": 1341.4555,
+      "text": "a margin here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1341.4555,
+      "end": 1341.91551,
+      "text": "So you're getting a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1341.91551,
+      "end": 1342.77551,
+      "text": "little bit of a weird"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1342.77551,
+      "end": 1343.5755,
+      "text": "kind of layout thing"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1343.5755,
+      "end": 1344.47551,
+      "text": "going because we have"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1344.47551,
+      "end": 1345.5755,
+      "text": "margin bottom on on"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1345.5755,
+      "end": 1346.47551,
+      "text": "both of these, these"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1346.47551,
+      "end": 1347.71552,
+      "text": "classes."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1347.71552,
+      "end": 1348.27551,
+      "text": "Anyways, that's fine"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1348.27551,
+      "end": 1349.05551,
+      "text": "for now."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1349.05551,
+      "end": 1349.25551,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1349.25551,
+      "end": 1349.8155,
+      "text": "So this is looking"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1349.8155,
+      "end": 1349.97551,
+      "text": "good."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1349.97551,
+      "end": 1350.5155,
+      "text": "Now we want to style"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1350.5155,
+      "end": 1351.11551,
+      "text": "the button and we"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1351.11551,
+      "end": 1351.65552,
+      "text": "want to just push"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1351.65552,
+      "end": 1352.65552,
+      "text": "everything in a bit."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1352.65552,
+      "end": 1353.3755,
+      "text": "So let's go to our"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1353.3755,
+      "end": 1354.11551,
+      "text": "gray container and"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1354.11551,
+      "end": 1354.9555,
+      "text": "let's add some padding"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1354.9555,
+      "end": 1355.61551,
+      "text": "with the content."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1355.61551,
+      "end": 1356.11551,
+      "text": "So let's just say"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1356.11551,
+      "end": 1358.9155,
+      "text": "padding dash left,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1358.9155,
+      "end": 1360.15552,
+      "text": "10 pixels."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1360.15552,
+      "end": 1360.47551,
+      "text": "Okay."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1360.47551,
+      "end": 1361.05551,
+      "text": "And then we'll just"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1361.05551,
+      "end": 1362.3155,
+      "text": "do the same thing on"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1362.3155,
+      "end": 1364.4555,
+      "text": "padding, right?"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1364.4555,
+      "end": 1365.0155,
+      "text": "And rather than"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1365.0155,
+      "end": 1366.11551,
+      "text": "pixels, just to keep"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1366.11551,
+      "end": 1366.5755,
+      "text": "it a bit more"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1366.5755,
+      "end": 1367.61551,
+      "text": "dynamic, let's go 1"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1367.61551,
+      "end": 1369.4555,
+      "text": "AM."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1369.4555,
+      "end": 1372.0955,
+      "text": "and in 1 a.m. here as well."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1372.0955,
+      "end": 1372.8155,
+      "text": "Now I'm just doing that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1372.8155,
+      "end": 1384.391,
+      "text": "because I don really care about the padding vertically at least right now But once I resize the button I will probably add the same padding actually everywhere So let just say padding one I like like that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1384.99101,
+      "end": 1386.391,
+      "text": "OK, yeah, so that looks a bit better."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1386.391,
+      "end": 1388.23102,
+      "text": "So let's now adjust our button."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1388.23102,
+      "end": 1391.71101,
+      "text": "So let's go here to button"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1391.71101,
+      "end": 1394.031,
+      "text": "and it'll be dot button, although I guess we could just directly"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1394.35101,
+      "end": 1396.67102,
+      "text": "access the button and let's change the color."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1396.67102,
+      "end": 1399.87102,
+      "text": "So let's say the background color of the button will be,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1400.55101,
+      "end": 1402.63101,
+      "text": "I guess, Navy."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1402.63101,
+      "end": 1404.5710100000001,
+      "text": "And then we'll say the color of the text"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1405.69101,
+      "end": 1406.89102,
+      "text": "will be white."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1406.89102,
+      "end": 1408.93102,
+      "text": "And then we want to adjust the font size."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1408.93102,
+      "end": 1411.73102,
+      "text": "I'm going to say font size be 20"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1413.19101,
+      "end": 1414.49101,
+      "text": "PX."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1414.49101,
+      "end": 1416.23102,
+      "text": "OK, so that's nice."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1416.23102,
+      "end": 1418.43102,
+      "text": "Now we want a border radius on the button,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1418.43102,
+      "end": 1419.2910200000001,
+      "text": "so it's a bit rounded."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1419.2910200000001,
+      "end": 1421.59102,
+      "text": "So let's say five pixels."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1421.59102,
+      "end": 1423.531,
+      "text": "OK, that looks fine to me."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1424.3310099999999,
+      "end": 1426.031,
+      "text": "And then we want to remove the border."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1426.031,
+      "end": 1428.3310099999999,
+      "text": "So we're going to say border dash color."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1429.3310099999999,
+      "end": 1431.031,
+      "text": "And I'm just going to make that transparent."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1431.031,
+      "end": 1432.59102,
+      "text": "And now that gets rid of our border."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1432.59102,
+      "end": 1435.49101,
+      "text": "All right. So I know it's not quite the same color as this,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1435.49101,
+      "end": 1437.63101,
+      "text": "and we also probably want to make it a bit longer."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1437.63101,
+      "end": 1441.33102,
+      "text": "So let's do that by saying padding dash left"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1442.63101,
+      "end": 1444.43102,
+      "text": "one AM"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1444.43102,
+      "end": 1449.031,
+      "text": "and padding dash right one AM as well."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1449.85101,
+      "end": 1450.19101,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1450.19101,
+      "end": 1451.73102,
+      "text": "So now let's have a look at this."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1451.73102,
+      "end": 1454.33102,
+      "text": "And it's starting to look somewhat like this cart."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1454.33102,
+      "end": 1456.89102,
+      "text": "Now, I know this cart takes up less, less width on the screen,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1456.89102,
+      "end": 1457.591,
+      "text": "but you get the idea."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1457.591,
+      "end": 1459.351,
+      "text": "We kind of have a general layout"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1459.351,
+      "end": 1462.091,
+      "text": "as opposed to the colors and and all of that."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1462.591,
+      "end": 1473.96652,
+      "text": "Okay so that looks good Last thing I do is just add a hover effect here to the button And then I think we be pretty well good So let go button Let go hover"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1473.96652,
+      "end": 1474.52652,
+      "text": "and let's change the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1474.52652,
+      "end": 1475.9265,
+      "text": "background color,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1475.9265,
+      "end": 1478.28653,
+      "text": "just be blue."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1478.28653,
+      "end": 1479.62653,
+      "text": "So now when I hover,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1479.62653,
+      "end": 1480.7665,
+      "text": "there you go."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1480.7665,
+      "end": 1481.06653,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1481.06653,
+      "end": 1482.96652,
+      "text": "So let's now just add"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1482.96652,
+      "end": 1484.8265000000001,
+      "text": "one more of these"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1484.8265000000001,
+      "end": 1485.46652,
+      "text": "to the screen."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1485.46652,
+      "end": 1487.22653,
+      "text": "So let's copy the card."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1487.22653,
+      "end": 1487.9865,
+      "text": "We'll add some margin"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1487.9865,
+      "end": 1489.7665,
+      "text": "between the cards"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1489.7665,
+      "end": 1490.58652,
+      "text": "and actually, oh, they"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1490.58652,
+      "end": 1491.46652,
+      "text": "already have already"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1491.46652,
+      "end": 1492.36652,
+      "text": "add the margin on the card."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1492.4265,
+      "end": 1493.06653,
+      "text": "Let's see."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1493.06653,
+      "end": 1494.06653,
+      "text": "Where's my card?"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1494.06653,
+      "end": 1494.36652,
+      "text": "Oh, yeah."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1494.36652,
+      "end": 1495.12653,
+      "text": "Margin 5%."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1495.12653,
+      "end": 1496.40652,
+      "text": "So since I have margin 5%,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1496.40652,
+      "end": 1497.22653,
+      "text": "they already have the margin."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1497.22653,
+      "end": 1498.22653,
+      "text": "So that's what I need."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1498.22653,
+      "end": 1498.90652,
+      "text": "So you can see here"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1498.90652,
+      "end": 1500.22653,
+      "text": "I have my program fundamentals."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1500.22653,
+      "end": 1501.1064999999999,
+      "text": "And then of course, you know,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1501.1064999999999,
+      "end": 1502.6064999999999,
+      "text": "I get the same thing again."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1502.6064999999999,
+      "end": 1505.06653,
+      "text": "And there you are."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1505.06653,
+      "end": 1506.52652,
+      "text": "So we have essentially created this."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1506.52652,
+      "end": 1507.12653,
+      "text": "I know it doesn't look"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1507.12653,
+      "end": 1507.90652,
+      "text": "exactly the same,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1507.90652,
+      "end": 1509.12653,
+      "text": "but you guys get the idea."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1509.12653,
+      "end": 1510.62653,
+      "text": "It's close enough for me."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1510.62653,
+      "end": 1513.06653,
+      "text": "And that's hopefully showed you"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1513.06653,
+      "end": 1514.6064999999999,
+      "text": "how you design kind of a"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1514.6064999999999,
+      "end": 1516.56653,
+      "text": "responsive, flexible layout."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1516.56653,
+      "end": 1517.50653,
+      "text": "And as I continue"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1517.50653,
+      "end": 1518.6064999999999,
+      "text": "to change the size here,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1518.6064999999999,
+      "end": 1519.72653,
+      "text": "these cards still make sense."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1519.72653,
+      "end": 1520.90652,
+      "text": "There is a minimum size."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1520.90652,
+      "end": 1522.1064999999999,
+      "text": "I can't go any smaller"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1522.1064999999999,
+      "end": 1522.7065,
+      "text": "based on the way that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1522.7065,
+      "end": 1523.6064999999999,
+      "text": "I've done this and"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1523.6064999999999,
+      "end": 1524.40652,
+      "text": "everything should kind"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1524.40652,
+      "end": 1525.30652,
+      "text": "of automatically be"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1525.30652,
+      "end": 1526.30652,
+      "text": "scaling because of the"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1526.30652,
+      "end": 1527.2065,
+      "text": "way that I've used"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1527.2065,
+      "end": 1530.2065,
+      "text": "flex box. So with that"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1530.2065,
+      "end": 1531.7065,
+      "text": "said, I think I will"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1531.7065,
+      "end": 1533.1064999999999,
+      "text": "end the video here."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1533.30652,
+      "end": 1533.74652,
+      "text": "You guys want to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1533.74652,
+      "end": 1534.80652,
+      "text": "challenge yourself, try"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1534.80652,
+      "end": 1535.30652,
+      "text": "to create some"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1535.30652,
+      "end": 1535.96652,
+      "text": "components on"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1535.96652,
+      "end": 1536.90652,
+      "text": "programming expert,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1537.1064999999999,
+      "end": 1537.90652,
+      "text": "maybe buy it while"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1537.90652,
+      "end": 1538.50653,
+      "text": "you're at it. You can"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1538.50653,
+      "end": 1539.80652,
+      "text": "use discount code Tim."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1540.1064999999999,
+      "end": 1540.90652,
+      "text": "That said, hope you"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1540.90652,
+      "end": 1541.80652,
+      "text": "enjoyed the video. If"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1541.80652,
+      "end": 1542.2065,
+      "text": "you did, make sure"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1542.2065,
+      "end": 1543.30652,
+      "text": "they like subscribe to"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1543.30652,
+      "end": 1544.06653,
+      "text": "the channel. Let me"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1544.06653,
+      "end": 1544.6064999999999,
+      "text": "know if you want to see"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1544.6064999999999,
+      "end": 1545.86652,
+      "text": "some more CSS content,"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1545.86652,
+      "end": 1546.6465,
+      "text": "and I will see you in"
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1546.6465,
+      "end": 1548.2065,
+      "text": "another YouTube video."
+    },
+    {
+      "number": "0",
+      "title": "CSS_For_Non-Web_Developers_-_Tutorial_-_Part_2_vHiklIWMZA8",
+      "start": 1550.90652,
+      "end": 1556.44653,
+      "text": "Thank you."
+    }
+  ],
+  "text": "Hello everybody. And welcome to part two of this CSS for non web developers series. In the last video, I gave you a pretty long, but hopefully fairly comprehensive overview of kind of the core CSS properties you should know and kind of be memorizing. If you want to be efficient at writing CSS. Now in this video, I want to actually take all of that theory, all of that knowledge and apply that by building out kind of a basic layout and showing you how we would nest different flex boxes inside of each other, how we would align items, how we would just kind of create something by looking at a visual. So I'll walk you through my thought process on doing that and show you kind of how we design that basic layout. I'm hoping this shouldn't take too long. Um, but yeah, that's, that's kind of what we're doing. So what I'm actually going to be doing is designing a component from the programming expert website. So if you guys don't know, I have a course called programming expert. If you are not interested in web development, but you want to learn Python, Golang, software design, software engineering tools, there's all kinds of stuff here. I mean, I'm on the website right now, then definitely check it out. I think this is great value for people looking to get better at programming. If you want, you can use discount code Tim. However, I thought, okay, well, it would be kind of a cool idea to just design one of these components from the programming expert website. Again, I mean, I haven't actually made this. I wasn't the one who coded like the UI for this website. I just did the content. So I'm kind of doing this from scratch, if you will. Anyways, what we're going to build is kind of this right here, which is like one of the cards for one of the sections. So I'm going to show you how we do the header, how we do everything laid out, how we have these kinds of things inside, how we add a shadow, how we have a hover effect for a button, uh, how we have images beside each other. You know, it seems pretty simple, but when you actually think about building out this layout, if you're not familiar with CSS, this can look a little bit intimidating if we want it to look exactly like this. So that's what I'm going to to try to do, uh, with the exception of the progress bar, which we're not going to add. Okay. So let's, uh, let's try that then let's put this on the right hand side of my screen. I have my HTML document here. I have HTML and CSS, excuse me at times. You probably won't be able to see both of them just because, you know, it's not really enough screen real estate for that. Uh, but let's start by, by trying to design this and we'll try to make it responsive as well so that it kind of looks like this on this screen size. Right? So the first thing I usually do, uh, is kind of just build out the HTML layout myself I start adding classes to it and then I go style it after um you know there times when I style before but usually I like to just get all the content on the page And then once the contents there we can kind of lay it out how we need to. So let's begin by creating a div in this div will be kind of the card. I'm going to call this white thing, like a card on the page. And then that way we could reuse this div and make multiple cards and see how those are kind of laid out. So I'm going to say class is equal to card. Okay. So that's div one. That's going to be the container for everything. inside of this div, we need a header. So let's have an H one tag. Let's say class is equal to header text. And then this is going to be two dash programming fundamentals. Is that how you spell it? Yeah. Fundamentals like that. Okay. After we have that, we have kind of three icons of sorts. Let me just make these a little bit larger so we can see. So we have, you know, 17 hours, 25 videos, 131 practice questions. and I see immediately that I'm going to probably need these in some kind of row, right? Because they need to be kind of aligned with each other. If I just put three P tags, they're going to be block style and they're not really going to work very well. So what I'm going to do is make a div and I'm going to say class is equal to let's just call this stats or something. I mean, the naming is not super important right now because we don't have a lot of content. So I'll just call this the stats container. Okay. Now inside of here, I'm now going to make three divs, one for each of these kind of things, because we're going to have the logo or like the little emblem and then the text. And I think I should kind of keep those in a container so that we can then space them out differently from from the text itself. There's a bunch of ways to do this, by the way. So don't think that how I'm doing this is the only way you can challenge yourself to do this as well. So let's say class is equal to and let's say stat item like that. Now I'll make three of these because we're going to have three stat items. and inside of the stat item container, I want to have a paragraph tag. This first one will be 17 hours and my icon, which I will show you how we can add that in a second. Okay. So 17 hours, we're going to have 25 videos, let's say 25 videos and then 131 practice questions. So practice questions like that. Okay. And then of course, again, we need that icon. But again, I will, I will add that later. All right. So we have this div now outside of this div, we're going to have our description. So let's make a P tag. I say class is equal to description like that I spell that correctly I believe I did And we just copy this and dump this here inside of the description OK beyond the description we have these things, right? So we have kind of this. I don't know. I don't know what you want to call this button container, you know, pressable item. I'll just call it a great card or something. I don't really know what we would want to call that. So let's say div like that slash div, by the way, notice how whenever I open a tag, I close it right away. Usually just makes sure I don't forget that tickles the tags. That's why I'm doing that. I'm going to say class is equal to, and let's say gray container. Now we're going to need two of those gray containers. So let's just copy them here and we'll use the same class name, right? Cause they're going to have the same styles now inside of the gray container. Uh, let's make this a bit larger so we can kind of analyze how it would look in the proper format. We're going to have a button. We're going to have, I got another like logo of some sort, and then we're going to have the text. So I'll just put those in there and then we'll wrap them in some kind a div later on. Let me just close this for right now. Okay. So let's make a, uh, I guess we'll make this like an H three tag and we can just say lessons and then copy this. And this will be assessment. Okay. Assessment like that. Uh, okay. And then we need a button. So let's say button and class will be equal to, we can just call this button. And for this one, we'll say class is equal to, um, sub header. Okay. That's fine. Just copy this and put that here. And then for the button, this needs to say resume and then we'll just add an arrow. Okay. Nice. So we've just built out pretty well the content for this right now. Of course, when we look at this, um, you know, actually it doesn't even look that bad to be honest, obviously it's not looking like this card, but we kind of have all the content that we need and now we need to lay everything out. And we also want to add some icons. Uh, and I'm going to show you how we add kind of these little icons by using something called font. Awesome. Let me load that up and then I'll show you how we add that. Okay. So in front of me, I have something called font. Awesome. Now font. Awesome is just kind of a free CDN that, uh, lets you use kind of prebuilt icons. Now, the way it works is you need to, uh, enter your email and then kind of create an account. And once you do that, it will give you access to a CDN. And anyways, you can just follow this website, it's very straightforward, but essentially it involves just copying a tag into the head of your HTML document. Once that tag is in there you can then use some predefined class names Like I going to show you uh to use some predefined icons So go to this website font awesome I try to leave it in the description And someone remind me if I forget and uh download or get access to your CDN copy that into your head tag. It should give you the instructions on how to do that. And then you can start accessing the different icons. Okay. So let me, uh, start using this now. So for the icons, I'm just going to copy in mine, which is this, I mean, I guess you could copy mine as well, but I don't know exactly how that works. If I'm going to get rate limited or something. And now the way that you add an icon is you do the following. You go here, you go I and I kind of stands for icon, the tag. And then you say class is equal to. And then you write the class of the icon. Now I'm just going to pull up a cheat sheet here and find the different icons. So I have to search for them. Okay. So the first one, actually, I'm just going to copy this in is going to be FAA, FAA clock dash. Oh, Aria hidden is going to be true. Okay. Next one. This is going to be F a video. Okay. I'm just trying to get ones that look similar to the the programming extra ones here. And then I think this is just F a pencil. And then we also need two icons for this. So let me grab those. Okay. I'm just going to copy them in here. So go lessons. We're going to have F a solid F a clapper board. And then I'm going to have this one here. uh, which is F a solid F a file lines. They won't look exactly the same, but they should be good enough. Okay. So there you go. We can see our icons are kind of showing up here. Obviously nothing's really laid out how we want it to be. So now that's what we need to do now. One thing, I don't know why these are getting like, why is lessons getting, um, highlighted like that? All right. So I was kind of tripping out there for a second. I just forgot to close one of my icon tags. So it was like messing up the whole document and showing it like a bunch of times. Uh, anyways, I just, I closed it here. So now that that looks good. Okay. so let's just go back here and figure out what we want to do first. So I probably want to start with the exterior container. That's usually what I do set its color, um, set like a little box shadow for it. Uh, I guess the border of some sort, kind of the interior margin. And then once I have that, I will go with the rest. So the first thing I need to do is kind of cover the card. So let's open up our styles here. Okay. Let me just close that and go split right here. And we have card. So I'm going to say dark card. And the first thing I'm going to do is say background color. I'm going to set that to white. Now I'm also going to say margin. I'm just going to add a a 5% margin here. And that will be 5% margin based on the height of the body. Now, what I also want to do is just add a background color to the body here. So we actually see the, uh, the background color of the card. So I'm going to say background color, and then this will be light gray. Uh, and now we can actually see the card. Okay. Next, I'm going to make the body a hundred percent height. So we're going to say height, a hundred percent vertical height, just so that my margin now is going to be based on the height of the screen, not based on just the body content. Okay. Continuing. I want to add some rounded edges here for the card. Now to do that, there is a property called border radius, and I'll just set this to be five pixels. And now we have kind of some rounded edges. Now, the next thing I want to do is add a little bit of a shadow here. So I'm going to say box shadow. Now for the box shadow, I don't remember all of the properties for this, but I believe you do the offset in the X Y direction and then the color. So I'm going to say one pixel, one pixel, and then RGBA and then zero, zero, zero and 0.9. So we have some kind of opacity. Okay. And then you see, I'm getting a bit of a shadow. However, I want to kind of blur this shadow. So I'm going to add one more property here, which is five pixels. And now notice I kind of get a blur around this. And I'm also going to change the opacity to be like 0.7. So it's not quite as thick. However, I also want to get this box shadow, um, on the other side, cause right now it's kind of heavily on the bottom, right? Based on the way I've done it. So the way you do this, and I apologize that it's kind of hard to see here is you copy this, you put a comma and then you put it again, and then it should do this in the opposite direction, but I need to change these now to be negative. So negative two pixels, negative two pixels. And now notice I'm getting a shadow kind of on all sides. Uh, there might be a better way to do this, but this is the way that I'm familiar with. So that's what we'll go with for now. And again, the opacity is very, very thick. So let's go with 0.5, uh, and make it a little, a little more blurred there. Okay. I think that's, uh, that's fine for now. All right. So now that we have that, uh, let's make this a bit smaller, just so we can see this a little bit easier. I want to make it so that there is kind of margin within the card, Greg's if we go here, obviously these items are not hitting the card There some margin between them So how are we going to do that Well we going to add another div inside of here and then add margin to it So this is a common practice What you do is you have kind of a main container and then you'll have an interior container and that interior container will kind of be have a margin to the the outside container. Now, I also just realized though that we can probably just add padding to the card and avoid doing that. So let's try that. There's many different ways to do stuff here in CSS. So let's say padding let's just go with 10 pixels And it's because I didn't have a semicolon here. So let's add that. And notice when I have my 10 pixels of padding, now it actually pads the content inside. However, I want kind of the same padding on top and bottom. So I'm going to say five pixels, 10 pixels, five pixels, 10 pixels, so that it looks a little less extreme on the vertical padding. But we still have the same horizontal padding that we wanted before. Okay, so that's actually good right now for the kind of container of the card. going here. Now we want to lay these out in a row and kind of change this, this font style. So it looks a little bit nicer. So for the font, let's just say font family and we'll set this just to, I don't know, what do we want to have here? Uh, let's set it to this. That looks fine to me for now. I don't really care to, to pick the font and actually, why is there so many? Let's just set it to Ariel. Yeah. Ariel is fine. Okay. So font family will be Ariel. When I set that on the body, it set for all of the other elements. So that's why I'm doing that. All right. Now we want to lay these out. Um, what do you call this? Want to lay out these, these items here. So they're in the correct position. So the first thing I want to do is make it. So this icon is beside my text. So the way I'm going to do that is I'm going to first look for what I need to change, which is going to be stat items. So I want the stat item to be a, uh, flex box essentially that has the items lined out, layout laid out, sorry, horizontally. So let's say stat item. If we could get that correctly, and this will be display flex. Okay. When I make that display flex, now they are aligned in a row. Now, the next thing I need to do is say align items center. So now I'm going to align on the vertical axis, the cross axis in the center. Okay. Now that I've done that, let's add a gap between the items of five pixel. And now they're kind of spaced out a little bit. So that's nice. And actually let's just do one EM as the spacing, just so that that will kind of scale with the font size All right And that nice Now for our text within the stat item container I want it to be bold So I going to say stat item P and I say font weight and this will be bold like that I could add a strong tag, but I think it's better to do it in CSS styling. So that's how I'm going to do it. And just to show you how that works now that these are laid out properly, I would like to change the color of my icons. So to do that again, I can say stat item, and then I can say I, and I can say that my color is red. And now I've changed my icon color to be red. Now, I also want to have some padding or kind of like a box around my icons. So there's a few ways to do this again, but let's do the following. Let's say padding 10 pixels. Okay. And that's going to pad the what is it? The content box here. Then I'm going to say my background color is and let's just go with red. All right. So that's fine, but I would like it to be transparent. So we're going to say, let's do it in hex this time, FF zero, zero, zero, zero, 20. And now we have kind of this transparent box around. And then I'm going to say my border radius is five pixel. All right. So that kind of now matches up with what programming expert one had. My boxes are slightly different size because it's a sizing based on the icon size. but that's fine. I won't get that picky right now. Okay. So already looking much better. Uh, the next thing I need to do now is lay all these out in a row. So I see I have my stats container, so I'm just going to now apply flex styling to my stats containers. I'm going to say stats container. I'm going to say display and then flex. Okay. And now automatically they're going to go into row. Now we need some gap. So let's say gap B one AM and there we go. And then I will align items in the center and I will justify content flex start. So now let's make this a bit bigger and this is looking good. OK, so good looking card so far, of course, obviously we got to add these down below. But if we go look at this, you know, we're not too far off somewhat from from what the layout is looking like. Let's look at that. We might want more a slightly more of a margin there, but for now, that's fine. So let's add more of a margin on our interior padding So let go 10 15 10 15 Now we just squished it in a little bit more That looks a bit nicer All right. Continuing, we now need to handle the bottom of what we need here. So the bottom section is our gray container. So I'll start with that and then we can do what's inside of the container. All right. So let's say dot gray container. Okay. Background color will be light gray. All right. And then we want to add a border radius. So border radius of five pixels add some rounded edges here. Okay. So now we have our rounded edges now that we need to align the items within the gray container. So I'm going to say display flex. Okay. And now we've aligned on row. That's good. But we want to push the button to the right hand side and keep the icon and the text on the left hand side. Right. So if you look here, we have kind of if we make this larger, this kind of stays on the left hand side and then the button gets pushed to the right. So we'll do that with Flexbox. Let's not minimize that. Let's put that over here. The way we will do that is we'll change this slightly. So we have three items here. Now, what I want to do is I want to use the property space between when I use space between it's going to push my items out with the space between. Now, the issue is since I have three items, if I do space between right now and actually, I mean, might as well just add it because we're going to add it anyways. Let's say justify content space, not around space between you'll see that we get them kind of all aligned, right? I don't want lessons in the middle. I want this pushed to the left. So the way I have to fix that is I have to make it. So I only have two items here. So to do that, I will now take my eye and my lessons, wrap those in a div. And then by wrapping those in a div, the two direct flex items will be the div and the button. So the contents of the div would push to the left and then the button will be pushed to the right. Hopefully that makes a bit of sense. I don't even need to give this a class right now. I just need to wrap it in a div. And when I do that, we get pushed to the left, right? So let's say div div. Now I will add a class because as you can see, since I have my H3 tag, which is display block, I'm going down. What I want to do instead is I want to push them. So they're on the same line. So to do that, we'll add our class and we'll say class is equal to I'll just call this left. for right now. Okay. And now let's go here and add our left. So we're going to say dot left. Okay. And then this is going to be display flex like that. And now they are kind of pushed together. However, again, we're having this issue where this icon here, right, is not in line with less. So to fix that, we just say align items and then this is going to be center. And now we've aligned them. Now, of course, the problem is we want some padding here and some margin. So let's add that. We're going to say gap five pixels. Now we're separating slightly from the icon, which is what we want. OK, so that's going well. Continuing, we want to style the button. Want to add some space now between our two gray containers. And how are we going to do that? Well, there's multiple ways to add space between the gray containers. The first way is just to add a margin bottom property or alternatively a margin top property. So I'll show you the first way. If I do something like margin dash top of, let's say 5%. Now you see that we just have a 5% gap based on the height of this card between the items. Now, the reason why you may not want to do that is because that adds 5% margin to both of these, not just the assessment one, right? Because you have the same class for both. So now you're getting 5% margin from the description tech. Now, I actually don't think that too bad but then you see when you do something like this okay well now 5 looks really really big Right So maybe we don want to use 5 Maybe we want to use something else So rather than 5 maybe we just do 1 a And now we have the same amount of margin no matter how big the size is. And that looks fine to me. Uh, okay. Yeah, that's, that's good for, for right now. Uh, okay. Looks good. All right. So actually let's just leave the margin top of 1 a.m. And I'll show you if you change this to bottom, now you just get some margin at the bottom, right? So you're getting a margin of this plus the margin of the original content. So just to continue this, there's a lot of stuff to go through here. If I now change my margin bottom, which is this to be zero pixels. Um, okay. No, actually I don't want to do that. Um, okay. I don't know where I was going with that. Anyways, you get the point. The point is we have, you know, the padding here, right for the card padding the content, but then we also have added a margin here. So you're getting a little bit of a weird kind of layout thing going because we have margin bottom on on both of these, these classes. Anyways, that's fine for now. Okay. So this is looking good. Now we want to style the button and we want to just push everything in a bit. So let's go to our gray container and let's add some padding with the content. So let's just say padding dash left, 10 pixels. Okay. And then we'll just do the same thing on padding, right? And rather than pixels, just to keep it a bit more dynamic, let's go 1 AM. and in 1 a.m. here as well. Now I'm just doing that because I don really care about the padding vertically at least right now But once I resize the button I will probably add the same padding actually everywhere So let just say padding one I like like that OK, yeah, so that looks a bit better. So let's now adjust our button. So let's go here to button and it'll be dot button, although I guess we could just directly access the button and let's change the color. So let's say the background color of the button will be, I guess, Navy. And then we'll say the color of the text will be white. And then we want to adjust the font size. I'm going to say font size be 20 PX. OK, so that's nice. Now we want a border radius on the button, so it's a bit rounded. So let's say five pixels. OK, that looks fine to me. And then we want to remove the border. So we're going to say border dash color. And I'm just going to make that transparent. And now that gets rid of our border. All right. So I know it's not quite the same color as this, and we also probably want to make it a bit longer. So let's do that by saying padding dash left one AM and padding dash right one AM as well. All right. So now let's have a look at this. And it's starting to look somewhat like this cart. Now, I know this cart takes up less, less width on the screen, but you get the idea. We kind of have a general layout as opposed to the colors and and all of that. Okay so that looks good Last thing I do is just add a hover effect here to the button And then I think we be pretty well good So let go button Let go hover and let's change the background color, just be blue. So now when I hover, there you go. All right. So let's now just add one more of these to the screen. So let's copy the card. We'll add some margin between the cards and actually, oh, they already have already add the margin on the card. Let's see. Where's my card? Oh, yeah. Margin 5%. So since I have margin 5%, they already have the margin. So that's what I need. So you can see here I have my program fundamentals. And then of course, you know, I get the same thing again. And there you are. So we have essentially created this. I know it doesn't look exactly the same, but you guys get the idea. It's close enough for me. And that's hopefully showed you how you design kind of a responsive, flexible layout. And as I continue to change the size here, these cards still make sense. There is a minimum size. I can't go any smaller based on the way that I've done this and everything should kind of automatically be scaling because of the way that I've used flex box. So with that said, I think I will end the video here. You guys want to challenge yourself, try to create some components on programming expert, maybe buy it while you're at it. You can use discount code Tim. That said, hope you enjoyed the video. If you did, make sure they like subscribe to the channel. Let me know if you want to see some more CSS content, and I will see you in another YouTube video. Thank you."
+}

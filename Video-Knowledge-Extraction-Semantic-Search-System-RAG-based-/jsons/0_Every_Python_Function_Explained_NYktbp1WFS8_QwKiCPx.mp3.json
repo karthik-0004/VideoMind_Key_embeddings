@@ -1,0 +1,3071 @@
+{
+  "chunks": [
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 0.0,
+      "end": 13.6,
+      "text": "In this video, I'll be showing you every built in Python function. I'll run through a quick example"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 13.6,
+      "end": 17.68,
+      "text": "of each, and I guarantee you that you will learn something in this video and that you will see a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 17.68,
+      "end": 22.38,
+      "text": "ton of intermediate and advanced Python examples for every single one of these functions. I will"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 22.38,
+      "end": 27.16,
+      "text": "explain the basic usage. I'll throw the definition on the screen. And afterwards, you will know a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 27.16,
+      "end": 31.72,
+      "text": "bunch of functions that you did not know before and probably see a bunch of advanced Python code"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 31.72,
+      "end": 36.14,
+      "text": "that you can then go and learn more about. Now I did lie a little bit here. There's a lot of"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 36.14,
+      "end": 40.16,
+      "text": "built-in Python functions. So I'm actually going to split this into two parts. In this first part,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 40.2,
+      "end": 44.76,
+      "text": "I'm going to show you approximately half of them, which is about 35 functions. Then in the next part,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 44.78,
+      "end": 49.66,
+      "text": "I will show you the rest. However, I will give you one bonus item in this video, and that is the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 49.66,
+      "end": 55.04,
+      "text": "sponsor of this video. Thanks to Aista for sponsoring this video with Aista. You can create"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 55.04,
+      "end": 60.52,
+      "text": "a full stack web app in just five minutes, generate a CRUD API in seconds and have their"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 60.52,
+      "end": 65.6,
+      "text": "magic cloud auto magically create your web apps without coding. One of the best parts"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 65.6,
+      "end": 71.42,
+      "text": "of their magic cloud is it can wrap new or existing databases in a CRUD API and add security"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 71.42,
+      "end": 76.76,
+      "text": "automatically, making you 10 times more productive and saving you hours of work. Now, not only"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 76.76,
+      "end": 82.12,
+      "text": "do you get pre-generated CRUD APIs and effortless security, you can also have magic generate"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 82.12,
+      "end": 83.0,
+      "text": "a front end user"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 83.0,
+      "end": 83.98,
+      "text": "interface for you."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 84.4,
+      "end": 85.28,
+      "text": "This interface is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 85.28,
+      "end": 86.06,
+      "text": "fully featured,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 86.16,
+      "end": 87.0,
+      "text": "allowing you to view"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 87.0,
+      "end": 87.88,
+      "text": "and interact with"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 87.88,
+      "end": 88.76,
+      "text": "your database and"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 88.76,
+      "end": 89.44,
+      "text": "even access"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 89.44,
+      "end": 90.16,
+      "text": "administrative"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 90.16,
+      "end": 91.48,
+      "text": "controls. Once"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 91.48,
+      "end": 92.1,
+      "text": "you're all set up,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 92.14,
+      "end": 92.82,
+      "text": "you can schedule"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 92.82,
+      "end": 94.06,
+      "text": "hyper lambda tasks"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 94.06,
+      "end": 94.6,
+      "text": "and use their"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 94.6,
+      "end": 96.16,
+      "text": "hyper IDE to edit"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 96.16,
+      "end": 97.18,
+      "text": "your files directly"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 97.18,
+      "end": 97.9,
+      "text": "on your server."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 98.36,
+      "end": 98.96,
+      "text": "Start taking"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 98.96,
+      "end": 99.88,
+      "text": "advantage of low"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 99.88,
+      "end": 100.54,
+      "text": "and no code"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 100.54,
+      "end": 101.36,
+      "text": "software development"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 101.36,
+      "end": 102.16,
+      "text": "today by getting"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 102.16,
+      "end": 103.16,
+      "text": "started with Iista"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 103.16,
+      "end": 104.34,
+      "text": "and magic cloud and"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 104.34,
+      "end": 105.12,
+      "text": "getting one free"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 105.12,
+      "end": 105.94,
+      "text": "month of usage."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 106.28,
+      "end": 107.62,
+      "text": "Go to Iista.com"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 107.62,
+      "end": 108.52,
+      "text": "and sign up now"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 108.52,
+      "end": 109.54,
+      "text": "for your free trial."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 109.8,
+      "end": 110.46,
+      "text": "So let's get right"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 110.46,
+      "end": 111.1,
+      "text": "into it here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 111.2,
+      "end": 111.96,
+      "text": "After I tell you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 111.96,
+      "end": 116.48,
+      "text": "that I do have a programming course, programming expert.io. If you want to learn more about Python,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 116.72,
+      "end": 120.9,
+      "text": "learn, go and learn advanced Python specifically, check out that course. I'll leave a link in the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 120.9,
+      "end": 125.72,
+      "text": "description. Anyways, let's dive in here. The first function we have is ABS standing for absolute"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 125.72,
+      "end": 130.72,
+      "text": "value. Now absolute value can be used on anything that implements the underscore underscore ABS"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 130.72,
+      "end": 136.24,
+      "text": "method. Now that means we can use this on floats. We can use this on ins. And you can see here that"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 136.24,
+      "end": 140.84,
+      "text": "if I run my code here, that I get the absolute value, which is just the positive representation"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 140.84,
+      "end": 142.16,
+      "text": "of these numbers."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 142.16,
+      "end": 143.08,
+      "text": "So positive nine"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 143.08,
+      "end": 155.26163,
+      "text": "and positive 100 Now notice that I wrote this custom class here where I implemented my ABS method Now this allows me to return anything that I want And now when I call ABS on my custom object which"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 155.26163,
+      "end": 160.06163,
+      "text": "implements ABS, it's going to return to me. Hello, which is just the lowercase version of the string."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 160.26163,
+      "end": 165.56163,
+      "text": "Hello. Next function we have is a iter. Now a iter stands for asynchronous iterator, and this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 165.56163,
+      "end": 170.58163,
+      "text": "returns to the asynchronous iterator associated with an object. Now, obviously this is a little"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 170.58163,
+      "end": 175.16164,
+      "text": "bit advanced, but an asynchronous iterator can be returned from any object that implements the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 175.16164,
+      "end": 180.56163,
+      "text": "a iter method. So if we have a look here at this example function, we can see that we create an"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 180.56163,
+      "end": 186.36163,
+      "text": "instance of our asynchronous iterator right here. We pass in a start and a stop value. We then get"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 186.36163,
+      "end": 190.82162,
+      "text": "the iterator by calling the a iter function. Now this is similar to the iter function, which you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 190.82162,
+      "end": 196.06163,
+      "text": "can call on anything that is iterable. A iter is the asynchronous iterable version. So here it's"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 196.06163,
+      "end": 200.86163,
+      "text": "going to return to us ourself, which is just this object. And now if I print this out, you'll see"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 200.86163,
+      "end": 205.06163,
+      "text": "the iterator and then we can loop through the iterator using an asynchronous for loop. Now,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 205.10162,
+      "end": 210.18164,
+      "text": "what I do inside of here is I actually will automatically await the value coming from my"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 210.18164,
+      "end": 215.72163,
+      "text": "async next method. Now, if I run, you can see that it's going to take a second and every second"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 215.72163,
+      "end": 220.22163,
+      "text": "is going to print out the next value coming from my asynchronous iterator. I'm not going to explain"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 220.22163,
+      "end": 223.72163,
+      "text": "async programming in this video because we don't have enough time. If you want to learn that you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 223.72163,
+      "end": 228.12164,
+      "text": "could check out something like programming expert. So the next function we have is all now this tells"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 228.12164,
+      "end": 233.02164,
+      "text": "you if all of the values in an iterable object are true. So I can print this out and you can see that"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 233.02164,
+      "end": 238.04163,
+      "text": "we get false for the first one. The reason we get false is because zero is not a truthy value. So"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 238.04163,
+      "end": 243.14163,
+      "text": "every single value in Python or literal that we can type out like this is either true or false."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 243.24164,
+      "end": 247.82162,
+      "text": "Something like zero is going to be false. Something like an empty string would be false as well."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 248.20163,
+      "end": 252.62164,
+      "text": "Uh, something like an empty array or an empty list is going to be false as well. And that's why you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 252.62164,
+      "end": 256.74164,
+      "text": "can see that we're getting the results like this. So fairly useful. One thing to note about say an"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 256.74164,
+      "end": 262.24164,
+      "text": "example like this, where we have D is that since we have elements inside of our nested list,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 262.36163,
+      "end": 266.46164,
+      "text": "this actually counts as true, which you can see that's printing out here. So even though these"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 266.46164,
+      "end": 272.48163,
+      "text": "values are a falsy value, since this here has elements inside of it, it's a truthy value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 272.48163,
+      "end": 278.88165,
+      "text": "And since we have all truthy values inside of our list, we get true when we print out all of D."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 278.88165,
+      "end": 283.3416,
+      "text": "So the next function we have here is a next a next stands for asynchronous next."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 283.52164,
+      "end": 287.3416,
+      "text": "And this is what is called on an asynchronous iterator to get the next value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 287.58163,
+      "end": 291.48163,
+      "text": "Now, you may not know this, but when you use a for loop, it automatically calls the next"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 291.48163,
+      "end": 305.40326,
+      "text": "or a next method depending on if you using an asynchronous for loop or a regular for loop And in this example here we can actually manually call the next method from an iterator using a neck So if you look down here you can see I awaiting the next value by calling a next"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 305.40326,
+      "end": 306.60327,
+      "text": "I need to use a weight here"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 306.60327,
+      "end": 308.86325,
+      "text": "because this is an asynchronous function"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 308.86325,
+      "end": 310.06326,
+      "text": "and this has a code routine"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 310.06326,
+      "end": 311.40326,
+      "text": "that's being awaited inside of it."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 311.40326,
+      "end": 312.70328,
+      "text": "So if I run this,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 312.70328,
+      "end": 316.00327,
+      "text": "you can see that we get one, two and then three."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 316.30325,
+      "end": 319.30325,
+      "text": "Now I could also have iterated through this using a for loop if I want,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 319.30325,
+      "end": 320.96326,
+      "text": "but I wanted to show you the next method,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 320.96326,
+      "end": 324.46326,
+      "text": "which again, just gives you the next value in the iterable sequence"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 324.46326,
+      "end": 328.46326,
+      "text": "coming from an asynchronous iterator. The next function that we have is any. Now,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 328.50327,
+      "end": 332.68326,
+      "text": "any is going to tell you if any of the values inside of an iterable object are true. Pretty"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 332.68326,
+      "end": 336.70328,
+      "text": "straightforward, similar to all, but only one of the values needs to be truthy. So if I run this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 336.70328,
+      "end": 339.98328,
+      "text": "here, you can see that I get true, true, true, true until the very end where I get false,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 340.00327,
+      "end": 344.82327,
+      "text": "because every single value here is a falsy value. So the next function that we have here is bin."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 344.82327,
+      "end": 350.32327,
+      "text": "Bin stands for binary, and it's going to give you the binary representation of an integer. So in"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 350.32327,
+      "end": 355.08325,
+      "text": "this case, we can print out the binary representation of 100 and negative 100. And notice"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 355.08325,
+      "end": 359.00327,
+      "text": "that rather than giving us the twos compliment representation, it just gives us a negative"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 359.00327,
+      "end": 362.94327,
+      "text": "sign here in front of the zero B. Whenever you have a binary value, it's going to be"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 362.94327,
+      "end": 367.16327,
+      "text": "denoted zero B. You can strip that off. If you first say converted this to a string and"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 367.16327,
+      "end": 370.78326,
+      "text": "then stripped it, it's kind of up to you. You can also use a format method to do this."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 371.02325,
+      "end": 375.16327,
+      "text": "However, this is the bin function. So the next function I have here is bull. Now bull"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 375.16327,
+      "end": 380.12326,
+      "text": "is actually the constructor for the Boolean type or for the Boolean class. So when I pass"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 380.12326,
+      "end": 383.88327,
+      "text": "a value here to the bull function, it gives me a new Boolean object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 384.12326,
+      "end": 386.96326,
+      "text": "So you can see here that when I run this and I print out just bull,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 386.96326,
+      "end": 389.12326,
+      "text": "which is the function, it's actually giving me class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 389.28326,
+      "end": 392.36328,
+      "text": "So this isn't really a function. It's actually a class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 392.36328,
+      "end": 395.42328,
+      "text": "But when we call it, then we get the constructor of that class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 395.72327,
+      "end": 398.16327,
+      "text": "Anyways, I can pass to this any value that I want."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 398.32327,
+      "end": 400.98328,
+      "text": "And if this value is a falsy value, it's going to give me false."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 400.98328,
+      "end": 404.36328,
+      "text": "If it's a truthy value, like one or something that's just not false,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 404.56326,
+      "end": 405.98328,
+      "text": "then it's going to give me true."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 405.98328,
+      "end": 408.86328,
+      "text": "So notice here, if I pass like an empty dictionary, that's going to be false."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 408.86328,
+      "end": 413.00327,
+      "text": "If I pass an empty list, that would have been false. In this case, it's true. Even a number"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 413.00327,
+      "end": 418.50327,
+      "text": "like negative one, this is going to be true because it's not zero. The only, uh, falsy integer value"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 418.50327,
+      "end": 423.50327,
+      "text": "is zero. The next function that I have is known as callable. Now callable is going to tell you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 423.50327,
+      "end": 428.12326,
+      "text": "if something is callable. So that means you can call it like a function. So in this case,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 428.14325,
+      "end": 432.28326,
+      "text": "if I'm saying callable of class, this is going to return true because I can call the class by"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 432.28326,
+      "end": 436.26324,
+      "text": "putting parentheses like this, which is going to give me the constructor of the class, even if it"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 436.26324,
+      "end": 438.56326,
+      "text": "doesn't exist. Next, I have funk."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 438.70325,
+      "end": 440.16327,
+      "text": "Now funk is, of course, a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 440.16327,
+      "end": 441.54327,
+      "text": "function, so it is callable."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 441.56326,
+      "end": 442.64325,
+      "text": "Now notice I'm not putting"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 442.64325,
+      "end": 443.58325,
+      "text": "the parentheses here. I'm"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 443.58325,
+      "end": 455.76492,
+      "text": "just writing the actual name of the function which is the object I checking if it callable or not Next I have function two but I actually calling this function And when I call this function it returns a function and that function"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 455.76492,
+      "end": 459.3049,
+      "text": "will be callable. So this will return true. Next, I have funk three,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 459.3049,
+      "end": 462.70493,
+      "text": "which is a lambda or anonymous function, and this will be callable."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 462.70493,
+      "end": 465.8449,
+      "text": "I can pass a parameter to this and call it like any other function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 466.04492,
+      "end": 468.60492,
+      "text": "Then I have something like a string, which of course is not callable."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 468.60492,
+      "end": 471.44492,
+      "text": "So if I run this here, you can see we get true for the first four"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 471.44492,
+      "end": 472.9049,
+      "text": "and then false for the last one."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 472.9049,
+      "end": 475.66492,
+      "text": "The next function I have here is C-H-R or char."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 475.70493,
+      "end": 477.5049,
+      "text": "Now, this is going to give you the character"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 477.5049,
+      "end": 479.3049,
+      "text": "that's associated with an integer."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 479.3049,
+      "end": 481.98492,
+      "text": "This integer is also referred to as the ordinal value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 482.1849,
+      "end": 486.9049,
+      "text": "So in this case, 65 represents our capital A and 97 represents our lowercase a."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 487.10492,
+      "end": 490.1449,
+      "text": "It's not necessarily intuitive what number represents which character."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 490.5049,
+      "end": 493.82492,
+      "text": "Continuing, if we print this out, you see that we get a and a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 493.82492,
+      "end": 497.2249,
+      "text": "because when past 65, it gives us the character, which is capital A."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 497.66492,
+      "end": 500.82492,
+      "text": "Now, this is often useful when you want to generate a sequence of characters"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 501.3449,
+      "end": 503.5849,
+      "text": "And you don't want to say I have to type a bunch of them out."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 504.04492,
+      "end": 508.2449,
+      "text": "So if I wanted to get maybe the entire alphabet or just a bunch of different characters,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 508.2449,
+      "end": 511.2849,
+      "text": "rather than having to type all of them out on my keyboard and put them in a list,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 511.30493,
+      "end": 514.9849,
+      "text": "I would just increment the ordinal value and pass that to my CHR function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 514.9849,
+      "end": 516.4649,
+      "text": "It would then give me that character."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 516.4649,
+      "end": 519.1449,
+      "text": "And then I could say auto populate a list that contains the alphabet."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 519.2849,
+      "end": 522.1449,
+      "text": "The next function that I have for you here is class method."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 522.24493,
+      "end": 527.4849,
+      "text": "Now class method is used as a decorator on top of a method that you want to have access to the class,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 527.5249,
+      "end": 529.1049,
+      "text": "not to the instance itself."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 529.1049,
+      "end": 533.9849,
+      "text": "whenever you decorate something with a class method by default, the class itself. So actually"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 533.9849,
+      "end": 539.2049,
+      "text": "this class name will be passed inside as the CLS parameter. You will not have access to the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 539.2049,
+      "end": 543.9049,
+      "text": "instance, even if you call this using an instance. So you can see we have a regular method. This"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 543.9049,
+      "end": 548.18494,
+      "text": "regular method just prints itself, which is going to go to this string method right here that I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 548.18494,
+      "end": 552.94495,
+      "text": "implemented. So you can see when I say T equals test class and then T dot regular method that it"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 552.94495,
+      "end": 557.8849,
+      "text": "prints out my test instance. Whereas when I call the class method, either on my instance or on the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 557.8849,
+      "end": 562.5849,
+      "text": "class itself, both are valid and do the same thing. I actually get the class when I print it out"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 562.5849,
+      "end": 568.7849,
+      "text": "because it's not using the representation of the object or of the instance. Next, we have complex."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 568.9249,
+      "end": 572.5449,
+      "text": "Now, I don't really know much about complex numbers, but this is how you can generate complex"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 572.5449,
+      "end": 577.0849,
+      "text": "numbers. You can pass one argument, which is a string, and it gives you the complex number for"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 577.0849,
+      "end": 581.24493,
+      "text": "that, or you can pass two arguments, which I guess are the components of the complex number."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 581.56494,
+      "end": 585.2649,
+      "text": "I'm not a physics guy, so I don't really know how this works, but there you go. You can see"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 585.5449,
+      "end": 586.9249,
+      "text": "complex numbers. The next"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 586.9249,
+      "end": 587.6449,
+      "text": "function I have for you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 587.6449,
+      "end": 588.68494,
+      "text": "here is known as Dell"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 588.68494,
+      "end": 589.74493,
+      "text": "adder. Now this stands"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 589.74493,
+      "end": 591.2649,
+      "text": "for delete attribute and"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 591.2649,
+      "end": 592.18494,
+      "text": "it simply deletes the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 592.18494,
+      "end": 593.7649,
+      "text": "attribute from an object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 593.9849,
+      "end": 594.7649,
+      "text": "So what I've done here"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 594.7649,
+      "end": 595.6049,
+      "text": "is set up a custom"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 595.6049,
+      "end": 596.9049,
+      "text": "class. We define the X"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 596.9049,
+      "end": 597.8849,
+      "text": "attribute on our"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 597.8849,
+      "end": 599.7249,
+      "text": "instance. We say C is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 599.7249,
+      "end": 599.94495,
+      "text": "equal to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 599.993469,
+      "end": 604.853469,
+      "text": "my class and then I can print out C dot X. This will be valid. I'll get 10. Then when I do Dell"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 604.853469,
+      "end": 609.333469,
+      "text": "adder, first I pass the object that I want to be deleting the attribute from. Then I pass the name"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 609.333469,
+      "end": 612.993469,
+      "text": "of the attribute as a string. Don't try to do something like this. That's not going to work."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 613.033469,
+      "end": 616.9334690000001,
+      "text": "You need to pass it as a string. Then it will actually delete the attribute and then you won't"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 616.9334690000001,
+      "end": 620.513469,
+      "text": "be able to access it. So when I do this here, notice I get an error on this line because the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 620.513469,
+      "end": 625.193469,
+      "text": "attribute is now deleted. Now this is completely equivalent to doing Dell dot. And then this is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 625.193469,
+      "end": 629.973469,
+      "text": "going to be C dot X. It is literally the exact same thing. The next function that I have for you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 629.973469,
+      "end": 634.213469,
+      "text": "here is known as dict. Now this is going to create a dictionary. This is actually the constructor for"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 634.213469,
+      "end": 639.4334690000001,
+      "text": "the dictionary class. So notice here that I have a list. Now this contains key value pairs. So I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 639.4334690000001,
+      "end": 644.533469,
+      "text": "have a and one, so this will be my key. This will be my value. Then I can create a dictionary using"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 644.533469,
+      "end": 648.713469,
+      "text": "this. So let's see how this works. Notice I get a one and B one. Now let's just add another value"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 648.713469,
+      "end": 653.333469,
+      "text": "here to something like two one and print this out and notice that I get an error because I don't have"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 653.333469,
+      "end": 658.493469,
+      "text": "exactly two elements. It says has length three, two is required. So there's a few different ways"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 658.493469,
+      "end": 662.033469,
+      "text": "that you can initialize a dictionary using something like a list. In this case, since we"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 662.033469,
+      "end": 666.8134689999999,
+      "text": "have two elements, this is going to work. Even if we change this to a list, we'll be able to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 666.8134689999999,
+      "end": 671.353469,
+      "text": "initialize. So actually let's make it mix type and run this and notice it's the same thing. This"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 671.353469,
+      "end": 675.773469,
+      "text": "is fine. The next function that I have here is known as dir. Now I think dir stands for directory,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 675.773469,
+      "end": 680.493469,
+      "text": "and this is going to give you all of the different members that are available on a specific package"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 680.493469,
+      "end": 682.273469,
+      "text": "or class or whatever you call it on."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 682.573469,
+      "end": 684.553469,
+      "text": "So in this case, I'm calling it on the math package."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 684.993469,
+      "end": 686.973469,
+      "text": "So if I run this, you can see it's going to give me everything"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 686.973469,
+      "end": 689.273469,
+      "text": "inside of the math package, which in this case,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 689.293469,
+      "end": 691.733469,
+      "text": "I guess is all of the functions or methods that you can use."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 691.793469,
+      "end": 694.293469,
+      "text": "Now we can also call this on something like say,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 694.733469,
+      "end": 696.993469,
+      "text": "let's create something like dict."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 697.113469,
+      "end": 700.073469,
+      "text": "Okay. If I call this on dict, it's going to give me all of the methods."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 700.493469,
+      "end": 701.973469,
+      "text": "Hopefully that makes sense. That is dirt."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 702.413469,
+      "end": 704.953469,
+      "text": "The next function I have for you here is known as div mod."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 705.053469,
+      "end": 707.133469,
+      "text": "Now this is kind of a combination of your division"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 707.133469,
+      "end": 709.453469,
+      "text": "and your modular or modulus operator."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 709.453469,
+      "end": 713.793469,
+      "text": "Now what this is going to return to you is the whole number of quotient as well as the remainder"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 713.793469,
+      "end": 718.153469,
+      "text": "after division. So if I do something like 10 divided by three, then this is going to give me"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 718.153469,
+      "end": 722.8134689999999,
+      "text": "three remainder ones. Let's print this out and I get three one. The next function that I have is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 722.8134689999999,
+      "end": 727.053469,
+      "text": "known as enumerate. Now enumerate allows you to have access to the index as well as the value when"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 727.053469,
+      "end": 731.9334690000001,
+      "text": "you're iterating over an iterable object. In this case, I'm iterating over the list and I want both"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 731.9334690000001,
+      "end": 736.353469,
+      "text": "those things. So rather than using the range or just getting the different values, I'll get both"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 736.353469,
+      "end": 737.453469,
+      "text": "using a numerate. When I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 737.453469,
+      "end": 738.153469,
+      "text": "print this out, you can"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 738.153469,
+      "end": 738.873469,
+      "text": "see that's what I get"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 738.873469,
+      "end": 740.233469,
+      "text": "now just to show you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 740.233469,
+      "end": 741.1734690000001,
+      "text": "how this actually works."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 741.213469,
+      "end": 742.573469,
+      "text": "Let's print the list of"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 742.573469,
+      "end": 743.893469,
+      "text": "a numerate and then"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 743.893469,
+      "end": 757.815089,
+      "text": "values The reason I need to make a list here is because a numerate is going to return an iterator It doesn actually give you a list So I need to convert my iterator to a list so that I get all the values Now when I do this notice that it actually just going to give me tuples containing the index as"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 757.815089,
+      "end": 762.855099,
+      "text": "well as the value. And that's why I'm able to use index comma value. This will actually work"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 762.855099,
+      "end": 767.195099,
+      "text": "when you're iterating over an object that has multiple values. So if I do something like index"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 767.195099,
+      "end": 773.155109,
+      "text": "value in say values like this, now it's going to give me the index and the value for every single"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 773.155109,
+      "end": 776.655109,
+      "text": "one of these, right? So it's going to be the exact same thing. The next function that I have for you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 776.655109,
+      "end": 781.3751090000001,
+      "text": "here is known as eval, and this stands for evaluates or evaluation. This allows you to evaluate an"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 781.3751090000001,
+      "end": 786.075099,
+      "text": "expression that is from a string. So in this case, I can actually ask the user to enter some code,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 786.075099,
+      "end": 790.055099,
+      "text": "and then based on what they enter, I can evaluate that. Now, before I even run this, I will mention"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 790.055099,
+      "end": 795.135099,
+      "text": "that a eval can be pretty dangerous. So don't implement this in your code, unless you're very"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 795.135099,
+      "end": 799.715099,
+      "text": "certain what it's doing and how it works. This allows you to well, evaluate expressions, and that"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 799.715099,
+      "end": 800.855099,
+      "text": "can cause harm or do"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 800.855099,
+      "end": 801.615099,
+      "text": "things in your code."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 802.175109,
+      "end": 803.135099,
+      "text": "Now, what I will do is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 803.135099,
+      "end": 804.055099,
+      "text": "just run this script."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 804.135099,
+      "end": 804.555099,
+      "text": "So I'm going to say"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 804.555099,
+      "end": 805.775099,
+      "text": "Python, email dot pi,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 805.955109,
+      "end": 806.935109,
+      "text": "enter some code. Let's"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 806.935109,
+      "end": 808.555099,
+      "text": "do something like print"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 808.555099,
+      "end": 809.995099,
+      "text": "and then hello like"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 809.995099,
+      "end": 810.975099,
+      "text": "that. And notice it"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 810.975099,
+      "end": 811.835099,
+      "text": "actually prints out."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 811.935109,
+      "end": 812.875089,
+      "text": "Hello. Now, obviously"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 812.875089,
+      "end": 813.675109,
+      "text": "I'm not cheating here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 813.715099,
+      "end": 814.655109,
+      "text": "If I change this and do"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 814.655109,
+      "end": 816.095089,
+      "text": "something like print X,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 816.135099,
+      "end": 816.835099,
+      "text": "it's going to print out"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 816.835099,
+      "end": 818.235109,
+      "text": "X. The next function"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 818.235109,
+      "end": 818.895109,
+      "text": "that I have here is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 818.895109,
+      "end": 819.995099,
+      "text": "known as exec. Now this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 819.995099,
+      "end": 820.955109,
+      "text": "stands for execution,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 820.955109,
+      "end": 822.0151089999999,
+      "text": "and this actually allows"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 822.0151089999999,
+      "end": 823.415099,
+      "text": "you to evaluate Python"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 823.415099,
+      "end": 825.055099,
+      "text": "statements, not just"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 825.055099,
+      "end": 826.475099,
+      "text": "expressions. So in the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 826.475099,
+      "end": 827.475099,
+      "text": "previous example, I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 827.475099,
+      "end": 828.275099,
+      "text": "couldn't do something"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 828.275099,
+      "end": 833.675109,
+      "text": "like create a variable or assigned to a variable here though, I actually can do that. So let's run"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 833.675109,
+      "end": 841.815089,
+      "text": "this. Let's say Python exec dot PI. Now let's do something like X equals zero semicolon X plus equals"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 841.815089,
+      "end": 847.475099,
+      "text": "one, and then print out X and we'll put a semicolon and notice I get one. So I can actually build"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 847.475099,
+      "end": 852.255099,
+      "text": "different statements here, have those executed, and I could change the value of variables. So be"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 852.255099,
+      "end": 855.915099,
+      "text": "very careful if you're using exec, but I figured I'd show it to you because it's kind of cool."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 855.915099,
+      "end": 859.575099,
+      "text": "The next function that I have here is known as filter. Now this allows you to filter through"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 859.575099,
+      "end": 864.855099,
+      "text": "values in an iterable object. In this case, I have a list and I want to filter out all of the even"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 864.855099,
+      "end": 869.5151089999999,
+      "text": "values. The way the filter works is you pass a filter function. If this filter function returns"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 869.5151089999999,
+      "end": 874.3151290000001,
+      "text": "true, when the value is passed to it, then it includes that value in the filter object or"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 874.3151290000001,
+      "end": 878.755099,
+      "text": "whatever it returns. Otherwise it does not. Now you can pass an anonymous function like a Lambda"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 878.755099,
+      "end": 883.195099,
+      "text": "function, or you can just pass a normal function like this. Notice here that I'm returning if this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 883.195099,
+      "end": 885.1350990000001,
+      "text": "values divisible by two or not."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 885.415099,
+      "end": 886.695099,
+      "text": "So let's just print this out."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 886.955109,
+      "end": 888.035099,
+      "text": "Notice that when I just print"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 888.035099,
+      "end": 889.235109,
+      "text": "the filter object itself, so"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 889.235109,
+      "end": 890.035099,
+      "text": "let me move this down a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 890.035099,
+      "end": 890.875119,
+      "text": "little bit. When I'm just"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 890.875119,
+      "end": 892.255099,
+      "text": "printing this, it gives me"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 892.255099,
+      "end": 893.795109,
+      "text": "this weird filter object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 893.835069,
+      "end": 894.875119,
+      "text": "That's because this is an"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 894.875119,
+      "end": 906.4967389999999,
+      "text": "iterator This is not actually something that you can view So what I need to do is convert this to a list if I want to be able to print it out and view it However typically you just going to use this object because you can say iterate through this object with no issues You don"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 906.4967389999999,
+      "end": 910.156739,
+      "text": "need to convert it to a list unless you're trying to say, look at it. The next function that I have"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 910.156739,
+      "end": 914.7967189999999,
+      "text": "for you here is known as float. Now this is again, the constructor for the float type. This allows"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 914.7967189999999,
+      "end": 919.836729,
+      "text": "you to convert something to a float. So most useful for a string. However, you can also convert a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 919.836729,
+      "end": 924.696749,
+      "text": "regular integer to a float. Now notice here that we also have a few special things we can pass to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 924.696749,
+      "end": 928.2967189999999,
+      "text": "float. So if you're trying to represent infinity, then you can pass inf and this is going to give"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 928.2967189999999,
+      "end": 933.556729,
+      "text": "you whatever the Python representation of infinity is. You can also pass negative inf and then you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 933.556729,
+      "end": 938.376739,
+      "text": "can do something like use your scientific notation, something like one E negative zero zero three."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 938.376739,
+      "end": 943.2767289999999,
+      "text": "And then if I print this out, you see that I get all of these values. Now, inf and negative inf are"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 943.2767289999999,
+      "end": 947.6167290000001,
+      "text": "actually valid as infinity and Python. So keep that in mind. That's probably the most useful"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 947.6167290000001,
+      "end": 952.0967390000001,
+      "text": "aspect of this float function. The next function I have to show you here is known as format. Now,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 952.0967390000001,
+      "end": 956.056729,
+      "text": "I don't have an hour to explain to you all of the formatting rules that you can use. I've just put"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 956.056729,
+      "end": 960.956729,
+      "text": "them here. You can see that you can use this format function to generate a string that allows"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 960.956729,
+      "end": 966.196719,
+      "text": "you to say align specific characters or change the width of something or the precision or the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 966.196719,
+      "end": 970.816739,
+      "text": "different type that you're showing. You can also use it to create a binary representation of an"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 970.816739,
+      "end": 975.396729,
+      "text": "integer, which is kind of interesting. I can format 100 as the type B, and this is going to give me"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 975.396729,
+      "end": 980.436739,
+      "text": "the binary type. So if I print this out here and notice that I get binary, and if we're looking here"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 980.436739,
+      "end": 984.836729,
+      "text": "at this front example or this top example, I guess, notice that there is a dot format that you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 984.836729,
+      "end": 989.416749,
+      "text": "have access to on a string. And I believe the formatting options are pretty much the exact same."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 989.716739,
+      "end": 993.6167290000001,
+      "text": "It just works a little bit different in terms of how you write to the formatted string. Next,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 993.676729,
+      "end": 999.1167290000001,
+      "text": "we have a frozen set. Now the frozen set function is going to give you an immutable version of a set."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 999.456729,
+      "end": 1004.4767489999999,
+      "text": "So what I do is I pass whatever items I want to be in my immutable set, and then this is going to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1004.4767489999999,
+      "end": 1008.516719,
+      "text": "give it to me. So I have my regular set where I have access to like add, delete, et cetera."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1008.516719,
+      "end": 1012.816739,
+      "text": "And then I have my frozen set. Now, the whole point of a frozen set is that it's immutable,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1013.056729,
+      "end": 1018.336729,
+      "text": "not mutable like a set, meaning I can't change my frozen set. And since my frozen set is immutable,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1018.336729,
+      "end": 1023.756709,
+      "text": "I'm able to use it as a key for a dictionary. So that's probably the most useful aspect of"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1023.756709,
+      "end": 1028.556729,
+      "text": "your frozen set. It's kind of a hashable type. And again, that allows you to use it as a key."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1028.656739,
+      "end": 1032.736769,
+      "text": "The next function that I have here is known as get adder stands for get attribute pretty"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1032.736769,
+      "end": 1037.296749,
+      "text": "straightforward work, similar to Dell attribute. You can see that I pass my object as well as the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1037.296749,
+      "end": 1039.016719,
+      "text": "string representation of the attribute."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1039.116729,
+      "end": 1040.256709,
+      "text": "And I'm able to get that."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1040.416749,
+      "end": 1042.996739,
+      "text": "The next function I have for you here is known as globals."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1042.996739,
+      "end": 1055.058369,
+      "text": "Now globals is going to give you access to all of the global variables in the current namespace So if I print this out here you can see I have my name main I have my file I have If this is cashed I have built blah blah blah Won go"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1055.058369,
+      "end": 1059.878389,
+      "text": "through this. It's fairly advanced. The next function that I have here is my has adder function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1059.998369,
+      "end": 1064.298369,
+      "text": "This tells you if an object has a specific attribute, this is actually fairly useful and"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1064.298369,
+      "end": 1068.818389,
+      "text": "allows you to avoid trying to do like a try except block to see if something exists or not."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1068.818389,
+      "end": 1074.498369,
+      "text": "So you can see that I can check if X exists on C or Y exists on C as always, we're using a string"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1074.498369,
+      "end": 1077.818389,
+      "text": "here rather than typing out with the actual, I guess, character would be."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1078.178369,
+      "end": 1081.538389,
+      "text": "So if I run this here, notice that C does have X, but it does not have Y."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1081.738369,
+      "end": 1083.778369,
+      "text": "The next function that I have here is known as help."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1083.778369,
+      "end": 1085.898369,
+      "text": "Now, this is going to give you the documentation"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1085.898369,
+      "end": 1089.4183990000001,
+      "text": "for whatever object you call this on doesn't work for everything,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1089.4183990000001,
+      "end": 1092.018369,
+      "text": "but it will work for a lot of the built in Python types,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1092.018369,
+      "end": 1094.338369,
+      "text": "or at least it will give you some meaningful information."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1094.338369,
+      "end": 1098.778369,
+      "text": "So if I look here at the help on the class, then you can see I get all of this data."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1099.018369,
+      "end": 1101.138369,
+      "text": "The next function that I have here is known as hex."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1101.138369,
+      "end": 1102.658389,
+      "text": "Now, this stands for hexadecimal,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1102.658389,
+      "end": 1106.858399,
+      "text": "and it's going to give you the hexadecimal representation of an integer. Now, this only"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1106.858399,
+      "end": 1111.4783889999999,
+      "text": "works on a class that implements the underscore underscore index method. Now, if we create a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1111.4783889999999,
+      "end": 1115.878369,
+      "text": "custom class that implements index, this will work. It's just going to return the hex value"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1115.878369,
+      "end": 1121.798399,
+      "text": "of whatever is returned by index. So in this case, when I run this, I get zero X F F zero X one and"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1121.798399,
+      "end": 1128.2183690000002,
+      "text": "zero X a, which is the correct hexadecimal codes for two 55 one, and then four 10, which is returned"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1128.2183690000002,
+      "end": 1133.338369,
+      "text": "when I call this on C because it calls the index method. The next function I have is known as ID."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1133.498369,
+      "end": 1137.858369,
+      "text": "Now, this is going to give you the identifier for a specific Python object. This is very useful if"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1137.858369,
+      "end": 1143.158369,
+      "text": "you want to check if two objects are the same or not. So in this case, I have my mutable list. I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1143.158369,
+      "end": 1147.558409,
+      "text": "then assign Y equals to X. Now this creates an alias, meaning that it's just going to be a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1147.558409,
+      "end": 1153.058409,
+      "text": "reference to the exact same object. So the ID of X and Y should be the same, meaning anything I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1153.058409,
+      "end": 1157.958369,
+      "text": "change on X will change on Y. So let's have a look at this here. You can see these two IDs are the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1157.958369,
+      "end": 1159.378369,
+      "text": "same. Meanwhile, if I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1159.378369,
+      "end": 1160.178409,
+      "text": "have something like a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1160.178409,
+      "end": 1161.558409,
+      "text": "is equal to, and then I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1161.558409,
+      "end": 1162.158369,
+      "text": "believe this is a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1162.158369,
+      "end": 1163.398369,
+      "text": "million and I say B is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1163.398369,
+      "end": 1164.818369,
+      "text": "equal to, and I've done"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1164.818369,
+      "end": 1165.998369,
+      "text": "a plus one minus one."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1166.0783689999998,
+      "end": 1167.278369,
+      "text": "You can see that I get"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1167.278369,
+      "end": 1168.798399,
+      "text": "a different object. Now"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1168.798399,
+      "end": 1169.598369,
+      "text": "kind of an interesting"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1169.598369,
+      "end": 1171.098369,
+      "text": "fact here. If you do B"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1171.098369,
+      "end": 1173.0783689999998,
+      "text": "equals a, and you print"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1173.0783689999998,
+      "end": 1173.918369,
+      "text": "this out, you're going"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1173.918369,
+      "end": 1175.2383989999998,
+      "text": "to get the same ID. Now"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1175.2383989999998,
+      "end": 1175.958369,
+      "text": "the reason you get the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1175.958369,
+      "end": 1177.118369,
+      "text": "same ID is not because"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1177.118369,
+      "end": 1178.378369,
+      "text": "these objects are"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1178.378369,
+      "end": 1179.7183690000002,
+      "text": "identical, but it's has"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1179.7183690000002,
+      "end": 1181.278369,
+      "text": "to do with how Python"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1181.278369,
+      "end": 1182.798399,
+      "text": "is managing memory. So"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1182.798399,
+      "end": 1183.558409,
+      "text": "that's why I had to do"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1183.558409,
+      "end": 1184.818419,
+      "text": "this plus one minus one."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1184.898369,
+      "end": 1186.138369,
+      "text": "So I get the same value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1186.2583690000001,
+      "end": 1187.098369,
+      "text": "However, I get a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1187.098369,
+      "end": 1189.098369,
+      "text": "different object, a little bit weird."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1189.138369,
+      "end": 1191.858369,
+      "text": "Obviously, if I make a change to a, it's not going to affect B."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1191.858369,
+      "end": 1195.838369,
+      "text": "And if I make a change to B, it doesn't affect a, however, to save memory,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1196.158369,
+      "end": 1199.978369,
+      "text": "there's kind of some optimizations going on where they're actually pointing to the same value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1200.0,
+      "end": 1203.9,
+      "text": "you. The next function that I have is the input function. I think you all know what this does,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1203.94,
+      "end": 1208.82,
+      "text": "but this allows you to get user input. Keep in mind, the user input is always entered as a string"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1208.82,
+      "end": 1214.14,
+      "text": "and the input will end as soon as there is a new line character or a carriage return that is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1214.14,
+      "end": 1218.56,
+      "text": "entered. So as soon as you hit enter, then it's going to stop the input and then return whatever"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1218.56,
+      "end": 1223.74,
+      "text": "you typed in to the variable that you assigned to input. Next, we have the int function. Now the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1223.74,
+      "end": 1228.38,
+      "text": "int function is going to be the constructor for the int class allows you to pass pretty well any"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1228.38,
+      "end": 1233.18,
+      "text": "value here and convert it to an int, assuming it's a valid int. If you try to pass something like,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1233.28,
+      "end": 1237.58,
+      "text": "hello, obviously this isn't going to work and it's going to crash, but notice here that if I convert"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1237.58,
+      "end": 1243.2,
+      "text": "one or sorry, if I convert true, I get one. If I convert false, I get zero, uh, just a valid string"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1243.2,
+      "end": 1247.5,
+      "text": "like this. One, two, three, I can even do a negative. If I do something like a floating point"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1247.5,
+      "end": 1251.06,
+      "text": "value, it's just going to strip off whatever the floating point is. So it's not going to round,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1251.12,
+      "end": 1256.7,
+      "text": "it just strips it. So math dot floor or, uh, yeah, math dot floor, not math dot ceiling gives you nine."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1256.7,
+      "end": 1261.0,
+      "text": "And then if I do something like binary and I indicate the base that I want to be converting from,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1261.12,
+      "end": 1265.48,
+      "text": "it will actually give me the integer representation of this binary value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1265.58,
+      "end": 1268.22,
+      "text": "The next function that I have here is known as is instance."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1268.34,
+      "end": 1271.24,
+      "text": "Now, this is going to tell you if an object is an instance of a class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1271.32,
+      "end": 1273.36,
+      "text": "So you can see I have a few basic examples here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1273.42,
+      "end": 1277.8,
+      "text": "I'm saying if A is an instance of int, if B is an instance of float, obviously that is not correct."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1278.2,
+      "end": 1281.66,
+      "text": "If A is an instance of type, if you know what type is, you'll know that's not the case."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1281.9,
+      "end": 1285.52,
+      "text": "However, if we look at int instance of type, you'll see this is actually true."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1285.78,
+      "end": 1288.12,
+      "text": "Now type is kind of the base class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1288.62,
+      "end": 1292.86,
+      "text": "It's not really the best way to describe it, but type is the type of a class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1293.06,
+      "end": 1309.9151,
+      "text": "So int is of type type because all of our classes are the type type I know that seems really weird but you can mess around with this type function and maybe you see what I mean The next function I have you here is is subclass Now again this is going to tell you if something is a subclass of another class"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1309.9951,
+      "end": 1313.795105,
+      "text": "So I have a few classes that I've set up here. I've even done a multiple inheritance example,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1313.795105,
+      "end": 1317.8551,
+      "text": "and you can see that I first check if C is a subclass of a, that is going to be true."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1317.935104,
+      "end": 1323.115105,
+      "text": "Is D a subclass of C? Well, yes, it is because it inherits or non inherits, but it is a drive"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1323.115105,
+      "end": 1330.09511,
+      "text": "class of C is a D a subclass of a while D is going to be a subclass of a because D is a subclass of"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1330.09511,
+      "end": 1335.59511,
+      "text": "C. And since C is a subclass of a, that makes D a subclass of a as well. So it kind of chains like"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1335.59511,
+      "end": 1340.3551,
+      "text": "that continuing is a subclass of a well, of course it is because we inherit from it. And as a subclass"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1340.3551,
+      "end": 1344.3351,
+      "text": "of B well, yes, it is because we inherit from it as well. Looking here, you can see that these are"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1344.3351,
+      "end": 1349.0551,
+      "text": "all true. All right. So we move on to our last function in part one, which is iter. Now iter is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1349.0551,
+      "end": 1349.6351,
+      "text": "going to give you the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1349.6351,
+      "end": 1350.5351,
+      "text": "iterator associated"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1350.5351,
+      "end": 1351.7951,
+      "text": "with a regular iterator,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1351.89511,
+      "end": 1352.7551,
+      "text": "obviously not an"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1352.7551,
+      "end": 1353.7751,
+      "text": "asynchronous iterator."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1353.8751,
+      "end": 1354.6551,
+      "text": "That would be your a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1354.6551,
+      "end": 1355.9351,
+      "text": "iter. You can see that"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1355.9351,
+      "end": 1356.89511,
+      "text": "I've set up a regular"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1356.89511,
+      "end": 1358.1351,
+      "text": "iterator example here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1358.2350999999999,
+      "end": 1359.7151,
+      "text": "And when I call iter on"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1359.7151,
+      "end": 1360.7951,
+      "text": "my custom object, which"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1360.7951,
+      "end": 1362.2751,
+      "text": "implements the iter"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1362.2751,
+      "end": 1363.4751,
+      "text": "dunder method, it"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1363.4751,
+      "end": 1364.3151,
+      "text": "returns to me that"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1364.3151,
+      "end": 1365.33511,
+      "text": "iterator. I can print"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1365.33511,
+      "end": 1366.5551,
+      "text": "out that iterator and I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1366.5551,
+      "end": 1367.39511,
+      "text": "can loop through it."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1367.6951,
+      "end": 1368.5351,
+      "text": "Let's have a look and"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1368.5351,
+      "end": 1369.8151,
+      "text": "notice it all works. So"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1369.8151,
+      "end": 1370.4751,
+      "text": "with that said, that"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1370.4751,
+      "end": 1371.7350999999999,
+      "text": "will conclude part one"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1371.7350999999999,
+      "end": 1372.7551,
+      "text": "of every Python"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1372.7551,
+      "end": 1374.2751,
+      "text": "function. I apologize if"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1374.2751,
+      "end": 1375.2951,
+      "text": "I went too fast for you,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1375.2951,
+      "end": 1375.9151,
+      "text": "but this was really"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1375.9151,
+      "end": 1376.7551,
+      "text": "meant to be kind of an"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1376.7551,
+      "end": 1377.6351,
+      "text": "entertaining and just"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1377.6351,
+      "end": 1378.9351,
+      "text": "quick look at a lot of"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1378.9351,
+      "end": 1379.7551,
+      "text": "the different functions"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1379.7551,
+      "end": 1380.4951,
+      "text": "that exist here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1380.7350999999999,
+      "end": 1381.4951,
+      "text": "Hopefully you learn"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1381.4951,
+      "end": 1382.4151,
+      "text": "something. Hopefully"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1382.4151,
+      "end": 1382.9951,
+      "text": "you're looking forward"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1382.9951,
+      "end": 1383.9151,
+      "text": "to part two and"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1383.9151,
+      "end": 1384.4551099999999,
+      "text": "hopefully you're going"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1384.4551099999999,
+      "end": 1385.4151,
+      "text": "to go by programming"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1385.4151,
+      "end": 1386.4151,
+      "text": "expert.io from the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1386.4151,
+      "end": 1387.2551,
+      "text": "link in the description,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1387.2551,
+      "end": 1387.7951,
+      "text": "which is the best"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1387.7951,
+      "end": 1388.7151,
+      "text": "platform to learn more"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1388.7151,
+      "end": 1390.0151,
+      "text": "about Python and become"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1390.0151,
+      "end": 1390.8151,
+      "text": "a software engineer."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1390.9951,
+      "end": 1391.6951,
+      "text": "I look forward to seeing"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained_NYktbp1WFS8_QwKiCPx",
+      "start": 1391.6951,
+      "end": 1392.9151,
+      "text": "you in part two."
+    }
+  ],
+  "text": "In this video, I'll be showing you every built in Python function. I'll run through a quick example of each, and I guarantee you that you will learn something in this video and that you will see a ton of intermediate and advanced Python examples for every single one of these functions. I will explain the basic usage. I'll throw the definition on the screen. And afterwards, you will know a bunch of functions that you did not know before and probably see a bunch of advanced Python code that you can then go and learn more about. Now I did lie a little bit here. There's a lot of built-in Python functions. So I'm actually going to split this into two parts. In this first part, I'm going to show you approximately half of them, which is about 35 functions. Then in the next part, I will show you the rest. However, I will give you one bonus item in this video, and that is the sponsor of this video. Thanks to Aista for sponsoring this video with Aista. You can create a full stack web app in just five minutes, generate a CRUD API in seconds and have their magic cloud auto magically create your web apps without coding. One of the best parts of their magic cloud is it can wrap new or existing databases in a CRUD API and add security automatically, making you 10 times more productive and saving you hours of work. Now, not only do you get pre-generated CRUD APIs and effortless security, you can also have magic generate a front end user interface for you. This interface is fully featured, allowing you to view and interact with your database and even access administrative controls. Once you're all set up, you can schedule hyper lambda tasks and use their hyper IDE to edit your files directly on your server. Start taking advantage of low and no code software development today by getting started with Iista and magic cloud and getting one free month of usage. Go to Iista.com and sign up now for your free trial. So let's get right into it here. After I tell you that I do have a programming course, programming expert.io. If you want to learn more about Python, learn, go and learn advanced Python specifically, check out that course. I'll leave a link in the description. Anyways, let's dive in here. The first function we have is ABS standing for absolute value. Now absolute value can be used on anything that implements the underscore underscore ABS method. Now that means we can use this on floats. We can use this on ins. And you can see here that if I run my code here, that I get the absolute value, which is just the positive representation of these numbers. So positive nine and positive 100 Now notice that I wrote this custom class here where I implemented my ABS method Now this allows me to return anything that I want And now when I call ABS on my custom object which implements ABS, it's going to return to me. Hello, which is just the lowercase version of the string. Hello. Next function we have is a iter. Now a iter stands for asynchronous iterator, and this returns to the asynchronous iterator associated with an object. Now, obviously this is a little bit advanced, but an asynchronous iterator can be returned from any object that implements the a iter method. So if we have a look here at this example function, we can see that we create an instance of our asynchronous iterator right here. We pass in a start and a stop value. We then get the iterator by calling the a iter function. Now this is similar to the iter function, which you can call on anything that is iterable. A iter is the asynchronous iterable version. So here it's going to return to us ourself, which is just this object. And now if I print this out, you'll see the iterator and then we can loop through the iterator using an asynchronous for loop. Now, what I do inside of here is I actually will automatically await the value coming from my async next method. Now, if I run, you can see that it's going to take a second and every second is going to print out the next value coming from my asynchronous iterator. I'm not going to explain async programming in this video because we don't have enough time. If you want to learn that you could check out something like programming expert. So the next function we have is all now this tells you if all of the values in an iterable object are true. So I can print this out and you can see that we get false for the first one. The reason we get false is because zero is not a truthy value. So every single value in Python or literal that we can type out like this is either true or false. Something like zero is going to be false. Something like an empty string would be false as well. Uh, something like an empty array or an empty list is going to be false as well. And that's why you can see that we're getting the results like this. So fairly useful. One thing to note about say an example like this, where we have D is that since we have elements inside of our nested list, this actually counts as true, which you can see that's printing out here. So even though these values are a falsy value, since this here has elements inside of it, it's a truthy value. And since we have all truthy values inside of our list, we get true when we print out all of D. So the next function we have here is a next a next stands for asynchronous next. And this is what is called on an asynchronous iterator to get the next value. Now, you may not know this, but when you use a for loop, it automatically calls the next or a next method depending on if you using an asynchronous for loop or a regular for loop And in this example here we can actually manually call the next method from an iterator using a neck So if you look down here you can see I awaiting the next value by calling a next I need to use a weight here because this is an asynchronous function and this has a code routine that's being awaited inside of it. So if I run this, you can see that we get one, two and then three. Now I could also have iterated through this using a for loop if I want, but I wanted to show you the next method, which again, just gives you the next value in the iterable sequence coming from an asynchronous iterator. The next function that we have is any. Now, any is going to tell you if any of the values inside of an iterable object are true. Pretty straightforward, similar to all, but only one of the values needs to be truthy. So if I run this here, you can see that I get true, true, true, true until the very end where I get false, because every single value here is a falsy value. So the next function that we have here is bin. Bin stands for binary, and it's going to give you the binary representation of an integer. So in this case, we can print out the binary representation of 100 and negative 100. And notice that rather than giving us the twos compliment representation, it just gives us a negative sign here in front of the zero B. Whenever you have a binary value, it's going to be denoted zero B. You can strip that off. If you first say converted this to a string and then stripped it, it's kind of up to you. You can also use a format method to do this. However, this is the bin function. So the next function I have here is bull. Now bull is actually the constructor for the Boolean type or for the Boolean class. So when I pass a value here to the bull function, it gives me a new Boolean object. So you can see here that when I run this and I print out just bull, which is the function, it's actually giving me class. So this isn't really a function. It's actually a class. But when we call it, then we get the constructor of that class. Anyways, I can pass to this any value that I want. And if this value is a falsy value, it's going to give me false. If it's a truthy value, like one or something that's just not false, then it's going to give me true. So notice here, if I pass like an empty dictionary, that's going to be false. If I pass an empty list, that would have been false. In this case, it's true. Even a number like negative one, this is going to be true because it's not zero. The only, uh, falsy integer value is zero. The next function that I have is known as callable. Now callable is going to tell you if something is callable. So that means you can call it like a function. So in this case, if I'm saying callable of class, this is going to return true because I can call the class by putting parentheses like this, which is going to give me the constructor of the class, even if it doesn't exist. Next, I have funk. Now funk is, of course, a function, so it is callable. Now notice I'm not putting the parentheses here. I'm just writing the actual name of the function which is the object I checking if it callable or not Next I have function two but I actually calling this function And when I call this function it returns a function and that function will be callable. So this will return true. Next, I have funk three, which is a lambda or anonymous function, and this will be callable. I can pass a parameter to this and call it like any other function. Then I have something like a string, which of course is not callable. So if I run this here, you can see we get true for the first four and then false for the last one. The next function I have here is C-H-R or char. Now, this is going to give you the character that's associated with an integer. This integer is also referred to as the ordinal value. So in this case, 65 represents our capital A and 97 represents our lowercase a. It's not necessarily intuitive what number represents which character. Continuing, if we print this out, you see that we get a and a because when past 65, it gives us the character, which is capital A. Now, this is often useful when you want to generate a sequence of characters And you don't want to say I have to type a bunch of them out. So if I wanted to get maybe the entire alphabet or just a bunch of different characters, rather than having to type all of them out on my keyboard and put them in a list, I would just increment the ordinal value and pass that to my CHR function. It would then give me that character. And then I could say auto populate a list that contains the alphabet. The next function that I have for you here is class method. Now class method is used as a decorator on top of a method that you want to have access to the class, not to the instance itself. whenever you decorate something with a class method by default, the class itself. So actually this class name will be passed inside as the CLS parameter. You will not have access to the instance, even if you call this using an instance. So you can see we have a regular method. This regular method just prints itself, which is going to go to this string method right here that I implemented. So you can see when I say T equals test class and then T dot regular method that it prints out my test instance. Whereas when I call the class method, either on my instance or on the class itself, both are valid and do the same thing. I actually get the class when I print it out because it's not using the representation of the object or of the instance. Next, we have complex. Now, I don't really know much about complex numbers, but this is how you can generate complex numbers. You can pass one argument, which is a string, and it gives you the complex number for that, or you can pass two arguments, which I guess are the components of the complex number. I'm not a physics guy, so I don't really know how this works, but there you go. You can see complex numbers. The next function I have for you here is known as Dell adder. Now this stands for delete attribute and it simply deletes the attribute from an object. So what I've done here is set up a custom class. We define the X attribute on our instance. We say C is equal to my class and then I can print out C dot X. This will be valid. I'll get 10. Then when I do Dell adder, first I pass the object that I want to be deleting the attribute from. Then I pass the name of the attribute as a string. Don't try to do something like this. That's not going to work. You need to pass it as a string. Then it will actually delete the attribute and then you won't be able to access it. So when I do this here, notice I get an error on this line because the attribute is now deleted. Now this is completely equivalent to doing Dell dot. And then this is going to be C dot X. It is literally the exact same thing. The next function that I have for you here is known as dict. Now this is going to create a dictionary. This is actually the constructor for the dictionary class. So notice here that I have a list. Now this contains key value pairs. So I have a and one, so this will be my key. This will be my value. Then I can create a dictionary using this. So let's see how this works. Notice I get a one and B one. Now let's just add another value here to something like two one and print this out and notice that I get an error because I don't have exactly two elements. It says has length three, two is required. So there's a few different ways that you can initialize a dictionary using something like a list. In this case, since we have two elements, this is going to work. Even if we change this to a list, we'll be able to initialize. So actually let's make it mix type and run this and notice it's the same thing. This is fine. The next function that I have here is known as dir. Now I think dir stands for directory, and this is going to give you all of the different members that are available on a specific package or class or whatever you call it on. So in this case, I'm calling it on the math package. So if I run this, you can see it's going to give me everything inside of the math package, which in this case, I guess is all of the functions or methods that you can use. Now we can also call this on something like say, let's create something like dict. Okay. If I call this on dict, it's going to give me all of the methods. Hopefully that makes sense. That is dirt. The next function I have for you here is known as div mod. Now this is kind of a combination of your division and your modular or modulus operator. Now what this is going to return to you is the whole number of quotient as well as the remainder after division. So if I do something like 10 divided by three, then this is going to give me three remainder ones. Let's print this out and I get three one. The next function that I have is known as enumerate. Now enumerate allows you to have access to the index as well as the value when you're iterating over an iterable object. In this case, I'm iterating over the list and I want both those things. So rather than using the range or just getting the different values, I'll get both using a numerate. When I print this out, you can see that's what I get now just to show you how this actually works. Let's print the list of a numerate and then values The reason I need to make a list here is because a numerate is going to return an iterator It doesn actually give you a list So I need to convert my iterator to a list so that I get all the values Now when I do this notice that it actually just going to give me tuples containing the index as well as the value. And that's why I'm able to use index comma value. This will actually work when you're iterating over an object that has multiple values. So if I do something like index value in say values like this, now it's going to give me the index and the value for every single one of these, right? So it's going to be the exact same thing. The next function that I have for you here is known as eval, and this stands for evaluates or evaluation. This allows you to evaluate an expression that is from a string. So in this case, I can actually ask the user to enter some code, and then based on what they enter, I can evaluate that. Now, before I even run this, I will mention that a eval can be pretty dangerous. So don't implement this in your code, unless you're very certain what it's doing and how it works. This allows you to well, evaluate expressions, and that can cause harm or do things in your code. Now, what I will do is just run this script. So I'm going to say Python, email dot pi, enter some code. Let's do something like print and then hello like that. And notice it actually prints out. Hello. Now, obviously I'm not cheating here. If I change this and do something like print X, it's going to print out X. The next function that I have here is known as exec. Now this stands for execution, and this actually allows you to evaluate Python statements, not just expressions. So in the previous example, I couldn't do something like create a variable or assigned to a variable here though, I actually can do that. So let's run this. Let's say Python exec dot PI. Now let's do something like X equals zero semicolon X plus equals one, and then print out X and we'll put a semicolon and notice I get one. So I can actually build different statements here, have those executed, and I could change the value of variables. So be very careful if you're using exec, but I figured I'd show it to you because it's kind of cool. The next function that I have here is known as filter. Now this allows you to filter through values in an iterable object. In this case, I have a list and I want to filter out all of the even values. The way the filter works is you pass a filter function. If this filter function returns true, when the value is passed to it, then it includes that value in the filter object or whatever it returns. Otherwise it does not. Now you can pass an anonymous function like a Lambda function, or you can just pass a normal function like this. Notice here that I'm returning if this values divisible by two or not. So let's just print this out. Notice that when I just print the filter object itself, so let me move this down a little bit. When I'm just printing this, it gives me this weird filter object. That's because this is an iterator This is not actually something that you can view So what I need to do is convert this to a list if I want to be able to print it out and view it However typically you just going to use this object because you can say iterate through this object with no issues You don need to convert it to a list unless you're trying to say, look at it. The next function that I have for you here is known as float. Now this is again, the constructor for the float type. This allows you to convert something to a float. So most useful for a string. However, you can also convert a regular integer to a float. Now notice here that we also have a few special things we can pass to float. So if you're trying to represent infinity, then you can pass inf and this is going to give you whatever the Python representation of infinity is. You can also pass negative inf and then you can do something like use your scientific notation, something like one E negative zero zero three. And then if I print this out, you see that I get all of these values. Now, inf and negative inf are actually valid as infinity and Python. So keep that in mind. That's probably the most useful aspect of this float function. The next function I have to show you here is known as format. Now, I don't have an hour to explain to you all of the formatting rules that you can use. I've just put them here. You can see that you can use this format function to generate a string that allows you to say align specific characters or change the width of something or the precision or the different type that you're showing. You can also use it to create a binary representation of an integer, which is kind of interesting. I can format 100 as the type B, and this is going to give me the binary type. So if I print this out here and notice that I get binary, and if we're looking here at this front example or this top example, I guess, notice that there is a dot format that you have access to on a string. And I believe the formatting options are pretty much the exact same. It just works a little bit different in terms of how you write to the formatted string. Next, we have a frozen set. Now the frozen set function is going to give you an immutable version of a set. So what I do is I pass whatever items I want to be in my immutable set, and then this is going to give it to me. So I have my regular set where I have access to like add, delete, et cetera. And then I have my frozen set. Now, the whole point of a frozen set is that it's immutable, not mutable like a set, meaning I can't change my frozen set. And since my frozen set is immutable, I'm able to use it as a key for a dictionary. So that's probably the most useful aspect of your frozen set. It's kind of a hashable type. And again, that allows you to use it as a key. The next function that I have here is known as get adder stands for get attribute pretty straightforward work, similar to Dell attribute. You can see that I pass my object as well as the string representation of the attribute. And I'm able to get that. The next function I have for you here is known as globals. Now globals is going to give you access to all of the global variables in the current namespace So if I print this out here you can see I have my name main I have my file I have If this is cashed I have built blah blah blah Won go through this. It's fairly advanced. The next function that I have here is my has adder function. This tells you if an object has a specific attribute, this is actually fairly useful and allows you to avoid trying to do like a try except block to see if something exists or not. So you can see that I can check if X exists on C or Y exists on C as always, we're using a string here rather than typing out with the actual, I guess, character would be. So if I run this here, notice that C does have X, but it does not have Y. The next function that I have here is known as help. Now, this is going to give you the documentation for whatever object you call this on doesn't work for everything, but it will work for a lot of the built in Python types, or at least it will give you some meaningful information. So if I look here at the help on the class, then you can see I get all of this data. The next function that I have here is known as hex. Now, this stands for hexadecimal, and it's going to give you the hexadecimal representation of an integer. Now, this only works on a class that implements the underscore underscore index method. Now, if we create a custom class that implements index, this will work. It's just going to return the hex value of whatever is returned by index. So in this case, when I run this, I get zero X F F zero X one and zero X a, which is the correct hexadecimal codes for two 55 one, and then four 10, which is returned when I call this on C because it calls the index method. The next function I have is known as ID. Now, this is going to give you the identifier for a specific Python object. This is very useful if you want to check if two objects are the same or not. So in this case, I have my mutable list. I then assign Y equals to X. Now this creates an alias, meaning that it's just going to be a reference to the exact same object. So the ID of X and Y should be the same, meaning anything I change on X will change on Y. So let's have a look at this here. You can see these two IDs are the same. Meanwhile, if I have something like a is equal to, and then I believe this is a million and I say B is equal to, and I've done a plus one minus one. You can see that I get a different object. Now kind of an interesting fact here. If you do B equals a, and you print this out, you're going to get the same ID. Now the reason you get the same ID is not because these objects are identical, but it's has to do with how Python is managing memory. So that's why I had to do this plus one minus one. So I get the same value. However, I get a different object, a little bit weird. Obviously, if I make a change to a, it's not going to affect B. And if I make a change to B, it doesn't affect a, however, to save memory, there's kind of some optimizations going on where they're actually pointing to the same value. you. The next function that I have is the input function. I think you all know what this does, but this allows you to get user input. Keep in mind, the user input is always entered as a string and the input will end as soon as there is a new line character or a carriage return that is entered. So as soon as you hit enter, then it's going to stop the input and then return whatever you typed in to the variable that you assigned to input. Next, we have the int function. Now the int function is going to be the constructor for the int class allows you to pass pretty well any value here and convert it to an int, assuming it's a valid int. If you try to pass something like, hello, obviously this isn't going to work and it's going to crash, but notice here that if I convert one or sorry, if I convert true, I get one. If I convert false, I get zero, uh, just a valid string like this. One, two, three, I can even do a negative. If I do something like a floating point value, it's just going to strip off whatever the floating point is. So it's not going to round, it just strips it. So math dot floor or, uh, yeah, math dot floor, not math dot ceiling gives you nine. And then if I do something like binary and I indicate the base that I want to be converting from, it will actually give me the integer representation of this binary value. The next function that I have here is known as is instance. Now, this is going to tell you if an object is an instance of a class. So you can see I have a few basic examples here. I'm saying if A is an instance of int, if B is an instance of float, obviously that is not correct. If A is an instance of type, if you know what type is, you'll know that's not the case. However, if we look at int instance of type, you'll see this is actually true. Now type is kind of the base class. It's not really the best way to describe it, but type is the type of a class. So int is of type type because all of our classes are the type type I know that seems really weird but you can mess around with this type function and maybe you see what I mean The next function I have you here is is subclass Now again this is going to tell you if something is a subclass of another class So I have a few classes that I've set up here. I've even done a multiple inheritance example, and you can see that I first check if C is a subclass of a, that is going to be true. Is D a subclass of C? Well, yes, it is because it inherits or non inherits, but it is a drive class of C is a D a subclass of a while D is going to be a subclass of a because D is a subclass of C. And since C is a subclass of a, that makes D a subclass of a as well. So it kind of chains like that continuing is a subclass of a well, of course it is because we inherit from it. And as a subclass of B well, yes, it is because we inherit from it as well. Looking here, you can see that these are all true. All right. So we move on to our last function in part one, which is iter. Now iter is going to give you the iterator associated with a regular iterator, obviously not an asynchronous iterator. That would be your a iter. You can see that I've set up a regular iterator example here. And when I call iter on my custom object, which implements the iter dunder method, it returns to me that iterator. I can print out that iterator and I can loop through it. Let's have a look and notice it all works. So with that said, that will conclude part one of every Python function. I apologize if I went too fast for you, but this was really meant to be kind of an entertaining and just quick look at a lot of the different functions that exist here. Hopefully you learn something. Hopefully you're looking forward to part two and hopefully you're going to go by programming expert.io from the link in the description, which is the best platform to learn more about Python and become a software engineer. I look forward to seeing you in part two."
+}

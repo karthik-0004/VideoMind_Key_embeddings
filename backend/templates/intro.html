@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VideoMind</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Clash+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --c1:#0a0a0f;
+  --c2:#0f0f1a;
+  --neon:#39ff14;
+  --cyan:#00d4ff;
+  --purple:#b44fff;
+  --orange:#ff6b00;
+  --white:#f8f8ff;
+  --dim:rgba(248,248,255,0.4);
+}
+html{scroll-behavior:smooth}
+body{background:var(--c1);color:var(--white);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+#cur{position:fixed;width:12px;height:12px;background:var(--neon);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen;box-shadow:0 0 15px var(--neon)}
+#cur2{position:fixed;width:36px;height:36px;border:1px solid rgba(57,255,20,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .12s ease,top .12s ease,width .3s,height .3s}
+
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.028'/%3E%3C/svg%3E");pointer-events:none;z-index:999}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);background:rgba(10,10,15,0.6);border-bottom:1px solid rgba(57,255,20,0.08)}
+.logo{font-family:'JetBrains Mono',monospace;font-size:.95rem;letter-spacing:.08em;display:flex;align-items:center;gap:.5rem}
+.logo-pulse{width:8px;height:8px;background:var(--neon);border-radius:50%;box-shadow:0 0 10px var(--neon);animation:lp 1.5s ease infinite}
+@keyframes lp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+.nav-r{display:flex;align-items:center;gap:2rem}
+.nav-r a{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
+.nav-r a:hover{color:var(--neon)}
+.nav-btn{background:transparent;border:1px solid var(--neon);color:var(--neon);padding:.5rem 1.2rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .3s;position:relative;overflow:hidden}
+.nav-btn::before{content:'';position:absolute;inset:0;background:var(--neon);transform:translateY(100%);transition:transform .3s;z-index:-1}
+.nav-btn:hover{color:var(--c1)}
+.nav-btn:hover::before{transform:translateY(0)}
+
+/* HERO */
+#hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden;padding:0 2.5rem}
+.hero-bg{position:absolute;inset:0;z-index:0}
+canvas#bg{position:absolute;inset:0;width:100%;height:100%}
+
+.hero-left{position:relative;z-index:2;max-width:700px}
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--neon);border:1px solid rgba(57,255,20,0.25);padding:.35rem .8rem;border-radius:2px;display:inline-block;margin-bottom:2rem;animation:fadeUp .6s ease .1s both}
+
+.hero-h1{font-size:clamp(3rem,7vw,7.5rem);font-weight:700;line-height:.95;letter-spacing:-.03em;margin-bottom:1.5rem;animation:fadeUp .6s ease .25s both}
+.hero-h1 .line1{display:block;color:var(--white)}
+.hero-h1 .line2{display:block;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.3);font-style:italic}
+.hero-h1 .line3{display:block;background:linear-gradient(90deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.hero-sub{font-size:1.05rem;color:var(--dim);max-width:480px;line-height:1.7;margin-bottom:2.5rem;animation:fadeUp .6s ease .4s both}
+.hero-btns{display:flex;gap:1rem;animation:fadeUp .6s ease .55s both}
+.btn-main{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 2.2rem;background:var(--neon);color:var(--c1);font-weight:700;font-size:.9rem;letter-spacing:.04em;text-decoration:none;border-radius:2px;transition:all .3s;position:relative;overflow:hidden}
+.btn-main::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);transform:translateX(-100%);transition:transform .5s}
+.btn-main:hover{box-shadow:0 0 40px rgba(57,255,20,.5);transform:translateY(-2px)}
+.btn-main:hover::after{transform:translateX(100%)}
+.btn-line{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 2rem;border:1px solid rgba(255,255,255,.15);color:var(--dim);font-size:.9rem;text-decoration:none;border-radius:2px;transition:all .3s}
+.btn-line:hover{border-color:var(--cyan);color:var(--cyan)}
+
+.hero-right{position:absolute;right:2.5rem;top:50%;transform:translateY(-50%);z-index:2;display:flex;flex-direction:column;gap:1.5rem;animation:fadeUp .6s ease .7s both}
+.stat-box{text-align:right}
+.stat-n{font-size:2.8rem;font-weight:700;line-height:1;color:var(--white)}
+.stat-n em{color:var(--neon);font-style:normal;font-size:1.4rem}
+.stat-l{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-top:.2rem}
+
+.scroll-hint{position:absolute;bottom:2rem;left:2.5rem;z-index:2;display:flex;align-items:center;gap:.8rem;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);animation:fadeUp .6s ease .9s both}
+.scroll-line-anim{width:40px;height:1px;background:var(--neon);position:relative;overflow:hidden}
+.scroll-line-anim::after{content:'';position:absolute;inset:0;background:rgba(57,255,20,.3);animation:scan 2s ease infinite}
+@keyframes scan{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+
+/* TICKER */
+.ticker{border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:.75rem 0;overflow:hidden;background:rgba(255,255,255,.015)}
+.ticker-track{display:flex;gap:2.5rem;width:max-content;animation:tick 20s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);white-space:nowrap;display:flex;align-items:center;gap:.8rem}
+.ticker-item b{color:var(--neon);font-weight:400}
+
+/* SECTIONS */
+.sec{padding:7rem 2.5rem;position:relative}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--cyan);display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem}
+.sec-label::before{content:'';width:24px;height:1px;background:var(--cyan)}
+.sec-h2{font-size:clamp(2.2rem,4.5vw,4.2rem);font-weight:700;line-height:1.05;letter-spacing:-.025em;margin-bottom:1rem}
+.sec-h2 em{font-style:italic;color:var(--cyan)}
+
+/* PIPELINE */
+#pipe{background:linear-gradient(180deg,var(--c1),var(--c2))}
+.pipe-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.05);margin-top:4rem}
+.pipe-card{background:var(--c1);padding:2.5rem 1.8rem;position:relative;overflow:hidden;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
+.pipe-card.on{opacity:1;transform:translateY(0)}
+.pipe-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(57,255,20,.04),transparent);opacity:0;transition:opacity .4s}
+.pipe-card:hover::before{opacity:1}
+.pipe-card:hover{background:#0d0d16}
+.pipe-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2rem}
+.pipe-icon{font-size:1.8rem}
+.pipe-num{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.2);letter-spacing:.15em}
+.pipe-name{font-weight:700;font-size:1rem;color:var(--white);margin-bottom:.4rem}
+.pipe-tool{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--neon);letter-spacing:.08em;margin-bottom:.8rem}
+.pipe-desc{font-size:.82rem;color:var(--dim);line-height:1.6}
+.pipe-connector{position:absolute;top:50%;right:-1px;width:1px;height:30%;background:linear-gradient(to bottom,transparent,var(--neon),transparent);transform:translateY(-50%);opacity:.4}
+
+/* FEATURES */
+#feat{background:var(--c2)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.04);margin-top:4rem}
+.feat-cell{background:var(--c2);padding:3rem 2.5rem;position:relative;overflow:hidden;opacity:0;transform:translateY(15px);transition:opacity .5s,transform .5s;cursor:default}
+.feat-cell.on{opacity:1;transform:translateY(0)}
+.feat-cell::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple),transparent);transform:scaleX(0);transition:transform .4s}
+.feat-cell:hover::after{transform:scaleX(1)}
+.feat-cell:hover{background:#12121e}
+.feat-n{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:rgba(255,255,255,.15);margin-bottom:1.2rem}
+.feat-ico{font-size:2rem;margin-bottom:1rem;display:block}
+.feat-t{font-weight:700;font-size:1.05rem;color:var(--white);margin-bottom:.6rem}
+.feat-d{font-size:.88rem;color:var(--dim);line-height:1.7}
+
+/* TERMINAL */
+#term-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center;padding:7rem 2.5rem;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.term-box{background:#070710;border:1px solid rgba(57,255,20,.15);border-radius:6px;overflow:hidden;box-shadow:0 0 60px rgba(57,255,20,.05),0 40px 80px rgba(0,0,0,.6);opacity:0;transform:translateX(-30px);transition:opacity .8s,transform .8s}
+.term-box.on{opacity:1;transform:translateX(0)}
+.term-head{background:#0b0b16;padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid rgba(57,255,20,.08)}
+.td{width:10px;height:10px;border-radius:50%}
+.td.r{background:#ff5f57}.td.y{background:#febc2e}.td.g{background:#28c840}
+.term-name{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:rgba(255,255,255,.3);margin-left:.5rem}
+.term-body{padding:1.5rem;font-family:'JetBrains Mono',monospace;font-size:.75rem;line-height:2.1}
+.tl{display:flex;gap:.7rem}
+.tp{color:var(--neon);flex-shrink:0}
+.tt{color:#9de89d}
+.tc{color:rgba(255,255,255,.22)}
+.th{color:var(--cyan)}
+.ts{color:#28c840}
+.tout{padding-left:1rem;color:rgba(255,255,255,.35)}
+.tcurs{display:inline-block;width:7px;height:13px;background:var(--neon);animation:blink 1s step-end infinite;vertical-align:middle}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.term-text{opacity:0;transform:translateX(30px);transition:opacity .8s .2s,transform .8s .2s}
+.term-text.on{opacity:1;transform:translateX(0)}
+.term-stats{display:flex;gap:2.5rem;margin-top:2.5rem}
+.ts-item .ts-n{font-size:2.5rem;font-weight:700;color:var(--white);line-height:1}
+.ts-item .ts-n span{color:var(--neon);font-size:1.2rem}
+.ts-item .ts-l{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:.3rem}
+
+/* SPEED */
+#spd{padding:7rem 2.5rem;text-align:center;background:var(--c1)}
+.spd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.04);max-width:860px;margin:4rem auto 0}
+.spd-cell{background:var(--c1);padding:2.5rem 1rem;opacity:0;transform:translateY(15px);transition:opacity .4s,transform .4s;position:relative;overflow:hidden}
+.spd-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);transform:scaleX(0);transition:transform .4s}
+.spd-cell:hover::before{transform:scaleX(1)}
+.spd-cell.on{opacity:1;transform:translateY(0)}
+.spd-cell:hover{background:var(--c2)}
+.spd-n{font-size:3rem;font-weight:700;line-height:1;color:var(--white);margin-bottom:.3rem}
+.spd-n span{color:var(--cyan);font-size:1.4rem}
+.spd-l{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:.4rem}
+.spd-s{font-size:.75rem;color:rgba(255,255,255,.2)}
+.spd-pw{text-align:center;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-top:1.8rem}
+
+/* CTA */
+#cta{padding:10rem 2.5rem;text-align:center;position:relative;overflow:hidden;background:var(--c2)}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(57,255,20,.07),transparent 70%);pointer-events:none}
+.cta-glow2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(180,79,255,.08),transparent 70%);pointer-events:none}
+.cta-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--purple);display:inline-block;margin-bottom:1.8rem;border:1px solid rgba(180,79,255,.25);padding:.35rem .8rem;border-radius:2px}
+.cta-h2{font-size:clamp(3rem,6vw,6rem);font-weight:700;line-height:1;letter-spacing:-.03em;margin-bottom:1.2rem}
+.cta-h2 em{font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.3)}
+.cta-sub{font-size:1rem;color:var(--dim);max-width:450px;margin:0 auto 3rem;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:.8rem;padding:1.1rem 3rem;background:linear-gradient(135deg,var(--neon),var(--cyan));color:var(--c1);font-weight:700;font-size:.95rem;letter-spacing:.04em;text-decoration:none;border-radius:2px;transition:all .3s;position:relative;overflow:hidden}
+.cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--cyan),var(--purple));opacity:0;transition:opacity .3s}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(57,255,20,.25)}
+.cta-btn:hover::before{opacity:1}
+.cta-btn span{position:relative;z-index:1}
+.cta-note{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:rgba(255,255,255,.2);margin-top:1.2rem;display:block}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,.05);padding:1.8rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:var(--c1)}
+.fc{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:rgba(255,255,255,.25)}
+.ft{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--neon)}
+
+/* REVEAL */
+[data-r]{opacity:0;transform:translateY(25px);transition:opacity .7s,transform .7s}
+[data-r].on{opacity:1;transform:translateY(0)}
+
+@media(max-width:1024px){
+  .pipe-grid{grid-template-columns:repeat(3,1fr)}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  #term-wrap{grid-template-columns:1fr}
+  .spd-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-right{display:none}
+}
+@media(max-width:640px){
+  .pipe-grid{grid-template-columns:1fr 1fr}
+  .feat-grid{grid-template-columns:1fr}
+  #hero,.sec,#term-wrap,#spd,#cta{padding:5rem 1.5rem}
+  nav{padding:1rem 1.5rem}
+  .nav-r .nav-r-links{display:none}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<nav>
+  <div class="logo"><div class="logo-pulse"></div>VideoMind</div>
+  <div class="nav-r">
+    <div class="nav-r-links" style="display:flex;gap:2rem">
+      <a href="#pipe">Pipeline</a>
+      <a href="#feat">Features</a>
+      <a href="#spd">Speed</a>
+    </div>
+    <a href="http://localhost:5173" class="nav-btn">Launch →</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <canvas id="bg"></canvas>
+  <div class="hero-left">
+    <div class="hero-tag">// AI-Powered Video Intelligence</div>
+    <h1 class="hero-h1">
+      <span class="line1">Videos contain</span>
+      <span class="line2">everything.</span>
+      <span class="line3">We extract it.</span>
+    </h1>
+    <p class="hero-sub">Drop any video. VideoMind transcribes, embeds, and makes every second searchable — answering your questions with pinpoint timestamps.</p>
+    <div class="hero-btns">
+      <a href="http://localhost:5173" class="btn-main"><span>Start Now</span><span>→</span></a>
+      <a href="#pipe" class="btn-line"><span>How it works</span></a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-box"><div class="stat-n">15<em>x</em></div><div class="stat-l">Faster pipeline</div></div>
+    <div class="stat-box"><div class="stat-n">99<em>+</em></div><div class="stat-l">Languages</div></div>
+    <div class="stat-box"><div class="stat-n">4<em>min</em></div><div class="stat-l">23 min video</div></div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line-anim"></div><span>Scroll to explore</span></div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><b>FFmpeg</b> Video Compression</div>
+    <div class="ticker-item"><b>Groq Whisper</b> Transcription</div>
+    <div class="ticker-item"><b>OpenAI</b> Embeddings</div>
+    <div class="ticker-item"><b>Cosine Similarity</b> Search</div>
+    <div class="ticker-item"><b>GPT-4o-mini</b> PDF Generation</div>
+    <div class="ticker-item"><b>Timestamped</b> Answers</div>
+    <div class="ticker-item"><b>RAG</b> Architecture</div>
+    <div class="ticker-item"><b>Django</b> Backend</div>
+    <div class="ticker-item"><b>React</b> Frontend</div>
+    <div class="ticker-item"><b>FFmpeg</b> Video Compression</div>
+    <div class="ticker-item"><b>Groq Whisper</b> Transcription</div>
+    <div class="ticker-item"><b>OpenAI</b> Embeddings</div>
+    <div class="ticker-item"><b>Cosine Similarity</b> Search</div>
+    <div class="ticker-item"><b>GPT-4o-mini</b> PDF Generation</div>
+    <div class="ticker-item"><b>Timestamped</b> Answers</div>
+    <div class="ticker-item"><b>RAG</b> Architecture</div>
+    <div class="ticker-item"><b>Django</b> Backend</div>
+    <div class="ticker-item"><b>React</b> Frontend</div>
+  </div>
+</div>
+
+<section class="sec" id="pipe">
+  <div data-r>
+    <div class="sec-label">The Pipeline</div>
+    <h2 class="sec-h2">Five steps.<br><em>One intelligent system.</em></h2>
+  </div>
+  <div class="pipe-grid">
+    <div class="pipe-card">
+      <div class="pipe-top"><div class="pipe-icon">🎬</div><div class="pipe-num">01</div></div>
+      <div class="pipe-name">Upload</div>
+      <div class="pipe-tool">React + Django</div>
+      <div class="pipe-desc">Drag & drop any video. Real-time status tracking at every stage of the pipeline.</div>
+      <div class="pipe-connector"></div>
+    </div>
+    <div class="pipe-card">
+      <div class="pipe-top"><div class="pipe-icon">⚡</div><div class="pipe-num">02</div></div>
+      <div class="pipe-name">Compress</div>
+      <div class="pipe-tool">FFmpeg CRF-23</div>
+      <div class="pipe-desc">Auto-compressed 70% smaller. Faster everything — upload, convert, store.</div>
+      <div class="pipe-connector"></div>
+    </div>
+    <div class="pipe-card">
+      <div class="pipe-top"><div class="pipe-icon">🎙️</div><div class="pipe-num">03</div></div>
+      <div class="pipe-name">Transcribe</div>
+      <div class="pipe-tool">Groq Whisper</div>
+      <div class="pipe-desc">Parallel chunk transcription. Every word timestamped. 99 languages. Blazing fast on Groq LPUs.</div>
+      <div class="pipe-connector"></div>
+    </div>
+    <div class="pipe-card">
+      <div class="pipe-top"><div class="pipe-icon">🧠</div><div class="pipe-num">04</div></div>
+      <div class="pipe-name">Embed</div>
+      <div class="pipe-tool">OpenAI API</div>
+      <div class="pipe-desc">1536-dim semantic vectors. Every chunk mapped into meaning-space for precise RAG retrieval.</div>
+      <div class="pipe-connector"></div>
+    </div>
+    <div class="pipe-card">
+      <div class="pipe-top"><div class="pipe-icon">📄</div><div class="pipe-num">05</div></div>
+      <div class="pipe-name">Output</div>
+      <div class="pipe-tool">GPT-4o-mini</div>
+      <div class="pipe-desc">Ask anything. Get timestamped answers. Export beautiful study PDFs automatically.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="feat" style="background:var(--c2)">
+  <div data-r>
+    <div class="sec-label">Capabilities</div>
+    <h2 class="sec-h2">Built different.<br><em>Works better.</em></h2>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-cell"><div class="feat-n">001</div><span class="feat-ico">⏱️</span><div class="feat-t">Timestamped Answers</div><div class="feat-d">Every answer pinpoints the exact moment in the video. Click the timestamp — jump right there.</div></div>
+    <div class="feat-cell"><div class="feat-n">002</div><span class="feat-ico">🔍</span><div class="feat-t">Semantic Search</div><div class="feat-d">Understands meaning, not keywords. OpenAI embeddings find the right context every single time.</div></div>
+    <div class="feat-cell"><div class="feat-n">003</div><span class="feat-ico">📚</span><div class="feat-t">AI Study PDFs</div><div class="feat-d">GPT-4o-mini rewrites transcripts into structured educational notes. Concepts, examples, code — all formatted.</div></div>
+    <div class="feat-cell"><div class="feat-n">004</div><span class="feat-ico">🌍</span><div class="feat-t">99 Languages</div><div class="feat-d">Whisper large-v3-turbo handles 99 languages flawlessly. Upload anything, in any language.</div></div>
+    <div class="feat-cell"><div class="feat-n">005</div><span class="feat-ico">🚀</span><div class="feat-t">15x Faster</div><div class="feat-d">Parallel transcription + batch embeddings + compression. 45 minutes → under 4 minutes.</div></div>
+    <div class="feat-cell"><div class="feat-n">006</div><span class="feat-ico">💬</span><div class="feat-t">Contextual Chat</div><div class="feat-d">LLaMA 3.3-70b on Groq. Ask complex multi-part questions. Get answers from the exact right segment.</div></div>
+  </div>
+</section>
+
+<div id="term-wrap">
+  <div class="term-box" id="termBox">
+    <div class="term-head"><div class="td r"></div><div class="td y"></div><div class="td g"></div><div class="term-name">pipeline.log — live</div></div>
+    <div class="term-body">
+      <div class="tl"><span class="tp">$</span><span class="tt">upload <span class="th">lecture_23min.mp4</span> <span class="tc">(487MB)</span></span></div>
+      <div class="tl"><span class="tout tc">→ queued for processing...</span></div>
+      <div class="tl"><span class="tp">✓</span><span class="tt">compressed <span class="th">487MB → 142MB</span> <span class="tc">(-70%)</span></span></div>
+      <div class="tl"><span class="tp">✓</span><span class="tt">audio extracted <span class="th">28s</span></span></div>
+      <div class="tl"><span class="tout tc">→ splitting into 3 chunks...</span></div>
+      <div class="tl"><span class="tp">✓</span><span class="tt">lang: <span class="ts">English</span> → turbo model</span></div>
+      <div class="tl"><span class="tout tc">→ transcribing in parallel [▓▓▓▓▓▓▓░░░]</span></div>
+      <div class="tl"><span class="tp">✓</span><span class="tt">transcript <span class="th">47s</span> <span class="tc">(3 chunks × parallel)</span></span></div>
+      <div class="tl"><span class="tout tc">→ generating embeddings...</span></div>
+      <div class="tl"><span class="tp">✓</span><span class="tt">embedded <span class="th">89 chunks</span> × 1536-dim <span class="tc">9s</span></span></div>
+      <div class="tl"><span class="tout tc">→ gpt-4o-mini generating PDF...</span></div>
+      <div class="tl"><span class="tp">✓</span><span class="tt">PDF <span class="th">42 pages</span> <span class="tc">2m 14s</span></span></div>
+      <div class="tl"><span class="tp" style="color:#28c840">✓</span><span class="ts">DONE — <span class="th">4m 07s</span> total</span></div>
+      <div class="tl"><span class="tout">&nbsp;</span><span class="tcurs"></span></div>
+    </div>
+  </div>
+  <div class="term-text" id="termTxt">
+    <div class="sec-label">Live Logs</div>
+    <h2 class="sec-h2" style="margin-bottom:1.2rem">No black<br><em>boxes.</em></h2>
+    <p style="color:var(--dim);line-height:1.8;font-size:.95rem;margin-bottom:1rem">Watch every stage of your video pipeline execute in real time. From raw upload to fully searchable knowledge — complete transparency.</p>
+    <p style="color:var(--dim);line-height:1.8;font-size:.95rem">Every step logged. Every error surfaced. Every optimization visible.</p>
+    <div class="term-stats">
+      <div class="ts-item"><div class="ts-n">4<span>min</span></div><div class="ts-l">23 min video</div></div>
+      <div class="ts-item"><div class="ts-n">89<span>×</span></div><div class="ts-l">Chunks embedded</div></div>
+      <div class="ts-item"><div class="ts-n">42<span>pg</span></div><div class="ts-l">PDF generated</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="spd">
+  <div data-r>
+    <div class="sec-label" style="justify-content:center;display:flex">Speed</div>
+    <h2 class="sec-h2" style="text-align:center">Processing time<br><em>per video length</em></h2>
+  </div>
+  <div class="spd-grid">
+    <div class="spd-cell"><div class="spd-l">1 min video</div><div class="spd-n">~1<span>min</span></div><div class="spd-s">45sec – 1.5min</div></div>
+    <div class="spd-cell"><div class="spd-l">10 min video</div><div class="spd-n">~3<span>min</span></div><div class="spd-s">3 – 5 min</div></div>
+    <div class="spd-cell"><div class="spd-l">23 min video</div><div class="spd-n">~4<span>min</span></div><div class="spd-s">4 – 7 min</div></div>
+    <div class="spd-cell"><div class="spd-l">1 hour video</div><div class="spd-n">~15<span>min</span></div><div class="spd-s">12 – 18 min</div></div>
+  </div>
+  <p class="spd-pw">Groq LPUs · OpenAI Embeddings · FFmpeg · GPT-4o-mini · Django · React</p>
+</section>
+
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-glow2"></div>
+  <div class="cta-tag">// Ready to begin</div>
+  <h2 class="cta-h2">Your videos.<br><em>Unlocked.</em></h2>
+  <p class="cta-sub">Upload your first video right now. No setup. No waiting. Just intelligence.</p>
+  <a href="http://localhost:5173" class="cta-btn"><span>Open VideoMind</span><span>→</span></a>
+  <span class="cta-note">localhost:5173 · development build · built by Karthik</span>
+</section>
+
+<footer>
+  <div class="fc">© 2026 VideoMind · Built by Karthik</div>
+  <div class="ft">RAG · AI · SEMANTIC SEARCH</div>
+</footer>
+
+<script>
+// CURSOR
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,r2x=0,r2y=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function loop(){r2x+=(mx-r2x)*.13;r2y+=(my-r2y)*.13;cur2.style.left=r2x+'px';cur2.style.top=r2y+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';cur2.style.width='55px';cur2.style.height='55px'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='12px';cur.style.height='12px';cur2.style.width='36px';cur2.style.height='36px'});
+});
+
+// CANVAS PARTICLE FIELD
+const canvas=document.getElementById('bg');
+const ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+resize();window.addEventListener('resize',resize);
+class Particle{
+  constructor(){this.reset()}
+  reset(){
+    this.x=Math.random()*W;this.y=Math.random()*H;
+    this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;
+    this.size=Math.random()*1.5+.3;
+    this.alpha=Math.random()*.5+.1;
+    this.color=Math.random()>.6?'57,255,20':Math.random()>.5?'0,212,255':'180,79,255';
+  }
+  update(){
+    this.x+=this.vx;this.y+=this.vy;
+    if(this.x<0||this.x>W||this.y<0||this.y>H)this.reset();
+  }
+  draw(){
+    ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fillStyle=`rgba(${this.color},${this.alpha})`;ctx.fill();
+  }
+}
+for(let i=0;i<120;i++)particles.push(new Particle());
+
+// Mouse influence
+let mouseX=W/2,mouseY=H/2;
+document.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY});
+
+function drawConnections(){
+  for(let i=0;i<particles.length;i++){
+    for(let j=i+1;j<particles.length;j++){
+      const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<100){
+        ctx.beginPath();
+        ctx.strokeStyle=`rgba(57,255,20,${.06*(1-dist/100)})`;
+        ctx.lineWidth=.5;
+        ctx.moveTo(particles[i].x,particles[i].y);
+        ctx.lineTo(particles[j].x,particles[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function anim(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p=>{
+    const dx=p.x-mouseX,dy=p.y-mouseY,dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<150){p.x+=dx/dist*.8;p.y+=dy/dist*.8;}
+    p.update();p.draw();
+  });
+  drawConnections();
+  requestAnimationFrame(anim);
+}
+anim();
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*70);obs.unobserve(e.target);}
+  });
+},{threshold:.12});
+document.querySelectorAll('[data-r],.pipe-card,.feat-cell,.spd-cell').forEach(el=>obs.observe(el));
+
+const obs2=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs2.unobserve(e.target);}});
+},{threshold:.2});
+document.querySelectorAll('.term-box,.term-text').forEach(el=>obs2.observe(el));
+
+// Stagger delays
+document.querySelectorAll('.pipe-card').forEach((c,i)=>c.style.transitionDelay=(i*.1)+'s');
+document.querySelectorAll('.feat-cell').forEach((c,i)=>c.style.transitionDelay=(i*.07)+'s');
+document.querySelectorAll('.spd-cell').forEach((c,i)=>c.style.transitionDelay=(i*.08)+'s');
+</script>
+</body>
+</html>

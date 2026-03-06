@@ -1,0 +1,35 @@
+/* ═══════════════════════════════════════════════════════════════
+   Card — Elevated surface component
+   ═══════════════════════════════════════════════════════════════ */
+.card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    border: 1px solid var(--border);
+}
+
+.card-hover {
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md);
+}
+
+/* Flat variant */
+.card.flat {
+    box-shadow: none;
+}
+
+/* Primary surface */
+.card.primary {
+    background: var(--surface-raised);
+}
+
+/* Accented left border */
+.card.accent {
+    border-left: 3px solid var(--primary);
+}

@@ -1,0 +1,145 @@
+/* ═══════════════════════════════════════════════════════════════
+   History Page
+   ═══════════════════════════════════════════════════════════════ */
+.history-page {
+    width: 100%;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-5);
+    gap: var(--space-4);
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.header-title svg {
+    color: var(--primary);
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+}
+
+.header-title h1 {
+    margin: 0;
+    font-size: var(--font-h1);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.header-subtitle {
+    margin: var(--space-1) 0 0 0;
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+}
+
+/* ── Summary Bar ── */
+.history-summary {
+    margin-bottom: var(--space-5);
+    padding: var(--space-3) var(--space-4);
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+}
+
+.history-summary p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+}
+
+.history-summary strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* ── Daily Buckets Container ── */
+.daily-buckets-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+/* ── Loading / Empty States ── */
+.loading-state,
+.empty-state {
+    text-align: center;
+    padding: var(--space-16) var(--space-6);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-5);
+}
+
+.loading-state p {
+    color: var(--text-tertiary);
+    font-size: var(--font-sm);
+    margin: 0;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.empty-icon {
+    color: var(--border);
+    opacity: 0.6;
+    margin-bottom: var(--space-2);
+    width: 48px;
+    height: 48px;
+}
+
+.empty-state h2 {
+    margin: 0;
+    font-size: var(--font-h3);
+    color: var(--text-primary);
+}
+
+.empty-state p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+}
+
+/* ── Spinning animation ── */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinning {
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .history-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-title h1 {
+        font-size: var(--font-h3);
+    }
+
+    .header-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

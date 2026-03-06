@@ -1,0 +1,56 @@
+/* ═══════════════════════════════════════════════════════════════
+   PDF Viewer Page
+   ═══════════════════════════════════════════════════════════════ */
+.pdf-viewer-page {
+    height: calc(100vh - var(--space-16));
+    display: flex;
+    flex-direction: column;
+}
+
+.pdf-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
+}
+
+.pdf-header h2 {
+    flex: 1;
+    color: var(--text-primary);
+    font-size: var(--font-h3);
+    font-weight: 600;
+}
+
+.pdf-actions {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.pdf-container {
+    flex: 1;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+}
+
+.pdf-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.loading-state,
+.error-state {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-16);
+    border: 1px solid var(--border);
+    font-size: var(--font-body);
+}

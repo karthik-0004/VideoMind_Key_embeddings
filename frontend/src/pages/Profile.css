@@ -1,0 +1,197 @@
+/* ═══════════════════════════════════════════════════════════════
+   Profile Page
+   ═══════════════════════════════════════════════════════════════ */
+.profile-page {
+    width: 100%;
+}
+
+.profile-page h1 {
+    font-size: var(--font-h1);
+    margin-bottom: var(--space-6);
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* ── Profile Header Card ── */
+.profile-header-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin-bottom: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.profile-avatar-large img {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-full);
+    border: 3px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    object-fit: cover;
+}
+
+.profile-avatar-large .avatar-placeholder {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-full);
+    border: 3px solid var(--border);
+    background: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-header-info {
+    flex: 1;
+}
+
+.profile-header-info h2 {
+    font-size: var(--font-h2);
+    margin: 0 0 var(--space-1) 0;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.profile-header-info .profile-email {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.profile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-4);
+    background: var(--primary-light);
+    border-radius: var(--radius-full);
+    font-size: var(--font-xs);
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Account Section ── */
+.account-section {
+    margin-bottom: var(--space-12);
+}
+
+.account-section h2 {
+    font-size: var(--font-h2);
+    margin-bottom: var(--space-5);
+    color: var(--text-primary);
+}
+
+.account-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-5);
+}
+
+.action-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.action-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-sm);
+}
+
+.action-card-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--primary-light);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+}
+
+.action-card h3 {
+    font-size: var(--font-body);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.action-card p {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ── Stats Section ── */
+.stats-section h2 {
+    font-size: var(--font-h2);
+    margin-bottom: var(--space-5);
+    color: var(--text-primary);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-5);
+}
+
+.stat-icon {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-2);
+    filter: grayscale(1);
+}
+
+.stat-value {
+    font-size: var(--font-h1);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.stat-label {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-header-card {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-6);
+    }
+
+    .profile-header-info h2 {
+        font-size: var(--font-h3);
+    }
+
+    .profile-header-info .profile-email {
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

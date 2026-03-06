@@ -1,0 +1,1041 @@
+{
+  "chunks": [
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 0.0,
+      "end": 5.3,
+      "text": "function and get added into a new map object. And then what we can do is convert that map map object"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 5.3,
+      "end": 10.66,
+      "text": "to a list story. And now we'll get the squares of every single element from our sequence. Now you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 10.66,
+      "end": 15.26,
+      "text": "can do the same thing here with a dictionary. So I've created kind of a more advanced example,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 15.26,
+      "end": 21.54,
+      "text": "I guess we have a function. What this function does is it takes items, which is this array or"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 21.54,
+      "end": 26.8,
+      "text": "this list at whatever key is passed to the function. And then it multiplies it by the key."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 26.8,
+      "end": 30.42,
+      "text": "Now, in this case, we're going to have string multiplication and you'll see what kind of"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 30.42,
+      "end": 34.68,
+      "text": "happens in this example. So if I run this, we get all of the squares from one to 10,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 34.98,
+      "end": 39.76,
+      "text": "and then we get a BBB and then four C's. Now, the reason we get that result down here"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 39.76,
+      "end": 45.28,
+      "text": "is because when you iterate over a dictionary, you're going to get every single key. That's"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 45.28,
+      "end": 50.08,
+      "text": "what's going to be passed to your map function. So we pass the key, we get the value associated"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 50.08,
+      "end": 54.28,
+      "text": "with the key. And then we multiply that by the key. Since the key is a string, that's then going"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 54.28,
+      "end": 59.28,
+      "text": "to give a string multiplication. And that's why we get four C's, three B's and one A moving on."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 59.34,
+      "end": 64.18,
+      "text": "We have the max function. This allows us to get the maximum value out of an iterable sequence or"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 64.18,
+      "end": 68.74,
+      "text": "of multiple arguments. There's different ways you can call this. First of all, we can pass like a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 68.74,
+      "end": 74.18,
+      "text": "list and it's just going to give us the maximum value in this list. We can also pass numbers or"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 74.18,
+      "end": 79.16,
+      "text": "arguments individually. So I've done that here. We can do the same with strings. Now, when we're"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 79.16,
+      "end": 83.28,
+      "text": "comparing strings, we're going to be looking at the ASCII value of each character starting at the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 83.28,
+      "end": 88.7,
+      "text": "first character. So we'd start by comparing each string using the first character. If two strings"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 88.7,
+      "end": 93.8,
+      "text": "have the same first character, then we will look at the second character and use the ASCII value of"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 93.8,
+      "end": 100.56,
+      "text": "that character. Next, we have just passing multiple iterable sequences here. Now, whenever you pass"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 100.56,
+      "end": 105.2,
+      "text": "multiple values, so like multiple parameters to this function, they need to be the same type."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 105.2,
+      "end": 109.74,
+      "text": "So in this case, I'm passing three lists. And what it's going to do to compare the list is actually"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 109.74,
+      "end": 115.48,
+      "text": "use the first element of these lists. So we'll have this being the maximum element because this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 115.48,
+      "end": 120.4,
+      "text": "list has the greatest first element in it. So just like comparing the strings, it works the same for"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 120.4,
+      "end": 125.8,
+      "text": "a list. We can also use this on like a custom type. So I have a custom type here and I can pass"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 125.8,
+      "end": 130.82,
+      "text": "the key function or the key parameter, sorry, to my map function. And now we're going to be using"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 130.82,
+      "end": 136.08,
+      "text": "this to compare. So we'll pass every single value to this key function. And then whatever the result"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 136.08,
+      "end": 137.16,
+      "text": "of that key function is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 137.16,
+      "end": 138.36,
+      "text": "we'll use to pick the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 138.36,
+      "end": 139.86,
+      "text": "largest value. So let me"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 139.86,
+      "end": 140.74,
+      "text": "run this and notice we"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 140.74,
+      "end": 142.66,
+      "text": "get 34 nine. Yes, we"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 142.66,
+      "end": 143.74,
+      "text": "get to one, as I said,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 143.78,
+      "end": 144.4,
+      "text": "and then we get a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 144.4,
+      "end": 155.64163,
+      "text": "custom object If I were to print that out you would see that we would get C three uh because the value returned by C three is the largest All right So the next function is a memory view"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 155.76163,
+      "end": 160.12163,
+      "text": "This is a little bit complicated, but you can use this on bytes types and a few other types as well"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 160.12163,
+      "end": 165.62163,
+      "text": "here in Python to kind of dig into the representation of this object. So I have a memory"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 165.62163,
+      "end": 170.44164,
+      "text": "view of my variable X, which is a bytes type. That's what the B stands for here. And I can look"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 170.44164,
+      "end": 175.12163,
+      "text": "at, for example, the first index, which would correspond with B. Now notice that when I print"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 175.12163,
+      "end": 180.26163,
+      "text": "this out, the first value I get is 98. So what's actually stored in memory for the character B is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 180.26163,
+      "end": 186.24164,
+      "text": "98 and 98 is the ASCII representation of this character. So if I then convert that ASCII"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 186.24164,
+      "end": 191.88164,
+      "text": "representation to a character, notice I get B. And so I'm looking at this character here at index"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 191.88164,
+      "end": 196.90164,
+      "text": "one or position one. If I try to print out a slice of the memory, I can do this and I'm going to get"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 196.90164,
+      "end": 202.56163,
+      "text": "a memory view object, or what I can do is convert this slice to a bytes type. And now I'm going to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 202.56163,
+      "end": 208.00163,
+      "text": "get BCD, right? So if I'm going from one to four, that would be here. So I'm getting BCD when I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 208.00163,
+      "end": 211.52164,
+      "text": "actually convert that to bytes. If I don't convert it to bytes, then of course I get the memory"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 211.52164,
+      "end": 217.22163,
+      "text": "representation of that bytes object. All right, moving on, we have the min function. Now this is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 217.22163,
+      "end": 221.86163,
+      "text": "identical to the max function, just the minimum value. I don't really need to go through this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 221.86163,
+      "end": 227.52164,
+      "text": "Note that you can use the keyword here as well and no pun intended, but you can use key as a keyword."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 227.52164,
+      "end": 232.14163,
+      "text": "And then that allows you to select the minimum based on the return value of this function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 232.14163,
+      "end": 234.78163,
+      "text": "Now, next, we're talking about the next function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 235.28163,
+      "end": 242.24164,
+      "text": "Now, this is similar to the next function that we saw in part one, except this is for regular iterators, not asynchronous iterators."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 242.62164,
+      "end": 249.18164,
+      "text": "What this will do is give you the next value in an iterable sequence, assuming that whatever you're calling this on is an iterator."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 249.46164,
+      "end": 251.54163,
+      "text": "So I have my custom iterator object here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 251.54163,
+      "end": 257.06165,
+      "text": "notice that I implement my inner method as well as my next method. And now what I can do is create"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 257.06165,
+      "end": 262.08163,
+      "text": "an inner or an iterator, sorry, from my custom object. So I create an iterator and then I can"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 262.08163,
+      "end": 267.10162,
+      "text": "call next on it and I will get the next value in the interval sequence. And I can do the same thing"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 267.10162,
+      "end": 272.86163,
+      "text": "using, um, like a built-in object, right? So if I have a list, I can actually get an iterator for"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 272.86163,
+      "end": 277.94165,
+      "text": "this list. And then I can call next on that list iterator and get the next value. So let me show"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 277.94165,
+      "end": 283.54163,
+      "text": "this with one, two, three, a B C again, very similar to the a next function, just for regular"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 283.54163,
+      "end": 288.10162,
+      "text": "iterators, not asynchronous iterators. All right. So moving on, we have the object function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 288.10162,
+      "end": 293.26163,
+      "text": "This is going to create an empty object for you. If you didn't know every single class in Python"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 293.26163,
+      "end": 305.20328,
+      "text": "by default inherits from object So it has some prebuilt functionality It not super useful but I will run the code and show you that we can print out an object of type object and we can view all of the kind of"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 305.20328,
+      "end": 309.70328,
+      "text": "built-in behavior, default behavior for this type. Moving on, we have the oct function,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 309.84326,
+      "end": 314.42328,
+      "text": "which stands for octal. It's going to give us the base eight representation of a base 10 number."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 314.58325,
+      "end": 318.12326,
+      "text": "So if I print these out, you can see that that's what we're getting. Really, you want to be looking"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 318.12326,
+      "end": 323.46326,
+      "text": "at the part after the zero O and notice that you get a negative zero O whenever you have a negative"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 323.46326,
+      "end": 328.02325,
+      "text": "of octal value. Don't need to go through this too much more, but this gives you the octal value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 328.02325,
+      "end": 333.30325,
+      "text": "All right. The next function I have for you is open. Now what this does is open a new file. Now"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 333.30325,
+      "end": 337.00327,
+      "text": "I've put all of the different modes that you can use when opening a file here. I'm not going to go"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 337.00327,
+      "end": 340.28326,
+      "text": "through them. Feel free to pause the video and read them if you want, but let's look at this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 340.28326,
+      "end": 344.88327,
+      "text": "example down here. So I import the Jason module just to show you how we can kind of save Jason"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 344.88327,
+      "end": 351.44327,
+      "text": "data. Anyways, what I can do is use this open object to open a file in read mode or in write"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 351.44327,
+      "end": 355.36328,
+      "text": "mode or whatever the other modes are. So you put the name of the file and then the mode you want to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 355.36328,
+      "end": 359.88327,
+      "text": "open it in. In this case, lend up high as a file that does exist. Then if I wanted to read all of"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 359.88327,
+      "end": 365.06326,
+      "text": "the lines, I can use the file object returned by open to say F dot read lines. This will give me a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 365.06326,
+      "end": 370.04327,
+      "text": "list of all of the lines that exist. I can print those out and then I can close the file object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 370.52325,
+      "end": 374.82327,
+      "text": "Now, the better approach to do this is to use this width, which really is going to give you a context"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 374.82327,
+      "end": 380.66327,
+      "text": "manager when you're kind of using this open function. So you say with open as F lines equals"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 380.66327,
+      "end": 384.62326,
+      "text": "F dot read lines and then print lines. And now you don't need to manually close the file"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 384.62326,
+      "end": 388.82327,
+      "text": "because as soon as you escape this with block, it's automatically going to close the file for you."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 389.34326,
+      "end": 393.74326,
+      "text": "Continuing, I just wanted to show you how we can save JSON data. So I'm saying data is equal to,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 393.82327,
+      "end": 398.24326,
+      "text": "and then some dictionary, then I'm going to open a new JSON file that doesn't already exist. So"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 398.24326,
+      "end": 403.52325,
+      "text": "data dot JSON in W mode, which stands for right mode. I open this as F and then I can say JSON"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 403.52325,
+      "end": 408.62326,
+      "text": "dot dump and then data, which is my dictionary and then into the file F and this will create a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 408.62326,
+      "end": 413.66327,
+      "text": "file that has that content. So if I run this code here, you can see that I'm just printing out the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 413.66327,
+      "end": 419.38327,
+      "text": "contents of the Lenda PI file. But now if we look here, I have this data dot JSON file that I created,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 419.44327,
+      "end": 424.72327,
+      "text": "uh, using the open function. Moving on, we have the PAL function. Now what PAL will do is raise a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 424.72327,
+      "end": 429.76324,
+      "text": "base to an exponent. We also have the option to get the modulus of a base raised to an exponent"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 429.76324,
+      "end": 434.42328,
+      "text": "if we want. So if we use the power, normally we just pass our base and our exponent and we can get"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 434.42328,
+      "end": 436.46326,
+      "text": "100. And we can also get"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 436.48328,
+      "end": 438.46326,
+      "text": "0.01 here. If we pass like a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 438.46326,
+      "end": 439.40326,
+      "text": "negative two as the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 439.40326,
+      "end": 441.26324,
+      "text": "exponent continuing, we have"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 441.26324,
+      "end": 442.66327,
+      "text": "power with mod. Now, if you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 442.66327,
+      "end": 444.10327,
+      "text": "pass a third argument here"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 444.10327,
+      "end": 459.2249,
+      "text": "to the power function you going to raise the base to the exponent then modulus it by whatever this is So mod six And in this case you can see this is kind of the order of operations We raise 11 to the exponent three that gives us this value We then mod six that going to give us five"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 459.44492,
+      "end": 464.70493,
+      "text": "So when I print this out, I get a hundred zero point zero one and five moving on. We have the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 464.70493,
+      "end": 468.8449,
+      "text": "print function. Now I'm sure many of you know how this works, but we can pass multiple arguments"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 468.8449,
+      "end": 473.5049,
+      "text": "here to the print function. They do not need to be strings and they will all be printed out,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 473.5049,
+      "end": 478.5849,
+      "text": "separated by a space by default. Now, if you want to override the default separator, you can pass"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 478.5849,
+      "end": 483.4649,
+      "text": "this SEP keyword. So if I use a pipe now, hello, enrolled will be separated by a pipe. There will"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 483.4649,
+      "end": 488.5049,
+      "text": "not be a space. Alternatively, you can use this end keyword. You can also use it in combination"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 488.5049,
+      "end": 493.9049,
+      "text": "with SEP. And now this means at the end. So once this print statement is done, rather than printing"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 493.9049,
+      "end": 498.9049,
+      "text": "the default, which is an escape character, so backslash N, you're going to be printing this."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 498.9049,
+      "end": 503.0849,
+      "text": "So usually what would happen is OK would be printed on the next line."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 503.2849,
+      "end": 508.0649,
+      "text": "But since now we're not printing this backslash end, which forces the terminal to go to the next line,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 508.16492,
+      "end": 510.9049,
+      "text": "you're going to see that this will be printed directly after hello."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 511.32492,
+      "end": 516.0849,
+      "text": "So let's do this. And notice again, hello, world one, hello, pipe world, and then hello."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 516.3849,
+      "end": 520.4649,
+      "text": "And and then OK, that's because, again, we didn't have this backslash end."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 520.74493,
+      "end": 523.8449,
+      "text": "Now, if I manually add the backslash end in here and I print this out,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 524.0249,
+      "end": 526.1049,
+      "text": "now you notice that we move down to the next line."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 526.18494,
+      "end": 527.9249,
+      "text": "All right. So moving on, we have property."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 527.9249,
+      "end": 532.0249,
+      "text": "And this allows us to protect an attribute by assigning a getter, setter and deleter."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 532.1649,
+      "end": 533.5449,
+      "text": "You can see I have those here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 533.6049,
+      "end": 537.2849,
+      "text": "Then I have my property function and I pass my getter, setter and deleter."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 537.6049,
+      "end": 541.7049,
+      "text": "You do not need to pass a delete function and you do not need to pass this optional."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 542.2649,
+      "end": 544.18494,
+      "text": "What do you call this description of the property?"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 544.7249,
+      "end": 549.1049,
+      "text": "So now that I've done this, whenever I try to access X on my C class, it's going to use"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 549.1049,
+      "end": 551.18494,
+      "text": "the getter function to return the value to me."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 551.24493,
+      "end": 554.9649,
+      "text": "When I try to set using an assignment like this, it's going to use the setter function"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 554.9649,
+      "end": 558.9249,
+      "text": "and pass my assigned value to value inside of this function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 559.2049,
+      "end": 562.8249,
+      "text": "If I tried to delete same thing, it would use my delete"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 562.9049,
+      "end": 564.9249,
+      "text": "method or my delete function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 564.9249,
+      "end": 566.1649,
+      "text": "All right. So that's that."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 566.1649,
+      "end": 569.56494,
+      "text": "Now we can also use a newer syntax, which is the decorator syntax."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 569.80493,
+      "end": 573.06494,
+      "text": "So I can decorate a function, which is the name of my property."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 573.2649,
+      "end": 576.2649,
+      "text": "Then I can have a setter, deleter and getter."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 576.32495,
+      "end": 579.9649,
+      "text": "And this works the exact same as just using the function plainly like this."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 580.30493,
+      "end": 582.2249,
+      "text": "This is probably the preferred approach right now."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 582.2249,
+      "end": 583.7649,
+      "text": "It's kind of modern Python,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 583.7649,
+      "end": 585.7849,
+      "text": "but you can use this property as well."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 585.7849,
+      "end": 586.6649,
+      "text": "So just to show you here,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 586.6649,
+      "end": 588.2649,
+      "text": "when I print out Varda X,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 588.2649,
+      "end": 588.9849,
+      "text": "you're going to see that"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 588.9849,
+      "end": 590.6649,
+      "text": "since I haven't assigned a value to X,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 590.6649,
+      "end": 591.68494,
+      "text": "it's going to give me one"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 591.68494,
+      "end": 593.1249,
+      "text": "because that's what the getter says."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 593.1249,
+      "end": 594.82495,
+      "text": "When I set X to 10.2,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 594.82495,
+      "end": 596.56494,
+      "text": "it's going to round that off to be 10."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 596.56494,
+      "end": 597.9249,
+      "text": "So then when I printed a second time,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 597.9249,
+      "end": 599.18494,
+      "text": "we should just get 10."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 599.18494,
+      "end": 599.94495,
+      "text": "So we should get one"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 599.993469,
+      "end": 602.053469,
+      "text": "10 and then down here"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 602.053469,
+      "end": 604.113469,
+      "text": "we'll get the same thing. So if I run this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 604.113469,
+      "end": 605.693469,
+      "text": "I get 110 and then 110."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 606.133469,
+      "end": 607.993469,
+      "text": "This is the exact same example. I've just"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z_online-video-cutter.com",
+      "start": 607.993469,
+      "end": 610.153469,
+      "text": "used the decorator syntax. Alright, so"
+    }
+  ],
+  "text": "function and get added into a new map object. And then what we can do is convert that map map object to a list story. And now we'll get the squares of every single element from our sequence. Now you can do the same thing here with a dictionary. So I've created kind of a more advanced example, I guess we have a function. What this function does is it takes items, which is this array or this list at whatever key is passed to the function. And then it multiplies it by the key. Now, in this case, we're going to have string multiplication and you'll see what kind of happens in this example. So if I run this, we get all of the squares from one to 10, and then we get a BBB and then four C's. Now, the reason we get that result down here is because when you iterate over a dictionary, you're going to get every single key. That's what's going to be passed to your map function. So we pass the key, we get the value associated with the key. And then we multiply that by the key. Since the key is a string, that's then going to give a string multiplication. And that's why we get four C's, three B's and one A moving on. We have the max function. This allows us to get the maximum value out of an iterable sequence or of multiple arguments. There's different ways you can call this. First of all, we can pass like a list and it's just going to give us the maximum value in this list. We can also pass numbers or arguments individually. So I've done that here. We can do the same with strings. Now, when we're comparing strings, we're going to be looking at the ASCII value of each character starting at the first character. So we'd start by comparing each string using the first character. If two strings have the same first character, then we will look at the second character and use the ASCII value of that character. Next, we have just passing multiple iterable sequences here. Now, whenever you pass multiple values, so like multiple parameters to this function, they need to be the same type. So in this case, I'm passing three lists. And what it's going to do to compare the list is actually use the first element of these lists. So we'll have this being the maximum element because this list has the greatest first element in it. So just like comparing the strings, it works the same for a list. We can also use this on like a custom type. So I have a custom type here and I can pass the key function or the key parameter, sorry, to my map function. And now we're going to be using this to compare. So we'll pass every single value to this key function. And then whatever the result of that key function is we'll use to pick the largest value. So let me run this and notice we get 34 nine. Yes, we get to one, as I said, and then we get a custom object If I were to print that out you would see that we would get C three uh because the value returned by C three is the largest All right So the next function is a memory view This is a little bit complicated, but you can use this on bytes types and a few other types as well here in Python to kind of dig into the representation of this object. So I have a memory view of my variable X, which is a bytes type. That's what the B stands for here. And I can look at, for example, the first index, which would correspond with B. Now notice that when I print this out, the first value I get is 98. So what's actually stored in memory for the character B is 98 and 98 is the ASCII representation of this character. So if I then convert that ASCII representation to a character, notice I get B. And so I'm looking at this character here at index one or position one. If I try to print out a slice of the memory, I can do this and I'm going to get a memory view object, or what I can do is convert this slice to a bytes type. And now I'm going to get BCD, right? So if I'm going from one to four, that would be here. So I'm getting BCD when I actually convert that to bytes. If I don't convert it to bytes, then of course I get the memory representation of that bytes object. All right, moving on, we have the min function. Now this is identical to the max function, just the minimum value. I don't really need to go through this Note that you can use the keyword here as well and no pun intended, but you can use key as a keyword. And then that allows you to select the minimum based on the return value of this function. Now, next, we're talking about the next function. Now, this is similar to the next function that we saw in part one, except this is for regular iterators, not asynchronous iterators. What this will do is give you the next value in an iterable sequence, assuming that whatever you're calling this on is an iterator. So I have my custom iterator object here. notice that I implement my inner method as well as my next method. And now what I can do is create an inner or an iterator, sorry, from my custom object. So I create an iterator and then I can call next on it and I will get the next value in the interval sequence. And I can do the same thing using, um, like a built-in object, right? So if I have a list, I can actually get an iterator for this list. And then I can call next on that list iterator and get the next value. So let me show this with one, two, three, a B C again, very similar to the a next function, just for regular iterators, not asynchronous iterators. All right. So moving on, we have the object function. This is going to create an empty object for you. If you didn't know every single class in Python by default inherits from object So it has some prebuilt functionality It not super useful but I will run the code and show you that we can print out an object of type object and we can view all of the kind of built-in behavior, default behavior for this type. Moving on, we have the oct function, which stands for octal. It's going to give us the base eight representation of a base 10 number. So if I print these out, you can see that that's what we're getting. Really, you want to be looking at the part after the zero O and notice that you get a negative zero O whenever you have a negative of octal value. Don't need to go through this too much more, but this gives you the octal value. All right. The next function I have for you is open. Now what this does is open a new file. Now I've put all of the different modes that you can use when opening a file here. I'm not going to go through them. Feel free to pause the video and read them if you want, but let's look at this example down here. So I import the Jason module just to show you how we can kind of save Jason data. Anyways, what I can do is use this open object to open a file in read mode or in write mode or whatever the other modes are. So you put the name of the file and then the mode you want to open it in. In this case, lend up high as a file that does exist. Then if I wanted to read all of the lines, I can use the file object returned by open to say F dot read lines. This will give me a list of all of the lines that exist. I can print those out and then I can close the file object. Now, the better approach to do this is to use this width, which really is going to give you a context manager when you're kind of using this open function. So you say with open as F lines equals F dot read lines and then print lines. And now you don't need to manually close the file because as soon as you escape this with block, it's automatically going to close the file for you. Continuing, I just wanted to show you how we can save JSON data. So I'm saying data is equal to, and then some dictionary, then I'm going to open a new JSON file that doesn't already exist. So data dot JSON in W mode, which stands for right mode. I open this as F and then I can say JSON dot dump and then data, which is my dictionary and then into the file F and this will create a file that has that content. So if I run this code here, you can see that I'm just printing out the contents of the Lenda PI file. But now if we look here, I have this data dot JSON file that I created, uh, using the open function. Moving on, we have the PAL function. Now what PAL will do is raise a base to an exponent. We also have the option to get the modulus of a base raised to an exponent if we want. So if we use the power, normally we just pass our base and our exponent and we can get 100. And we can also get 0.01 here. If we pass like a negative two as the exponent continuing, we have power with mod. Now, if you pass a third argument here to the power function you going to raise the base to the exponent then modulus it by whatever this is So mod six And in this case you can see this is kind of the order of operations We raise 11 to the exponent three that gives us this value We then mod six that going to give us five So when I print this out, I get a hundred zero point zero one and five moving on. We have the print function. Now I'm sure many of you know how this works, but we can pass multiple arguments here to the print function. They do not need to be strings and they will all be printed out, separated by a space by default. Now, if you want to override the default separator, you can pass this SEP keyword. So if I use a pipe now, hello, enrolled will be separated by a pipe. There will not be a space. Alternatively, you can use this end keyword. You can also use it in combination with SEP. And now this means at the end. So once this print statement is done, rather than printing the default, which is an escape character, so backslash N, you're going to be printing this. So usually what would happen is OK would be printed on the next line. But since now we're not printing this backslash end, which forces the terminal to go to the next line, you're going to see that this will be printed directly after hello. So let's do this. And notice again, hello, world one, hello, pipe world, and then hello. And and then OK, that's because, again, we didn't have this backslash end. Now, if I manually add the backslash end in here and I print this out, now you notice that we move down to the next line. All right. So moving on, we have property. And this allows us to protect an attribute by assigning a getter, setter and deleter. You can see I have those here. Then I have my property function and I pass my getter, setter and deleter. You do not need to pass a delete function and you do not need to pass this optional. What do you call this description of the property? So now that I've done this, whenever I try to access X on my C class, it's going to use the getter function to return the value to me. When I try to set using an assignment like this, it's going to use the setter function and pass my assigned value to value inside of this function. If I tried to delete same thing, it would use my delete method or my delete function. All right. So that's that. Now we can also use a newer syntax, which is the decorator syntax. So I can decorate a function, which is the name of my property. Then I can have a setter, deleter and getter. And this works the exact same as just using the function plainly like this. This is probably the preferred approach right now. It's kind of modern Python, but you can use this property as well. So just to show you here, when I print out Varda X, you're going to see that since I haven't assigned a value to X, it's going to give me one because that's what the getter says. When I set X to 10.2, it's going to round that off to be 10. So then when I printed a second time, we should just get 10. So we should get one 10 and then down here we'll get the same thing. So if I run this I get 110 and then 110. This is the exact same example. I've just used the decorator syntax. Alright, so"
+}

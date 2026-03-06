@@ -1,0 +1,3603 @@
+{
+  "chunks": [
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 0.0,
+      "end": 14.28,
+      "text": "Hello, everybody, and welcome to part two of every Python function explained in part one,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 14.28,
+      "end": 18.84,
+      "text": "I shared with you about 30 functions in this part, I'm going to share with you the rest of them. I'm"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 18.84,
+      "end": 22.8,
+      "text": "going to throw the definition up on the screen. I'm going to give you a quick example of how each"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 22.8,
+      "end": 27.64,
+      "text": "function works. And by the end of this, you will know some new Python functions, and I guarantee you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 27.64,
+      "end": 29.28,
+      "text": "that you will learn something."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 29.28,
+      "end": 30.08,
+      "text": "With that said, if you haven't"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 30.08,
+      "end": 32.3,
+      "text": "checked out part one, I will leave that on the screen."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 32.3,
+      "end": 34.1,
+      "text": "I will also put it in the description"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 34.1,
+      "end": 36.44,
+      "text": "and make sure you check out Programming Expert.io."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 36.54,
+      "end": 37.78,
+      "text": "That's my programming course."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 37.78,
+      "end": 41.48,
+      "text": "If you want to get better at coding Master Python, learn, go"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 41.48,
+      "end": 44.28,
+      "text": "learn about software engineering tools and software design."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 44.48,
+      "end": 47.54,
+      "text": "It really is one of the best places to become a software engineer."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 47.9,
+      "end": 50.24,
+      "text": "With that said, let's dive in to the video."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 50.24,
+      "end": 50.58,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 50.58,
+      "end": 53.68,
+      "text": "So let's dive in here with the first function, which is hash."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 54.0,
+      "end": 56.6,
+      "text": "Now, hashing is used specifically for dictionaries"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 56.6,
+      "end": 58.38,
+      "text": "and comparing dictionary keys."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 58.76,
+      "end": 60.64,
+      "text": "So whenever you pass a key to a dictionary"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 60.64,
+      "end": 62.48,
+      "text": "or you try to access an object,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 62.58,
+      "end": 64.52,
+      "text": "you're going to hash whatever that key is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 64.52,
+      "end": 66.7,
+      "text": "and then compare that with any hashes"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 66.7,
+      "end": 68.52,
+      "text": "that currently exist in the dictionary."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 68.82,
+      "end": 69.78,
+      "text": "If there's a match,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 69.8,
+      "end": 72.32,
+      "text": "then you're going to get the value returned by that hash."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 72.72,
+      "end": 73.84,
+      "text": "Otherwise, you're not right."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 73.84,
+      "end": 74.66,
+      "text": "You're going to get a key error."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 75.0,
+      "end": 76.52,
+      "text": "Anyways, I can show you how it works here, though."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 76.58,
+      "end": 78.06,
+      "text": "We have a random string"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 78.06,
+      "end": 79.4,
+      "text": "and we just have a tuple,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 79.5,
+      "end": 80.66,
+      "text": "which is a hashable object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 81.0,
+      "end": 82.0,
+      "text": "And if I run this, you see,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 82.04,
+      "end": 83.72,
+      "text": "we get kind of random strings here,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 83.72,
+      "end": 84.54,
+      "text": "random numbers,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 84.54,
+      "end": 87.4,
+      "text": "which are the hash of these values."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 87.74,
+      "end": 89.2,
+      "text": "Now, one thing to note here"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 89.2,
+      "end": 91.42,
+      "text": "is that you can only hash things that are mutable."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 91.76,
+      "end": 94.58,
+      "text": "So I cannot hash a list like this."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 95.1,
+      "end": 96.1,
+      "text": "It just doesn't work, right?"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 96.1,
+      "end": 97.14,
+      "text": "I cannot hash a list."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 97.26,
+      "end": 98.42,
+      "text": "Now, can I hash a set?"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 98.62,
+      "end": 99.42,
+      "text": "Let's try this."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 99.42,
+      "end": 101.76,
+      "text": "So one, two, and I cannot hash a set,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 101.9,
+      "end": 103.56,
+      "text": "but I can hash a tuple."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 103.86,
+      "end": 105.48,
+      "text": "So if you ever need some kind of pairing"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 105.48,
+      "end": 106.68,
+      "text": "to be used in a dictionary,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 106.9,
+      "end": 108.18,
+      "text": "then you're going to use a tuple"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 108.18,
+      "end": 110.98,
+      "text": "rather than a list or a set or something like that"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 110.98,
+      "end": 112.56,
+      "text": "because a tuple is immutable"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 112.56,
+      "end": 113.98,
+      "text": "and hence we can hash it."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 113.98,
+      "end": 116.42,
+      "text": "All right. So the next function that I have here is Len."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 116.42,
+      "end": 117.78,
+      "text": "Now this stands for length."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 117.78,
+      "end": 120.02,
+      "text": "You can use this on any iterable object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 120.3,
+      "end": 122.38,
+      "text": "You can see that we can get the Atlanta of a list."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 122.38,
+      "end": 126.42,
+      "text": "We can get the Atlanta of a string of a dictionary or of a set."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 126.74,
+      "end": 128.7,
+      "text": "Now we can do this for a few other types as well."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 128.7,
+      "end": 131.66,
+      "text": "And we can also implement our own a Len Dunder method"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 131.66,
+      "end": 133.7,
+      "text": "on any of our custom objects."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 133.7,
+      "end": 137.5,
+      "text": "So what happens when you actually use this Len function is it calls the Len"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 137.5,
+      "end": 139.9,
+      "text": "Dunder method and whatever is returned from that method"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 140.06,
+      "end": 141.74,
+      "text": "is what you get when calling Len."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 141.74,
+      "end": 144.18,
+      "text": "So in this case, we'll get five when we print this out for C."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 144.48,
+      "end": 156.84163,
+      "text": "So if I run this you can see we get five And then of course the appropriate lengths for the other objects Moving on we have a list Now this is really just the constructor for the list data type in Python It allows us to convert something to a list"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 157.00163,
+      "end": 159.74164,
+      "text": "Now to convert something to a list, we need an iterable object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 159.74164,
+      "end": 162.86163,
+      "text": "So something like a dictionary, a set, a string, a tuple."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 163.14163,
+      "end": 165.90163,
+      "text": "And we simply pass that object to the list constructor."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 166.24164,
+      "end": 168.14163,
+      "text": "Now, if we're converting a dictionary to a list,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 168.14163,
+      "end": 169.80164,
+      "text": "that's going to give us all of the keys."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 169.80164,
+      "end": 173.36163,
+      "text": "So we'll give us one, two and three, not the strings, but the keys."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 173.36163,
+      "end": 177.16164,
+      "text": "If we're doing a set, it's just going to give us all of the unique objects in the set."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 177.32162,
+      "end": 181.46164,
+      "text": "If we're doing a string, then we're going to get every single individual character."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 181.76163,
+      "end": 184.84163,
+      "text": "And if we're doing a tuple, then we're going to get each element that's in the tuple."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 184.96164,
+      "end": 187.70163,
+      "text": "So if I run this, you see, we get one, two, three, one, two, three, four."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 187.80164,
+      "end": 190.56163,
+      "text": "We get every single character in our string, including the space."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 190.80164,
+      "end": 192.80164,
+      "text": "And then we get all the elements in our tuple."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 192.80164,
+      "end": 196.52164,
+      "text": "Now it's worth noting here that you cannot be certain that your elements are going to be"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 196.52164,
+      "end": 200.42163,
+      "text": "in the order in which you have them in your dictionary or your set."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 200.42163,
+      "end": 204.40164,
+      "text": "So imagine you have a very large dictionary, like we're not just writing out all the values here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 204.48163,
+      "end": 209.30164,
+      "text": "You're not necessarily going to get sorted values or the values in the order in which you inserted"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 209.30164,
+      "end": 213.42163,
+      "text": "them in the dictionary. It could be in potentially a random order. All right. So moving on, we have"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 213.42163,
+      "end": 217.94164,
+      "text": "locals. Now locals is going to give you information about all of the local variables that you have"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 217.94164,
+      "end": 223.72163,
+      "text": "access to here in the file. So if I run this code here, you can see that I get this big dictionary"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 223.72163,
+      "end": 228.92163,
+      "text": "containing all of the different variables as well as their value. So we have the name of this file,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 228.92163,
+      "end": 233.16164,
+      "text": "which is main. We have a few other things that we don't really need to look at. And then you can see"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 233.16164,
+      "end": 236.96164,
+      "text": "here that I've printed out like the location of the files. You can see it's on my users, Tim,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 237.04163,
+      "end": 242.16164,
+      "text": "desktop, every Python function, part two, and then locals.py. Now I've just accessed that from"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 242.16164,
+      "end": 246.48163,
+      "text": "the dictionary returned by locals, but I also could just use the special name here in Python,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 246.60162,
+      "end": 250.82162,
+      "text": "which is underscore, underscore file, underscore, underscore. All right. So moving on, we have the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 250.82162,
+      "end": 255.80164,
+      "text": "map function. Now the map function allows us to map all of the values in an iterable sequence"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 255.80164,
+      "end": 260.86163,
+      "text": "using a function. So what I can do is create a sequence like this. I can use my map function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 261.08163,
+      "end": 265.40164,
+      "text": "I pass a function here. Now I'm passing an anonymous function, but you can pass an actual"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 265.40164,
+      "end": 269.10162,
+      "text": "function if you wanted to. And if you were going to pass a function, you defined, you would just"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 269.10162,
+      "end": 273.88165,
+      "text": "pass the name of the function. You would not call the function by putting parentheses. So I'm passing"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 273.88165,
+      "end": 278.16162,
+      "text": "a function here, which takes one argument, which is X. And then it's going to raise that to the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 278.16162,
+      "end": 282.80164,
+      "text": "exponent two. Then I'm going to pass my sequence. What's going to happen is each element from my"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 282.80164,
+      "end": 287.10162,
+      "text": "sequence will be passed to this function and get added into a new map object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 287.24164,
+      "end": 290.3416,
+      "text": "And then what we can do is convert that mock map object to a list story."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 290.3416,
+      "end": 294.3416,
+      "text": "And now we'll get the squares of every single element from our sequence."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 294.60162,
+      "end": 305.80325,
+      "text": "Now you can do the same thing here with a dictionary So I created kind of a more advanced example I guess we have a function What this function does is it takes items which is this array or"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 305.80325,
+      "end": 311.06326,
+      "text": "this list at whatever key is passed to the function, and then it multiplies it by the key."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 311.54327,
+      "end": 314.68326,
+      "text": "Now, in this case, we're going to have string multiplication, and you'll see what kind of"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 314.68326,
+      "end": 318.94327,
+      "text": "happens in this example. So if I run this, we get all of the squares from one to 10,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 319.22327,
+      "end": 324.02325,
+      "text": "and then we get a BBB and then four C's. Now, the reason we get that result down here"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 324.02325,
+      "end": 327.08325,
+      "text": "is because when you iterate over a dictionary,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 327.08325,
+      "end": 329.14325,
+      "text": "you're going to get every single key."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 329.34326,
+      "end": 331.68326,
+      "text": "That's what's going to be passed to your map function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 331.92328,
+      "end": 332.92328,
+      "text": "So we pass the key,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 333.16327,
+      "end": 334.88327,
+      "text": "we get the value associated with the key,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 334.98328,
+      "end": 336.50327,
+      "text": "and then we multiply that by the key."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 336.60327,
+      "end": 337.92328,
+      "text": "Since the key is a string,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 338.04327,
+      "end": 339.50327,
+      "text": "that's then going to give a string multiplication."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 339.90326,
+      "end": 343.00327,
+      "text": "And that's why we get four C's, three B's, and one A."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 343.08325,
+      "end": 344.84326,
+      "text": "Moving on, we have the max function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 344.84326,
+      "end": 346.76328,
+      "text": "This allows us to get the maximum value"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 346.76328,
+      "end": 349.68326,
+      "text": "out of an iterable sequence or of multiple arguments."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 349.94327,
+      "end": 351.34326,
+      "text": "There's different ways you can call this."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 351.68326,
+      "end": 353.26328,
+      "text": "First of all, we can pass like a list,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 353.26328,
+      "end": 356.14325,
+      "text": "and it's just going to give us the maximum value in this list."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 356.42328,
+      "end": 359.48328,
+      "text": "We can also pass numbers or arguments individually."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 359.72327,
+      "end": 360.62326,
+      "text": "So I've done that here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 361.10327,
+      "end": 362.58325,
+      "text": "We can do the same with strings."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 362.88327,
+      "end": 364.16327,
+      "text": "Now, when we're comparing strings,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 364.16327,
+      "end": 366.76328,
+      "text": "we're going to be looking at the ASCII value of each character"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 366.76328,
+      "end": 368.32327,
+      "text": "starting at the first character."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 368.92328,
+      "end": 371.74326,
+      "text": "So we'd start by comparing each string using the first character."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 371.94327,
+      "end": 374.40326,
+      "text": "If two strings have the same first character,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 374.54327,
+      "end": 376.52325,
+      "text": "then we will look at the second character"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 376.52325,
+      "end": 378.70325,
+      "text": "and use the ASCII value of that character."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 379.46326,
+      "end": 382.10327,
+      "text": "Next, we have just passing multiple"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 382.10327,
+      "end": 383.60327,
+      "text": "interval sequences here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 383.60327,
+      "end": 385.80328,
+      "text": "Now, whenever you pass multiple values,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 385.80328,
+      "end": 388.20325,
+      "text": "so like multiple parameters to this function,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 388.20325,
+      "end": 389.76328,
+      "text": "they need to be the same type."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 389.76328,
+      "end": 391.90326,
+      "text": "So in this case, I'm passing three lists."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 391.90326,
+      "end": 393.54327,
+      "text": "And what it's going to do to compare the list"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 393.54327,
+      "end": 396.30328,
+      "text": "is actually use the first element of these lists."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 396.30328,
+      "end": 398.64325,
+      "text": "So we'll have this being the maximum element"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 398.86328,
+      "end": 402.44327,
+      "text": "because this list has the greatest first element in it."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 402.44327,
+      "end": 405.24326,
+      "text": "So just like comparing the strings, it works the same for a list."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 405.80328,
+      "end": 408.10327,
+      "text": "We can also use this on like a custom type."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 408.10327,
+      "end": 411.20325,
+      "text": "So I have a custom type here and I can pass the key function"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 411.20325,
+      "end": 413.60327,
+      "text": "or the key parameter, sorry, to my map function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 413.84326,
+      "end": 416.30328,
+      "text": "And now we're going to be using this to compare."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 416.30328,
+      "end": 419.40326,
+      "text": "So we'll pass every single value to this key function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 419.40326,
+      "end": 421.44327,
+      "text": "And then whatever the result of that key function is,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 421.60327,
+      "end": 423.76324,
+      "text": "we'll use to pick the largest value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 423.76324,
+      "end": 426.30328,
+      "text": "So let me run this and notice we get 34 nine."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 426.30328,
+      "end": 429.7433,
+      "text": "Yes, we get to one, as I said, and then we get a custom object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 429.90326,
+      "end": 433.10327,
+      "text": "If I were to print that out, you would see that we would get C3"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 433.60327,
+      "end": 437.64325,
+      "text": "because the value returned by C3 is the largest."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 437.64325,
+      "end": 438.52325,
+      "text": "All right. So the next"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 438.52325,
+      "end": 439.98328,
+      "text": "function is a memory view."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 440.02325,
+      "end": 440.80328,
+      "text": "This is a little bit"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 440.80328,
+      "end": 441.84326,
+      "text": "complicated, but you can"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 441.84326,
+      "end": 443.26324,
+      "text": "use this on bytes types"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 443.26324,
+      "end": 444.20325,
+      "text": "and a few other types as"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 444.20325,
+      "end": 457.88492,
+      "text": "well here in Python to kind of dig into the representation of this object So I have a memory view of my variable X which is a bytes type That what the B stands for here And I can look at for example the first index which would correspond with B"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 458.20493,
+      "end": 461.5249,
+      "text": "Now notice that when I print this out, the first value I get is 98."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 461.7249,
+      "end": 465.20493,
+      "text": "So what's actually stored in memory for the character B is 98"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 465.36493,
+      "end": 469.0849,
+      "text": "and 98 is the ASCII representation of this character."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 469.1249,
+      "end": 472.8449,
+      "text": "So if I then convert that ASCII representation to a character, notice I get B."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 472.8449,
+      "end": 477.16492,
+      "text": "And so I'm looking at this character here at index one or position one."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 477.6449,
+      "end": 482.48492,
+      "text": "If I try to print out a slice of the memory, I can do this and I'm going to get a memory view object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 482.76492,
+      "end": 486.2249,
+      "text": "Or what I can do is convert this slice to a bytes type."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 486.36493,
+      "end": 488.1849,
+      "text": "And now I'm going to get B, C, D, right?"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 488.2249,
+      "end": 490.7249,
+      "text": "So if I'm going from one to four, that would be here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 490.8049,
+      "end": 493.4649,
+      "text": "So I'm getting B, C, D when I actually convert that to bytes."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 493.5649,
+      "end": 498.6849,
+      "text": "If I don't convert it to bytes, then of course I get the memory representation of that bytes object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 498.94492,
+      "end": 500.9649,
+      "text": "All right, moving on, we have the min function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 500.9649,
+      "end": 504.5649,
+      "text": "Now, this is identical to the max function, just the minimum value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 504.70493,
+      "end": 508.5649,
+      "text": "I don't really need to go through this note that you can use the keyword here as well."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 508.76492,
+      "end": 511.82492,
+      "text": "And no pun intended, but you can use key as a keyword."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 511.82492,
+      "end": 516.4049,
+      "text": "And then that allows you to select the minimum based on the return value of this function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 516.4049,
+      "end": 519.1049,
+      "text": "Now, next, we're talking about the next function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 519.2649,
+      "end": 524.7649,
+      "text": "Now, this is similar to the next function that we saw in part one, except this is for regular iterators,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 524.9049,
+      "end": 526.7049,
+      "text": "not a synchronous iterators."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 526.7049,
+      "end": 530.12494,
+      "text": "What this will do is give you the next value in an iterable sequence,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 530.12494,
+      "end": 535.44495,
+      "text": "assuming that whatever you're calling this on is an iterator. So I have my custom iterator object"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 535.44495,
+      "end": 540.8649,
+      "text": "here. Notice that I implement my iter method as well as my next method. And now what I can do is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 540.8649,
+      "end": 546.56494,
+      "text": "create an iter or iterator, sorry, from my custom object. So I create an iterator and then I can call"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 546.56494,
+      "end": 551.3449,
+      "text": "next on it and I will get the next value in the iterable sequence. And I can do the same thing"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 551.3449,
+      "end": 557.3849,
+      "text": "using like a built-in object, right? So if I have a list, I can actually get an iterator for this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 557.3849,
+      "end": 562.18494,
+      "text": "list. And then I can call next on that list iterator and get the next value. So let me show"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 562.18494,
+      "end": 567.44495,
+      "text": "you this. We have one, two, three, ABC, again, very similar to the a next function, just for"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 567.44495,
+      "end": 571.8249,
+      "text": "regular iterators, not asynchronous iterators. All right. So moving on, we have the object"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 571.8249,
+      "end": 577.0849,
+      "text": "function. This is going to create an empty object for you. If you didn't know every single class in"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 577.0849,
+      "end": 582.7649,
+      "text": "Python by default inherits from object. So it has some prebuilt functionality. It's not super useful,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 582.7649,
+      "end": 586.6649,
+      "text": "but I will run the code and show you that we can print out an object of type"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 586.6649,
+      "end": 590.2249,
+      "text": "object and we can view all of the kind of built in behavior,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 590.2249,
+      "end": 591.8649,
+      "text": "default behavior for this type."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 591.8649,
+      "end": 595.2649,
+      "text": "Moving on, we have the octa function, which stands for octal."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 595.30493,
+      "end": 598.6649,
+      "text": "It's going to give us the base eight representation of a base ten number."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 599.0049,
+      "end": 599.94495,
+      "text": "So if I print these out,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 599.993469,
+      "end": 601.233469,
+      "text": "You can see that that's what we're getting."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 601.333469,
+      "end": 604.093469,
+      "text": "Really, you want to be looking at the part after the zero O"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 604.093469,
+      "end": 606.593469,
+      "text": "and notice that you get a negative zero O"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 606.593469,
+      "end": 608.713469,
+      "text": "whenever you have a negative octal value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 609.253469,
+      "end": 610.553469,
+      "text": "Don't need to go through this too much more,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 610.633469,
+      "end": 612.273469,
+      "text": "but this gives you the octal value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 612.473469,
+      "end": 614.553469,
+      "text": "All right, the next function I have for you is open."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 614.713469,
+      "end": 617.093469,
+      "text": "Now, what this does is open a new file."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 617.233469,
+      "end": 618.893469,
+      "text": "Now, I've put all of the different modes"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 618.893469,
+      "end": 620.593469,
+      "text": "that you can use when opening a file here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 620.713469,
+      "end": 621.633469,
+      "text": "I'm not going to go through them."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 621.713469,
+      "end": 623.713469,
+      "text": "Feel free to pause the video and read them if you want,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 623.813469,
+      "end": 625.373469,
+      "text": "but let's look at this example down here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 625.553469,
+      "end": 627.833469,
+      "text": "So I import the JSON module just to show you"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 627.833469,
+      "end": 629.493469,
+      "text": "how we can kind of save JSON data."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 629.493469,
+      "end": 636.113469,
+      "text": "anyways what I can do is use this open object to open a file in read mode or in write mode or"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 636.113469,
+      "end": 639.953469,
+      "text": "whatever the other modes are so you put the name of the file and then the mode you want to open it"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 639.953469,
+      "end": 644.513469,
+      "text": "in in this case lend up pi is a file that does exist then if I wanted to read all of the lines"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 644.513469,
+      "end": 649.973469,
+      "text": "I can use the file object returned by open to say f dot read lines this will give me a list of all"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 649.973469,
+      "end": 655.253469,
+      "text": "of the lines that exist I can print those out and then I can close the file object now the better"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 655.253469,
+      "end": 659.513469,
+      "text": "approach to do this is to use this with, which really is going to give you a context manager"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 659.513469,
+      "end": 665.533469,
+      "text": "when you're kind of using this open function. So you say with open as F lines equals F dot read"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 665.533469,
+      "end": 669.613469,
+      "text": "lines, and then print lines. And now you don't need to manually close the file because as soon"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 669.613469,
+      "end": 674.213469,
+      "text": "as you escape this with block, it's automatically going to close the file for you. Continuing. I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 674.213469,
+      "end": 678.253469,
+      "text": "just wanted to show you how we can save Jason data. So I'm saying data is equal to, and then"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 678.253469,
+      "end": 682.753469,
+      "text": "some dictionary, then I'm going to open a new Jason file that doesn't already exist. So data"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 682.753469,
+      "end": 687.413469,
+      "text": "dot JSON in W mode, which stands for right mode. I open this as F and then I can say,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 687.473469,
+      "end": 692.873469,
+      "text": "JSON dot dump and then data, which is my dictionary and then into the file F. And this will create a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 692.873469,
+      "end": 697.753469,
+      "text": "new file that has that content. So if I run this code here, you can see that I'm just printing out"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 697.753469,
+      "end": 703.133469,
+      "text": "the contents of the Lenda PI file. But now if we look here, I have this data dot JSON file that I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 703.133469,
+      "end": 708.473469,
+      "text": "created, uh, using the open function. Moving on, we have the PAL function. Now what PAL will do is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 708.473469,
+      "end": 713.6734690000001,
+      "text": "raise a base to an exponent. We also have the option to get the modulus of a base raised to an"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 713.6734690000001,
+      "end": 718.053469,
+      "text": "exponent if we want. So if we use the power, normally we just pass our base and our exponent"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 718.053469,
+      "end": 724.093469,
+      "text": "and we can get 100 and we can also get 0.01 here. If we pass like a negative two as the exponent"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 724.093469,
+      "end": 729.4334690000001,
+      "text": "continuing, we have power with mod. Now, if you pass a third argument here to the power function,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 729.513469,
+      "end": 735.053469,
+      "text": "you're going to raise the base to the exponent, then modulus it by whatever this is. So mod six."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 735.053469,
+      "end": 738.093469,
+      "text": "And in this case, you can see this is kind of the order of operations."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 738.093469,
+      "end": 740.053469,
+      "text": "We raise 11 to the exponent three."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 740.053469,
+      "end": 741.353469,
+      "text": "That gives us this value."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 741.353469,
+      "end": 743.853469,
+      "text": "We then mod six. That's going to give us five."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 743.853469,
+      "end": 759.735109,
+      "text": "So when I print this out I get 100 0 and five Moving on we have the print function Now I sure many of you know how this works but we can pass multiple arguments here to the print function They do not need to be strings and they will all be printed out separated by a space by default"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 760.055099,
+      "end": 765.035099,
+      "text": "Now, if you want to override the default separator, you can pass this SEP keyword. So if I use a pipe"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 765.035099,
+      "end": 770.275099,
+      "text": "now, hello and world will be separated by a pipe. There will not be a space. Alternatively, you can"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 770.275099,
+      "end": 775.135099,
+      "text": "use this end keyword. You can also use it in combination with SEP. And now this means at the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 775.135099,
+      "end": 779.635099,
+      "text": "end. So once this print statement is done, rather than printing the default, which is an escape"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 779.635099,
+      "end": 785.355099,
+      "text": "character. So backslash end, you're going to be printing this. So usually what would happen is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 785.355099,
+      "end": 790.215099,
+      "text": "okay. Would be printed on the next line, but since now we're not printing this backslash end,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 790.215099,
+      "end": 793.995099,
+      "text": "which forces the terminal to go to the next line, you're going to see that this will be printed"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 793.995099,
+      "end": 799.975099,
+      "text": "directly after hello. So let's do this and notice to get hello world one, hello pipe world, and then"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 799.975099,
+      "end": 801.655109,
+      "text": "hello and and then OK."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 802.235109,
+      "end": 802.975099,
+      "text": "That's because, again,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 802.975099,
+      "end": 803.975099,
+      "text": "we didn't have this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 803.975099,
+      "end": 804.715099,
+      "text": "backslash end."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 805.0151089999999,
+      "end": 805.975099,
+      "text": "Now, if I manually add"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 805.975099,
+      "end": 807.055099,
+      "text": "the backslash end in"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 807.055099,
+      "end": 807.895109,
+      "text": "here and I print this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 807.895109,
+      "end": 808.895109,
+      "text": "out, now you notice"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 808.895109,
+      "end": 809.835099,
+      "text": "that we move down to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 809.835099,
+      "end": 810.375089,
+      "text": "the next line."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 810.455109,
+      "end": 810.695099,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 810.695099,
+      "end": 811.635099,
+      "text": "So moving on, we have"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 811.635099,
+      "end": 812.735109,
+      "text": "property and this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 812.735109,
+      "end": 813.755099,
+      "text": "allows us to protect"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 813.755099,
+      "end": 814.595089,
+      "text": "an attribute by"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 814.595089,
+      "end": 815.415099,
+      "text": "assigning a getter,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 815.5151089999999,
+      "end": 816.275099,
+      "text": "setter and deleter."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 816.455109,
+      "end": 817.275099,
+      "text": "You can see I have"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 817.275099,
+      "end": 817.795109,
+      "text": "those here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 818.055099,
+      "end": 818.635099,
+      "text": "Then I have my"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 818.635099,
+      "end": 819.795109,
+      "text": "property function and"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 819.795109,
+      "end": 820.835099,
+      "text": "I pass my getter,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 820.915099,
+      "end": 821.535099,
+      "text": "setter and deleter."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 822.095089,
+      "end": 822.935109,
+      "text": "You do not need to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 822.935109,
+      "end": 823.915099,
+      "text": "pass a delete function"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 823.915099,
+      "end": 824.815089,
+      "text": "and you do not need"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 824.815089,
+      "end": 825.955109,
+      "text": "to pass this optional"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 825.955109,
+      "end": 827.275099,
+      "text": "what do you call this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 827.275099,
+      "end": 828.135099,
+      "text": "description of the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 828.135099,
+      "end": 828.455109,
+      "text": "property."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 828.455109,
+      "end": 833.575099,
+      "text": "So now that I've done this, whenever I try to access X on my C class, it's going to use the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 833.575099,
+      "end": 837.875089,
+      "text": "getter function to return the value to me. When I try to set using an assignment like this,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 837.895109,
+      "end": 843.155109,
+      "text": "it's going to use the setter function and pass my assigned value to value inside of this function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 843.255099,
+      "end": 848.535099,
+      "text": "If I tried to delete same thing, it would use my delete method or my delete function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 849.175109,
+      "end": 853.775099,
+      "text": "All right. So that's that. Now we can also use a newer syntax, which is the decorator syntax."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 853.775099,
+      "end": 858.435119,
+      "text": "So I can decorate a function, which is the name of my property. Then I can have a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 858.435119,
+      "end": 863.715089,
+      "text": "setter, deleter and getter. And this works the exact same as just using the function plainly"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 863.715089,
+      "end": 867.735109,
+      "text": "like this. This is probably the preferred approach right now. It's kind of modern Python,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 868.095089,
+      "end": 872.475099,
+      "text": "but you can use this property as well. So just to show you here, when I print out var dot X,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 872.575099,
+      "end": 876.1550890000001,
+      "text": "you're going to see that since I haven't assigned a value to X, it's going to give me one because"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 876.1550890000001,
+      "end": 880.6151090000001,
+      "text": "that's what the getter says. When I set X to 10.2, it's going to round that off to be 10."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 880.6151090000001,
+      "end": 885.855099,
+      "text": "So then when I printed a second time, we should just get 10. So we should get one 10. And then"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 885.855099,
+      "end": 887.735109,
+      "text": "down here, we'll get the same thing."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 887.735109,
+      "end": 890.3151290000001,
+      "text": "So if I run this, I get one ten and then one ten."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 890.355099,
+      "end": 891.8950689999999,
+      "text": "This is the exact same example."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 891.8950689999999,
+      "end": 894.0151089999999,
+      "text": "I've just used the decorator syntax."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 894.055119,
+      "end": 894.355099,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 894.355099,
+      "end": 906.896729,
+      "text": "So the next function I have for you is range Now range is useful for for loops or just generating some range that has a start stop and step value You can pass a start and stop You can just pass a stop"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 906.896729,
+      "end": 912.516719,
+      "text": "or you can pass a start, stop and step. So the basic rules are the first value you pass is going"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 912.516719,
+      "end": 917.916749,
+      "text": "to be your start. The second value is a stop. If you have two values, if you only pass one value,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 917.9967389999999,
+      "end": 921.816739,
+      "text": "this is going to be your stopping point. I'll explain what this means in a second. If you pass"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 921.816739,
+      "end": 925.176729,
+      "text": "three values, this is going to be the start. This is going to be the stop. This is going to be the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 925.176729,
+      "end": 930.156739,
+      "text": "step. So you would start at one step by two. So you go one, three, five, nine, and then you would"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 930.156739,
+      "end": 936.416749,
+      "text": "not go to 11 because that is greater than 10. Now this stopping value here is exclusive. Meaning if"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 936.416749,
+      "end": 941.5967390000001,
+      "text": "I put a 10 here, I'm going to stop at nine. So I stop as soon as I hit this value and do not include"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 941.5967390000001,
+      "end": 947.376739,
+      "text": "this value in my range. Now here, when we just put 10, this means start at zero and go to 10."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 947.376739,
+      "end": 949.836729,
+      "text": "So we're going to have zero through nine as our sequence."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 949.956729,
+      "end": 953.6367190000001,
+      "text": "And we, when we do something with negative here, which is valid, we're starting at negative"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 953.6367190000001,
+      "end": 956.6167290000001,
+      "text": "one, going to negative 10, stepping by negative two."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 957.0967390000001,
+      "end": 958.256749,
+      "text": "So let me print this out."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 958.336729,
+      "end": 961.396729,
+      "text": "And you can see that these are the sequences that we get."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 961.516719,
+      "end": 961.756749,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 961.756749,
+      "end": 964.816739,
+      "text": "So moving on, we have the wrapper function, which stands for representation."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 965.1367190000001,
+      "end": 969.196719,
+      "text": "This gives you the internal representation of a Python object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 969.356749,
+      "end": 972.9767489999999,
+      "text": "Now, the way wrapper works is it looks for this underscore underscore wrapper method."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 972.9767489999999,
+      "end": 976.876739,
+      "text": "If that exists, then it will return to you whatever is returned from that."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 976.876739,
+      "end": 982.296749,
+      "text": "So here I have my pet class. I have implemented the wrapper dunder method. And now if I run this"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 982.296749,
+      "end": 987.1367190000001,
+      "text": "notice, a pet name equals Billy and pet name equals Sally. Now, the point of this is that"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 987.1367190000001,
+      "end": 992.376739,
+      "text": "this is a debuggable object or debuggable output, which makes it easier for me to read"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 992.376739,
+      "end": 997.856749,
+      "text": "than maybe a string representation. Now, a string representation may just say something like my name"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 997.856749,
+      "end": 1003.696719,
+      "text": "is Billy or Sally. It may be whatever you want to show to the user or kind of a cleaner, nicer"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1003.696719,
+      "end": 1008.336729,
+      "text": "looking output, whereas wrapper is meant to be something that is your internal representation"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1008.336729,
+      "end": 1012.816739,
+      "text": "useful for debug. All right. So the next function I have is reversed. This is simply going to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1012.816739,
+      "end": 1017.576719,
+      "text": "reverse an interval sequence and give you a reversed iterator. Now this will give you a new"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1017.576719,
+      "end": 1022.0967390000001,
+      "text": "object. It will not modify the existing object. So I get one, two, three, it's going to give me"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1022.0967390000001,
+      "end": 1026.416749,
+      "text": "three, two, one. However, it's going to give me this reversed object. So if I want to view it,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1026.416749,
+      "end": 1030.5367390000001,
+      "text": "then I need to use list. Now, if you were just going to loop through it, that'd be fine because"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1030.5367390000001,
+      "end": 1034.5767190000001,
+      "text": "this is an iterator, so you can just loop over the reversed object return from here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1034.696719,
+      "end": 1035.896729,
+      "text": "But in our case, we want to print it out."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1035.896729,
+      "end": 1037.676729,
+      "text": "So I'm just converting it to a list."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1037.676729,
+      "end": 1042.096739,
+      "text": "So notice I can do this with a list, with a tuple, with a string, with a few other objects."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1042.376739,
+      "end": 1044.176729,
+      "text": "But there you go. That is how reversed works."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1044.176729,
+      "end": 1056.138399,
+      "text": "All right So the next function I have here is round Now round is simply going to round a number for you In this case if you don pass a second argument it will round to the nearest whole number So we should get 11 here If you do pass a second"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1056.138399,
+      "end": 1057.098389,
+      "text": "argument, this will be the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1057.098389,
+      "end": 1058.498369,
+      "text": "level of precision. So"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1058.498369,
+      "end": 1059.598389,
+      "text": "we'll round to the fourth"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1059.598389,
+      "end": 1061.298369,
+      "text": "decimal place. If you pass"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1061.298369,
+      "end": 1062.718369,
+      "text": "10, same thing to the 10th"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1062.718369,
+      "end": 1064.118369,
+      "text": "decimal place. So when I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1064.118369,
+      "end": 1064.938389,
+      "text": "print this out, notice I"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1064.938389,
+      "end": 1067.038389,
+      "text": "get 10, 10.2342 and then"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1067.038389,
+      "end": 1069.718369,
+      "text": "0.828 notice that it is not"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1069.718369,
+      "end": 1071.258389,
+      "text": "adding a bunch of zeros here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1071.578369,
+      "end": 1073.358399,
+      "text": "Uh, when we do 10, there is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1073.358399,
+      "end": 1074.6983989999999,
+      "text": "ways to do that, but not"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1074.6983989999999,
+      "end": 1075.758389,
+      "text": "with you round function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1075.858399,
+      "end": 1076.118369,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1076.118369,
+      "end": 1076.858399,
+      "text": "So moving on, we have"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1076.858399,
+      "end": 1077.738369,
+      "text": "the set function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1077.738369,
+      "end": 1078.338369,
+      "text": "Now, this is the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1078.338369,
+      "end": 1079.578369,
+      "text": "constructor for the set"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1079.578369,
+      "end": 1080.238369,
+      "text": "data type."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1080.238369,
+      "end": 1081.158389,
+      "text": "It allows you to pass"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1081.158389,
+      "end": 1082.258389,
+      "text": "an iterable sequence"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1082.398369,
+      "end": 1083.458369,
+      "text": "and it will create a set"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1083.458369,
+      "end": 1084.158389,
+      "text": "from that."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1084.158389,
+      "end": 1085.298369,
+      "text": "So it's useful if you want"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1085.298369,
+      "end": 1086.318389,
+      "text": "to get all of the unique"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1086.318389,
+      "end": 1087.398369,
+      "text": "elements in something"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1087.398369,
+      "end": 1088.458369,
+      "text": "like a list."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1088.458369,
+      "end": 1089.378389,
+      "text": "Now, one thing to note"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1089.378389,
+      "end": 1090.718369,
+      "text": "here is if you try to do"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1090.718369,
+      "end": 1092.258389,
+      "text": "something like S is equal"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1092.258389,
+      "end": 1093.458369,
+      "text": "to and then you do curly"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1093.458369,
+      "end": 1094.818389,
+      "text": "braces, you may think"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1094.818389,
+      "end": 1095.598389,
+      "text": "this is going to create a new"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1095.598389,
+      "end": 1096.878389,
+      "text": "set because this is an empty"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1096.878389,
+      "end": 1097.398369,
+      "text": "set."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1097.398369,
+      "end": 1098.498369,
+      "text": "However, this is actually"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1098.498369,
+      "end": 1099.638369,
+      "text": "going to make a dictionary"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1099.638369,
+      "end": 1100.798369,
+      "text": "because both a set and a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1100.798369,
+      "end": 1102.498369,
+      "text": "dictionary use the syntax."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1102.498369,
+      "end": 1103.158389,
+      "text": "So if you want to make an"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1103.158389,
+      "end": 1104.4183990000001,
+      "text": "empty set, you have to do"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1104.4183990000001,
+      "end": 1108.4783889999999,
+      "text": "new set like this that will give you an empty set that you can then add elements into."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1108.9183990000001,
+      "end": 1113.2583690000001,
+      "text": "Okay. So we can do this with our list. I just kind of showed a fancy way of initializing a set here,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1113.798399,
+      "end": 1118.958369,
+      "text": "pass a few different elements, and then I am unpacking the list and putting all of those"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1118.958369,
+      "end": 1122.858369,
+      "text": "inside of the set and then printing that out. So this is another way to initialize a set."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1123.198369,
+      "end": 1127.658369,
+      "text": "We can make a new set. And then as it was saying, notice there's a new dictionary. So if I go here,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1127.858369,
+      "end": 1133.1184090000002,
+      "text": "we get our set, our sets, and then class set and class dictionary. Again, if you just use the curly"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1133.1184090000002,
+      "end": 1137.0383689999999,
+      "text": "braces gives you a dictionary, not a set. All right. Next function I have for you is set"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1137.0383689999999,
+      "end": 1142.838369,
+      "text": "attribute or set adder. Now what this will do is simply set an attribute on an instance of a class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1142.838369,
+      "end": 1148.298399,
+      "text": "So I create my custom instance. I say set adder C and then I'm going to say the attribute name is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1148.298399,
+      "end": 1152.658369,
+      "text": "X. Notice I'm putting that in a string. I'm going to set that to one. And if I print C dot X,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1152.678409,
+      "end": 1157.158369,
+      "text": "it's going to give me one. There we go. All right. So next function we have here is slice. Now what"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1157.158369,
+      "end": 1162.958369,
+      "text": "slice does is give you a slice object, which you can use to access parts of a list. I don't actually"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1162.958369,
+      "end": 1168.0383689999999,
+      "text": "know why you would use this over just using the standard slice syntax, but you'll see here that"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1168.0383689999999,
+      "end": 1174.558409,
+      "text": "when I print LST at S, it's kind of injecting this as a slice. So the first argument here is going to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1174.558409,
+      "end": 1180.318419,
+      "text": "be your start. The second is your stop and the last will be your step. Now, just like the range"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1180.318419,
+      "end": 1185.2183690000002,
+      "text": "function, if you don't include a first argument, it's just a stop. If you include two, then it's"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1185.2183690000002,
+      "end": 1189.298399,
+      "text": "your start and your stop. And if you include three, then it's your start, stop and step."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1189.938419,
+      "end": 1191.458369,
+      "text": "So when I do one, three,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1191.458369,
+      "end": 1193.098369,
+      "text": "start at index one, go to,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1193.098369,
+      "end": 1194.798399,
+      "text": "but do not include index three."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1194.798399,
+      "end": 1196.598369,
+      "text": "So I should get four and six."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1196.598369,
+      "end": 1198.298399,
+      "text": "When I do one, five and two"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1198.298399,
+      "end": 1199.978369,
+      "text": "start at index one, go to five,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1200.0,
+      "end": 1202.84,
+      "text": "is the end of the list, but don't include it step by too short."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1202.84,
+      "end": 1205.0,
+      "text": "So I should get four and eight. Sorry."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1205.0,
+      "end": 1209.2,
+      "text": "So if I run this notice for six and four, eight again, kind of weird,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1209.2,
+      "end": 1212.46,
+      "text": "but this gives you a slice that you can kind of inject or use"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1212.46,
+      "end": 1215.56,
+      "text": "when you're accessing a list or any other iterable option."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1215.56,
+      "end": 1217.7,
+      "text": "All right, moving on, we have the sorted function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1217.7,
+      "end": 1220.54,
+      "text": "Now this is going to return a sorted iterable for you."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1220.7,
+      "end": 1224.24,
+      "text": "You can use this on lists, on strings, on dictionaries,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1224.84,
+      "end": 1226.1,
+      "text": "on say nested lists."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1226.1,
+      "end": 1228.04,
+      "text": "There's all kinds of things you can do."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1228.04,
+      "end": 1232.32,
+      "text": "So what I've done here is just sort of this by default is going to sort in ascending order,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1232.32,
+      "end": 1234.54,
+      "text": "but you can do this in descending."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1234.54,
+      "end": 1237.38,
+      "text": "Now, this is going to return a new sequence for you or a new iterable."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1237.38,
+      "end": 1240.92,
+      "text": "It will not modify the existing object you're calling it on."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1241.58,
+      "end": 1244.16,
+      "text": "All right. Continuing here, we can do this on a dictionary."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1244.16,
+      "end": 1247.46,
+      "text": "Now, if we do this on a dictionary by default, it's going to use all of the keys."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1247.46,
+      "end": 1250.0,
+      "text": "So we'll give us a sorted list of the keys."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1250.0,
+      "end": 1253.6,
+      "text": "And if we want to do this descending, then we pass reverse equals true."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1253.7,
+      "end": 1256.5,
+      "text": "And this will sort in descending order, not ascending."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1256.5,
+      "end": 1275.98,
+      "text": "Now I can also pass a key function here. And when I do this, it's then going to sort every single element that we have based on the key. So when I pass something like some, it's going to sum all of the pairs that I have here and then sort by the result of the sum. So whatever sum is higher will be, I guess, at the end, because we're sorting in a sending order here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1276.74,
+      "end": 1280.14,
+      "text": "OK, so let's print this and notice that I get my first list."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1280.54,
+      "end": 1281.74,
+      "text": "I get my string."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1281.74,
+      "end": 1283.24,
+      "text": "I get my dictionary keys."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1283.24,
+      "end": 1286.48,
+      "text": "I get my descending order and then I get my pair sorted by."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1286.92,
+      "end": 1287.18,
+      "text": "All right."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1287.18,
+      "end": 1289.54,
+      "text": "So the next function I have for you here is static method."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1289.54,
+      "end": 1292.98,
+      "text": "Really, this is a decorator, but this allows you to create a static method"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1292.98,
+      "end": 1294.32,
+      "text": "inside of a class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1294.32,
+      "end": 1298.68,
+      "text": "A static method is one that does not have access to the class or to the instance."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1298.84,
+      "end": 1301.18,
+      "text": "It's really just like a utility or helper function"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1301.18,
+      "end": 1303.88,
+      "text": "that kind of belongs with or is associated with a class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1304.28,
+      "end": 1306.14,
+      "text": "So notice that I can call this in multiple ways."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1306.14,
+      "end": 1308.88,
+      "text": "I can use the dot notation on the class name,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1309.08,
+      "end": 1312.08,
+      "text": "or I can create an instance and then call it directly on the instance."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1312.28,
+      "end": 1313.98,
+      "text": "When I do this, there's no self keyword,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1313.98,
+      "end": 1328.44081,
+      "text": "so I don have access to the instance or the class because there no CLS keyword So if I run this I get five and three There you go That is static method All right So moving on I have the string function Now the string function will return the string representation of an object"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1328.68082,
+      "end": 1332.38081,
+      "text": "useful for converting numbers to strings or just anything else that you want."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1332.74081,
+      "end": 1335.84082,
+      "text": "Now, one thing to note here is that when you call the print function,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1336.10081,
+      "end": 1339.90082,
+      "text": "it's actually going to by default call the string Dunder method"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1339.90082,
+      "end": 1344.28082,
+      "text": "or the string function on every single object that you pass as an argument."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1344.28082,
+      "end": 1348.12082,
+      "text": "So if I pass my list here to print, this is the exact same thing as me"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1348.12082,
+      "end": 1351.84082,
+      "text": "converting this to a string first and then printing it out."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1352.1408099999999,
+      "end": 1354.48082,
+      "text": "So kind of an interesting note, but whenever you print something,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1354.48082,
+      "end": 1357.34082,
+      "text": "it calls the string dunder method on that object."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1357.62082,
+      "end": 1360.4208,
+      "text": "And then whatever that result is, it is what it actually prints out."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1361.1408099999999,
+      "end": 1363.18082,
+      "text": "So we can convert many different things to strings."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1363.18082,
+      "end": 1364.94081,
+      "text": "We can convert a set to a string."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1364.94081,
+      "end": 1369.18082,
+      "text": "We can also convert our own custom object by implementing the string dunder method."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1369.52081,
+      "end": 1373.72083,
+      "text": "So if I run this notice, I get the string representation of my list of my integer"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1373.72083,
+      "end": 1379.06082,
+      "text": "of my, what is this, a set and then of my custom object, which is something that I've implemented."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1379.06082,
+      "end": 1383.36081,
+      "text": "Moving on here, we have the sum function. Now this is pretty straightforward, but this is going to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1383.36081,
+      "end": 1388.08081,
+      "text": "sum all of the values in an iterable sequence. One thing you can do here that's cool with the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1388.08081,
+      "end": 1392.76082,
+      "text": "sum function is pass a start value. Now, when you do this, you're going to be adding whatever the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1392.76082,
+      "end": 1397.18082,
+      "text": "start is to the sum. So kind of would save you an additional step of doing something like, you know,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1397.26082,
+      "end": 1403.6408099999999,
+      "text": "five plus. All right, let's have a look here. When I sum this, I get 37.3, 42.3, even though it's"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1403.6408099999999,
+      "end": 1408.4808,
+      "text": "the same list because I add this five and then I sum my set, which will be all of the unique"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1408.4808,
+      "end": 1413.10081,
+      "text": "elements. And that gives me 50. Next, we have the super function. This allows us to access"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1413.10081,
+      "end": 1418.4808,
+      "text": "attributes or methods from the parent class directly. So when I have class parent here,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1418.4808,
+      "end": 1423.54082,
+      "text": "and then I inherit from that in my child class, now super is going to reference all of the stuff"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1423.54082,
+      "end": 1428.4808,
+      "text": "inside of the parent class. If you have multiple inheritance, it gets a bit complicated. I won't"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1428.4808,
+      "end": 1432.78082,
+      "text": "get into that here, but super is referencing your parent or parents class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1433.18082,
+      "end": 1445.40163,
+      "text": "So what I can do with my initialization here is I can call the parent constructor by saying super dot underscore underscore knit underscore underscore and then passing any value that required to initialize the parent class I also can do"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1445.40163,
+      "end": 1446.22163,
+      "text": "something like super"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1446.22163,
+      "end": 1447.72163,
+      "text": "dot funk. And when I do"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1447.72163,
+      "end": 1448.68163,
+      "text": "that, I'm now calling the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1448.68163,
+      "end": 1449.94164,
+      "text": "funk from the parent"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1449.94164,
+      "end": 1451.32162,
+      "text": "class, as opposed to the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1451.32162,
+      "end": 1452.76163,
+      "text": "funk that I have inside"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1452.76163,
+      "end": 1454.30164,
+      "text": "of my child class. So"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1454.30164,
+      "end": 1455.34163,
+      "text": "notice here, when I call"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1455.34163,
+      "end": 1456.42163,
+      "text": "C dot funk, it will call"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1456.42163,
+      "end": 1457.68164,
+      "text": "this. When I do call"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1457.68164,
+      "end": 1458.44162,
+      "text": "parents, it's going to"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1458.44162,
+      "end": 1459.48163,
+      "text": "call self dot funk,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1459.48163,
+      "end": 1460.32162,
+      "text": "which will be this. And"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1460.32162,
+      "end": 1461.22162,
+      "text": "then super dot funk,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1461.50162,
+      "end": 1462.72162,
+      "text": "which will be this. All"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1462.72162,
+      "end": 1463.72162,
+      "text": "right. So let's run and"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1463.72162,
+      "end": 1468.0816300000001,
+      "text": "notice I get child, child, and then parent. So moving on, we have the tuple function. This is"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1468.0816300000001,
+      "end": 1473.0816300000001,
+      "text": "going to convert something to a tuple. If I do something like convert a list of pairs, then it's"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1473.0816300000001,
+      "end": 1478.40164,
+      "text": "simply going to replace the list with a tuple and make this an immutable sequence. So if I run this,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1478.50165,
+      "end": 1482.5816300000001,
+      "text": "notice I get a tuple. It does not convert all of the objects inside of my list to a tuple,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1482.88162,
+      "end": 1487.3616299999999,
+      "text": "just the object itself. Now, if I use this on something like a string, then I get all of the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1487.3616299999999,
+      "end": 1491.82162,
+      "text": "individual characters in my tuple in the order in which they occurred in the string. All right,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1491.82162,
+      "end": 1496.54163,
+      "text": "So the next function we have is type. Now type can be used in a very simple sense to just get"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1496.54163,
+      "end": 1502.54163,
+      "text": "the type of an object. We also can use type though, to create our own classes. Now I know this seems a"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1502.54163,
+      "end": 1507.22162,
+      "text": "bit weird and I won't get into it too much, but I can actually use it in this advanced kind of use"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1507.22162,
+      "end": 1512.14163,
+      "text": "case to create my own class. So I pass the class name, I pass anything I want to inherit from,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1512.14163,
+      "end": 1517.22162,
+      "text": "and then I pass a dictionary containing all of the attributes or functions associated with my class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1517.22162,
+      "end": 1519.66162,
+      "text": "So when I say attribute, I am an attribute."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1519.66162,
+      "end": 1522.06165,
+      "text": "Now it creates an attribute on this class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1522.10162,
+      "end": 1524.88162,
+      "text": "And when I do add one, it now creates an add one function"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1524.88162,
+      "end": 1526.60162,
+      "text": "because I'm passing a function here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1526.88162,
+      "end": 1530.46164,
+      "text": "So if I do C equals class name, now I can use this just like a class."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1530.56165,
+      "end": 1533.04163,
+      "text": "I can access the attribute and I can call the add function."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1533.28162,
+      "end": 1535.90164,
+      "text": "So if I run this, I get I'm an attribute and three."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1535.90164,
+      "end": 1537.22162,
+      "text": "And notice I passed two."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1537.40164,
+      "end": 1538.10162,
+      "text": "It added one."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1538.32162,
+      "end": 1539.22162,
+      "text": "And well, there you go."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1539.64163,
+      "end": 1541.44165,
+      "text": "Now, if we just use it in the simple sense,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1541.46164,
+      "end": 1546.50165,
+      "text": "we get whatever the classes or the type of the object that we're calling."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1546.50165,
+      "end": 1549.14163,
+      "text": "All right. So the next function I have here is bars."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1549.14163,
+      "end": 1552.26163,
+      "text": "Now bars is going to give you all of the variables or attributes"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1552.26163,
+      "end": 1567.88245,
+      "text": "associated with a specific object or type So in this case I can print out just bars with nothing And when I do that it gives me all of the globally accessible variables which we already kind of looked at If we do bar and then list it going to give us all the attributes associated with this list"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1567.88245,
+      "end": 1572.96246,
+      "text": "type. And if we call this on our custom class, then same thing, all of the attributes associated"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1572.96246,
+      "end": 1578.54245,
+      "text": "with the custom class. So when I run this here, notice that we get a bunch of stuff printing out,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1578.58246,
+      "end": 1582.56244,
+      "text": "right? So we get name, doc, all this kind of stuff. And then on our own custom object,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1582.56244,
+      "end": 1588.3224500000001,
+      "text": "we get all of the default kind of implemented stuff, right? I know it seems a little bit weird,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1588.3224500000001,
+      "end": 1593.34247,
+      "text": "but there you go. That is how VARs works. Now, moving on to our final function, which is zip."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1593.50244,
+      "end": 1598.00244,
+      "text": "Now, what zip allows us to do is actually group multiple iterable objects together"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1598.00244,
+      "end": 1603.5224600000001,
+      "text": "into separate tuples or separate pairings. Now, the way this works is you pass whatever"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1603.5224600000001,
+      "end": 1607.92245,
+      "text": "iterable objects you want, and then it's going to loop through and essentially take all of the"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1607.92245,
+      "end": 1612.6024499999999,
+      "text": "associated indices and put them together in a tuple. So let me just show you what I mean."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1612.98245,
+      "end": 1617.50244,
+      "text": "If we start here, we can see that we have a zip object. So it gives us a zip iterable."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1617.88245,
+      "end": 1622.12244,
+      "text": "We can also just convert this to a list, but notice that I have four, five, five, three,"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1622.28247,
+      "end": 1627.3224500000001,
+      "text": "six, one, seven, two, two, three, one, one. And those are all of the indexes that associate with"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1627.3224500000001,
+      "end": 1632.3024599999999,
+      "text": "each other. Now we can call this on stuff that is different lengths or different types. When we do"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1632.3024599999999,
+      "end": 1636.92245,
+      "text": "that, it's only going to go up to the length of the smallest object. So in this case, only have"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1636.92245,
+      "end": 1643.38245,
+      "text": "three elements, whereas here I have five. So you see that we get H1, E2, and L3. So very useful."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1643.38245,
+      "end": 1647.56244,
+      "text": "And you want to group multiple iterable objects together. You can also call this with three"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1647.56244,
+      "end": 1652.94244,
+      "text": "values or four or as many as you want. So if I do this with widths, now notice that I get kind"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1652.94244,
+      "end": 1657.3024599999999,
+      "text": "of triplets, right? In a tuple. All right. So with that said, I'm going to wrap up the video here."
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1657.66245,
+      "end": 1661.74246,
+      "text": "I hope this was helpful to you and that you learned some new Python functions and some new"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1661.74246,
+      "end": 1666.36246,
+      "text": "Python syntax. If you enjoyed, make sure you leave a like, subscribe to the channel, check out"
+    },
+    {
+      "number": "0",
+      "title": "Every_Python_Function_Explained___H_-_Z",
+      "start": 1666.36246,
+      "end": 1670.3024599999999,
+      "text": "programming expert.io and I will see you in another YouTube video."
+    }
+  ],
+  "text": "Hello, everybody, and welcome to part two of every Python function explained in part one, I shared with you about 30 functions in this part, I'm going to share with you the rest of them. I'm going to throw the definition up on the screen. I'm going to give you a quick example of how each function works. And by the end of this, you will know some new Python functions, and I guarantee you that you will learn something. With that said, if you haven't checked out part one, I will leave that on the screen. I will also put it in the description and make sure you check out Programming Expert.io. That's my programming course. If you want to get better at coding Master Python, learn, go learn about software engineering tools and software design. It really is one of the best places to become a software engineer. With that said, let's dive in to the video. All right. So let's dive in here with the first function, which is hash. Now, hashing is used specifically for dictionaries and comparing dictionary keys. So whenever you pass a key to a dictionary or you try to access an object, you're going to hash whatever that key is and then compare that with any hashes that currently exist in the dictionary. If there's a match, then you're going to get the value returned by that hash. Otherwise, you're not right. You're going to get a key error. Anyways, I can show you how it works here, though. We have a random string and we just have a tuple, which is a hashable object. And if I run this, you see, we get kind of random strings here, random numbers, which are the hash of these values. Now, one thing to note here is that you can only hash things that are mutable. So I cannot hash a list like this. It just doesn't work, right? I cannot hash a list. Now, can I hash a set? Let's try this. So one, two, and I cannot hash a set, but I can hash a tuple. So if you ever need some kind of pairing to be used in a dictionary, then you're going to use a tuple rather than a list or a set or something like that because a tuple is immutable and hence we can hash it. All right. So the next function that I have here is Len. Now this stands for length. You can use this on any iterable object. You can see that we can get the Atlanta of a list. We can get the Atlanta of a string of a dictionary or of a set. Now we can do this for a few other types as well. And we can also implement our own a Len Dunder method on any of our custom objects. So what happens when you actually use this Len function is it calls the Len Dunder method and whatever is returned from that method is what you get when calling Len. So in this case, we'll get five when we print this out for C. So if I run this you can see we get five And then of course the appropriate lengths for the other objects Moving on we have a list Now this is really just the constructor for the list data type in Python It allows us to convert something to a list Now to convert something to a list, we need an iterable object. So something like a dictionary, a set, a string, a tuple. And we simply pass that object to the list constructor. Now, if we're converting a dictionary to a list, that's going to give us all of the keys. So we'll give us one, two and three, not the strings, but the keys. If we're doing a set, it's just going to give us all of the unique objects in the set. If we're doing a string, then we're going to get every single individual character. And if we're doing a tuple, then we're going to get each element that's in the tuple. So if I run this, you see, we get one, two, three, one, two, three, four. We get every single character in our string, including the space. And then we get all the elements in our tuple. Now it's worth noting here that you cannot be certain that your elements are going to be in the order in which you have them in your dictionary or your set. So imagine you have a very large dictionary, like we're not just writing out all the values here. You're not necessarily going to get sorted values or the values in the order in which you inserted them in the dictionary. It could be in potentially a random order. All right. So moving on, we have locals. Now locals is going to give you information about all of the local variables that you have access to here in the file. So if I run this code here, you can see that I get this big dictionary containing all of the different variables as well as their value. So we have the name of this file, which is main. We have a few other things that we don't really need to look at. And then you can see here that I've printed out like the location of the files. You can see it's on my users, Tim, desktop, every Python function, part two, and then locals.py. Now I've just accessed that from the dictionary returned by locals, but I also could just use the special name here in Python, which is underscore, underscore file, underscore, underscore. All right. So moving on, we have the map function. Now the map function allows us to map all of the values in an iterable sequence using a function. So what I can do is create a sequence like this. I can use my map function. I pass a function here. Now I'm passing an anonymous function, but you can pass an actual function if you wanted to. And if you were going to pass a function, you defined, you would just pass the name of the function. You would not call the function by putting parentheses. So I'm passing a function here, which takes one argument, which is X. And then it's going to raise that to the exponent two. Then I'm going to pass my sequence. What's going to happen is each element from my sequence will be passed to this function and get added into a new map object. And then what we can do is convert that mock map object to a list story. And now we'll get the squares of every single element from our sequence. Now you can do the same thing here with a dictionary So I created kind of a more advanced example I guess we have a function What this function does is it takes items which is this array or this list at whatever key is passed to the function, and then it multiplies it by the key. Now, in this case, we're going to have string multiplication, and you'll see what kind of happens in this example. So if I run this, we get all of the squares from one to 10, and then we get a BBB and then four C's. Now, the reason we get that result down here is because when you iterate over a dictionary, you're going to get every single key. That's what's going to be passed to your map function. So we pass the key, we get the value associated with the key, and then we multiply that by the key. Since the key is a string, that's then going to give a string multiplication. And that's why we get four C's, three B's, and one A. Moving on, we have the max function. This allows us to get the maximum value out of an iterable sequence or of multiple arguments. There's different ways you can call this. First of all, we can pass like a list, and it's just going to give us the maximum value in this list. We can also pass numbers or arguments individually. So I've done that here. We can do the same with strings. Now, when we're comparing strings, we're going to be looking at the ASCII value of each character starting at the first character. So we'd start by comparing each string using the first character. If two strings have the same first character, then we will look at the second character and use the ASCII value of that character. Next, we have just passing multiple interval sequences here. Now, whenever you pass multiple values, so like multiple parameters to this function, they need to be the same type. So in this case, I'm passing three lists. And what it's going to do to compare the list is actually use the first element of these lists. So we'll have this being the maximum element because this list has the greatest first element in it. So just like comparing the strings, it works the same for a list. We can also use this on like a custom type. So I have a custom type here and I can pass the key function or the key parameter, sorry, to my map function. And now we're going to be using this to compare. So we'll pass every single value to this key function. And then whatever the result of that key function is, we'll use to pick the largest value. So let me run this and notice we get 34 nine. Yes, we get to one, as I said, and then we get a custom object. If I were to print that out, you would see that we would get C3 because the value returned by C3 is the largest. All right. So the next function is a memory view. This is a little bit complicated, but you can use this on bytes types and a few other types as well here in Python to kind of dig into the representation of this object So I have a memory view of my variable X which is a bytes type That what the B stands for here And I can look at for example the first index which would correspond with B Now notice that when I print this out, the first value I get is 98. So what's actually stored in memory for the character B is 98 and 98 is the ASCII representation of this character. So if I then convert that ASCII representation to a character, notice I get B. And so I'm looking at this character here at index one or position one. If I try to print out a slice of the memory, I can do this and I'm going to get a memory view object. Or what I can do is convert this slice to a bytes type. And now I'm going to get B, C, D, right? So if I'm going from one to four, that would be here. So I'm getting B, C, D when I actually convert that to bytes. If I don't convert it to bytes, then of course I get the memory representation of that bytes object. All right, moving on, we have the min function. Now, this is identical to the max function, just the minimum value. I don't really need to go through this note that you can use the keyword here as well. And no pun intended, but you can use key as a keyword. And then that allows you to select the minimum based on the return value of this function. Now, next, we're talking about the next function. Now, this is similar to the next function that we saw in part one, except this is for regular iterators, not a synchronous iterators. What this will do is give you the next value in an iterable sequence, assuming that whatever you're calling this on is an iterator. So I have my custom iterator object here. Notice that I implement my iter method as well as my next method. And now what I can do is create an iter or iterator, sorry, from my custom object. So I create an iterator and then I can call next on it and I will get the next value in the iterable sequence. And I can do the same thing using like a built-in object, right? So if I have a list, I can actually get an iterator for this list. And then I can call next on that list iterator and get the next value. So let me show you this. We have one, two, three, ABC, again, very similar to the a next function, just for regular iterators, not asynchronous iterators. All right. So moving on, we have the object function. This is going to create an empty object for you. If you didn't know every single class in Python by default inherits from object. So it has some prebuilt functionality. It's not super useful, but I will run the code and show you that we can print out an object of type object and we can view all of the kind of built in behavior, default behavior for this type. Moving on, we have the octa function, which stands for octal. It's going to give us the base eight representation of a base ten number. So if I print these out, You can see that that's what we're getting. Really, you want to be looking at the part after the zero O and notice that you get a negative zero O whenever you have a negative octal value. Don't need to go through this too much more, but this gives you the octal value. All right, the next function I have for you is open. Now, what this does is open a new file. Now, I've put all of the different modes that you can use when opening a file here. I'm not going to go through them. Feel free to pause the video and read them if you want, but let's look at this example down here. So I import the JSON module just to show you how we can kind of save JSON data. anyways what I can do is use this open object to open a file in read mode or in write mode or whatever the other modes are so you put the name of the file and then the mode you want to open it in in this case lend up pi is a file that does exist then if I wanted to read all of the lines I can use the file object returned by open to say f dot read lines this will give me a list of all of the lines that exist I can print those out and then I can close the file object now the better approach to do this is to use this with, which really is going to give you a context manager when you're kind of using this open function. So you say with open as F lines equals F dot read lines, and then print lines. And now you don't need to manually close the file because as soon as you escape this with block, it's automatically going to close the file for you. Continuing. I just wanted to show you how we can save Jason data. So I'm saying data is equal to, and then some dictionary, then I'm going to open a new Jason file that doesn't already exist. So data dot JSON in W mode, which stands for right mode. I open this as F and then I can say, JSON dot dump and then data, which is my dictionary and then into the file F. And this will create a new file that has that content. So if I run this code here, you can see that I'm just printing out the contents of the Lenda PI file. But now if we look here, I have this data dot JSON file that I created, uh, using the open function. Moving on, we have the PAL function. Now what PAL will do is raise a base to an exponent. We also have the option to get the modulus of a base raised to an exponent if we want. So if we use the power, normally we just pass our base and our exponent and we can get 100 and we can also get 0.01 here. If we pass like a negative two as the exponent continuing, we have power with mod. Now, if you pass a third argument here to the power function, you're going to raise the base to the exponent, then modulus it by whatever this is. So mod six. And in this case, you can see this is kind of the order of operations. We raise 11 to the exponent three. That gives us this value. We then mod six. That's going to give us five. So when I print this out I get 100 0 and five Moving on we have the print function Now I sure many of you know how this works but we can pass multiple arguments here to the print function They do not need to be strings and they will all be printed out separated by a space by default Now, if you want to override the default separator, you can pass this SEP keyword. So if I use a pipe now, hello and world will be separated by a pipe. There will not be a space. Alternatively, you can use this end keyword. You can also use it in combination with SEP. And now this means at the end. So once this print statement is done, rather than printing the default, which is an escape character. So backslash end, you're going to be printing this. So usually what would happen is okay. Would be printed on the next line, but since now we're not printing this backslash end, which forces the terminal to go to the next line, you're going to see that this will be printed directly after hello. So let's do this and notice to get hello world one, hello pipe world, and then hello and and then OK. That's because, again, we didn't have this backslash end. Now, if I manually add the backslash end in here and I print this out, now you notice that we move down to the next line. All right. So moving on, we have property and this allows us to protect an attribute by assigning a getter, setter and deleter. You can see I have those here. Then I have my property function and I pass my getter, setter and deleter. You do not need to pass a delete function and you do not need to pass this optional what do you call this description of the property. So now that I've done this, whenever I try to access X on my C class, it's going to use the getter function to return the value to me. When I try to set using an assignment like this, it's going to use the setter function and pass my assigned value to value inside of this function. If I tried to delete same thing, it would use my delete method or my delete function. All right. So that's that. Now we can also use a newer syntax, which is the decorator syntax. So I can decorate a function, which is the name of my property. Then I can have a setter, deleter and getter. And this works the exact same as just using the function plainly like this. This is probably the preferred approach right now. It's kind of modern Python, but you can use this property as well. So just to show you here, when I print out var dot X, you're going to see that since I haven't assigned a value to X, it's going to give me one because that's what the getter says. When I set X to 10.2, it's going to round that off to be 10. So then when I printed a second time, we should just get 10. So we should get one 10. And then down here, we'll get the same thing. So if I run this, I get one ten and then one ten. This is the exact same example. I've just used the decorator syntax. All right. So the next function I have for you is range Now range is useful for for loops or just generating some range that has a start stop and step value You can pass a start and stop You can just pass a stop or you can pass a start, stop and step. So the basic rules are the first value you pass is going to be your start. The second value is a stop. If you have two values, if you only pass one value, this is going to be your stopping point. I'll explain what this means in a second. If you pass three values, this is going to be the start. This is going to be the stop. This is going to be the step. So you would start at one step by two. So you go one, three, five, nine, and then you would not go to 11 because that is greater than 10. Now this stopping value here is exclusive. Meaning if I put a 10 here, I'm going to stop at nine. So I stop as soon as I hit this value and do not include this value in my range. Now here, when we just put 10, this means start at zero and go to 10. So we're going to have zero through nine as our sequence. And we, when we do something with negative here, which is valid, we're starting at negative one, going to negative 10, stepping by negative two. So let me print this out. And you can see that these are the sequences that we get. All right. So moving on, we have the wrapper function, which stands for representation. This gives you the internal representation of a Python object. Now, the way wrapper works is it looks for this underscore underscore wrapper method. If that exists, then it will return to you whatever is returned from that. So here I have my pet class. I have implemented the wrapper dunder method. And now if I run this notice, a pet name equals Billy and pet name equals Sally. Now, the point of this is that this is a debuggable object or debuggable output, which makes it easier for me to read than maybe a string representation. Now, a string representation may just say something like my name is Billy or Sally. It may be whatever you want to show to the user or kind of a cleaner, nicer looking output, whereas wrapper is meant to be something that is your internal representation useful for debug. All right. So the next function I have is reversed. This is simply going to reverse an interval sequence and give you a reversed iterator. Now this will give you a new object. It will not modify the existing object. So I get one, two, three, it's going to give me three, two, one. However, it's going to give me this reversed object. So if I want to view it, then I need to use list. Now, if you were just going to loop through it, that'd be fine because this is an iterator, so you can just loop over the reversed object return from here. But in our case, we want to print it out. So I'm just converting it to a list. So notice I can do this with a list, with a tuple, with a string, with a few other objects. But there you go. That is how reversed works. All right So the next function I have here is round Now round is simply going to round a number for you In this case if you don pass a second argument it will round to the nearest whole number So we should get 11 here If you do pass a second argument, this will be the level of precision. So we'll round to the fourth decimal place. If you pass 10, same thing to the 10th decimal place. So when I print this out, notice I get 10, 10.2342 and then 0.828 notice that it is not adding a bunch of zeros here. Uh, when we do 10, there is ways to do that, but not with you round function. All right. So moving on, we have the set function. Now, this is the constructor for the set data type. It allows you to pass an iterable sequence and it will create a set from that. So it's useful if you want to get all of the unique elements in something like a list. Now, one thing to note here is if you try to do something like S is equal to and then you do curly braces, you may think this is going to create a new set because this is an empty set. However, this is actually going to make a dictionary because both a set and a dictionary use the syntax. So if you want to make an empty set, you have to do new set like this that will give you an empty set that you can then add elements into. Okay. So we can do this with our list. I just kind of showed a fancy way of initializing a set here, pass a few different elements, and then I am unpacking the list and putting all of those inside of the set and then printing that out. So this is another way to initialize a set. We can make a new set. And then as it was saying, notice there's a new dictionary. So if I go here, we get our set, our sets, and then class set and class dictionary. Again, if you just use the curly braces gives you a dictionary, not a set. All right. Next function I have for you is set attribute or set adder. Now what this will do is simply set an attribute on an instance of a class. So I create my custom instance. I say set adder C and then I'm going to say the attribute name is X. Notice I'm putting that in a string. I'm going to set that to one. And if I print C dot X, it's going to give me one. There we go. All right. So next function we have here is slice. Now what slice does is give you a slice object, which you can use to access parts of a list. I don't actually know why you would use this over just using the standard slice syntax, but you'll see here that when I print LST at S, it's kind of injecting this as a slice. So the first argument here is going to be your start. The second is your stop and the last will be your step. Now, just like the range function, if you don't include a first argument, it's just a stop. If you include two, then it's your start and your stop. And if you include three, then it's your start, stop and step. So when I do one, three, start at index one, go to, but do not include index three. So I should get four and six. When I do one, five and two start at index one, go to five, is the end of the list, but don't include it step by too short. So I should get four and eight. Sorry. So if I run this notice for six and four, eight again, kind of weird, but this gives you a slice that you can kind of inject or use when you're accessing a list or any other iterable option. All right, moving on, we have the sorted function. Now this is going to return a sorted iterable for you. You can use this on lists, on strings, on dictionaries, on say nested lists. There's all kinds of things you can do. So what I've done here is just sort of this by default is going to sort in ascending order, but you can do this in descending. Now, this is going to return a new sequence for you or a new iterable. It will not modify the existing object you're calling it on. All right. Continuing here, we can do this on a dictionary. Now, if we do this on a dictionary by default, it's going to use all of the keys. So we'll give us a sorted list of the keys. And if we want to do this descending, then we pass reverse equals true. And this will sort in descending order, not ascending. Now I can also pass a key function here. And when I do this, it's then going to sort every single element that we have based on the key. So when I pass something like some, it's going to sum all of the pairs that I have here and then sort by the result of the sum. So whatever sum is higher will be, I guess, at the end, because we're sorting in a sending order here. OK, so let's print this and notice that I get my first list. I get my string. I get my dictionary keys. I get my descending order and then I get my pair sorted by. All right. So the next function I have for you here is static method. Really, this is a decorator, but this allows you to create a static method inside of a class. A static method is one that does not have access to the class or to the instance. It's really just like a utility or helper function that kind of belongs with or is associated with a class. So notice that I can call this in multiple ways. I can use the dot notation on the class name, or I can create an instance and then call it directly on the instance. When I do this, there's no self keyword, so I don have access to the instance or the class because there no CLS keyword So if I run this I get five and three There you go That is static method All right So moving on I have the string function Now the string function will return the string representation of an object useful for converting numbers to strings or just anything else that you want. Now, one thing to note here is that when you call the print function, it's actually going to by default call the string Dunder method or the string function on every single object that you pass as an argument. So if I pass my list here to print, this is the exact same thing as me converting this to a string first and then printing it out. So kind of an interesting note, but whenever you print something, it calls the string dunder method on that object. And then whatever that result is, it is what it actually prints out. So we can convert many different things to strings. We can convert a set to a string. We can also convert our own custom object by implementing the string dunder method. So if I run this notice, I get the string representation of my list of my integer of my, what is this, a set and then of my custom object, which is something that I've implemented. Moving on here, we have the sum function. Now this is pretty straightforward, but this is going to sum all of the values in an iterable sequence. One thing you can do here that's cool with the sum function is pass a start value. Now, when you do this, you're going to be adding whatever the start is to the sum. So kind of would save you an additional step of doing something like, you know, five plus. All right, let's have a look here. When I sum this, I get 37.3, 42.3, even though it's the same list because I add this five and then I sum my set, which will be all of the unique elements. And that gives me 50. Next, we have the super function. This allows us to access attributes or methods from the parent class directly. So when I have class parent here, and then I inherit from that in my child class, now super is going to reference all of the stuff inside of the parent class. If you have multiple inheritance, it gets a bit complicated. I won't get into that here, but super is referencing your parent or parents class. So what I can do with my initialization here is I can call the parent constructor by saying super dot underscore underscore knit underscore underscore and then passing any value that required to initialize the parent class I also can do something like super dot funk. And when I do that, I'm now calling the funk from the parent class, as opposed to the funk that I have inside of my child class. So notice here, when I call C dot funk, it will call this. When I do call parents, it's going to call self dot funk, which will be this. And then super dot funk, which will be this. All right. So let's run and notice I get child, child, and then parent. So moving on, we have the tuple function. This is going to convert something to a tuple. If I do something like convert a list of pairs, then it's simply going to replace the list with a tuple and make this an immutable sequence. So if I run this, notice I get a tuple. It does not convert all of the objects inside of my list to a tuple, just the object itself. Now, if I use this on something like a string, then I get all of the individual characters in my tuple in the order in which they occurred in the string. All right, So the next function we have is type. Now type can be used in a very simple sense to just get the type of an object. We also can use type though, to create our own classes. Now I know this seems a bit weird and I won't get into it too much, but I can actually use it in this advanced kind of use case to create my own class. So I pass the class name, I pass anything I want to inherit from, and then I pass a dictionary containing all of the attributes or functions associated with my class. So when I say attribute, I am an attribute. Now it creates an attribute on this class. And when I do add one, it now creates an add one function because I'm passing a function here. So if I do C equals class name, now I can use this just like a class. I can access the attribute and I can call the add function. So if I run this, I get I'm an attribute and three. And notice I passed two. It added one. And well, there you go. Now, if we just use it in the simple sense, we get whatever the classes or the type of the object that we're calling. All right. So the next function I have here is bars. Now bars is going to give you all of the variables or attributes associated with a specific object or type So in this case I can print out just bars with nothing And when I do that it gives me all of the globally accessible variables which we already kind of looked at If we do bar and then list it going to give us all the attributes associated with this list type. And if we call this on our custom class, then same thing, all of the attributes associated with the custom class. So when I run this here, notice that we get a bunch of stuff printing out, right? So we get name, doc, all this kind of stuff. And then on our own custom object, we get all of the default kind of implemented stuff, right? I know it seems a little bit weird, but there you go. That is how VARs works. Now, moving on to our final function, which is zip. Now, what zip allows us to do is actually group multiple iterable objects together into separate tuples or separate pairings. Now, the way this works is you pass whatever iterable objects you want, and then it's going to loop through and essentially take all of the associated indices and put them together in a tuple. So let me just show you what I mean. If we start here, we can see that we have a zip object. So it gives us a zip iterable. We can also just convert this to a list, but notice that I have four, five, five, three, six, one, seven, two, two, three, one, one. And those are all of the indexes that associate with each other. Now we can call this on stuff that is different lengths or different types. When we do that, it's only going to go up to the length of the smallest object. So in this case, only have three elements, whereas here I have five. So you see that we get H1, E2, and L3. So very useful. And you want to group multiple iterable objects together. You can also call this with three values or four or as many as you want. So if I do this with widths, now notice that I get kind of triplets, right? In a tuple. All right. So with that said, I'm going to wrap up the video here. I hope this was helpful to you and that you learned some new Python functions and some new Python syntax. If you enjoyed, make sure you leave a like, subscribe to the channel, check out programming expert.io and I will see you in another YouTube video."
+}

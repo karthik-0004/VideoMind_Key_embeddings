@@ -1,0 +1,478 @@
+/* ═══════════════════════════════════════════════════════════════
+   VideoMind Design System — Light & Dark Themes
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Fallback text color catch-all ── */
+[data-theme="dark"] * {
+    --fallback-text: #e8e8f0;
+}
+
+[data-theme="light"] * {
+    --fallback-text: #1e2530;
+}
+
+/* ── Light Theme — "Glacial Minimalism" ── */
+:root,
+[data-theme="light"] {
+    /* Primary Accent (Blue) */
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: rgba(37, 99, 235, 0.15);
+    --primary-subtle: rgba(37, 99, 235, 0.05);
+    --primary-muted: rgba(37, 99, 235, 0.25);
+
+    /* Accent */
+    --accent: #2563eb;
+    --accent-light: rgba(37, 99, 235, 0.15);
+    --accent-hover: #1d4ed8;
+
+    /* Functional Colors */
+    --success: #2563eb;
+    --success-light: #eff6ff;
+    --success-text: #2563eb;
+    --warning: #d97706;
+    --warning-light: rgba(217, 119, 6, 0.10);
+    --warning-text: #b45309;
+    --error: #dc2626;
+    --error-light: rgba(220, 38, 38, 0.10);
+    --error-text: #dc2626;
+    --info: #2563eb;
+    --info-light: rgba(37, 99, 235, 0.10);
+    --info-text: #1d4ed8;
+
+    /* Surfaces & Backgrounds */
+    --bg-page: #f8fafc;
+    --bg-nav: #ffffff;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #e2e8f0;
+    --surface: #ffffff;
+    --surface-hover: #f1f5f9;
+    --surface-raised: #ffffff;
+    --surface-overlay: rgba(255, 255, 255, 0.95);
+
+    /* Kanban Card Backgrounds */
+    --card-bg: #ffffff;
+    --card-bg-hover: #f1f5f9;
+    --card-bg-selected: #eff6ff;
+
+    /* Borders */
+    --border: rgba(30, 37, 48, 0.07);
+    --border-hover: rgba(37, 99, 235, 0.3);
+    --border-active: #2563eb;
+    --border-subtle: #f1f5f9;
+
+    /* Text */
+    --text-primary: #1e2530;
+    --text-secondary: #64748b;
+    --text-tertiary: #64748b;
+    --text-on-primary: #ffffff;
+    --text-link: #2563eb;
+
+    /* Tags */
+    --tag-urgent-bg: #f1f5f9;
+    --tag-urgent-text: #64748b;
+    --tag-social-bg: #eff6ff;
+    --tag-social-text: #2563eb;
+    --tag-border: rgba(30, 37, 48, 0.12);
+
+    /* Shadows */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.10);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.14);
+    --shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Dark Theme — "Liquid Titanium" ── */
+[data-theme="dark"] {
+    /* Primary Accent (Electric Violet) */
+    --primary: #7b7bff;
+    --primary-hover: #6060f0;
+    --primary-light: rgba(123, 123, 255, 0.15);
+    --primary-subtle: rgba(123, 123, 255, 0.05);
+    --primary-muted: rgba(123, 123, 255, 0.25);
+
+    /* Accent (Neon Teal) */
+    --accent: #00ffcc;
+    --accent-light: rgba(0, 255, 204, 0.15);
+    --accent-hover: #00ddb3;
+
+    /* Functional Colors */
+    --success: #00ffcc;
+    --success-light: rgba(0, 255, 204, 0.08);
+    --success-text: #00ffcc;
+    --warning: #ffaa33;
+    --warning-light: rgba(255, 170, 51, 0.08);
+    --warning-text: #ffaa33;
+    --error: #ff3c64;
+    --error-light: rgba(255, 60, 100, 0.08);
+    --error-text: #ff3c64;
+    --info: #7b7bff;
+    --info-light: rgba(123, 123, 255, 0.08);
+    --info-text: #7b7bff;
+
+    /* Surfaces & Backgrounds (Titanium) */
+    --bg-page: #111114;
+    --bg-nav: #16161c;
+    --bg-primary: #13131a;
+    --bg-secondary: #111114;
+    --bg-tertiary: #0d0d10;
+    --surface: #13131a;
+    --surface-hover: #1a1a24;
+    --surface-raised: #1e1e28;
+    --surface-overlay: rgba(17, 17, 20, 0.95);
+
+    /* Kanban Card Backgrounds */
+    --card-bg: #13131a;
+    --card-bg-hover: #1a1a24;
+    --card-bg-selected: rgba(123, 123, 255, 0.12);
+
+    /* Borders */
+    --border: rgba(255, 255, 255, 0.05);
+    --border-hover: rgba(123, 123, 255, 0.25);
+    --border-active: #7b7bff;
+    --border-subtle: rgba(255, 255, 255, 0.03);
+
+    /* Text */
+    --text-primary: #e8e8f0;
+    --text-secondary: #8888a8;
+    --text-tertiary: #8888a8;
+    --text-on-primary: #000000;
+    --text-link: #7b7bff;
+
+    /* Tags */
+    --tag-urgent-bg: rgba(123, 123, 255, 0.1);
+    --tag-urgent-text: #7b7bff;
+    --tag-social-bg: rgba(0, 255, 204, 0.1);
+    --tag-social-text: #00ffcc;
+    --tag-border: rgba(123, 123, 255, 0.15);
+
+    /* Shadows */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.7);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.8);
+    --shadow-focus: 0 0 0 3px rgba(123, 123, 255, 0.3);
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Light Theme — Additional Component Rules ── */
+[data-theme="light"] nav,
+[data-theme="light"] .navbar,
+[data-theme="light"] .nav-bar {
+    background: #ffffff;
+    box-shadow: 0 1px 0 rgba(30, 37, 48, 0.06);
+}
+
+[data-theme="light"] .btn-primary,
+[data-theme="light"] .week-board-btn,
+[data-theme="light"] button[class*="primary"] {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+}
+
+[data-theme="light"] .logo-icon,
+[data-theme="light"] .brand-icon,
+[data-theme="light"] .nav-logo-icon {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+[data-theme="light"] .avatar,
+[data-theme="light"] .user-avatar,
+[data-theme="light"] .nav-avatar {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+[data-theme="light"] .progress-fill,
+[data-theme="light"] .progress-bar-fill {
+    background: #2563eb;
+}
+
+[data-theme="light"] .search-bar,
+[data-theme="light"] .search-input {
+    border-color: rgba(37, 99, 235, 0.2);
+    background: rgba(37, 99, 235, 0.04);
+    color: #2563eb;
+}
+
+[data-theme="light"] .card,
+[data-theme="light"] .video-item,
+[data-theme="light"] .video-card {
+    border: 1px solid rgba(30, 37, 48, 0.07);
+    box-shadow: none;
+}
+
+[data-theme="light"] .card:hover,
+[data-theme="light"] .video-item:hover,
+[data-theme="light"] .video-card:hover {
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+/* ── Dark Theme — Additional Component Rules ── */
+[data-theme="dark"] nav,
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .nav-bar {
+    background: linear-gradient(90deg, #111114 0%, #16161c 100%);
+}
+
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .week-board-btn,
+[data-theme="dark"] button[class*="primary"] {
+    background: linear-gradient(135deg, #7b7bff, #00ffcc);
+    color: #000000;
+    border: none;
+}
+
+[data-theme="dark"] .logo-icon,
+[data-theme="dark"] .brand-icon,
+[data-theme="dark"] .nav-logo-icon {
+    background: linear-gradient(135deg, #7b7bff, #00ffcc);
+    color: #000000;
+}
+
+[data-theme="dark"] .avatar,
+[data-theme="dark"] .user-avatar,
+[data-theme="dark"] .nav-avatar {
+    background: linear-gradient(135deg, #7b7bff, #00ffcc);
+    color: #000000;
+}
+
+[data-theme="dark"] .progress-fill,
+[data-theme="dark"] .progress-bar-fill {
+    background: linear-gradient(90deg, #7b7bff, #00ffcc);
+}
+
+[data-theme="dark"] .search-bar,
+[data-theme="dark"] .search-input {
+    border-color: rgba(123, 123, 255, 0.25);
+    background: rgba(123, 123, 255, 0.05);
+    color: #7b7bff;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Visibility Fixes — Dark Theme "Liquid Titanium"
+   ══════════════════════════════════════════════════════════════ */
+
+/* Nav text */
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .nav-bar,
+[data-theme="dark"] nav {
+    color: #e8e8f0;
+}
+
+/* Breadcrumbs / page title / route path */
+[data-theme="dark"] .breadcrumb,
+[data-theme="dark"] .breadcrumb-item,
+[data-theme="dark"] .breadcrumb span,
+[data-theme="dark"] .breadcrumb a,
+[data-theme="dark"] .page-title,
+[data-theme="dark"] .route-path {
+    color: #e8e8f0 !important;
+    opacity: 1;
+}
+
+[data-theme="dark"] .breadcrumb-separator,
+[data-theme="dark"] .breadcrumb .separator {
+    color: rgba(232, 232, 240, 0.4) !important;
+}
+
+/* Logo / brand text */
+[data-theme="dark"] .nav-logo-text,
+[data-theme="dark"] .brand-name,
+[data-theme="dark"] .logo-text {
+    color: #e8e8f0 !important;
+}
+
+/* Tabs (inactive) */
+[data-theme="dark"] .tab,
+[data-theme="dark"] .tab-button,
+[data-theme="dark"] .tabs button,
+[data-theme="dark"] .panel-tab {
+    color: #8888a8;
+}
+
+/* Tabs (active) */
+[data-theme="dark"] .tab.active,
+[data-theme="dark"] .tab-button.active,
+[data-theme="dark"] .tabs button.active,
+[data-theme="dark"] .panel-tab.active {
+    color: #e8e8f0;
+}
+
+/* Empty-state / placeholder / hint text */
+[data-theme="dark"] .empty-state-text,
+[data-theme="dark"] .placeholder-text,
+[data-theme="dark"] .hint-text,
+[data-theme="dark"] p[class*="empty"],
+[data-theme="dark"] span[class*="hint"],
+[data-theme="dark"] .timestamps-hint {
+    color: #8888a8 !important;
+}
+
+/* Bottom bar / player controls */
+[data-theme="dark"] .bottom-bar,
+[data-theme="dark"] .player-controls,
+[data-theme="dark"] .video-controls {
+    color: #e8e8f0;
+}
+
+[data-theme="dark"] .bottom-bar svg,
+[data-theme="dark"] .player-controls svg,
+[data-theme="dark"] .video-controls svg,
+[data-theme="dark"] .control-icon {
+    color: #e8e8f0;
+    fill: #e8e8f0;
+}
+
+/* Timestamps / time display */
+[data-theme="dark"] .timestamp-text,
+[data-theme="dark"] .time-display,
+[data-theme="dark"] .duration {
+    color: #e8e8f0;
+}
+
+/* Chat / AI input */
+[data-theme="dark"] .chat-input,
+[data-theme="dark"] .ai-input,
+[data-theme="dark"] input[placeholder*="Ask AI"],
+[data-theme="dark"] textarea[placeholder*="Ask AI"] {
+    color: #e8e8f0;
+    background: #1a1a24;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .chat-input::placeholder,
+[data-theme="dark"] .ai-input::placeholder,
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #8888a8;
+}
+
+/* Export / processed badge */
+[data-theme="dark"] .export-btn,
+[data-theme="dark"] .processed-badge {
+    color: #e8e8f0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Visibility Fixes — Light Theme "Glacial Minimalism"
+   ══════════════════════════════════════════════════════════════ */
+
+/* Right panel / AI assistant — pure white, no lavender tint */
+[data-theme="light"] .ai-panel,
+[data-theme="light"] .right-panel,
+[data-theme="light"] .assistant-panel,
+[data-theme="light"] .side-panel {
+    background: #ffffff !important;
+    color: #1e2530;
+}
+
+/* Tabs (inactive) */
+[data-theme="light"] .tab,
+[data-theme="light"] .tab-button,
+[data-theme="light"] .tabs button,
+[data-theme="light"] .panel-tab {
+    color: #64748b;
+    background: transparent;
+}
+
+/* Tabs (active) */
+[data-theme="light"] .tab.active,
+[data-theme="light"] .tab-button.active,
+[data-theme="light"] .panel-tab.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+}
+
+/* Empty-state / placeholder / hint text */
+[data-theme="light"] .empty-state-text,
+[data-theme="light"] .placeholder-text,
+[data-theme="light"] .hint-text,
+[data-theme="light"] .timestamps-hint {
+    color: #64748b !important;
+}
+
+/* Chat / AI input */
+[data-theme="light"] .chat-input,
+[data-theme="light"] .ai-input,
+[data-theme="light"] input[placeholder*="Ask AI"],
+[data-theme="light"] textarea[placeholder*="Ask AI"] {
+    color: #1e2530;
+    background: #ffffff;
+    border-color: rgba(30, 37, 48, 0.1);
+}
+
+[data-theme="light"] .chat-input::placeholder,
+[data-theme="light"] .ai-input::placeholder,
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Breadcrumbs */
+[data-theme="light"] .breadcrumb,
+[data-theme="light"] .breadcrumb-item,
+[data-theme="light"] .breadcrumb span,
+[data-theme="light"] .breadcrumb a {
+    color: #1e2530;
+}
+
+[data-theme="light"] .breadcrumb-separator {
+    color: #94a3b8;
+}
+
+
+/* ═══════════════ Shared Tokens (both themes) ═══════════════ */
+:root {
+    /* Spacing */
+    --space-1: 3px;
+    --space-2: 6px;
+    --space-3: 9px;
+    --space-4: 12px;
+    --space-5: 16px;
+    --space-6: 20px;
+    --space-7: 22px;
+    --space-8: 24px;
+    --space-9: 28px;
+    --space-10: 32px;
+    --space-12: 40px;
+    --space-16: 48px;
+    --space-20: 60px;
+    --space-24: 72px;
+
+    /* Border Radius */
+    --radius-xs: 3px;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    --radius-full: 9999px;
+
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+    --font-h1: 1.25rem;
+    --font-h2: 1.0625rem;
+    --font-h3: 0.9375rem;
+    --font-body: 0.8125rem;
+    --font-sm: 0.75rem;
+    --font-xs: 0.6875rem;
+    --line-height: 1.5;
+    --line-height-tight: 1.25;
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Layout */
+    --topnav-height: 52px;
+    --content-max-width: 1300px;
+}

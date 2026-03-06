@@ -1,0 +1,48 @@
+/* ═══════════════════════════════════════════════════════════════
+   App Layout — Contained card on cream background
+   Everything must stay inside .app-container
+   ═══════════════════════════════════════════════════════════════ */
+.app-layout {
+    min-height: 100vh;
+    background: var(--bg-page);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8);
+}
+
+.app-container {
+    width: 100%;
+    max-width: var(--content-max-width);
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 48px);
+    border: 1px solid var(--border);
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: var(--space-6);
+    min-height: 0;
+}
+
+@media (max-width: 768px) {
+    .app-layout {
+        padding: var(--space-3);
+    }
+
+    .app-container {
+        height: calc(100vh - 24px);
+        border-radius: var(--radius-lg);
+    }
+
+    .main-content {
+        padding: var(--space-4);
+    }
+}

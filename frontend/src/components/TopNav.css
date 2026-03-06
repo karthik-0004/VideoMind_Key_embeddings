@@ -1,0 +1,305 @@
+/* ═══════════════════════════════════════════════════════════════
+   TopNav — Warm cream horizontal navigation
+   ═══════════════════════════════════════════════════════════════ */
+.topnav {
+    height: var(--topnav-height);
+    background: var(--bg-nav);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.topnav-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-6);
+    gap: var(--space-6);
+}
+
+/* ── Logo ── */
+.topnav-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    flex-shrink: 0;
+    letter-spacing: -0.02em;
+}
+
+.logo-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-md);
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.topnav-logo:hover {
+    opacity: 0.85;
+}
+
+/* ── Tabs ── */
+.topnav-tabs {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    flex: 1;
+}
+
+.topnav-tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--font-sm);
+    font-weight: 500;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    position: relative;
+    white-space: nowrap;
+}
+
+.topnav-tab:hover {
+    color: var(--text-primary);
+}
+
+.topnav-tab.active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.topnav-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.topnav-tab svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+
+/* ── Right Side ── */
+.topnav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-shrink: 0;
+}
+
+.topnav-search {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    color: var(--text-tertiary);
+    font-size: var(--font-xs);
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+}
+
+.topnav-search:hover {
+    border-color: var(--border-hover);
+}
+
+.topnav-icon-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.topnav-icon-btn:hover {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+}
+
+.theme-toggle:hover {
+    color: var(--primary);
+}
+
+.theme-toggle svg {
+    transition: transform var(--transition-base);
+}
+
+.theme-toggle:active svg {
+    transform: rotate(30deg);
+}
+
+/* ── User Avatar ── */
+.topnav-user {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.topnav-avatar-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--border);
+    background: var(--bg-secondary);
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+    transition: border-color var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.topnav-avatar-btn:hover {
+    border-color: var(--primary);
+}
+
+.topnav-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-full);
+}
+
+.topnav-avatar-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: var(--font-xs);
+    font-weight: 700;
+}
+
+.topnav-username {
+    font-size: var(--font-xs);
+    font-weight: 500;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+/* ── Dropdown ── */
+.topnav-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 200px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    z-index: 200;
+    animation: dropdownFade 0.15s ease;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.topnav-dropdown-header {
+    padding: var(--space-4) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.dropdown-name {
+    font-size: var(--font-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.dropdown-email {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+}
+
+.topnav-dropdown-divider {
+    height: 1px;
+    background: var(--border);
+}
+
+.topnav-dropdown-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+}
+
+.topnav-dropdown-item:hover {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+}
+
+.topnav-dropdown-item.logout:hover {
+    color: var(--error);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .topnav-tab span {
+        display: none;
+    }
+
+    .topnav-tabs {
+        gap: 0;
+    }
+
+    .topnav-tab {
+        padding: var(--space-2);
+    }
+
+    .topnav-search span {
+        display: none;
+    }
+
+    .topnav-username {
+        display: none;
+    }
+}

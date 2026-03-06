@@ -1,0 +1,122 @@
+/* ═══════════════════════════════════════════════════════════════
+   DailyBucket — Date-grouped video list
+   ═══════════════════════════════════════════════════════════════ */
+.daily-bucket {
+    margin-bottom: var(--space-6);
+}
+
+.bucket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--border);
+}
+
+.bucket-date-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.bucket-icon {
+    color: var(--primary);
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.bucket-date {
+    margin: 0;
+    font-size: var(--font-h3);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.bucket-subtitle {
+    margin: 2px 0 0 0;
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+}
+
+.bucket-count {
+    flex-shrink: 0;
+}
+
+.bucket-videos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.video-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) !important;
+    transition: all var(--transition-base);
+}
+
+.video-card:hover {
+    border-color: var(--border-hover);
+}
+
+.video-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.video-title {
+    margin: 0 0 var(--space-2) 0;
+    font-size: var(--font-sm);
+    font-weight: 500;
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.video-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.video-time,
+.video-duration {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+}
+
+.video-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bucket-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+
+    .video-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .video-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .bucket-date {
+        font-size: var(--font-body);
+    }
+}
