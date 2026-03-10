@@ -5,12 +5,26 @@ import { useTheme } from '../context/ThemeContext';
 import { LayoutDashboard, Video, BarChart3, Clock, User, LogOut, Search, Settings, Sun, Moon } from 'lucide-react';
 import './TopNav.css';
 
+const HINT_STORAGE_KEY = 'videomind_upload_hint_skipped';
+
 export const TopNav = () => {
     const { user, logout } = useAuth();
     const { theme, toggleTheme } = useTheme();
     const navigate = useNavigate();
     const [showDropdown, setShowDropdown] = useState(false);
+    const [showUploadHint, setShowUploadHint] = useState(false);
     const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        try {
+            if (!localStorage.getItem(HINT_STORAGE_KEY)) setShowUploadHint(true);
+        } catch { /* ignore */ }
+    }, []);
+
+    const dismissHint = () => {
+        setShowUploadHint(false);
+        try { localStorage.setItem(HINT_STORAGE_KEY, '1'); } catch { /* ignore */ }
+    };
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -30,7 +44,7 @@ export const TopNav = () => {
 
     const tabs = [
         { path: '/dashboard', label: 'Overview', icon: LayoutDashboard },
-        { path: '/upload', label: 'Videos', icon: Video },
+        { path: '/upload', label: 'Upload Video', icon: Video },
         { path: '/profile', label: 'Analytics', icon: BarChart3 },
         { path: '/history', label: 'History', icon: Clock },
     ];
@@ -68,6 +82,17 @@ export const TopNav = () => {
                         >
                             <tab.icon size={15} />
                             <span>{tab.label}</span>
+
+                            {/* Upload hint arrow */}
+                            {tab.path === '/upload' && showUploadHint && (
+                                <div className="upload-hint">
+                                    <div className="upload-hint-arrow" />
+                                    <div className="upload-hint-body">
+                                        <span className="upload-hint-text">Click to upload</span>
+                                        <button className="upload-hint-skip" onClick={(e) => { e.preventDefault(); e.stopPropagation(); dismissHint(); }}>Skip</button>
+                                    </div>
+                                </div>
+                            )}
                         </NavLink>
                     ))}
                 </div>

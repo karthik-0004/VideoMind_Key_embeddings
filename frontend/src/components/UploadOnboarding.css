@@ -1,0 +1,131 @@
+/* ═══════════════════════════════════════════════════════════════
+   Upload Onboarding — lightweight first-visit tutorial
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Dim overlay */
+.onboarding-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    background: rgba(0, 0, 0, 0.55);
+    animation: onb-fade-in 0.35s ease;
+}
+
+/* Cut-out spotlight over the upload area */
+.onboarding-spotlight {
+    position: absolute;
+    /* Positioned below the header, centred horizontally */
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90vw, 860px);
+    height: 320px;
+    border-radius: 18px;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+    animation: onb-pulse 2.4s ease-in-out infinite;
+}
+
+/* Tooltip card */
+.onboarding-tooltip {
+    position: absolute;
+    top: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(88vw, 420px);
+    z-index: 9001;
+    animation: onb-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Upward-pointing arrow */
+.onboarding-arrow {
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 14px solid var(--surface, #1e1e2e);
+    margin: 0 auto;
+    filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.15));
+    animation: onb-bounce 1.6s ease-in-out infinite;
+}
+
+.onboarding-content {
+    background: var(--surface, #1e1e2e);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+    border-radius: 14px;
+    padding: 24px 28px 20px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.onboarding-title {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary, #fff);
+    letter-spacing: -0.01em;
+}
+
+.onboarding-message {
+    margin: 0 0 18px;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--text-secondary, #a1a1aa);
+}
+
+.onboarding-skip-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    color: #fff;
+    font-size: 0.84rem;
+    font-weight: 600;
+    padding: 9px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.onboarding-skip-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.45);
+}
+
+.onboarding-skip-btn:active {
+    transform: scale(0.97);
+}
+
+/* ── Animations ── */
+@keyframes onb-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes onb-slide-up {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes onb-bounce {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-7px); }
+}
+
+@keyframes onb-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.55),
+                    0 0 0 3px rgba(99, 102, 241, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.55),
+                    0 0 0 6px rgba(99, 102, 241, 0.25),
+                    0 0 24px 4px rgba(99, 102, 241, 0.15);
+    }
+}
