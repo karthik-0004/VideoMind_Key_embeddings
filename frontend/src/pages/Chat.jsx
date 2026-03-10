@@ -7,6 +7,8 @@ import { AIChatPanel } from '../components/AIChatPanel';
 import { videoAPI } from '../services/api';
 import { ArrowLeft, Eraser, FileText, Send, Sparkles, GripVertical } from 'lucide-react';
 import { ConfirmModal } from '../components/ConfirmModal';
+import { MarkdownRenderer } from '../components/MarkdownRenderer';
+import '../components/MarkdownRenderer.css';
 import './Chat.css';
 
 export const Chat = () => {
@@ -252,7 +254,7 @@ export const Chat = () => {
                             {messages.map((msg, idx) => (
                                 <div key={idx} className={`message ${msg.role}`}>
                                     <div className="message-content">
-                                        {msg.content}
+                                        {msg.role === 'user' ? msg.content : <MarkdownRenderer content={msg.content} />}
                                         {msg.timestamp_start && (() => {
                                             const ytUrl = getYouTubeTimestampUrl(msg.youtube_url, msg.timestamp_start);
                                             const timeLabel = `${formatTime(msg.timestamp_start)} – ${formatTime(msg.timestamp_end)}`;

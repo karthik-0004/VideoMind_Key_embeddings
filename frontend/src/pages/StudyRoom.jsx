@@ -4,6 +4,8 @@ import { ArrowLeft, Maximize, Volume2, VolumeX, SkipBack, SkipForward, Play, Pau
 import { videoAPI } from '../services/api';
 import { useTheme } from '../context/ThemeContext';
 import { ConfirmModal } from '../components/ConfirmModal';
+import { MarkdownRenderer } from '../components/MarkdownRenderer';
+import '../components/MarkdownRenderer.css';
 
 /* ─────────────────── helpers ─────────────────── */
 const fmt = (s) => {
@@ -513,7 +515,7 @@ export const StudyRoom = () => {
                                     {aiMessages.map((msg, i) => (
                                         <div key={i} style={{ display: 'flex', justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start' }}>
                                             <div style={{
-                                                maxWidth: '80%',
+                                                maxWidth: msg.role === 'user' ? '80%' : '92%',
                                                 padding: '0.65rem 0.9rem',
                                                 borderRadius: '10px',
                                                 fontSize: '0.8rem',
@@ -521,9 +523,12 @@ export const StudyRoom = () => {
                                                 background: msg.role === 'user' ? 'rgba(123,123,255,0.15)' : 'var(--surface2)',
                                                 border: msg.role === 'user' ? '1px solid rgba(123,123,255,0.3)' : '1px solid var(--border)',
                                                 color: 'var(--text)',
-                                                whiteSpace: 'pre-wrap'
+                                                ...(msg.role === 'user' ? { whiteSpace: 'pre-wrap' } : {})
                                             }}>
-                                                {msg.content}
+                                                {msg.role === 'user'
+                                                    ? msg.content
+                                                    : <MarkdownRenderer content={msg.content} />
+                                                }
                                             </div>
                                         </div>
                                     ))}

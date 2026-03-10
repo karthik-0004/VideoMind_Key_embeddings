@@ -3,44 +3,9 @@ import { videoAPI } from '../services/api';
 import { Button } from './Button';
 import { Eraser, Send, Sparkles, X } from 'lucide-react';
 import { ConfirmModal } from './ConfirmModal';
+import { MarkdownRenderer } from './MarkdownRenderer';
+import '../components/MarkdownRenderer.css';
 import './AIChatPanel.css';
-
-/**
- * Convert markdown text to formatted HTML
- * Handles: # headings, ## subheadings, ### small headings,
- * **bold**, *italic*, bullet lists, numbered lists
- */
-const formatMarkdown = (text) => {
-    if (!text) return '';
-
-    let html = text
-        // Escape HTML
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        // Headings (must be at line start)
-        .replace(/^### (.+)$/gm, '<h4 class="md-h3">$1</h4>')
-        .replace(/^## (.+)$/gm, '<h3 class="md-h2">$1</h3>')
-        .replace(/^# (.+)$/gm, '<h2 class="md-h1">$1</h2>')
-        // Bold & italic
-        .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g, '<em>$1</em>')
-        // Bullet lists
-        .replace(/^[\-\*] (.+)$/gm, '<li>$1</li>')
-        // Numbered lists
-        .replace(/^\d+\.\s(.+)$/gm, '<li>$1</li>')
-        // Line breaks
-        .replace(/\n/g, '<br/>');
-
-    // Wrap consecutive <li> items in <ul>
-    html = html.replace(/(<li>.*?<\/li>(<br\/>)?)+/g, (match) => {
-        const cleaned = match.replace(/<br\/>/g, '');
-        return `<ul>${cleaned}</ul>`;
-    });
-
-    return html;
-};
 
 export const AIChatPanel = ({ videoId, onClose }) => {
     const aiChatStorageKey = `video_ai_chat_messages_${videoId}`;
@@ -169,10 +134,7 @@ export const AIChatPanel = ({ videoId, onClose }) => {
                     <div key={idx} className={`ai-message ${msg.role}`}>
                         <div className="ai-message-content">
                             {msg.role === 'assistant' ? (
-                                <div
-                                    className="ai-formatted"
-                                    dangerouslySetInnerHTML={{ __html: formatMarkdown(msg.content) }}
-                                />
+                                <MarkdownRenderer content={msg.content} />
                             ) : (
                                 msg.content
                             )}

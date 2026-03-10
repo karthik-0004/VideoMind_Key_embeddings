@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import { LayoutDashboard, Video, BarChart3, Clock, User, LogOut, Search, Settings, Sun, Moon } from 'lucide-react';
 import { ConfirmModal } from './ConfirmModal';
+import { SearchModal } from './SearchModal';
 import './TopNav.css';
 
 const HINT_STORAGE_KEY = 'videomind_upload_hint_skipped';
@@ -38,6 +39,19 @@ export const TopNav = () => {
     }, []);
 
     const [showLogoutModal, setShowLogoutModal] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
+
+    // Ctrl+K / Cmd+K shortcut to open search
+    useEffect(() => {
+        const handleGlobalKey = (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                setShowSearch(prev => !prev);
+            }
+        };
+        document.addEventListener('keydown', handleGlobalKey);
+        return () => document.removeEventListener('keydown', handleGlobalKey);
+    }, []);
 
     const handleLogout = () => {
         setShowLogoutModal(true);
@@ -106,9 +120,10 @@ export const TopNav = () => {
 
                 {/* Right side: Search + Settings + User */}
                 <div className="topnav-right">
-                    <div className="topnav-search">
+                    <div className="topnav-search" onClick={() => setShowSearch(true)}>
                         <Search size={14} />
                         <span>Search</span>
+                        <kbd className="topnav-search-kbd">Ctrl K</kbd>
                     </div>
 
                     <button className="topnav-icon-btn theme-toggle" onClick={toggleTheme} title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}>
@@ -170,6 +185,7 @@ export const TopNav = () => {
             onConfirm={confirmLogout}
             onCancel={() => setShowLogoutModal(false)}
         />
+        <SearchModal isOpen={showSearch} onClose={() => setShowSearch(false)} />
         </>
     );
 };

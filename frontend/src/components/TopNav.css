@@ -188,6 +188,19 @@
     border-color: var(--border-hover);
 }
 
+.topnav-search-kbd {
+    padding: 0.1rem 0.35rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    font-size: 0.55rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    font-family: inherit;
+    margin-left: 0.3rem;
+    line-height: 1;
+}
+
 .topnav-icon-btn {
     width: 30px;
     height: 30px;
