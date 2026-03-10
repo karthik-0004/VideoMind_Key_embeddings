@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Maximize, Volume2, VolumeX, SkipBack, SkipForward, Play, Pause } from 'lucide-react';
 import { videoAPI } from '../services/api';
 import { useTheme } from '../context/ThemeContext';
+import { ConfirmModal } from '../components/ConfirmModal';
 
 /* ─────────────────── helpers ─────────────────── */
 const fmt = (s) => {
@@ -63,6 +64,49 @@ export const StudyRoom = () => {
     useEffect(() => { try { localStorage.setItem(`sr-ai-msgs-${id}`, JSON.stringify(aiMessages)); } catch {} }, [aiMessages, id]);
     useEffect(() => { try { localStorage.setItem(`sr-ai-hist-${id}`, JSON.stringify(aiHistory)); } catch {} }, [aiHistory, id]);
     useEffect(() => { try { localStorage.setItem(`sr-ts-msgs-${id}`, JSON.stringify(tsMessages)); } catch {} }, [tsMessages, id]);
+
+    /* ── PDF readiness notification (when user navigated early) ── */
+    const [pdfNotification, setPdfNotification] = useState(null);
+
+    useEffect(() => {
+        let interval;
+
+        const startPolling = () => {
+            interval = setInterval(async () => {
+                try {
+                    const res = await videoAPI.getVideoStatus(id);
+                    const st = res.data.status;
+                    const stage = res.data.processing_stage;
+                    if (st === 'completed' || stage === 'pdf_generated') {
+                        clearInterval(interval);
+                        localStorage.removeItem('videomind_pending_pdf');
+                        setPdfNotification('ready');
+                        // Refresh video data so badge updates
+                        videoAPI.getVideo(id).then(r => setVideo(r.data)).catch(() => {});
+                        setTimeout(() => setPdfNotification(null), 10000);
+                    }
+                } catch (e) {
+                    console.error('PDF poll error:', e);
+                }
+            }, 5000);
+        };
+
+        // Check if there's a pending PDF flag
+        try {
+            const pending = JSON.parse(localStorage.getItem('videomind_pending_pdf') || 'null');
+            if (pending && String(pending.videoId) === String(id)) {
+                startPolling();
+                return () => { if (interval) clearInterval(interval); };
+            }
+        } catch {}
+
+        // Also auto-detect: if video is still processing, poll automatically
+        if (video && video.status !== 'completed') {
+            startPolling();
+        }
+
+        return () => { if (interval) clearInterval(interval); };
+    }, [id, video?.status]);
 
     /* ── fetch video on mount ── */
     useEffect(() => {
@@ -170,17 +214,19 @@ export const StudyRoom = () => {
     }, [video?.file]);
 
     /* ── export PDF in new tab ── */
+    const [pdfAlert, setPdfAlert] = useState(false);
+
     const handleExportPDF = async () => {
         try {
             const res = await videoAPI.getPDF(id);
             const fileUrl = res?.data?.file;
-            if (!fileUrl) { alert('PDF not available yet.'); return; }
+            if (!fileUrl) { setPdfAlert(true); return; }
             const fullUrl = fileUrl.startsWith('http')
                 ? fileUrl
                 : `http://localhost:8000${fileUrl}`;
             window.open(fullUrl, '_blank', 'noopener,noreferrer');
         } catch (err) {
-            alert('Could not open PDF. Please try again.');
+            setPdfAlert(true);
         }
     };
 
@@ -270,6 +316,19 @@ export const StudyRoom = () => {
             <style>{STYLES}</style>
             <div className={`study-room-root ${isDark ? 'dark' : 'light'}`}>
 
+                {/* PDF ready toast notification */}
+                {pdfNotification === 'ready' && (
+                    <div className="sr-pdf-toast">
+                        <div className="sr-pdf-toast-icon">📄</div>
+                        <div className="sr-pdf-toast-body">
+                            <strong>PDF is ready!</strong>
+                            <span>Your study notes have been generated.</span>
+                        </div>
+                        <button className="sr-pdf-toast-action" onClick={handleExportPDF}>View PDF</button>
+                        <button className="sr-pdf-toast-close" onClick={() => setPdfNotification(null)}>×</button>
+                    </div>
+                )}
+
                 {/* TOP BAR — full width, fixed height */}
                 <div className="topbar">
                     <button className="sr-back" onClick={() => navigate('/dashboard')} title="Back">
@@ -285,7 +344,10 @@ export const StudyRoom = () => {
                         <span className="sr-bc-cur">{video?.title || 'Loading…'}</span>
                     </nav>
                     <div className="sr-top-r">
-                        <span className="sr-badge-g"><span className="sr-dot-g" />Processed</span>
+                        <span className={video?.status === 'completed' ? 'sr-badge-g' : 'sr-badge-processing'}>
+                            <span className={video?.status === 'completed' ? 'sr-dot-g' : 'sr-dot-processing'} />
+                            {video?.status === 'completed' ? 'Processed' : 'Processing…'}
+                        </span>
                         <button className="sr-theme-btn" onClick={toggleTheme} title="Toggle theme">
                             {isDark ? '☀️' : '🌙'}
                         </button>
@@ -555,6 +617,14 @@ export const StudyRoom = () => {
                     </div>
                 </div>
             </div>
+            <ConfirmModal
+                isOpen={pdfAlert}
+                variant="info"
+                title="PDF Processing"
+                message="PDF is still being processed. Please wait a moment and try again."
+                onConfirm={() => setPdfAlert(false)}
+                alertOnly
+            />
         </>
     );
 };
@@ -595,6 +665,8 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-top-r{margin-left:auto;display:flex;align-items:center;gap:.7rem}
 .sr-badge-g{display:inline-flex;align-items:center;gap:.35rem;padding:.25rem .7rem;border-radius:6px;font-size:.68rem;font-weight:500;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);color:var(--emerald)}
 .sr-dot-g{width:5px;height:5px;border-radius:50%;background:var(--emerald);animation:sr-blink 2s ease infinite}
+.sr-badge-processing{display:inline-flex;align-items:center;gap:.35rem;padding:.25rem .7rem;border-radius:6px;font-size:.68rem;font-weight:500;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.25);color:#fbbf24}
+.sr-dot-processing{width:5px;height:5px;border-radius:50%;background:#fbbf24;animation:sr-blink 1.2s ease infinite}
 @keyframes sr-blink{0%,100%{opacity:1}50%{opacity:.3}}
 
 .sr-pdf-btn{display:flex;align-items:center;gap:.45rem;padding:.38rem .9rem;background:linear-gradient(135deg,var(--violet),var(--violet2));color:#fff;font-size:.72rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:.25s;box-shadow:0 0 20px rgba(123,123,255,.3),inset 0 1px 0 rgba(255,255,255,.15)}
@@ -769,6 +841,8 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .study-room-root.light .sr-sep{background:rgba(30,37,48,.1)}
 .study-room-root.light .sr-badge-g{background:rgba(37,99,235,.06);border-color:rgba(37,99,235,.15);color:#2563eb}
 .study-room-root.light .sr-dot-g{background:#2563eb}
+.study-room-root.light .sr-badge-processing{background:rgba(245,158,11,.06);border-color:rgba(245,158,11,.2);color:#d97706}
+.study-room-root.light .sr-dot-processing{background:#d97706}
 .study-room-root.light .sr-bub.ai{background:#f1f5f9;border-color:rgba(30,37,48,.07);color:#475569}
 .study-room-root.light .sr-bub.u{background:rgba(37,99,235,.1);border-color:rgba(37,99,235,.2);color:#1e2530}
 .study-room-root.light .sr-in,.study-room-root.light .sr-ts-search{background:#f1f5f9;border-color:rgba(30,37,48,.1);color:#1e2530}
@@ -815,6 +889,23 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .study-room-root.light .tab-ai-active{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.2);color:var(--violet)}
 .study-room-root.light .send-btn{box-shadow:0 0 14px rgba(37,99,235,.2)}
 .study-room-root.light .send-btn:hover{box-shadow:0 4px 20px rgba(37,99,235,.35)}
+
+/* ─── PDF READY TOAST ─── */
+.sr-pdf-toast{position:fixed;top:20px;right:20px;z-index:9999;display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(19,19,26,.97);border:1px solid rgba(123,123,255,.3);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.5),0 0 20px rgba(123,123,255,.15);animation:toastSlideIn .4s ease-out;backdrop-filter:blur(12px);max-width:420px}
+@keyframes toastSlideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+.sr-pdf-toast-icon{font-size:1.5rem;flex-shrink:0}
+.sr-pdf-toast-body{display:flex;flex-direction:column;gap:2px}
+.sr-pdf-toast-body strong{font-size:.82rem;color:#e8e8f0;font-weight:600}
+.sr-pdf-toast-body span{font-size:.7rem;color:#8888a8}
+.sr-pdf-toast-action{padding:6px 14px;background:linear-gradient(135deg,var(--violet),var(--violet2));border:none;border-radius:6px;color:#fff;font-size:.72rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:.15s}
+.sr-pdf-toast-action:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(123,123,255,.4)}
+.sr-pdf-toast-close{background:none;border:none;color:#8888a8;font-size:1.1rem;cursor:pointer;padding:0 2px;line-height:1;transition:.15s}
+.sr-pdf-toast-close:hover{color:#e8e8f0}
+.study-room-root.light .sr-pdf-toast{background:rgba(255,255,255,.97);border-color:rgba(37,99,235,.2);box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.study-room-root.light .sr-pdf-toast-body strong{color:#1e2530}
+.study-room-root.light .sr-pdf-toast-body span{color:#64748b}
+.study-room-root.light .sr-pdf-toast-close{color:#64748b}
+.study-room-root.light .sr-pdf-toast-close:hover{color:#1e2530}
 `;
 
 export default StudyRoom;

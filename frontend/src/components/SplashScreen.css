@@ -7,7 +7,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #0B1120;
+    background: #ffffff;
     z-index: 9999;
     display: flex;
     align-items: center;
@@ -39,15 +39,12 @@
 }
 
 .splash-video {
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.2);
-    object-fit: cover;
+    top: -5%;
+    left: 0;
+    object-fit: contain;
 }
 
 .splash-overlay {
@@ -90,4 +87,64 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Processing Screen — Early Access buttons
+   ═══════════════════════════════════════════════════════════════ */
+.processing-early-access {
+    margin-top: 16px;
+    animation: earlyAccessFadeIn 0.5s ease-out;
+}
+
+@keyframes earlyAccessFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.processing-early-msg {
+    color: #222;
+    font-family: var(--font-family);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0 0 12px 0;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.processing-study-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 28px;
+    background: linear-gradient(135deg, #818CF8, #6366F1);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-family);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+}
+
+.processing-study-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+}
+
+.processing-study-btn:active {
+    transform: translateY(0);
+}
+
+.processing-early-hint {
+    color: #555;
+    font-family: var(--font-family);
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin: 8px 0 0 0;
+    text-transform: none;
+    letter-spacing: 0;
 }

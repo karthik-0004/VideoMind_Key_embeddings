@@ -5,6 +5,7 @@ import { DateNavigator } from '../components/DateNavigator';
 import { Button } from '../components/Button';
 import { videoAPI } from '../services/api';
 import { History as HistoryIcon, RefreshCw } from 'lucide-react';
+import { ConfirmModal } from '../components/ConfirmModal';
 import './History.css';
 
 export const History = () => {
@@ -41,18 +42,21 @@ export const History = () => {
         setRefreshing(false);
     };
 
-    const handleDelete = async (videoId, videoTitle) => {
-        if (!window.confirm(`Are you sure you want to delete "${videoTitle}"?`)) {
-            return;
-        }
+    const [deleteTarget, setDeleteTarget] = useState(null);
 
+    const handleDelete = (videoId, videoTitle) => {
+        setDeleteTarget({ id: videoId, title: videoTitle });
+    };
+
+    const confirmDelete = async () => {
+        if (!deleteTarget) return;
         try {
-            await videoAPI.deleteVideo(videoId);
-            // Reload data after deletion
+            await videoAPI.deleteVideo(deleteTarget.id);
             await loadData(currentFilter);
         } catch (error) {
             console.error('Error deleting video:', error);
-            alert('Failed to delete video. Please try again.');
+        } finally {
+            setDeleteTarget(null);
         }
     };
 
@@ -123,6 +127,13 @@ export const History = () => {
                     </div>
                 )}
             </div>
+            <ConfirmModal
+                isOpen={!!deleteTarget}
+                title="Delete Video"
+                message={`Are you sure you want to delete "${deleteTarget?.title}"? This action cannot be undone.`}
+                onConfirm={confirmDelete}
+                onCancel={() => setDeleteTarget(null)}
+            />
         </AppLayout>
     );
 };

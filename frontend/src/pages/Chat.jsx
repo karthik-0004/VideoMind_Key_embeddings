@@ -6,6 +6,7 @@ import { Button } from '../components/Button';
 import { AIChatPanel } from '../components/AIChatPanel';
 import { videoAPI } from '../services/api';
 import { ArrowLeft, Eraser, FileText, Send, Sparkles, GripVertical } from 'lucide-react';
+import { ConfirmModal } from '../components/ConfirmModal';
 import './Chat.css';
 
 export const Chat = () => {
@@ -13,6 +14,7 @@ export const Chat = () => {
     const navigate = useNavigate();
     const chatStorageKey = `video_chat_messages_${id}`;
     const [video, setVideo] = useState(null);
+    const [modalState, setModalState] = useState({ open: false, variant: 'info', title: '', message: '' });
     const [messages, setMessages] = useState([]);
     const [isMessagesHydrated, setIsMessagesHydrated] = useState(false);
     const [input, setInput] = useState('');
@@ -120,14 +122,14 @@ export const Chat = () => {
             const fileUrl = pdfRes?.data?.file;
 
             if (!fileUrl) {
-                alert('PDF is not available yet for this video.');
+                setModalState({ open: true, variant: 'info', title: 'PDF Not Ready', message: 'PDF is not available yet for this video. Please wait for processing to complete.' });
                 return;
             }
 
             window.open(getPdfUrl(fileUrl), '_blank', 'noopener,noreferrer');
         } catch (error) {
             console.error('Failed to open PDF:', error);
-            alert('Could not open PDF right now. Please try again.');
+            setModalState({ open: true, variant: 'warning', title: 'PDF Unavailable', message: 'Could not open PDF right now. Please try again.' });
         }
     };
 
@@ -159,13 +161,16 @@ export const Chat = () => {
         }
     };
 
-    const handleClearChat = () => {
-        if (!window.confirm('Clear this chat history?')) {
-            return;
-        }
+    const [showClearConfirm, setShowClearConfirm] = useState(false);
 
+    const handleClearChat = () => {
+        setShowClearConfirm(true);
+    };
+
+    const confirmClearChat = () => {
         setMessages([]);
         localStorage.removeItem(chatStorageKey);
+        setShowClearConfirm(false);
     };
 
     // Drag handlers
@@ -328,6 +333,22 @@ export const Chat = () => {
                     )}
                 </div>
             </div>
+            <ConfirmModal
+                isOpen={modalState.open}
+                variant={modalState.variant}
+                title={modalState.title}
+                message={modalState.message}
+                onConfirm={() => setModalState(s => ({ ...s, open: false }))}
+                alertOnly
+            />
+            <ConfirmModal
+                isOpen={showClearConfirm}
+                variant="clear"
+                title="Clear Chat History"
+                message="Are you sure you want to clear this chat history? This cannot be undone."
+                onConfirm={confirmClearChat}
+                onCancel={() => setShowClearConfirm(false)}
+            />
         </AppLayout>
     );
 };

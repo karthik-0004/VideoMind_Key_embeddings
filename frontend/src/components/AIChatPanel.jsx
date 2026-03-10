@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { videoAPI } from '../services/api';
 import { Button } from './Button';
 import { Eraser, Send, Sparkles, X } from 'lucide-react';
+import { ConfirmModal } from './ConfirmModal';
 import './AIChatPanel.css';
 
 /**
@@ -120,13 +121,16 @@ export const AIChatPanel = ({ videoId, onClose }) => {
         }
     };
 
-    const handleClearChat = () => {
-        if (!window.confirm('Clear AI assistant chat history?')) {
-            return;
-        }
+    const [showClearConfirm, setShowClearConfirm] = useState(false);
 
+    const handleClearChat = () => {
+        setShowClearConfirm(true);
+    };
+
+    const confirmClearChat = () => {
         setMessages([]);
         localStorage.removeItem(aiChatStorageKey);
+        setShowClearConfirm(false);
     };
 
     return (
@@ -202,6 +206,14 @@ export const AIChatPanel = ({ videoId, onClose }) => {
                     <Send size={16} />
                 </Button>
             </div>
+            <ConfirmModal
+                isOpen={showClearConfirm}
+                variant="clear"
+                title="Clear Chat History"
+                message="Are you sure you want to clear the AI assistant chat history? This cannot be undone."
+                onConfirm={confirmClearChat}
+                onCancel={() => setShowClearConfirm(false)}
+            />
         </div>
     );
 };

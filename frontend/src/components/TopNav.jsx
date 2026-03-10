@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import { LayoutDashboard, Video, BarChart3, Clock, User, LogOut, Search, Settings, Sun, Moon } from 'lucide-react';
+import { ConfirmModal } from './ConfirmModal';
 import './TopNav.css';
 
 const HINT_STORAGE_KEY = 'videomind_upload_hint_skipped';
@@ -36,10 +37,15 @@ export const TopNav = () => {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
+
     const handleLogout = () => {
-        if (window.confirm('Are you sure you want to sign out?')) {
-            logout();
-        }
+        setShowLogoutModal(true);
+    };
+
+    const confirmLogout = () => {
+        setShowLogoutModal(false);
+        logout();
     };
 
     const tabs = [
@@ -64,6 +70,7 @@ export const TopNav = () => {
         : displayName;
 
     return (
+        <>
         <nav className="topnav">
             <div className="topnav-inner">
                 {/* Logo */}
@@ -155,5 +162,14 @@ export const TopNav = () => {
                 </div>
             </div>
         </nav>
+        <ConfirmModal
+            isOpen={showLogoutModal}
+            variant="logout"
+            title="Sign Out"
+            message="Are you sure you want to sign out?"
+            onConfirm={confirmLogout}
+            onCancel={() => setShowLogoutModal(false)}
+        />
+        </>
     );
 };

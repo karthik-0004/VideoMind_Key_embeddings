@@ -628,7 +628,8 @@ class VideoViewSet(viewsets.ModelViewSet):
         """Ask a question about a video"""
         video = self.get_object()
         
-        if video.status != 'completed':
+        embeddings_ready = video.processing_stage in ('embedded', 'generating_pdf', 'pdf_generated')
+        if video.status != 'completed' and not embeddings_ready:
             return Response(
                 {'error': 'Video processing not complete'},
                 status=status.HTTP_400_BAD_REQUEST
@@ -711,7 +712,8 @@ class VideoViewSet(viewsets.ModelViewSet):
         """AI chatbot powered by Groq — answers questions about a video's content"""
         video = self.get_object()
 
-        if video.status != 'completed':
+        transcript_ready = video.processing_stage in ('transcribed', 'embedding', 'embedded', 'generating_pdf', 'pdf_generated')
+        if video.status != 'completed' and not transcript_ready:
             return Response(
                 {'error': 'Video processing not complete'},
                 status=status.HTTP_400_BAD_REQUEST

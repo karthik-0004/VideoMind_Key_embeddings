@@ -274,10 +274,11 @@ export const Upload = () => {
             {isProcessing && (
                 <ProcessingScreen
                     videos={[
-                        '/first.mp4',
-                        '/robot_animation.mp4'
+                        '/new_anime.mp4',
+                        '/Robot_and_Human_Collaboration_Animation.mp4'
                     ]}
                     processingStage={processingStage}
+                    videoId={uploadQueue.find(i => i.status === 'processing')?.videoId}
                 />
             )}
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Home, Upload, User, LogOut, History, Sun, Moon } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { ConfirmModal } from './ConfirmModal';
 import './Sidebar.css';
 
 export const Sidebar = () => {
@@ -32,10 +33,15 @@ export const Sidebar = () => {
         { path: '/profile', icon: User, label: 'My Profile' },
     ];
 
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
+
     const handleLogout = () => {
-        if (window.confirm('Are you sure you want to logout?')) {
-            logout();
-        }
+        setShowLogoutModal(true);
+    };
+
+    const confirmLogout = () => {
+        setShowLogoutModal(false);
+        logout();
     };
 
     return (
@@ -96,6 +102,14 @@ export const Sidebar = () => {
                     </button>
                 </div>
             </div>
+            <ConfirmModal
+                isOpen={showLogoutModal}
+                variant="logout"
+                title="Sign Out"
+                message="Are you sure you want to sign out?"
+                onConfirm={confirmLogout}
+                onCancel={() => setShowLogoutModal(false)}
+            />
         </div>
     );
 };

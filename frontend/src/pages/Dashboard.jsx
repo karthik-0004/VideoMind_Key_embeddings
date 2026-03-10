@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import './Dashboard.css';
 import AudioWaveformPlayer from '../components/AudioWaveformPlayer';
+import { ConfirmModal } from '../components/ConfirmModal';
 
 // Extract YouTube video ID from various URL formats
 const getYouTubeId = (url) => {
@@ -147,17 +148,24 @@ export const Dashboard = () => {
         return () => clearInterval(interval);
     }, [videos]);
 
-    const handleDelete = async (videoId, videoTitle) => {
-        if (!window.confirm(`Delete "${videoTitle}"?`)) return;
+    const [deleteTarget, setDeleteTarget] = useState(null);
+
+    const handleDelete = (videoId, videoTitle) => {
+        setDeleteTarget({ id: videoId, title: videoTitle });
+    };
+
+    const confirmDelete = async () => {
+        if (!deleteTarget) return;
         try {
-            await videoAPI.deleteVideo(videoId);
-            setVideos(prev => prev.filter(v => v.id !== videoId));
-            if (selectedVideo?.id === videoId) setSelectedVideo(null);
+            await videoAPI.deleteVideo(deleteTarget.id);
+            setVideos(prev => prev.filter(v => v.id !== deleteTarget.id));
+            if (selectedVideo?.id === deleteTarget.id) setSelectedVideo(null);
             const statsRes = await profileAPI.getStats();
             if (statsRes.data) setStats(statsRes.data);
         } catch (error) {
             console.error('Error deleting video:', error);
-            alert('Failed to delete video.');
+        } finally {
+            setDeleteTarget(null);
         }
     };
 
@@ -426,43 +434,67 @@ export const Dashboard = () => {
                                 </div>
 
                                 {/* Study Room Card */}
-                                {selectedVideo.status === 'completed' && (
+                                {(selectedVideo.status === 'completed' || ['embedded', 'generating_pdf', 'pdf_generated'].includes(selectedVideo.processing_stage)) && (
                                     <div
-                                        onClick={() => navigate(`/study-room/${selectedVideo.id}`)}
+                                        onClick={() => {
+                                            if (selectedVideo.status !== 'completed') {
+                                                localStorage.setItem('videomind_pending_pdf', JSON.stringify({
+                                                    videoId: selectedVideo.id,
+                                                    timestamp: Date.now(),
+                                                }));
+                                            }
+                                            navigate(`/study-room/${selectedVideo.id}`);
+                                        }}
                                         style={{
                                             display: 'flex',
                                             alignItems: 'center',
                                             gap: '1rem',
                                             padding: '1rem 1.25rem',
-                                            background: 'linear-gradient(135deg, rgba(124,111,247,0.1), rgba(167,139,250,0.05))',
-                                            border: '1px solid rgba(124,111,247,0.25)',
+                                            background: selectedVideo.status !== 'completed'
+                                                ? 'linear-gradient(135deg, rgba(52,211,153,0.12), rgba(124,111,247,0.08))'
+                                                : 'linear-gradient(135deg, rgba(124,111,247,0.1), rgba(167,139,250,0.05))',
+                                            border: selectedVideo.status !== 'completed'
+                                                ? '1px solid rgba(52,211,153,0.35)'
+                                                : '1px solid rgba(124,111,247,0.25)',
                                             borderRadius: '12px',
                                             cursor: 'pointer',
                                             transition: 'all 0.2s',
                                             marginTop: '0.75rem',
                                         }}
                                         onMouseEnter={e => {
-                                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(124,111,247,0.2), rgba(167,139,250,0.1))';
-                                            e.currentTarget.style.borderColor = 'rgba(124,111,247,0.5)';
+                                            e.currentTarget.style.background = selectedVideo.status !== 'completed'
+                                                ? 'linear-gradient(135deg, rgba(52,211,153,0.22), rgba(124,111,247,0.14))'
+                                                : 'linear-gradient(135deg, rgba(124,111,247,0.2), rgba(167,139,250,0.1))';
+                                            e.currentTarget.style.borderColor = selectedVideo.status !== 'completed'
+                                                ? 'rgba(52,211,153,0.6)'
+                                                : 'rgba(124,111,247,0.5)';
                                             e.currentTarget.style.transform = 'translateY(-1px)';
                                         }}
                                         onMouseLeave={e => {
-                                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(124,111,247,0.1), rgba(167,139,250,0.05))';
-                                            e.currentTarget.style.borderColor = 'rgba(124,111,247,0.25)';
+                                            e.currentTarget.style.background = selectedVideo.status !== 'completed'
+                                                ? 'linear-gradient(135deg, rgba(52,211,153,0.12), rgba(124,111,247,0.08))'
+                                                : 'linear-gradient(135deg, rgba(124,111,247,0.1), rgba(167,139,250,0.05))';
+                                            e.currentTarget.style.borderColor = selectedVideo.status !== 'completed'
+                                                ? 'rgba(52,211,153,0.35)'
+                                                : 'rgba(124,111,247,0.25)';
                                             e.currentTarget.style.transform = 'translateY(0)';
                                         }}
                                     >
                                         <div style={{
                                             width: '40px',
                                             height: '40px',
-                                            background: 'linear-gradient(135deg, #7c6ff7, #a78bfa)',
+                                            background: selectedVideo.status !== 'completed'
+                                                ? 'linear-gradient(135deg, #34d399, #7c6ff7)'
+                                                : 'linear-gradient(135deg, #7c6ff7, #a78bfa)',
                                             borderRadius: '10px',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
                                             fontSize: '1.1rem',
                                             flexShrink: 0,
-                                            boxShadow: '0 0 16px rgba(124,111,247,0.4)',
+                                            boxShadow: selectedVideo.status !== 'completed'
+                                                ? '0 0 16px rgba(52,211,153,0.4)'
+                                                : '0 0 16px rgba(124,111,247,0.4)',
                                         }}>
                                             🎓
                                         </div>
@@ -473,18 +505,22 @@ export const Dashboard = () => {
                                                 color: 'var(--text-primary, #f1f0ff)',
                                                 marginBottom: '0.2rem',
                                             }}>
-                                                Open Study Room
+                                                {selectedVideo.status !== 'completed'
+                                                    ? 'Study Room Ready!'
+                                                    : 'Open Study Room'}
                                             </div>
                                             <div style={{
                                                 fontSize: '0.72rem',
                                                 color: 'var(--text-secondary, #9b99b8)',
                                             }}>
-                                                Watch video · AI Assistant · Timestamps
+                                                {selectedVideo.status !== 'completed'
+                                                    ? 'Embeddings done — start studying while PDF generates'
+                                                    : 'Watch video · AI Assistant · Timestamps'}
                                             </div>
                                         </div>
                                         <div style={{
                                             marginLeft: 'auto',
-                                            color: 'var(--primary)',
+                                            color: selectedVideo.status !== 'completed' ? '#34d399' : 'var(--primary)',
                                             fontSize: '1.1rem',
                                         }}>
                                             →
@@ -527,6 +563,13 @@ export const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            <ConfirmModal
+                isOpen={!!deleteTarget}
+                title="Delete Video"
+                message={`Are you sure you want to delete "${deleteTarget?.title}"? This action cannot be undone.`}
+                onConfirm={confirmDelete}
+                onCancel={() => setDeleteTarget(null)}
+            />
         </AppLayout>
     );
 };

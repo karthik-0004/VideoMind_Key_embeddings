@@ -5,6 +5,7 @@ import { Card } from '../components/Card';
 import { useAuth } from '../context/AuthContext';
 import { profileAPI } from '../services/api';
 import { Mail, LogOut, RefreshCw, Shield } from 'lucide-react';
+import { ConfirmModal } from '../components/ConfirmModal';
 import './Profile.css';
 
 export const Profile = () => {
@@ -28,16 +29,19 @@ export const Profile = () => {
         return (name || 'User').split(' ').map(n => n[0]).join('').toUpperCase();
     };
 
+    const [logoutModal, setLogoutModal] = useState({ open: false, message: '' });
+
     const handleLogout = () => {
-        if (window.confirm('Are you sure you want to sign out?')) {
-            logout();
-        }
+        setLogoutModal({ open: true, message: 'Are you sure you want to sign out?' });
     };
 
     const handleSwitchAccount = () => {
-        if (window.confirm('Switch to a different account? You will be logged out.')) {
-            logout();
-        }
+        setLogoutModal({ open: true, message: 'Switch to a different account? You will be logged out.' });
+    };
+
+    const confirmLogout = () => {
+        setLogoutModal({ open: false, message: '' });
+        logout();
     };
 
     return (
@@ -127,6 +131,14 @@ export const Profile = () => {
                     </div>
                 </div>
             </div>
+            <ConfirmModal
+                isOpen={logoutModal.open}
+                variant="logout"
+                title="Sign Out"
+                message={logoutModal.message}
+                onConfirm={confirmLogout}
+                onCancel={() => setLogoutModal({ open: false, message: '' })}
+            />
         </AppLayout>
     );
 };
