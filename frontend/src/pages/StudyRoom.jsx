@@ -549,7 +549,13 @@ export const StudyRoom = () => {
                                         onKeyDown={e => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleAiSend())}
                                         placeholder="Ask AI anything about this video..."
                                     />
-                                    <button className="send-btn" onClick={handleAiSend}>↑</button>
+                                    <button
+                                        className={`send-btn ${aiLoading ? 'is-loading' : ''}`}
+                                        onClick={handleAiSend}
+                                        disabled={aiLoading}
+                                    >
+                                        ↑
+                                    </button>
                                 </div>
                             </div>
                         )}
@@ -615,7 +621,13 @@ export const StudyRoom = () => {
                                         onKeyDown={e => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleTsSend())}
                                         placeholder="Ask to find a timestamp..."
                                     />
-                                    <button className="send-btn" onClick={handleTsSend}>↑</button>
+                                    <button
+                                        className={`send-btn ${tsLoading ? 'is-loading' : ''}`}
+                                        onClick={handleTsSend}
+                                        disabled={tsLoading}
+                                    >
+                                        ↑
+                                    </button>
                                 </div>
                             </div>
                         )}
@@ -674,8 +686,9 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-dot-processing{width:5px;height:5px;border-radius:50%;background:#fbbf24;animation:sr-blink 1.2s ease infinite}
 @keyframes sr-blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-.sr-pdf-btn{display:flex;align-items:center;gap:.45rem;padding:.38rem .9rem;background:linear-gradient(135deg,var(--violet),var(--violet2));color:#fff;font-size:.72rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:.25s;box-shadow:0 0 20px rgba(123,123,255,.3),inset 0 1px 0 rgba(255,255,255,.15)}
-.sr-pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 24px rgba(123,123,255,.45)}
+.sr-pdf-btn{display:flex;align-items:center;gap:.45rem;padding:.38rem .9rem;background:linear-gradient(135deg,var(--violet),var(--violet2));background-size:200% 200%;background-position:0% 50%;color:#fff;font-size:.72rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:.25s;box-shadow:0 0 20px rgba(123,123,255,.3),inset 0 1px 0 rgba(255,255,255,.15)}
+.sr-pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 24px rgba(123,123,255,.45);animation:sr-pdf-shimmer .9s ease-out}
+@keyframes sr-pdf-shimmer{from{background-position:0% 50%}to{background-position:100% 50%}}
 
 /* ─── MAIN ─── */
 .sr-main{flex:1;display:flex;overflow:hidden}
@@ -683,7 +696,7 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 /* ─── VIDEO SIDE ─── */
 .sr-vid-side{width:60%;display:flex;flex-direction:column;border-right:1px solid var(--border)}
 
-.sr-vid-area{flex:1;background:#08080e;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.sr-vid-area{flex:1;background:#08080e;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border2);border-radius:12px;box-shadow:0 0 0 1px var(--vglow),inset 0 0 40px rgba(0,0,0,.4)}
 .sr-va-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(123,123,255,.04),transparent 70%)}
 .sr-va-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent)}
 .sr-va-vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 35%,rgba(8,8,14,.85) 100%);pointer-events:none}
@@ -716,8 +729,8 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 
 /* ─── CONTROLS ─── */
 .sr-ctrl{height:58px;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;padding:0 1rem;gap:.6rem;flex-shrink:0}
-.sr-cb{width:32px;height:32px;border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--text3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;flex-shrink:0}
-.sr-cb:hover{border-color:var(--border2);color:var(--text);background:var(--surface2)}
+.sr-cb{width:32px;height:32px;border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--text3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease,border-color .15s ease;flex-shrink:0}
+.sr-cb:hover{border-color:var(--border2);color:var(--text);background:var(--surface2);transform:scale(1.08);box-shadow:0 0 12px rgba(123,123,255,.16)}
 .sr-cb.play{background:var(--violet);border-color:transparent;color:#fff;box-shadow:0 0 14px rgba(123,123,255,.4)}
 .sr-cb.play:hover{box-shadow:0 0 22px rgba(123,123,255,.6)}
 .sr-cb.sm{width:28px;height:28px;border:none;background:transparent}
@@ -786,6 +799,8 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-send{width:34px;height:34px;background:linear-gradient(135deg,var(--violet),var(--violet2));border:none;border-radius:8px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(123,123,255,.3);transition:.2s;flex-shrink:0;font-size:.85rem}
 .sr-send:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(123,123,255,.45)}
 .sr-send:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.sr-send.is-loading,.send-btn.is-loading{animation:sr-pulse 1.1s ease-in-out infinite}
+@keyframes sr-pulse{0%,100%{box-shadow:0 0 10px rgba(123,123,255,.22)}50%{box-shadow:0 0 20px rgba(123,123,255,.45)}}
 
 /* ─── TIMESTAMPS PANEL ─── */
 .sr-ts-panel{flex:1;display:flex;flex-direction:column;overflow:hidden}
@@ -795,8 +810,8 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-ts-search::placeholder{color:var(--text3)}
 .sr-ts-list{flex:1;overflow-y:auto;padding:.7rem}
 .sr-ts-empty{text-align:center;color:var(--text3);font-size:.78rem;padding:3rem 1rem;font-style:italic}
-.sr-ts-card{display:flex;align-items:center;gap:.7rem;padding:.7rem .8rem;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:.22s;margin-bottom:.3rem}
-.sr-ts-card:hover{background:var(--surface2);border-color:var(--border)}
+.sr-ts-card{display:flex;align-items:center;gap:.7rem;padding:.7rem .8rem;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:all .2s ease;transform:translateX(0);margin-bottom:.3rem}
+.sr-ts-card:hover{background:var(--surface2);border-color:var(--border);transform:translateX(3px)}
 .sr-ts-card.now{background:rgba(251,191,36,.05);border-color:rgba(251,191,36,.2)}
 .sr-ts-t{flex-shrink:0;padding:.24rem .5rem;background:var(--surface2);border:1px solid var(--border);border-radius:5px;font-size:.62rem;color:var(--text3);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
 .sr-ts-card.now .sr-ts-t{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.3);color:var(--amber)}
@@ -862,7 +877,7 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .topbar { height: 54px; flex-shrink: 0; display: flex; align-items: center; padding: 0 1.5rem; gap: 1rem; background: rgba(13,13,20,0.95); border-bottom: 1px solid var(--border); z-index: 10; }
 .main { flex: 1; display: flex; flex-direction: row; overflow: hidden; min-height: 0; }
 .video-side { width: 60%; flex-shrink: 0; display: flex; flex-direction: column; border-right: 1px solid var(--border); overflow: hidden; }
-.video-area { flex: 1; background: #08080e; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 0; }
+.video-area { flex: 1; background: #08080e; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 0; border: 1px solid var(--border2); border-radius: 12px; box-shadow: 0 0 0 1px var(--vglow), inset 0 0 40px rgba(0,0,0,0.4); }
 .video-area video { width: 100%; height: 100%; object-fit: contain; display: block; }
 .ts-strip { height: 38px; flex-shrink: 0; background: var(--surface); border-top: 1px solid var(--border); display: flex; align-items: center; padding: 0 1rem; gap: 0.4rem; overflow-x: auto; }
 .controls { height: 58px; flex-shrink: 0; background: var(--surface); border-top: 1px solid var(--border); display: flex; align-items: center; padding: 0 1.2rem; gap: 0.8rem; }
