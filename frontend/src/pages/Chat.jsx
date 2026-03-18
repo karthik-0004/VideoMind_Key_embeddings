@@ -249,24 +249,11 @@ export const Chat = () => {
                         <div className="messages">
                             {messages.length === 0 && (
                                 <div className="empty-state">
-                                    <svg
-                                        className="empty-state-icon"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        aria-hidden="true"
-                                    >
-                                        <path
-                                            d="M6 18L3 21V6C3 4.9 3.9 4 5 4H19C20.1 4 21 4.9 21 6V16C21 17.1 20.1 18 19 18H6Z"
-                                            stroke="currentColor"
-                                            strokeWidth="1.8"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                        <path d="M8 9H16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                                        <path d="M8 13H13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                                     </svg>
-                                    Ask any question about this video!
+                                    <p className="empty-state-title">Ask anything about this video</p>
+                                    <p className="empty-state-sub">Get instant answers with timestamps. Try "What topics are covered?" or "Explain the part about X."</p>
                                 </div>
                             )}
 
@@ -326,7 +313,7 @@ export const Chat = () => {
                                 placeholder="Ask a question..."
                                 disabled={loading}
                             />
-                            <Button onClick={handleSend} disabled={loading || !input.trim()}>
+                            <Button onClick={handleSend} disabled={loading || !input.trim()} style={{ height: '52px', width: '52px' }}>
                                 <Send size={20} />
                             </Button>
                         </div>

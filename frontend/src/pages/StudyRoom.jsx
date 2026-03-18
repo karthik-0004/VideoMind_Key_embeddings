@@ -514,6 +514,25 @@ export const StudyRoom = () => {
                         {activeTab === 'ai' && (
                             <div className="ai-panel" style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                                 <div className="msgs" style={{ flex: 1, overflowY: 'auto', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                    {aiMessages.length === 0 && (
+                                        <div style={{
+                                            flex: 1,
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            textAlign: 'center',
+                                            gap: '1rem',
+                                            padding: '2rem',
+                                            opacity: 0.85,
+                                        }}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                            </svg>
+                                            <p style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text)', margin: 0 }}>Ask anything about this video</p>
+                                            <p style={{ fontSize: '0.75rem', color: 'var(--text2)', margin: 0, lineHeight: 1.6, maxWidth: '240px' }}>Get instant answers with timestamps. Try "What topics are covered?" or "Explain the part about X."</p>
+                                        </div>
+                                    )}
                                     {aiMessages.map((msg, i) => (
                                         <div key={i} style={{ display: 'flex', justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start' }}>
                                             <div style={{
@@ -567,9 +586,22 @@ export const StudyRoom = () => {
                             <div className="ts-panel" style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                                 <div className="ts-list" style={{ flex: 1, overflowY: 'auto', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                     {tsMessages.length === 0 && (
-                                        <div style={{ textAlign: 'center', color: 'var(--text3)', fontSize: '0.78rem', padding: '2rem 1rem' }}>
-                                            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>◷</div>
-                                            Ask a question to find its timestamp in the video.
+                                        <div style={{
+                                            flex: 1,
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            textAlign: 'center',
+                                            gap: '1rem',
+                                            padding: '2rem',
+                                            opacity: 0.85,
+                                        }}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                                <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+                                            </svg>
+                                            <p style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text)', margin: 0 }}>No timestamps yet</p>
+                                            <p style={{ fontSize: '0.75rem', color: 'var(--text2)', margin: 0, lineHeight: 1.6, maxWidth: '220px' }}>AI-extracted topic timestamps will appear here as you explore the video.</p>
                                         </div>
                                     )}
                                     {tsMessages.map((item, i) => {
@@ -777,7 +809,7 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-ava.ai{background:linear-gradient(135deg,rgba(123,123,255,.25),rgba(0,255,204,.15));border:1px solid rgba(123,123,255,.3);color:var(--violet2)}
 .sr-ava.u{background:rgba(255,255,255,.06);border:1px solid var(--border2);color:var(--text2)}
 
-.sr-bub{padding:.65rem .85rem;border-radius:10px;font-size:.77rem;line-height:1.65;max-width:88%}
+.sr-bub{padding:.65rem .85rem;border:1px solid rgba(0,0,0,0.5);border-radius:10px;font-size:.77rem;line-height:1.65;max-width:88%}
 .sr-bub.ai{background:var(--surface2);border:1px solid var(--border);color:var(--text2)}
 .sr-bub.u{background:rgba(123,123,255,.1);border:1px solid rgba(123,123,255,.2);color:var(--text)}
 .sr-bub-n{font-size:.6rem;font-weight:600;margin-bottom:.3rem;letter-spacing:.01em}
@@ -815,8 +847,8 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-ts-search::placeholder{color:var(--text3)}
 .sr-ts-list{flex:1;overflow-y:auto;padding:.7rem}
 .sr-ts-empty{text-align:center;color:var(--text3);font-size:.78rem;padding:3rem 1rem;font-style:italic}
-.sr-ts-card{display:flex;align-items:center;gap:.7rem;padding:.7rem .8rem;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:all .2s ease;transform:translateX(0);margin-bottom:.3rem}
-.sr-ts-card:hover{background:var(--surface2);border-color:var(--border);border-left:2px solid var(--violet);transform:translateX(4px)}
+.sr-ts-card{display:flex;align-items:center;gap:.7rem;padding:.7rem .8rem;border-radius:8px;cursor:pointer;border:1px solid rgba(0,0,0,0.35);transition:all .2s ease;transform:translateX(0);margin-bottom:4px}
+.sr-ts-card:hover{background:var(--surface2);border-color:rgba(0,0,0,0.6);border-left:2px solid var(--violet);transform:translateX(4px)}
 .sr-ts-card.now{background:rgba(251,191,36,.05);border-color:rgba(251,191,36,.2);box-shadow:0 0 0 1px rgba(251,191,36,0.3),0 2px 12px rgba(251,191,36,0.1)}
 .sr-ts-t{flex-shrink:0;padding:.24rem .5rem;background:var(--surface2);border:1px solid var(--border);border-radius:5px;font-size:.62rem;color:var(--text3);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
 .sr-ts-card.now .sr-ts-t{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.3);color:var(--amber)}
@@ -827,9 +859,9 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-theme-btn:hover{border-color:var(--border2);background:var(--surface2);transform:scale(1.05)}
 
 /* ─── LIGHT MODE OVERRIDES ─── */
-.study-room-root.light {--bg:#f8fafc;--surface:#ffffff;--surface2:#f1f5f9;--surface3:#e2e8f0;--border:rgba(30,37,48,.07);--border2:rgba(30,37,48,.14);--text:#1e2530;--text2:#475569;--text3:#64748b;--violet:#2563eb;--violet2:#3b82f6;--vglow:rgba(37,99,235,.12);--amber:#d97706;--emerald:#2563eb}
+.study-room-root.light {--bg:#f8fafc;--surface:#ffffff;--surface2:#f1f5f9;--surface3:#e2e8f0;--border:rgba(30,37,48,.07);--border2:rgba(30,37,48,.14);--text:#0a0a0f;--text2:#1e2530;--text3:#374151;--violet:#2563eb;--violet2:#3b82f6;--vglow:rgba(37,99,235,.12);--amber:#d97706;--emerald:#2563eb}
 
-.study-room-root.light .video-area{background:#e2e8f0}
+.study-room-root.light .video-area{background:#e2e8f0;border-color:rgba(30,37,48,0.25)}
 .study-room-root.light .sr-va-bg{background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(37,99,235,.06),transparent 70%)}
 .study-room-root.light .sr-va-grid{background-image:linear-gradient(rgba(0,0,0,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.03) 1px,transparent 1px)}
 .study-room-root.light .sr-va-vig{background:radial-gradient(ellipse at center,transparent 40%,rgba(226,232,240,.6) 100%)}
@@ -841,7 +873,7 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .study-room-root.light .sr-play-tri{border-left-color:rgba(37,99,235,.8)}
 .study-room-root.light .sr-file-chip{background:rgba(255,255,255,.85);color:#475569;border-color:rgba(30,37,48,.1)}
 .study-room-root.light .sr-file-dot{background:#2563eb;box-shadow:0 0 6px rgba(37,99,235,.4)}
-.study-room-root.light .controls{background:#ffffff;border-top:1px solid rgba(30,37,48,.07)}
+.study-room-root.light .controls{background:#ffffff;border-color:rgba(30,37,48,0.15)}
 .study-room-root.light .sr-cb{color:#64748b;border-color:rgba(30,37,48,.1)}
 .study-room-root.light .sr-cb:hover{color:#1e2530;background:#f1f5f9;border-color:rgba(30,37,48,.15)}
 .study-room-root.light .sr-cb.play{background:#2563eb;color:#fff;border-color:transparent}
@@ -870,8 +902,10 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .study-room-root.light .sr-dot-processing{background:#d97706}
 .study-room-root.light .sr-bub.ai{background:#f1f5f9;border-color:rgba(30,37,48,.07);color:#475569}
 .study-room-root.light .sr-bub.u{background:rgba(37,99,235,.1);border-color:rgba(37,99,235,.2);color:#1e2530}
+.study-room-root.light .sr-bub,.study-room-root.light .bub{border-color:rgba(30,37,48,0.1)}
 .study-room-root.light .sr-in,.study-room-root.light .sr-ts-search{background:#f1f5f9;border-color:rgba(30,37,48,.1);color:#1e2530}
 .study-room-root.light .sr-ts-card:hover{background:#f1f5f9}
+.study-room-root.light .sr-ts-card,.study-room-root.light .ts-card{border-color:rgba(30,37,48,0.08)}
 .study-room-root.light .sr-ts-t{background:#e2e8f0;color:#475569}
 .study-room-root.light .ts-strip{background:#ffffff}
 
@@ -882,19 +916,19 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .topbar { height: 54px; flex-shrink: 0; display: flex; align-items: center; padding: 0 1.5rem; gap: 1rem; background: rgba(13,13,20,0.95); border-bottom: 1px solid var(--border); z-index: 10; }
 .main { flex: 1; display: flex; flex-direction: row; overflow: hidden; min-height: 0; }
 .video-side { width: 60%; flex-shrink: 0; display: flex; flex-direction: column; border-right: 1px solid var(--border); overflow: hidden; }
-.video-area { flex: 1; background: #08080e; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 0; border: 1px solid rgba(123,123,255,0.2); border-radius: 12px; box-shadow: 0 0 0 1px rgba(123,123,255,0.08), inset 0 0 60px rgba(0,0,0,0.5), 0 0 40px rgba(123,123,255,0.1); }
+.video-area { flex: 1; background: #08080e; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 0; border: 2px solid rgba(0,0,0,0.85); border-radius: 10px; box-shadow: 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 30px rgba(0,0,0,0.4); margin: 8px; }
 .video-area video { width: 100%; height: 100%; object-fit: contain; display: block; }
-.ts-strip { height: 38px; flex-shrink: 0; background: var(--surface); border-top: 1px solid var(--border); display: flex; align-items: center; padding: 0 1rem; gap: 0.4rem; overflow-x: auto; }
-.controls { height: 58px; flex-shrink: 0; background: var(--surface); border-top: 1px solid var(--border); display: flex; align-items: center; padding: 0 1.2rem; gap: 0.8rem; }
-.right-side { flex: 1; display: flex; flex-direction: column; background: var(--surface); overflow: hidden; min-width: 0; border-left: 1px solid var(--border2); box-shadow: -8px 0 32px rgba(0,0,0,0.2); }
-.tab-bar { height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; padding: 0 1rem; gap: 0.5rem; border-bottom: 1px solid var(--border); }
+.ts-strip { height: 38px; flex-shrink: 0; background: var(--surface); border-top: 2px solid rgba(0,0,0,0.7); border-bottom: 1px solid rgba(0,0,0,0.5); display: flex; align-items: center; padding: 0 1rem; gap: 0.4rem; overflow-x: auto; }
+.controls { height: 58px; flex-shrink: 0; background: var(--surface); border: 1px solid rgba(0,0,0,0.6); border-top: 2px solid rgba(0,0,0,0.8); border-radius: 0 0 8px 8px; margin: 0 8px 8px 8px; display: flex; align-items: center; padding: 0 1.2rem; gap: 0.8rem; }
+.right-side { flex: 1; display: flex; flex-direction: column; background: var(--surface); overflow: hidden; min-width: 0; border-left: 2px solid rgba(0,0,0,0.7); box-shadow: -8px 0 32px rgba(0,0,0,0.2); }
+.tab-bar { height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; padding: 0 1rem; gap: 0.5rem; border-bottom: 2px solid rgba(0,0,0,0.7); }
 .tab { flex: 1; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 500; cursor: pointer; border: 1px solid transparent; color: var(--text3); transition: all 0.2s; }
 .tab:hover { color: var(--text2); background: rgba(255,255,255,0.03); }
 .tab-ai-active { background: rgba(123,123,255,0.1); border-color: rgba(123,123,255,0.25); color: var(--violet2); }
 .tab-ts-active { background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.2); color: var(--amber); }
 .ai-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-height: 0; }
 .msgs { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.8rem; min-height: 0; }
-.input-bar { flex-shrink: 0; padding: 0.75rem 1rem; border-top: 1px solid var(--border); display: flex; gap: 0.5rem; align-items: center; background: var(--surface); }
+.input-bar { flex-shrink: 0; padding: 0.75rem 1rem; border-top: 2px solid rgba(0,0,0,0.7); border-radius: 0 0 8px 8px; display: flex; gap: 0.5rem; align-items: center; background: var(--surface); }
 .ts-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-height: 0; }
 .ts-top { flex-shrink: 0; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); }
 .ts-list { flex: 1; overflow-y: auto; padding: 0.5rem; }
@@ -914,6 +948,20 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .study-room-root.light .tab-ai-active{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.2);color:var(--violet)}
 .study-room-root.light .send-btn{box-shadow:0 0 14px rgba(37,99,235,.2)}
 .study-room-root.light .send-btn:hover{box-shadow:0 4px 20px rgba(37,99,235,.35)}
+.study-room-root.light .right-side{border-left-color:rgba(30,37,48,0.15)}
+.study-room-root.light .tab-bar{border-bottom-color:rgba(30,37,48,0.12)}
+.study-room-root.light .input-bar{border-top-color:rgba(30,37,48,0.12)}
+.study-room-root.light .sr-bc-link{color:#1e2530}
+.study-room-root.light .sr-bc-cur{color:#0a0a0f;font-weight:600}
+.study-room-root.light .sr-logo-t{color:#0a0a0f}
+.study-room-root.light .sr-time{color:#1e2530}
+.study-room-root.light .sr-speed{color:#1e2530}
+.study-room-root.light .sr-ts-title{color:#0a0a0f}
+.study-room-root.light .tab{color:#374151}
+.study-room-root.light .sr-in{color:#0a0a0f}
+.study-room-root.light .sr-ts-search{color:#0a0a0f}
+.study-room-root.light .sr-bub.ai{color:#1e2530}
+.study-room-root.light .topbar{color:#0a0a0f}
 
 /* ─── PDF READY TOAST ─── */
 .sr-pdf-toast{position:fixed;top:20px;right:20px;z-index:9999;display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(19,19,26,.97);border:1px solid rgba(123,123,255,.3);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.5),0 0 20px rgba(123,123,255,.15);animation:toastSlideIn .4s ease-out;backdrop-filter:blur(12px);max-width:420px}

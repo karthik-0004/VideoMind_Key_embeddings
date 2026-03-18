@@ -34,6 +34,8 @@ const STAGE_MAP = {
     failed: { pct: 100, label: 'Failed ❌' },
 };
 
+const CARDS_PER_PAGE = 5;
+
 export const Dashboard = () => {
     const navigate = useNavigate();
     const [stats, setStats] = useState({
@@ -227,24 +229,54 @@ export const Dashboard = () => {
         );
     };
 
-    const KanbanColumn = ({ title, count, videos: colVids, emptyText }) => (
-        <div className="kanban-column">
-            <div className="column-header">
-                <span className="column-title">{title}</span>
-                <span className="column-count">{count}</span>
-                <button className="column-add" onClick={() => navigate('/upload')}>
-                    <Plus size={14} />
-                </button>
-            </div>
-            <div className="column-cards">
-                {colVids.length === 0 ? (
-                    <div className="column-empty">{emptyText}</div>
-                ) : (
-                    colVids.map(v => <VideoCard key={v.id} video={v} />)
+    const KanbanColumn = ({ title, count, videos: colVids, emptyText }) => {
+        const [page, setPage] = useState(1);
+        const totalPages = Math.ceil(colVids.length / CARDS_PER_PAGE);
+        const start = (page - 1) * CARDS_PER_PAGE;
+        const paginated = colVids.slice(start, start + CARDS_PER_PAGE);
+
+        useEffect(() => setPage(1), [colVids.length]);
+
+        return (
+            <div className="kanban-column">
+                <div className="column-header">
+                    <span className="column-title">{title}</span>
+                    <span className="column-count">{count}</span>
+                    <button className="column-add" onClick={() => navigate('/upload')}>
+                        <Plus size={14} />
+                    </button>
+                </div>
+                <div className="column-cards">
+                    {colVids.length === 0 ? (
+                        <div className="column-empty">{emptyText}</div>
+                    ) : (
+                        paginated.map(v => <VideoCard key={v.id} video={v} />)
+                    )}
+                </div>
+                {totalPages > 1 && (
+                    <div className="column-pagination">
+                        <button
+                            className="page-btn"
+                            onClick={() => setPage(p => Math.max(1, p - 1))}
+                            disabled={page === 1}
+                        >‹</button>
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map(n => (
+                            <button
+                                key={n}
+                                className={`page-btn ${page === n ? 'active' : ''}`}
+                                onClick={() => setPage(n)}
+                            >{n}</button>
+                        ))}
+                        <button
+                            className="page-btn"
+                            onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                            disabled={page === totalPages}
+                        >›</button>
+                    </div>
                 )}
             </div>
-        </div>
-    );
+        );
+    };
 
     // Generate fake waveform bars for visual effect
 

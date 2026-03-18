@@ -111,29 +111,43 @@
 }
 
 .empty-state {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    color: var(--text-tertiary);
+    gap: 1.25rem;
     padding: var(--space-8);
-    font-size: var(--font-body);
     animation: breathe 2.5s ease-in-out infinite;
 }
 
-.empty-state-icon {
-    width: 28px;
-    height: 28px;
-    margin: 0 auto var(--space-3);
+.empty-state svg {
     color: var(--primary);
+    opacity: 0.6;
+    width: 52px;
+    height: 52px;
+}
+
+.empty-state-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.empty-state-sub {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    max-width: 380px;
+    line-height: 1.6;
+    margin: 0;
 }
 
 @keyframes breathe {
-    0%,
-    100% {
-        opacity: 0.5;
-    }
-
-    50% {
-        opacity: 1;
-    }
+    0%, 100% { opacity: 0.7; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-4px); }
 }
 
 .message {
@@ -374,8 +388,8 @@
 .chat-input {
     display: flex;
     gap: var(--space-2);
-    padding: var(--space-2);
-    border-top: 1px solid var(--border);
+    padding: var(--space-4) var(--space-4);
+    border-top: 2px solid rgba(0, 0, 0, 0.15);
     background: var(--surface);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     flex-shrink: 0;
@@ -383,12 +397,14 @@
 
 .chat-input input {
     flex: 1;
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    font-size: var(--font-xs);
+    padding: var(--space-4) var(--space-5);
+    border: 2px solid rgba(0, 0, 0, 0.75);
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    height: 52px;
     background: var(--bg-secondary);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    color: var(--text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .chat-input input:focus {
