@@ -59,6 +59,11 @@ button {
   cursor: pointer;
 }
 
+button:active:not(:disabled) {
+  transform: scale(0.96);
+  transition: transform 0.1s ease;
+}
+
 /* ── Form Inputs ── */
 input,
 textarea,

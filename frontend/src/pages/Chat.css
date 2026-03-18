@@ -93,8 +93,10 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border-left: 3px solid var(--primary);
-    box-shadow: inset 6px 0 18px -14px rgba(var(--primary-rgb, 99, 102, 241), 0.45);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--primary);
+    box-shadow: var(--glow-primary);
+    transition: box-shadow 0.3s ease;
 }
 
 /* ── Messages ── */
@@ -113,26 +115,29 @@
     color: var(--text-tertiary);
     padding: var(--space-8);
     font-size: var(--font-body);
-    animation: chatEmptyPulse 2.5s ease-in-out infinite;
+    animation: breathe 2.5s ease-in-out infinite;
 }
 
-@keyframes chatEmptyPulse {
-    0% {
-        opacity: 0.6;
+.empty-state-icon {
+    width: 28px;
+    height: 28px;
+    margin: 0 auto var(--space-3);
+    color: var(--primary);
+}
+
+@keyframes breathe {
+    0%,
+    100% {
+        opacity: 0.5;
     }
 
     50% {
         opacity: 1;
     }
-
-    100% {
-        opacity: 0.6;
-    }
 }
 
 .message {
     max-width: 100%;
-    animation: msgSlideIn 0.25s ease;
 }
 
 @keyframes msgSlideIn {
@@ -149,6 +154,7 @@
 
 .message.user {
     align-self: flex-end;
+    animation: slideInRight 0.25s ease;
 }
 
 .message.user .message-content {
@@ -159,6 +165,7 @@
 
 .message.assistant {
     align-self: flex-start;
+    animation: slideInLeft 0.25s ease;
 }
 
 .message.assistant .message-content {
@@ -167,16 +174,46 @@
     border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) var(--radius-xs);
 }
 
-.message.user .message-content,
-.message.assistant .message-content {
-    transform: translateY(0);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.message.user .message-content {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.message.user .message-content:hover,
+.message.user .message-content:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.message.assistant .message-content {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
 .message.assistant .message-content:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+    box-shadow: var(--glow-primary);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .message-content {
@@ -351,13 +388,13 @@
     border-radius: var(--radius-md);
     font-size: var(--font-xs);
     background: var(--bg-secondary);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .chat-input input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(var(--primary-rgb, 99, 102, 241), 0.15);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
     background: var(--surface);
 }
 
@@ -366,8 +403,12 @@
 }
 
 .chat-header .btn:hover:not(:disabled) {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+    transform: translateY(-2px);
+    box-shadow: var(--glow-primary);
+}
+
+.chat-header .btn:active:not(:disabled) {
+    transform: scale(0.96);
 }
 
 /* ── Responsive ── */

@@ -99,8 +99,8 @@ export const AIChatPanel = ({ videoId, onClose }) => {
     };
 
     return (
-        <div className="ai-chat-panel">
-            <div className="ai-chat-header">
+        <div className="ai-chat-panel ai-panel">
+            <div className="ai-chat-header ai-panel-header">
                 <div className="ai-chat-title">
                     <Sparkles size={18} />
                     <span>AI Assistant</span>

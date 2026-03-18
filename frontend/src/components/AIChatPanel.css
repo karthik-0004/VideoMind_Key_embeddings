@@ -1,7 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════
    AI Chat Panel — Right-side Groq-powered chatbot
    ═══════════════════════════════════════════════════════════════ */
-.ai-chat-panel {
+.ai-chat-panel,
+.ai-panel {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -9,40 +10,42 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 0 0 1px var(--primary-muted);
+    box-shadow: var(--glow-primary);
 }
 
 /* ── Header ── */
-.ai-chat-header {
+.ai-chat-header,
+.ai-panel-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: var(--space-4) var(--space-5);
     border-bottom: 1px solid var(--border);
-    background: var(--surface);
+    background: linear-gradient(135deg, var(--bg-secondary), var(--surface));
     position: relative;
     overflow: hidden;
 }
 
-.ai-chat-header::after {
+.ai-chat-header::after,
+.ai-panel-header::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     height: 1px;
     width: 100%;
-    background: linear-gradient(90deg, var(--primary), transparent);
-    transform-origin: left center;
-    animation: aiHeaderSweep 0.6s ease-out;
+    background: var(--gradient-accent);
+    background-size: 200% 100%;
+    animation: shimmerLine 3s linear infinite;
 }
 
-@keyframes aiHeaderSweep {
-    from {
-        transform: scaleX(0);
+@keyframes shimmerLine {
+    0% {
+        background-position: 200% 0;
     }
 
-    to {
-        transform: scaleX(1);
+    100% {
+        background-position: -200% 0;
     }
 }
 
@@ -305,6 +308,7 @@
     30% {
         transform: translateY(-6px);
         opacity: 1;
+        box-shadow: 0 0 8px var(--primary);
     }
 }
 
@@ -331,7 +335,7 @@
 .ai-chat-input input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(var(--primary-rgb, 99, 102, 241), 0.15);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
     background: var(--surface);
 }
 
@@ -341,7 +345,11 @@
 
 .ai-chat-input .btn:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(var(--primary-rgb, 99, 102, 241), 0.35);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+}
+
+.ai-chat-input .btn:active:not(:disabled) {
+    transform: scale(0.95);
 }
 
 /* ── Scrollbar ── */

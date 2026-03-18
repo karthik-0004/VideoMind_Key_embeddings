@@ -8,6 +8,7 @@ import { videoAPI } from '../services/api';
 import { ArrowLeft, Eraser, FileText, Send, Sparkles, GripVertical } from 'lucide-react';
 import { ConfirmModal } from '../components/ConfirmModal';
 import { MarkdownRenderer } from '../components/MarkdownRenderer';
+import { TutorialOverlay } from '../components/TutorialOverlay';
 import '../components/MarkdownRenderer.css';
 import './Chat.css';
 
@@ -206,6 +207,7 @@ export const Chat = () => {
 
     return (
         <AppLayout>
+            <TutorialOverlay page="chat" />
             <div className={`chat-page ${showAI ? 'chat-split' : ''}`}>
                 <div className="chat-header">
                     <Button variant="secondary" onClick={() => navigate('/dashboard')}>
@@ -247,6 +249,23 @@ export const Chat = () => {
                         <div className="messages">
                             {messages.length === 0 && (
                                 <div className="empty-state">
+                                    <svg
+                                        className="empty-state-icon"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            d="M6 18L3 21V6C3 4.9 3.9 4 5 4H19C20.1 4 21 4.9 21 6V16C21 17.1 20.1 18 19 18H6Z"
+                                            stroke="currentColor"
+                                            strokeWidth="1.8"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
+                                        <path d="M8 9H16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                                        <path d="M8 13H13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                                    </svg>
                                     Ask any question about this video!
                                 </div>
                             )}

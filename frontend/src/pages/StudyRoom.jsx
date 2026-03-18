@@ -5,6 +5,7 @@ import { videoAPI } from '../services/api';
 import { useTheme } from '../context/ThemeContext';
 import { ConfirmModal } from '../components/ConfirmModal';
 import { MarkdownRenderer } from '../components/MarkdownRenderer';
+import { TutorialOverlay } from '../components/TutorialOverlay';
 import '../components/MarkdownRenderer.css';
 
 /* ─────────────────── helpers ─────────────────── */
@@ -317,6 +318,7 @@ export const StudyRoom = () => {
         <>
             <style>{STYLES}</style>
             <div className={`study-room-root ${isDark ? 'dark' : 'light'}`}>
+                <TutorialOverlay page="study-room" />
 
                 {/* PDF ready toast notification */}
                 {pdfNotification === 'ready' && (
@@ -510,8 +512,8 @@ export const StudyRoom = () => {
                         </div>
 
                         {activeTab === 'ai' && (
-                            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                                <div style={{ flex: 1, overflowY: 'auto', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                            <div className="ai-panel" style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                                <div className="msgs" style={{ flex: 1, overflowY: 'auto', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                     {aiMessages.map((msg, i) => (
                                         <div key={i} style={{ display: 'flex', justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start' }}>
                                             <div style={{
@@ -541,8 +543,9 @@ export const StudyRoom = () => {
                                     )}
                                     <div ref={msgsEndRef} />
                                 </div>
-                                <div style={{ padding: '0.75rem', borderTop: '1px solid var(--border)', display: 'flex', gap: '0.5rem' }}>
+                                <div className="input-bar" style={{ padding: '0.75rem', borderTop: '1px solid var(--border)', display: 'flex', gap: '0.5rem' }}>
                                     <input
+                                        className="sr-in"
                                         style={{ flex: 1, background: 'var(--surface2)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.6rem 0.9rem', color: 'var(--text)', fontSize: '0.78rem', outline: 'none' }}
                                         value={aiInput}
                                         onChange={e => setAiInput(e.target.value)}
@@ -561,8 +564,8 @@ export const StudyRoom = () => {
                         )}
 
                         {activeTab === 'ts' && (
-                            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                                <div style={{ flex: 1, overflowY: 'auto', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                            <div className="ts-panel" style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                                <div className="ts-list" style={{ flex: 1, overflowY: 'auto', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                     {tsMessages.length === 0 && (
                                         <div style={{ textAlign: 'center', color: 'var(--text3)', fontSize: '0.78rem', padding: '2rem 1rem' }}>
                                             <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>◷</div>
@@ -613,8 +616,9 @@ export const StudyRoom = () => {
                                         </div>
                                     )}
                                 </div>
-                                <div style={{ padding: '0.75rem', borderTop: '1px solid var(--border)', display: 'flex', gap: '0.5rem' }}>
+                                <div className="input-bar" style={{ padding: '0.75rem', borderTop: '1px solid var(--border)', display: 'flex', gap: '0.5rem' }}>
                                     <input
+                                        className="sr-ts-search"
                                         style={{ flex: 1, background: 'var(--surface2)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.6rem 0.9rem', color: 'var(--text)', fontSize: '0.78rem', outline: 'none' }}
                                         value={tsInput}
                                         onChange={e => setTsInput(e.target.value)}
@@ -664,8 +668,8 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-top{height:54px;background:rgba(13,13,20,.95);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 1.25rem;gap:.85rem;flex-shrink:0;backdrop-filter:blur(20px);position:relative;z-index:10}
 .sr-top::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(123,123,255,.4),transparent)}
 
-.sr-back{width:32px;height:32px;border:1px solid var(--border);border-radius:7px;background:var(--surface);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text3);transition:.2s}
-.sr-back:hover{border-color:var(--border2);color:var(--text);background:var(--surface2)}
+.sr-back{width:32px;height:32px;border:1px solid var(--border);border-radius:7px;background:var(--surface);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text3);transition:all .2s ease}
+.sr-back:hover{transform:translateX(-2px);border-color:var(--violet);color:var(--violet);background:var(--surface2)}
 
 .sr-logo{display:flex;align-items:center;gap:.5rem}
 .sr-logo-icon{width:28px;height:28px;background:linear-gradient(135deg,var(--violet),var(--violet2));border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#fff;box-shadow:0 0 16px rgba(123,123,255,.4)}
@@ -686,9 +690,9 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-dot-processing{width:5px;height:5px;border-radius:50%;background:#fbbf24;animation:sr-blink 1.2s ease infinite}
 @keyframes sr-blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-.sr-pdf-btn{display:flex;align-items:center;gap:.45rem;padding:.38rem .9rem;background:linear-gradient(135deg,var(--violet),var(--violet2));background-size:200% 200%;background-position:0% 50%;color:#fff;font-size:.72rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:.25s;box-shadow:0 0 20px rgba(123,123,255,.3),inset 0 1px 0 rgba(255,255,255,.15)}
-.sr-pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 24px rgba(123,123,255,.45);animation:sr-pdf-shimmer .9s ease-out}
-@keyframes sr-pdf-shimmer{from{background-position:0% 50%}to{background-position:100% 50%}}
+.sr-pdf-btn{display:flex;align-items:center;gap:.45rem;padding:.38rem .9rem;background:linear-gradient(135deg,var(--violet),var(--violet2));background-size:200% 100%;background-position:100% 0;color:#fff;font-size:.72rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:.25s;box-shadow:0 0 20px rgba(123,123,255,.3),inset 0 1px 0 rgba(255,255,255,.15)}
+.sr-pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 24px rgba(123,123,255,.45);animation:btnShimmer 1s ease}
+@keyframes btnShimmer{0%,100%{background-position:100% 0}50%{background-position:0% 0}}
 
 /* ─── MAIN ─── */
 .sr-main{flex:1;display:flex;overflow:hidden}
@@ -696,9 +700,10 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 /* ─── VIDEO SIDE ─── */
 .sr-vid-side{width:60%;display:flex;flex-direction:column;border-right:1px solid var(--border)}
 
-.sr-vid-area{flex:1;background:#08080e;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border2);border-radius:12px;box-shadow:0 0 0 1px var(--vglow),inset 0 0 40px rgba(0,0,0,.4)}
+.sr-vid-area{flex:1;background:#08080e;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid rgba(123,123,255,0.2);border-radius:12px;box-shadow:0 0 0 1px rgba(123,123,255,0.08),inset 0 0 60px rgba(0,0,0,0.5),0 0 40px rgba(123,123,255,0.1)}
 .sr-va-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(123,123,255,.04),transparent 70%)}
-.sr-va-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent)}
+.sr-va-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent);animation:gridDrift 20s linear infinite}
+@keyframes gridDrift{0%{background-position:0 0}100%{background-position:40px 40px}}
 .sr-va-vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 35%,rgba(8,8,14,.85) 100%);pointer-events:none}
 
 .sr-video-el{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:1;opacity:0;transition:opacity .5s ease}
@@ -729,10 +734,10 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 
 /* ─── CONTROLS ─── */
 .sr-ctrl{height:58px;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;padding:0 1rem;gap:.6rem;flex-shrink:0}
-.sr-cb{width:32px;height:32px;border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--text3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease,border-color .15s ease;flex-shrink:0}
-.sr-cb:hover{border-color:var(--border2);color:var(--text);background:var(--surface2);transform:scale(1.08);box-shadow:0 0 12px rgba(123,123,255,.16)}
-.sr-cb.play{background:var(--violet);border-color:transparent;color:#fff;box-shadow:0 0 14px rgba(123,123,255,.4)}
-.sr-cb.play:hover{box-shadow:0 0 22px rgba(123,123,255,.6)}
+.sr-cb{width:32px;height:32px;border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--text3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;flex-shrink:0}
+.sr-cb:hover{border-color:var(--border2);color:var(--text);background:var(--surface2);transform:scale(1.1);box-shadow:0 0 12px rgba(123,123,255,0.3)}
+.sr-cb.play{background:var(--violet);border-color:transparent;color:#fff;box-shadow:0 0 20px rgba(123,123,255,0.5)}
+.sr-cb.play:hover{transform:scale(1.12);box-shadow:0 0 32px rgba(123,123,255,0.7)}
 .sr-cb.sm{width:28px;height:28px;border:none;background:transparent}
 
 /* progress */
@@ -753,7 +758,7 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-speed:hover{border-color:var(--border2);color:var(--text)}
 
 /* ─── RIGHT SIDE ─── */
-.sr-right{width:40%;display:flex;flex-direction:column;background:var(--surface);overflow:hidden;height:100%}
+.sr-right{width:40%;display:flex;flex-direction:column;background:var(--surface);overflow:hidden;height:100%;border-left:1px solid var(--border2);box-shadow:-8px 0 32px rgba(0,0,0,0.2)}
 
 /* tab bar */
 .sr-tab-bar{height:50px;display:flex;flex-direction:row;align-items:center;padding:0 1rem;gap:.5rem;border-bottom:1px solid var(--border);flex-shrink:0}
@@ -811,8 +816,8 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .sr-ts-list{flex:1;overflow-y:auto;padding:.7rem}
 .sr-ts-empty{text-align:center;color:var(--text3);font-size:.78rem;padding:3rem 1rem;font-style:italic}
 .sr-ts-card{display:flex;align-items:center;gap:.7rem;padding:.7rem .8rem;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:all .2s ease;transform:translateX(0);margin-bottom:.3rem}
-.sr-ts-card:hover{background:var(--surface2);border-color:var(--border);transform:translateX(3px)}
-.sr-ts-card.now{background:rgba(251,191,36,.05);border-color:rgba(251,191,36,.2)}
+.sr-ts-card:hover{background:var(--surface2);border-color:var(--border);border-left:2px solid var(--violet);transform:translateX(4px)}
+.sr-ts-card.now{background:rgba(251,191,36,.05);border-color:rgba(251,191,36,.2);box-shadow:0 0 0 1px rgba(251,191,36,0.3),0 2px 12px rgba(251,191,36,0.1)}
 .sr-ts-t{flex-shrink:0;padding:.24rem .5rem;background:var(--surface2);border:1px solid var(--border);border-radius:5px;font-size:.62rem;color:var(--text3);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
 .sr-ts-card.now .sr-ts-t{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.3);color:var(--amber)}
 .sr-ts-title{font-size:.77rem;font-weight:500;color:var(--text);line-height:1.3}
@@ -877,11 +882,11 @@ background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;
 .topbar { height: 54px; flex-shrink: 0; display: flex; align-items: center; padding: 0 1.5rem; gap: 1rem; background: rgba(13,13,20,0.95); border-bottom: 1px solid var(--border); z-index: 10; }
 .main { flex: 1; display: flex; flex-direction: row; overflow: hidden; min-height: 0; }
 .video-side { width: 60%; flex-shrink: 0; display: flex; flex-direction: column; border-right: 1px solid var(--border); overflow: hidden; }
-.video-area { flex: 1; background: #08080e; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 0; border: 1px solid var(--border2); border-radius: 12px; box-shadow: 0 0 0 1px var(--vglow), inset 0 0 40px rgba(0,0,0,0.4); }
+.video-area { flex: 1; background: #08080e; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 0; border: 1px solid rgba(123,123,255,0.2); border-radius: 12px; box-shadow: 0 0 0 1px rgba(123,123,255,0.08), inset 0 0 60px rgba(0,0,0,0.5), 0 0 40px rgba(123,123,255,0.1); }
 .video-area video { width: 100%; height: 100%; object-fit: contain; display: block; }
 .ts-strip { height: 38px; flex-shrink: 0; background: var(--surface); border-top: 1px solid var(--border); display: flex; align-items: center; padding: 0 1rem; gap: 0.4rem; overflow-x: auto; }
 .controls { height: 58px; flex-shrink: 0; background: var(--surface); border-top: 1px solid var(--border); display: flex; align-items: center; padding: 0 1.2rem; gap: 0.8rem; }
-.right-side { flex: 1; display: flex; flex-direction: column; background: var(--surface); overflow: hidden; min-width: 0; }
+.right-side { flex: 1; display: flex; flex-direction: column; background: var(--surface); overflow: hidden; min-width: 0; border-left: 1px solid var(--border2); box-shadow: -8px 0 32px rgba(0,0,0,0.2); }
 .tab-bar { height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; padding: 0 1rem; gap: 0.5rem; border-bottom: 1px solid var(--border); }
 .tab { flex: 1; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 500; cursor: pointer; border: 1px solid transparent; color: var(--text3); transition: all 0.2s; }
 .tab:hover { color: var(--text2); background: rgba(255,255,255,0.03); }

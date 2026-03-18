@@ -10,6 +10,7 @@ import {
 import './Dashboard.css';
 import AudioWaveformPlayer from '../components/AudioWaveformPlayer';
 import { ConfirmModal } from '../components/ConfirmModal';
+import { TutorialOverlay } from '../components/TutorialOverlay';
 
 // Extract YouTube video ID from various URL formats
 const getYouTubeId = (url) => {
@@ -250,6 +251,7 @@ export const Dashboard = () => {
 
     return (
         <AppLayout>
+            <TutorialOverlay page="dashboard" />
             <div className="dashboard-workspace">
                 {/* ── Top Section ── */}
                 <div className="workspace-header">

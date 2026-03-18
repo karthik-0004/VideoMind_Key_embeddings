@@ -16,6 +16,7 @@
 [data-theme="light"] {
     /* Primary Accent (Blue) */
     --primary: #2563eb;
+    --primary-rgb: 37, 99, 235;
     --primary-hover: #1d4ed8;
     --primary-light: rgba(37, 99, 235, 0.15);
     --primary-subtle: rgba(37, 99, 235, 0.05);
@@ -44,6 +45,7 @@
     --bg-page: #f8fafc;
     --bg-nav: #ffffff;
     --bg-primary: #ffffff;
+    --bg-primary-rgb: 255, 255, 255;
     --bg-secondary: #f8fafc;
     --bg-tertiary: #e2e8f0;
     --surface: #ffffff;
@@ -90,6 +92,7 @@
 [data-theme="dark"] {
     /* Primary Accent (Electric Violet) */
     --primary: #7b7bff;
+    --primary-rgb: 123, 123, 255;
     --primary-hover: #6060f0;
     --primary-light: rgba(123, 123, 255, 0.15);
     --primary-subtle: rgba(123, 123, 255, 0.05);
@@ -118,6 +121,7 @@
     --bg-page: #111114;
     --bg-nav: #16161c;
     --bg-primary: #13131a;
+    --bg-primary-rgb: 19, 19, 26;
     --bg-secondary: #111114;
     --bg-tertiary: #0d0d10;
     --surface: #13131a;
@@ -471,6 +475,12 @@
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-page: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Reusable glow and accent gradient */
+    --glow-primary: 0 0 20px rgba(59, 130, 246, 0.25);
+    --glow-primary-strong: 0 0 40px rgba(59, 130, 246, 0.4);
+    --gradient-accent: linear-gradient(90deg, var(--primary), #a78bfa, var(--primary));
 
     /* Layout */
     --topnav-height: 52px;

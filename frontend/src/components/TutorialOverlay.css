@@ -1,0 +1,164 @@
+.tutorial-overlay-root {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+}
+
+.tutorial-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.tutorial-spotlight {
+    position: fixed;
+    z-index: 9999;
+    border-radius: 8px;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+.tutorial-tooltip {
+    position: fixed;
+    z-index: 10000;
+    background: var(--bg-primary);
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    max-width: 280px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    animation: tooltipFadeIn 0.3s ease;
+    pointer-events: auto;
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tutorial-arrow {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    color: var(--primary);
+}
+
+.tutorial-arrow.top {
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.tutorial-arrow.bottom {
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tutorial-arrow.left {
+    left: -16px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.tutorial-arrow.right {
+    right: -16px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.tutorial-arrow svg {
+    width: 100%;
+    height: 100%;
+    animation: arrowBounce 1s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.tutorial-message {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.tutorial-step-indicator {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-bottom: 0.5rem;
+}
+
+.tutorial-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tutorial-next-btn {
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.78rem;
+    cursor: pointer;
+}
+
+.tutorial-next-btn:hover {
+    filter: brightness(1.05);
+}
+
+.tutorial-skip-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 10001;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.tutorial-done-msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+    background: var(--bg-primary);
+    border: 1px solid var(--primary);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    animation: tooltipFadeIn 0.3s ease;
+    pointer-events: auto;
+}

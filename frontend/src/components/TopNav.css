@@ -3,9 +3,34 @@
    ═══════════════════════════════════════════════════════════════ */
 .topnav {
     height: var(--topnav-height);
-    background: var(--bg-nav);
+    background: rgba(var(--bg-primary-rgb, 255, 255, 255), 0.85);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.topnav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient-accent);
+    background-size: 200% 100%;
+    animation: shimmerLine 3s linear infinite;
+}
+
+@keyframes shimmerLine {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .topnav-inner {

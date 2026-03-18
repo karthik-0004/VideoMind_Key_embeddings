@@ -8,6 +8,7 @@ import { ProcessingScreen } from '../components/ProcessingScreen';
 import { videoAPI } from '../services/api';
 import { Upload as UploadIcon, X } from 'lucide-react';
 import { UploadOnboarding } from '../components/UploadOnboarding';
+import { TutorialOverlay } from '../components/TutorialOverlay';
 import './Upload.css';
 
 // Maps backend processing_stage → { pct: progress %, label: human string }
@@ -271,6 +272,7 @@ export const Upload = () => {
 
     return (
         <AppLayout>
+            <TutorialOverlay page="upload" />
             {isProcessing && (
                 <ProcessingScreen
                     videos={[

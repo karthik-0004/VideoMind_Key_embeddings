@@ -113,6 +113,10 @@
     flex-direction: column;
     gap: var(--space-3);
     min-height: 0;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, transparent 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3);
 }
 
 .column-header {
@@ -186,20 +190,38 @@
     border: 1px solid transparent;
     border-radius: var(--radius-md);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     position: relative;
 }
 
 .kanban-card:hover {
     background: var(--card-bg-hover);
-    border-color: var(--border);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: var(--glow-primary);
 }
 
 .kanban-card.selected {
     background: var(--card-bg-selected);
-    border-color: var(--border);
+    border-color: var(--primary);
     border-left: 3px solid var(--primary);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--glow-primary);
+}
+
+.skeleton {
+    background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--surface) 50%, var(--bg-secondary) 75%);
+    background-size: 200% 100%;
+    animation: skeletonShimmer 1.5s infinite;
+}
+
+@keyframes skeletonShimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .card-thumb {
@@ -317,9 +339,11 @@
 .detail-panel {
     background: var(--bg-primary);
     border: 1px solid var(--border);
+    border-left: 1px solid var(--border);
     border-radius: var(--radius-lg);
     overflow-y: auto;
     overflow-x: hidden;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
 }
 
 .detail-content {
