@@ -244,7 +244,13 @@ export const Chat = () => {
                     {/* Left Panel — Existing video Q&A */}
                     <Card
                         className="chat-container chat-left-panel"
-                        style={showAI ? { width: `${leftWidth}%`, flex: 'none' } : {}}
+                        style={{
+                            flex: showAI ? 'none' : 1,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            minHeight: 0,
+                            ...(showAI ? { width: `${leftWidth}%` } : {}),
+                        }}
                     >
                         <div className="messages">
                             {messages.length === 0 && (

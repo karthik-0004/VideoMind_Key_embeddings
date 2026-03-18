@@ -77,7 +77,6 @@ export const Upload = () => {
                         setIsProcessing(false);
                         setTimeout(() => {
                             setToastVisible(false);
-                            navigate('/dashboard');
                         }, 3000);
                     } else if (status === 'failed') {
                         clearInterval(interval);

@@ -12,6 +12,7 @@ import { Profile } from './pages/Profile';
 import { PDFViewer } from './pages/PDFViewer';
 import { History } from './pages/History';
 import { StudyRoom } from './pages/StudyRoom';
+import { ProcessingView } from './pages/ProcessingView';
 
 function App() {
   return (
@@ -49,6 +50,11 @@ function App() {
             <Route path="/study-room/:id" element={
               <ProtectedRoute>
                 <StudyRoom />
+              </ProtectedRoute>
+            } />
+            <Route path="/processing/:id" element={
+              <ProtectedRoute>
+                <ProcessingView />
               </ProtectedRoute>
             } />
             <Route path="/history" element={

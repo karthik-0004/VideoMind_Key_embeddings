@@ -447,41 +447,55 @@ export const Dashboard = () => {
                                     </button>
                                 </div>
 
-                                {(selectedVideo.status === 'processing' || selectedVideo.status === 'uploading') && (
-                                    <div style={{ marginTop: '1rem' }}>
-                                        <div style={{
-                                            display: 'flex', alignItems: 'center', gap: '0.75rem',
-                                            padding: '0.9rem 1.1rem',
-                                            background: 'rgba(251,191,36,0.06)',
-                                            border: '1px solid rgba(251,191,36,0.25)', borderRadius: '10px',
-                                        }}>
-                                            <span style={{ fontSize: '1.3rem' }}>⏳</span>
-                                            <div style={{ flex: 1 }}>
-                                                <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                                                    Still Processing…
+                                {(selectedVideo.status === 'processing' || selectedVideo.status === 'uploading') && (() => {
+                                    const studyRoomReadyStages = ['embedded', 'generating_pdf', 'pdf_generated'];
+                                    const currentStage = selectedVideo.processing_stage;
+                                    const isStudyRoomReady = studyRoomReadyStages.includes(currentStage);
+
+                                    return (
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1rem' }}>
+                                            <div style={{ marginBottom: '0.25rem' }}>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'var(--text-tertiary)', marginBottom: '6px' }}>
+                                                    <span>{selectedVideo._stageLabel ?? 'Processing…'}</span>
+                                                    <span style={{ fontWeight: 700, color: 'var(--primary)' }}>{selectedVideo._stagePct ?? 5}%</span>
                                                 </div>
-                                                <div style={{ fontSize: '0.72rem', color: 'var(--text-tertiary)', marginTop: '4px' }}>
-                                                    {selectedVideo._stageLabel ?? 'Working on it'}
-                                                </div>
-                                                <div style={{ marginTop: '8px', height: '5px', background: 'rgba(0,0,0,0.08)', borderRadius: '999px', overflow: 'hidden' }}>
-                                                    <div style={{
-                                                        height: '100%',
-                                                        width: `${selectedVideo._stagePct ?? 5}%`,
-                                                        background: 'linear-gradient(90deg, #3b82f6, #a78bfa)',
-                                                        borderRadius: '999px',
-                                                        transition: 'width 0.8s ease',
-                                                    }} />
-                                                </div>
-                                                <div style={{ fontSize: '0.65rem', color: 'var(--primary)', fontWeight: 700, marginTop: '4px' }}>
-                                                    {selectedVideo._stagePct ?? 5}% complete
+                                                <div style={{ height: '6px', background: 'var(--bg-secondary)', borderRadius: '999px', overflow: 'hidden' }}>
+                                                    <div style={{ height: '100%', width: `${selectedVideo._stagePct ?? 5}%`, background: 'linear-gradient(90deg, #3b82f6, #a78bfa)', borderRadius: '999px', transition: 'width 0.8s ease' }} />
                                                 </div>
                                             </div>
+
+                                            {isStudyRoomReady ? (
+                                                <div
+                                                    onClick={() => navigate(`/study-room/${selectedVideo.id}`)}
+                                                    style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.9rem 1.1rem', background: 'linear-gradient(135deg, rgba(124,111,247,0.12), rgba(167,139,250,0.06))', border: '1px solid rgba(124,111,247,0.35)', borderRadius: '10px', cursor: 'pointer', transition: 'all 0.2s' }}
+                                                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(124,111,247,0.65)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                                                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(124,111,247,0.35)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                                                >
+                                                    <span style={{ fontSize: '1.3rem' }}>🎓</span>
+                                                    <div>
+                                                        <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)' }}>Open Study Room</div>
+                                                        <div style={{ fontSize: '0.72rem', color: 'var(--text-tertiary)', marginTop: '2px' }}>Embeddings ready — AI learning available now</div>
+                                                    </div>
+                                                    <span style={{ marginLeft: 'auto', color: 'rgba(124,111,247,0.8)', fontWeight: 700 }}>→</span>
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    onClick={() => navigate(`/processing/${selectedVideo.id}`)}
+                                                    style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.9rem 1.1rem', background: 'rgba(59,130,246,0.06)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: '10px', cursor: 'pointer', transition: 'all 0.2s' }}
+                                                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(59,130,246,0.45)'; e.currentTarget.style.background = 'rgba(59,130,246,0.1)'; }}
+                                                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(59,130,246,0.2)'; e.currentTarget.style.background = 'rgba(59,130,246,0.06)'; }}
+                                                >
+                                                    <span style={{ fontSize: '1.3rem' }}>⏳</span>
+                                                    <div>
+                                                        <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)' }}>Watch Processing</div>
+                                                        <div style={{ fontSize: '0.72rem', color: 'var(--text-tertiary)', marginTop: '2px' }}>See the live animation while AI works</div>
+                                                    </div>
+                                                    <span style={{ marginLeft: 'auto', color: 'rgba(59,130,246,0.7)', fontWeight: 700 }}>→</span>
+                                                </div>
+                                            )}
                                         </div>
-                                        <p style={{ fontSize: '0.72rem', color: 'var(--text-tertiary)', textAlign: 'center', marginTop: '0.6rem' }}>
-                                            Study Room will appear here once processing is complete.
-                                        </p>
-                                    </div>
-                                )}
+                                    );
+                                })()}
 
                                 {selectedVideo.status === 'completed' && (
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1rem' }}>
