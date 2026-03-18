@@ -175,7 +175,6 @@ export const Dashboard = () => {
     // Group videos by status
     const processing = videos.filter(v => v.status === 'processing' || v.status === 'uploading');
     const ready = videos.filter(v => v.status === 'completed');
-    const archived = videos.filter(v => v.status === 'failed');
 
     const formatDuration = (seconds) => {
         if (!seconds) return '';
@@ -213,6 +212,11 @@ export const Dashboard = () => {
                                     style={{ width: `${stagePct}%` }}
                                 />
                             </div>
+                        </div>
+                    )}
+                    {(video.status === 'processing' || video.status === 'uploading') && (
+                        <div style={{ fontSize: '0.6rem', color: 'var(--primary)', fontWeight: 700, marginTop: '2px' }}>
+                            {stagePct}% — {stageLabel}
                         </div>
                     )}
                     <div className="card-tags">
@@ -316,12 +320,6 @@ export const Dashboard = () => {
                                     count={ready.length}
                                     videos={ready}
                                     emptyText="No completed videos"
-                                />
-                                <KanbanColumn
-                                    title="Archived"
-                                    count={archived.length}
-                                    videos={archived}
-                                    emptyText="No archived items"
                                 />
                             </div>
                         )}
@@ -440,24 +438,6 @@ export const Dashboard = () => {
 
                                 {/* Action Buttons */}
                                 <div className="detail-actions">
-                                    {selectedVideo.status === 'completed' && (
-                                        <>
-                                            <button
-                                                className="action-btn action-chat"
-                                                onClick={() => navigate(`/chat/${selectedVideo.id}`)}
-                                            >
-                                                <MessageCircle size={15} />
-                                                Chat with AI
-                                            </button>
-                                            <button
-                                                className="action-btn action-pdf"
-                                                onClick={() => navigate(`/pdf/${selectedVideo.id}`)}
-                                            >
-                                                <FileText size={15} />
-                                                Download (PDF)
-                                            </button>
-                                        </>
-                                    )}
                                     <button
                                         className="action-btn action-delete"
                                         onClick={() => handleDelete(selectedVideo.id, selectedVideo.title)}
@@ -467,97 +447,86 @@ export const Dashboard = () => {
                                     </button>
                                 </div>
 
-                                {/* Study Room Card */}
-                                {(selectedVideo.status === 'completed' || ['embedded', 'generating_pdf', 'pdf_generated'].includes(selectedVideo.processing_stage)) && (
-                                    <div
-                                        onClick={() => {
-                                            if (selectedVideo.status !== 'completed') {
-                                                localStorage.setItem('videomind_pending_pdf', JSON.stringify({
-                                                    videoId: selectedVideo.id,
-                                                    timestamp: Date.now(),
-                                                }));
-                                            }
-                                            navigate(`/study-room/${selectedVideo.id}`);
-                                        }}
-                                        style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '1rem',
-                                            padding: '1rem 1.25rem',
-                                            background: selectedVideo.status !== 'completed'
-                                                ? 'linear-gradient(135deg, rgba(52,211,153,0.12), rgba(124,111,247,0.08))'
-                                                : 'linear-gradient(135deg, rgba(124,111,247,0.1), rgba(167,139,250,0.05))',
-                                            border: selectedVideo.status !== 'completed'
-                                                ? '1px solid rgba(52,211,153,0.35)'
-                                                : '1px solid rgba(124,111,247,0.25)',
-                                            borderRadius: '12px',
-                                            cursor: 'pointer',
-                                            transition: 'all 0.2s',
-                                            marginTop: '0.75rem',
-                                        }}
-                                        onMouseEnter={e => {
-                                            e.currentTarget.style.background = selectedVideo.status !== 'completed'
-                                                ? 'linear-gradient(135deg, rgba(52,211,153,0.22), rgba(124,111,247,0.14))'
-                                                : 'linear-gradient(135deg, rgba(124,111,247,0.2), rgba(167,139,250,0.1))';
-                                            e.currentTarget.style.borderColor = selectedVideo.status !== 'completed'
-                                                ? 'rgba(52,211,153,0.6)'
-                                                : 'rgba(124,111,247,0.5)';
-                                            e.currentTarget.style.transform = 'translateY(-1px)';
-                                        }}
-                                        onMouseLeave={e => {
-                                            e.currentTarget.style.background = selectedVideo.status !== 'completed'
-                                                ? 'linear-gradient(135deg, rgba(52,211,153,0.12), rgba(124,111,247,0.08))'
-                                                : 'linear-gradient(135deg, rgba(124,111,247,0.1), rgba(167,139,250,0.05))';
-                                            e.currentTarget.style.borderColor = selectedVideo.status !== 'completed'
-                                                ? 'rgba(52,211,153,0.35)'
-                                                : 'rgba(124,111,247,0.25)';
-                                            e.currentTarget.style.transform = 'translateY(0)';
-                                        }}
-                                    >
+                                {(selectedVideo.status === 'processing' || selectedVideo.status === 'uploading') && (
+                                    <div style={{ marginTop: '1rem' }}>
                                         <div style={{
-                                            width: '40px',
-                                            height: '40px',
-                                            background: selectedVideo.status !== 'completed'
-                                                ? 'linear-gradient(135deg, #34d399, #7c6ff7)'
-                                                : 'linear-gradient(135deg, #7c6ff7, #a78bfa)',
-                                            borderRadius: '10px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            fontSize: '1.1rem',
-                                            flexShrink: 0,
-                                            boxShadow: selectedVideo.status !== 'completed'
-                                                ? '0 0 16px rgba(52,211,153,0.4)'
-                                                : '0 0 16px rgba(124,111,247,0.4)',
+                                            display: 'flex', alignItems: 'center', gap: '0.75rem',
+                                            padding: '0.9rem 1.1rem',
+                                            background: 'rgba(251,191,36,0.06)',
+                                            border: '1px solid rgba(251,191,36,0.25)', borderRadius: '10px',
                                         }}>
-                                            🎓
-                                        </div>
-                                        <div>
-                                            <div style={{
-                                                fontWeight: 600,
-                                                fontSize: '0.9rem',
-                                                color: 'var(--text-primary, #f1f0ff)',
-                                                marginBottom: '0.2rem',
-                                            }}>
-                                                {selectedVideo.status !== 'completed'
-                                                    ? 'Study Room Ready!'
-                                                    : 'Open Study Room'}
-                                            </div>
-                                            <div style={{
-                                                fontSize: '0.72rem',
-                                                color: 'var(--text-secondary, #9b99b8)',
-                                            }}>
-                                                {selectedVideo.status !== 'completed'
-                                                    ? 'Embeddings done — start studying while PDF generates'
-                                                    : 'Watch video · AI Assistant · Timestamps'}
+                                            <span style={{ fontSize: '1.3rem' }}>⏳</span>
+                                            <div style={{ flex: 1 }}>
+                                                <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                                                    Still Processing…
+                                                </div>
+                                                <div style={{ fontSize: '0.72rem', color: 'var(--text-tertiary)', marginTop: '4px' }}>
+                                                    {selectedVideo._stageLabel ?? 'Working on it'}
+                                                </div>
+                                                <div style={{ marginTop: '8px', height: '5px', background: 'rgba(0,0,0,0.08)', borderRadius: '999px', overflow: 'hidden' }}>
+                                                    <div style={{
+                                                        height: '100%',
+                                                        width: `${selectedVideo._stagePct ?? 5}%`,
+                                                        background: 'linear-gradient(90deg, #3b82f6, #a78bfa)',
+                                                        borderRadius: '999px',
+                                                        transition: 'width 0.8s ease',
+                                                    }} />
+                                                </div>
+                                                <div style={{ fontSize: '0.65rem', color: 'var(--primary)', fontWeight: 700, marginTop: '4px' }}>
+                                                    {selectedVideo._stagePct ?? 5}% complete
+                                                </div>
                                             </div>
                                         </div>
-                                        <div style={{
-                                            marginLeft: 'auto',
-                                            color: selectedVideo.status !== 'completed' ? '#34d399' : 'var(--primary)',
-                                            fontSize: '1.1rem',
-                                        }}>
-                                            →
+                                        <p style={{ fontSize: '0.72rem', color: 'var(--text-tertiary)', textAlign: 'center', marginTop: '0.6rem' }}>
+                                            Study Room will appear here once processing is complete.
+                                        </p>
+                                    </div>
+                                )}
+
+                                {selectedVideo.status === 'completed' && (
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1rem' }}>
+                                        <div
+                                            onClick={() => navigate(`/study-room/${selectedVideo.id}`)}
+                                            style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '0.75rem',
+                                                padding: '0.9rem 1.1rem',
+                                                background: 'linear-gradient(135deg, rgba(124,111,247,0.12), rgba(167,139,250,0.06))',
+                                                border: '1px solid rgba(124,111,247,0.3)',
+                                                borderRadius: '10px',
+                                                cursor: 'pointer',
+                                                transition: 'all 0.2s',
+                                            }}
+                                            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(124,111,247,0.6)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                                            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(124,111,247,0.3)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                                        >
+                                            <span style={{ fontSize: '1.3rem' }}>🎓</span>
+                                            <div>
+                                                <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)' }}>Open Study Room</div>
+                                                <div style={{ fontSize: '0.72rem', color: 'var(--text-tertiary)', marginTop: '2px' }}>AI learning with timestamps</div>
+                                            </div>
+                                            <span style={{ marginLeft: 'auto', color: 'rgba(124,111,247,0.8)', fontWeight: 700 }}>→</span>
+                                        </div>
+
+                                        <div
+                                            onClick={() => navigate(`/chat/${selectedVideo.id}`)}
+                                            style={{
+                                                display: 'flex', alignItems: 'center', gap: '0.75rem',
+                                                padding: '0.9rem 1.1rem',
+                                                background: 'rgba(59,130,246,0.06)',
+                                                border: '1px solid rgba(59,130,246,0.2)', borderRadius: '10px',
+                                                cursor: 'pointer', transition: 'all 0.2s',
+                                            }}
+                                            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(59,130,246,0.5)'; e.currentTarget.style.background = 'rgba(59,130,246,0.1)'; }}
+                                            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(59,130,246,0.2)'; e.currentTarget.style.background = 'rgba(59,130,246,0.06)'; }}
+                                        >
+                                            <span style={{ fontSize: '1.3rem' }}>💬</span>
+                                            <div>
+                                                <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)' }}>Chat with AI</div>
+                                                <div style={{ fontSize: '0.72rem', color: 'var(--text-tertiary)', marginTop: '2px' }}>Ask questions about this video</div>
+                                            </div>
+                                            <span style={{ marginLeft: 'auto', color: 'rgba(59,130,246,0.8)', fontWeight: 700 }}>→</span>
                                         </div>
                                     </div>
                                 )}

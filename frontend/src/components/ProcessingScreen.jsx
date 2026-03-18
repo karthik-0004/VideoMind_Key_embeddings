@@ -5,7 +5,7 @@ import './SplashScreen.css'; // Reusing splash styles for consistency
 // Stages where the video is ready for early access (embeddings done, PDF still generating)
 const EARLY_ACCESS_STAGES = ['embedded', 'generating_pdf', 'pdf_generated'];
 
-export const ProcessingScreen = ({ videos, processingStage = 'uploaded', videoId }) => {
+export const ProcessingScreen = ({ videos, processingStage = 'uploaded', stagePct = 5, videoId }) => {
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
     const videoRef = useRef(null);
     const navigate = useNavigate();
@@ -64,6 +64,41 @@ export const ProcessingScreen = ({ videos, processingStage = 'uploaded', videoId
 
     return (
         <div className="splash-screen" style={{ zIndex: 100 }}>
+            <button
+                onClick={() => navigate('/dashboard')}
+                style={{
+                    position: 'fixed',
+                    top: '20px',
+                    left: '20px',
+                    zIndex: 9999,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '12px 22px',
+                    background: '#3b82f6',
+                    border: 'none',
+                    borderRadius: '10px',
+                    color: '#ffffff',
+                    fontSize: '0.875rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 20px rgba(59,130,246,0.45)',
+                    letterSpacing: '0.01em',
+                }}
+                onMouseEnter={e => {
+                    e.currentTarget.style.background = '#2563eb';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                    e.currentTarget.style.boxShadow = '0 6px 24px rgba(59,130,246,0.55)';
+                }}
+                onMouseLeave={e => {
+                    e.currentTarget.style.background = '#3b82f6';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(59,130,246,0.45)';
+                }}
+            >
+                ← Dashboard
+            </button>
+
             <div className="splash-video-container">
                 <video
                     ref={videoRef}
@@ -100,6 +135,46 @@ export const ProcessingScreen = ({ videos, processingStage = 'uploaded', videoId
                 }}>
                     {getStatusText()}
                 </p>
+
+                <div style={{
+                    position: 'absolute',
+                    bottom: '80px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '480px',
+                    maxWidth: '90vw',
+                    zIndex: 200,
+                    textAlign: 'center',
+                }}>
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        marginBottom: '8px',
+                        color: 'rgba(255,255,255,0.85)',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                    }}>
+                        <span>{getStatusText()}</span>
+                        <span>{stagePct ?? 5}%</span>
+                    </div>
+                    <div style={{
+                        width: '100%',
+                        height: '8px',
+                        background: 'rgba(255,255,255,0.15)',
+                        borderRadius: '999px',
+                        overflow: 'hidden',
+                        border: '1px solid rgba(255,255,255,0.2)',
+                    }}>
+                        <div style={{
+                            height: '100%',
+                            width: `${stagePct ?? 5}%`,
+                            background: 'linear-gradient(90deg, #3b82f6, #a78bfa)',
+                            borderRadius: '999px',
+                            transition: 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                            boxShadow: '0 0 12px rgba(139,92,246,0.6)',
+                        }} />
+                    </div>
+                </div>
 
                 {canAccessEarly && videoId && (
                     <div className="processing-early-access">

@@ -29,6 +29,8 @@ const STAGE_MAP = {
 export const Upload = () => {
     const navigate = useNavigate();
     const [uploadQueue, setUploadQueue] = useState([]);
+    const [toastVisible, setToastVisible] = useState(false);
+    const [toastVideoTitle, setToastVideoTitle] = useState('');
     const [isProcessing, setIsProcessing] = useState(false);
     const [processingStage, setProcessingStage] = useState('uploaded');
     const [processingError, setProcessingError] = useState('');
@@ -65,8 +67,18 @@ export const Upload = () => {
 
                     if (status === 'completed') {
                         clearInterval(interval);
-                        // Brief pause so the user sees "Completed" before navigating
-                        setTimeout(() => navigate('/dashboard'), 800);
+                        setUploadQueue(prev => prev.map(i =>
+                            i.id === processingItem.id
+                                ? { ...i, status: 'completed', message: 'Completed' }
+                                : i
+                        ));
+                        setToastVideoTitle(processingItem.displayName || 'Your video');
+                        setToastVisible(true);
+                        setIsProcessing(false);
+                        setTimeout(() => {
+                            setToastVisible(false);
+                            navigate('/dashboard');
+                        }, 3000);
                     } else if (status === 'failed') {
                         clearInterval(interval);
                         setIsProcessing(false);
@@ -271,22 +283,24 @@ export const Upload = () => {
     };
 
     return (
-        <AppLayout>
-            <TutorialOverlay page="upload" />
-            {isProcessing && (
-                <ProcessingScreen
-                    videos={[
-                        '/new_anime.mp4',
-                        '/Robot_and_Human_Collaboration_Animation.mp4'
-                    ]}
-                    processingStage={processingStage}
-                    videoId={uploadQueue.find(i => i.status === 'processing')?.videoId}
-                />
-            )}
+        <>
+            <AppLayout>
+                <TutorialOverlay page="upload" />
+                {isProcessing && (
+                    <ProcessingScreen
+                        videos={[
+                            '/new_anime.mp4',
+                            '/Robot_and_Human_Collaboration_Animation.mp4'
+                        ]}
+                        processingStage={processingStage}
+                        stagePct={STAGE_MAP[processingStage]?.pct ?? 5}
+                        videoId={uploadQueue.find(i => i.status === 'processing')?.videoId}
+                    />
+                )}
 
-            <UploadOnboarding />
+                <UploadOnboarding />
 
-            <div className="upload-page">
+                <div className="upload-page">
                 <h1>Upload Video</h1>
 
                 <div className="upload-mode-toggle">
@@ -423,7 +437,36 @@ export const Upload = () => {
                         ))}
                     </div>
                 )}
-            </div>
-        </AppLayout>
+                </div>
+            </AppLayout>
+
+            {toastVisible && (
+                <div style={{
+                    position: 'fixed',
+                    bottom: '32px',
+                    right: '32px',
+                    zIndex: 9999,
+                    background: 'linear-gradient(135deg, #10b981, #059669)',
+                    color: '#fff',
+                    padding: '16px 24px',
+                    borderRadius: '14px',
+                    boxShadow: '0 8px 32px rgba(16,185,129,0.45)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    fontSize: '0.9rem',
+                    fontWeight: 600,
+                    animation: 'toastSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    minWidth: '300px',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                }}>
+                    <span style={{ fontSize: '1.4rem' }}>✅</span>
+                    <div>
+                        <div style={{ fontWeight: 700, marginBottom: '2px' }}>Video is Ready to Watch!</div>
+                        <div style={{ fontSize: '0.75rem', opacity: 0.85 }}>{toastVideoTitle} — Redirecting to Dashboard...</div>
+                    </div>
+                </div>
+            )}
+        </>
     );
 };

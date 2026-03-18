@@ -103,7 +103,7 @@
 
 .kanban-columns {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-4);
     height: 100%;
 }
