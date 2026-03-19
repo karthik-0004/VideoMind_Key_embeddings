@@ -1,69 +1,189 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { ProcessingScreen } from '../components/ProcessingScreen';
-import { videoAPI } from '../services/api';
+import { authStorage, videoAPI } from '../services/api';
 
-const STAGE_MAP = {
-    uploaded: 5,
-    compressing: 15,
-    audio_converted: 35,
-    transcribing: 45,
-    transcribed: 58,
-    embedding: 68,
-    embedded: 78,
-    generating_pdf: 85,
-    pdf_generated: 93,
-    completed: 100,
-    failed: 100,
+const STAGE_ORDER = [
+    'starting_up',
+    'converting_video_to_audio',
+    'transcribing_audio',
+    'generating_embeddings',
+    'creating_pdf',
+];
+
+const BACKEND_TO_PIPELINE_STAGE = {
+    uploaded: 'starting_up',
+    compressing: 'starting_up',
+    starting_up: 'starting_up',
+
+    audio_converted: 'converting_video_to_audio',
+    converting_video_to_audio: 'converting_video_to_audio',
+
+    transcribing: 'transcribing_audio',
+    transcribed: 'transcribing_audio',
+    transcribing_audio: 'transcribing_audio',
+
+    embedding: 'generating_embeddings',
+    embedded: 'generating_embeddings',
+    generating_embeddings: 'generating_embeddings',
+
+    generating_pdf: 'creating_pdf',
+    pdf_generated: 'creating_pdf',
+    creating_pdf: 'creating_pdf',
+    completed: 'creating_pdf',
+};
+
+const normalizeStage = (stage) => BACKEND_TO_PIPELINE_STAGE[stage] ?? 'starting_up';
+
+const getStageProgress = (stage) => {
+    const index = STAGE_ORDER.indexOf(stage);
+    const step = index === -1 ? 1 : index + 1;
+    return {
+        step,
+        total: STAGE_ORDER.length,
+        pct: Math.round((step / STAGE_ORDER.length) * 100),
+    };
 };
 
 export const ProcessingView = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
-    const [processingStage, setProcessingStage] = useState('uploaded');
-    const [stagePct, setStagePct] = useState(STAGE_MAP.uploaded);
+    const [processingStage, setProcessingStage] = useState('starting_up');
+    const [stagePct, setStagePct] = useState(getStageProgress('starting_up').pct);
+    const [stageStep, setStageStep] = useState(1);
+    const [stageTotal] = useState(STAGE_ORDER.length);
+    const latestStepRef = useRef(1);
+    const stageQueueRef = useRef([]);
+    const stageTimerRef = useRef(null);
 
     useEffect(() => {
         if (!id) return;
 
         let isMounted = true;
+        let pollInterval = null;
+        let eventSource = null;
+
+        const clearStageTimer = () => {
+            if (stageTimerRef.current) {
+                clearTimeout(stageTimerRef.current);
+                stageTimerRef.current = null;
+            }
+        };
+
+        const applyStage = (stage) => {
+            const progress = getStageProgress(stage);
+            latestStepRef.current = progress.step;
+            setProcessingStage(stage);
+            setStagePct(progress.pct);
+            setStageStep(progress.step);
+        };
+
+        const drainQueue = () => {
+            if (!isMounted || stageQueueRef.current.length === 0) {
+                stageTimerRef.current = null;
+                return;
+            }
+
+            const nextStage = stageQueueRef.current.shift();
+            applyStage(nextStage);
+
+            if (stageQueueRef.current.length > 0) {
+                stageTimerRef.current = setTimeout(drainQueue, 900);
+            } else {
+                stageTimerRef.current = null;
+            }
+        };
+
+        const enqueueStagesThrough = (targetStage) => {
+            const targetProgress = getStageProgress(targetStage);
+            if (targetProgress.step <= latestStepRef.current) {
+                if (targetProgress.step === latestStepRef.current) {
+                    applyStage(targetStage);
+                }
+                return;
+            }
+
+            const queued = [];
+            for (let i = latestStepRef.current + 1; i <= targetProgress.step; i += 1) {
+                queued.push(STAGE_ORDER[i - 1]);
+            }
+
+            stageQueueRef.current = queued;
+            if (!stageTimerRef.current) {
+                drainQueue();
+            }
+        };
+
+        const applyStatusPayload = (payload) => {
+            const rawStage = payload?.processing_stage;
+            const normalizedStage = normalizeStage(rawStage);
+
+            if (!isMounted) return;
+            enqueueStagesThrough(normalizedStage);
+        };
 
         const poll = async () => {
             try {
                 const res = await videoAPI.getVideoStatus(id);
-                const status = res?.data?.status;
-                const stage = res?.data?.processing_stage;
-
-                if (isMounted && stage) {
-                    setProcessingStage(stage);
-                    setStagePct(STAGE_MAP[stage] ?? 5);
-                }
-
-                if (status === 'completed') {
-                    navigate('/dashboard');
-                }
+                applyStatusPayload(res?.data || {});
             } catch (error) {
                 console.error('ProcessingView poll error:', error);
             }
         };
 
+        const startPollingFallback = () => {
+            if (pollInterval) return;
+            poll();
+            pollInterval = setInterval(poll, 2500);
+        };
+
+        const token = authStorage.getToken();
+        const streamUrl = token
+            ? `http://localhost:8000/api/videos/${id}/status_stream/?token=${encodeURIComponent(token)}`
+            : null;
+
+        if (streamUrl) {
+            eventSource = new EventSource(streamUrl);
+
+            eventSource.onmessage = (event) => {
+                try {
+                    const payload = JSON.parse(event.data);
+                    applyStatusPayload(payload);
+                } catch (error) {
+                    console.error('Failed to parse status stream payload:', error);
+                }
+            };
+
+            eventSource.onerror = () => {
+                if (eventSource) {
+                    eventSource.close();
+                    eventSource = null;
+                }
+                startPollingFallback();
+            };
+        } else {
+            startPollingFallback();
+        }
+
         poll();
-        const interval = setInterval(poll, 2000);
 
         return () => {
             isMounted = false;
-            clearInterval(interval);
+            clearStageTimer();
+            if (eventSource) {
+                eventSource.close();
+            }
+            if (pollInterval) {
+                clearInterval(pollInterval);
+            }
         };
-    }, [id, navigate]);
+    }, [id]);
 
     return (
         <ProcessingScreen
-            videos={[
-                '/new_anime.mp4',
-                '/Robot_and_Human_Collaboration_Animation.mp4',
-            ]}
             processingStage={processingStage}
             stagePct={stagePct}
+            stageStep={stageStep}
+            stageTotal={stageTotal}
             videoId={id}
         />
     );

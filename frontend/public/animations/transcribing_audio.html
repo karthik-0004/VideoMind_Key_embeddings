@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transcribing Audio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: #ffffff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  @keyframes bar1 { 0%,100%{height:4px} 50%{height:22px} }
+  @keyframes bar2 { 0%,100%{height:16px} 50%{height:4px} }
+  @keyframes bar3 { 0%,100%{height:22px} 50%{height:8px} }
+  @keyframes bar4 { 0%,100%{height:8px} 50%{height:28px} }
+  @keyframes bar5 { 0%,100%{height:18px} 50%{height:4px} }
+  @keyframes bar6 { 0%,100%{height:6px} 50%{height:20px} }
+  @keyframes bar7 { 0%,100%{height:26px} 50%{height:10px} }
+  @keyframes bar8 { 0%,100%{height:10px} 50%{height:18px} }
+  @keyframes cursor { 0%,100%{opacity:1} 50%{opacity:0} }
+  @keyframes linePulse { 0%,100%{opacity:0.12} 50%{opacity:0.65} }
+  @keyframes arrowBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(2px)} }
+
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #aaaaaa;
+  }
+
+  .visual {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  /* Wave bars */
+  .wave {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 36px;
+  }
+  .bar {
+    width: 2.5px;
+    border-radius: 2px;
+    background: #111111;
+    align-self: center;
+  }
+  .b1{animation:bar1 1s ease-in-out infinite 0s}
+  .b2{animation:bar2 1s ease-in-out infinite 0.1s}
+  .b3{animation:bar3 1s ease-in-out infinite 0.2s}
+  .b4{animation:bar4 1s ease-in-out infinite 0.15s}
+  .b5{animation:bar5 1s ease-in-out infinite 0.05s}
+  .b6{animation:bar6 1s ease-in-out infinite 0.3s}
+  .b7{animation:bar7 1s ease-in-out infinite 0.1s}
+  .b8{animation:bar8 1s ease-in-out infinite 0.25s}
+
+  /* Divider */
+  .divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .div-line {
+    width: 1px;
+    height: 12px;
+    background: #e0e0e0;
+  }
+  .div-arr {
+    font-size: 10px;
+    color: #cccccc;
+    animation: arrowBob 1.2s ease-in-out infinite;
+    line-height: 1;
+  }
+
+  /* Text lines */
+  .tlines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+  }
+  .tline {
+    height: 2px;
+    border-radius: 1px;
+    background: #111111;
+    opacity: 0.12;
+  }
+  .tline.l1 { width: 64px; animation: linePulse 1.4s ease-in-out infinite 0s; }
+  .tline.l2 { width: 52px; animation: linePulse 1.4s ease-in-out infinite 0.35s; }
+  .tline.l3 { width: 40px; animation: linePulse 1.4s ease-in-out infinite 0.7s; }
+
+  .title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111111;
+    letter-spacing: 0.01em;
+  }
+  .sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #aaaaaa;
+    display: flex;
+    align-items: center;
+    min-height: 16px;
+  }
+  .cursor {
+    display: inline-block;
+    width: 1.5px;
+    height: 10px;
+    background: #aaaaaa;
+    border-radius: 1px;
+    margin-left: 2px;
+    animation: cursor 0.9s step-end infinite;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="label">Step 02</span>
+
+  <div class="visual">
+    <div class="wave">
+      <div class="bar b1" style="height:4px"></div>
+      <div class="bar b2" style="height:16px"></div>
+      <div class="bar b3" style="height:22px"></div>
+      <div class="bar b4" style="height:8px"></div>
+      <div class="bar b5" style="height:18px"></div>
+      <div class="bar b6" style="height:6px"></div>
+      <div class="bar b7" style="height:26px"></div>
+      <div class="bar b8" style="height:10px"></div>
+    </div>
+
+    <div class="divider">
+      <div class="div-line"></div>
+      <div class="div-arr">↓</div>
+    </div>
+
+    <div class="tlines">
+      <div class="tline l1"></div>
+      <div class="tline l2"></div>
+      <div class="tline l3"></div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+    <div class="title">Transcribing audio</div>
+    <div class="sub"><span id="tw"></span><span class="cursor"></span></div>
+  </div>
+</div>
+
+<script>
+  const phrases = ['Recognising speech...', 'Segmenting audio...', 'Building transcript...'];
+  let pi = 0, ci = 0, cur = '';
+  const el = document.getElementById('tw');
+  function tick() {
+    const p = phrases[pi];
+    if (ci < p.length) { cur += p[ci++]; el.textContent = cur; setTimeout(tick, 55 + Math.random()*30); }
+    else { setTimeout(() => { cur=''; el.textContent=''; ci=0; pi=(pi+1)%phrases.length; tick(); }, 1500); }
+  }
+  tick();
+</script>
+</body>
+</html>

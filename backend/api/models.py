@@ -17,13 +17,18 @@ class Video(models.Model):
     
     PROCESSING_STAGE_CHOICES = [
         ('uploaded', 'Uploaded'),
+        ('starting_up', 'Starting Up'),
         ('compressing', 'Compressing Video'),
         ('audio_converted', 'Audio Converted'),
+        ('converting_video_to_audio', 'Converting Video To Audio'),
         ('transcribing', 'Transcribing Audio'),
+        ('transcribing_audio', 'Transcribing Audio'),
         ('transcribed', 'Transcribed'),
         ('embedding', 'Generating Embeddings'),
+        ('generating_embeddings', 'Generating Embeddings'),
         ('embedded', 'Embeddings Generated'),
         ('generating_pdf', 'Generating PDF'),
+        ('creating_pdf', 'Creating PDF'),
         ('pdf_generated', 'PDF Generated'),
     ]
     

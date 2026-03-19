@@ -22,13 +22,18 @@ const getYouTubeId = (url) => {
 // Maps backend processing_stage → { pct: %, label: human string } — same as Upload.jsx
 const STAGE_MAP = {
     uploaded: { pct: 5, label: 'Starting… 🔄' },
+    starting_up: { pct: 5, label: 'Starting… 🔄' },
     compressing: { pct: 15, label: 'Compressing Video ⚡' },
     audio_converted: { pct: 35, label: 'Converting to Audio 🎵' },
+    converting_video_to_audio: { pct: 35, label: 'Converting to Audio 🎵' },
     transcribing: { pct: 45, label: 'Transcribing Audio 📝' },
+    transcribing_audio: { pct: 45, label: 'Transcribing Audio 📝' },
     transcribed: { pct: 58, label: 'Transcription Complete 📝' },
     embedding: { pct: 68, label: 'Generating Embeddings 🧠' },
+    generating_embeddings: { pct: 68, label: 'Generating Embeddings 🧠' },
     embedded: { pct: 78, label: 'Embeddings Complete 🧠' },
     generating_pdf: { pct: 85, label: 'Creating PDF 📄' },
+    creating_pdf: { pct: 85, label: 'Creating PDF 📄' },
     pdf_generated: { pct: 93, label: 'PDF Ready 📄' },
     completed: { pct: 100, label: 'Completed ✅' },
     failed: { pct: 100, label: 'Failed ❌' },

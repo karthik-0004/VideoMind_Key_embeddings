@@ -35,6 +35,9 @@ from django.db.models import Count
 from django.db.models.functions import TruncDate
 from collections import OrderedDict
 from urllib.parse import urlparse
+import json
+import time
+from django.http import StreamingHttpResponse
 
 logger = logging.getLogger(__name__)
 YOUTUBE_DOWNLOAD_TASKS = {}
@@ -57,7 +60,7 @@ class VideoViewSet(viewsets.ModelViewSet):
         return super().get_authenticators()
     
     def get_permissions(self):
-        if getattr(self, 'action', None) == 'audio' or (
+        if getattr(self, 'action', None) in ('audio', 'status_stream') or (
             hasattr(self, 'request') and self.request and '/audio/' in self.request.path
         ):
             return [AllowAny()]
@@ -72,6 +75,19 @@ class VideoViewSet(viewsets.ModelViewSet):
         if self.action == 'audio':
             return Video.objects.all()
         return Video.objects.filter(user=self.request.user)
+
+    def _get_request_user_from_token_query(self, request):
+        """Resolve user from token query param for transports that cannot set auth headers."""
+        token_key = (request.query_params.get('token') or '').strip()
+        if not token_key:
+            return None
+
+        try:
+            token = Token.objects.get(key=token_key)
+        except Token.DoesNotExist:
+            return None
+
+        return token.user
 
     def _validate_video_file(self, file_name, file_size):
         """Validate uploaded/downloaded video metadata"""
@@ -491,6 +507,60 @@ class VideoViewSet(viewsets.ModelViewSet):
             'processing_stage': video.processing_stage,
             'error_message': video.error_message,
         })
+
+    @action(detail=True, methods=['get'])
+    def status_stream(self, request, pk=None):
+        """Stream live status updates for a video over Server-Sent Events."""
+        request_user = request.user if request.user.is_authenticated else self._get_request_user_from_token_query(request)
+        if not request_user:
+            return Response({'error': 'Authentication required'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        video = get_object_or_404(Video, pk=pk)
+        if video.user_id != request_user.id:
+            return Response({'error': 'Not authorized'}, status=status.HTTP_403_FORBIDDEN)
+
+        def event_stream(video_id):
+            last_payload = None
+            heartbeat_tick = 0
+
+            while True:
+                try:
+                    current = Video.objects.only('id', 'status', 'processing_stage', 'error_message').get(pk=video_id)
+                except Video.DoesNotExist:
+                    payload = {
+                        'id': int(video_id),
+                        'status': 'deleted',
+                        'processing_stage': None,
+                        'error_message': 'Video not found',
+                    }
+                    yield f"data: {json.dumps(payload)}\\n\\n"
+                    break
+
+                payload = {
+                    'id': current.id,
+                    'status': current.status,
+                    'processing_stage': current.processing_stage,
+                    'error_message': current.error_message,
+                }
+
+                if payload != last_payload:
+                    last_payload = payload
+                    yield f"data: {json.dumps(payload)}\\n\\n"
+
+                if payload['status'] in ('completed', 'failed'):
+                    break
+
+                heartbeat_tick += 1
+                if heartbeat_tick >= 15:
+                    heartbeat_tick = 0
+                    yield ': keepalive\\n\\n'
+
+                time.sleep(1)
+
+        response = StreamingHttpResponse(event_stream(video.id), content_type='text/event-stream')
+        response['Cache-Control'] = 'no-cache'
+        response['X-Accel-Buffering'] = 'no'
+        return response
 
     @action(detail=True, methods=['post'])
     def retry(self, request, pk=None):

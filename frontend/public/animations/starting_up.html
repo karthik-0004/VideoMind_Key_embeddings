@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starting Up</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  @keyframes cursor{0%,100%{opacity:1}50%{opacity:0}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  html,body{width:100%;height:100%;overflow:hidden;}
+  body{
+    background:#fff;
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    gap:44px;
+    font-family:'Inter',sans-serif;
+  }
+  canvas{display:block;}
+  .info{
+    display:flex;flex-direction:column;
+    align-items:center;gap:7px;
+    animation:fadeUp 0.7s ease both;
+  }
+  .lbl{
+    font-size:9px;font-weight:300;
+    color:#d0d0d0;letter-spacing:0.26em;text-transform:uppercase;
+  }
+  .sub{
+    font-size:11px;font-weight:300;color:#c0c0c0;
+    display:flex;align-items:center;min-height:16px;
+  }
+  .blink{
+    display:inline-block;width:1px;height:10px;
+    background:#c8c8c8;margin-left:2px;
+    animation:cursor 1s step-end infinite;vertical-align:middle;
+  }
+</style>
+</head>
+<body>
+<canvas id="c" width="300" height="300"></canvas>
+<div class="info">
+  <span class="lbl">Starting up</span>
+  <div class="sub"><span id="tw"></span><span class="blink"></span></div>
+</div>
+
+<script>
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W=300, H=300, cx=W/2, cy=H/2;
+
+function eio(t){return t<0.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+function eo(t){return 1-Math.pow(1-t,3);}
+function lerp(a,b,t){return a+(b-a)*t;}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+
+const RING_R = 72;
+
+// Triangle corners (equilateral, pointing right)
+const TRI = [
+  [cx,      cy - RING_R],
+  [cx + RING_R * Math.cos(-Math.PI/6), cy + RING_R * Math.sin(-Math.PI/6)],
+  [cx + RING_R * Math.cos(Math.PI + Math.PI/6), cy + RING_R * Math.sin(Math.PI + Math.PI/6)],
+];
+
+// Play button triangle (right-pointing, bold)
+const PLAY = [
+  [cx - 52, cy - 72],
+  [cx - 52, cy + 72],
+  [cx + 78, cy],
+];
+
+function getOrbitPos(i, spinT){
+  const base = (i/3)*Math.PI*2 - Math.PI/2;
+  return [cx + Math.cos(base + spinT)*RING_R, cy + Math.sin(base + spinT)*RING_R];
+}
+
+function drawDot(x, y, r, alpha){
+  if(alpha<=0||r<=0) return;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI*2);
+  ctx.fillStyle=`rgba(17,17,17,${alpha})`;
+  ctx.fill();
+}
+
+function drawRing(r, lw, alpha){
+  if(alpha<=0) return;
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI*2);
+  ctx.strokeStyle=`rgba(17,17,17,${alpha})`;
+  ctx.lineWidth=lw;
+  ctx.stroke();
+}
+
+// Draw dashed arc segments around ring (tick marks)
+function drawRingTicks(alpha){
+  if(alpha<=0) return;
+  const n=24;
+  for(let i=0;i<n;i++){
+    const a1=(i/n)*Math.PI*2;
+    const a2=a1+0.06;
+    ctx.beginPath();
+    ctx.arc(cx,cy,RING_R+10,a1,a2);
+    ctx.strokeStyle=`rgba(17,17,17,${alpha*0.25})`;
+    ctx.lineWidth=1.5;
+    ctx.lineCap='round';
+    ctx.stroke();
+  }
+}
+
+function drawTriangleOutline(alpha, progress){
+  if(alpha<=0||progress<=0) return;
+  ctx.strokeStyle=`rgba(17,17,17,${alpha})`;
+  ctx.lineWidth=2.5;
+  ctx.lineCap='round';
+  ctx.lineJoin='round';
+  ctx.beginPath();
+  ctx.moveTo(TRI[0][0], TRI[0][1]);
+  for(let i=0;i<3;i++){
+    const ep=clamp(progress*3-i,0,1);
+    if(ep<=0) break;
+    const a=TRI[i], b=TRI[(i+1)%3];
+    ctx.lineTo(lerp(a[0],b[0],ep), lerp(a[1],b[1],ep));
+  }
+  ctx.stroke();
+}
+
+function drawPlayFill(alpha){
+  if(alpha<=0) return;
+  ctx.beginPath();
+  ctx.moveTo(PLAY[0][0], PLAY[0][1]);
+  ctx.lineTo(PLAY[1][0], PLAY[1][1]);
+  ctx.lineTo(PLAY[2][0], PLAY[2][1]);
+  ctx.closePath();
+  ctx.fillStyle=`rgba(17,17,17,${alpha})`;
+  ctx.fill();
+}
+
+// Small radiating lines on ring while spinning
+function drawRadiate(spinT, alpha){
+  if(alpha<=0) return;
+  const n=3;
+  for(let i=0;i<n;i++){
+    const a=(i/n)*Math.PI*2+spinT;
+    const x1=cx+Math.cos(a)*(RING_R-6);
+    const y1=cy+Math.sin(a)*(RING_R-6);
+    const x2=cx+Math.cos(a)*(RING_R+14);
+    const y2=cy+Math.sin(a)*(RING_R+14);
+    ctx.beginPath();
+    ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);
+    ctx.strokeStyle=`rgba(17,17,17,${alpha*0.3})`;
+    ctx.lineWidth=1;ctx.lineCap='round';
+    ctx.stroke();
+  }
+}
+
+// Particles
+const parts=[];
+function spawnParts(x,y,n){
+  for(let i=0;i<n;i++){
+    const a=Math.random()*Math.PI*2, sp=0.8+Math.random()*2.2;
+    parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,r:1+Math.random()*2.5});
+  }
+}
+function tickParts(){
+  for(let i=parts.length-1;i>=0;i--){
+    const p=parts[i];
+    p.x+=p.vx;p.y+=p.vy;p.vy+=0.04;p.life-=0.024;
+    if(p.life<=0){parts.splice(i,1);continue;}
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(17,17,17,${p.life*0.28})`;ctx.fill();
+  }
+}
+
+// CYCLE:
+// 0.0–0.8  : dot breathes
+// 0.8–1.8  : dot expands into ring
+// 1.8–2.8  : ring + ticks hold, 3 orbit dots spin in
+// 2.8–3.8  : orbit dots converge to triangle corners
+// 3.8–4.6  : triangle outline draws
+// 4.6–5.6  : corners converge → fills into play button
+// 5.6–6.4  : hold play, subtle pulse
+// 6.4–7.0  : fade → restart
+const CYCLE=7.0;
+let start=null, spinT=0, spawned=false, triSpawned=false;
+
+function frame(ts){
+  if(!start) start=ts;
+  const e=((ts-start)/1000)%CYCLE;
+  spinT += 0.014;
+  ctx.clearRect(0,0,W,H);
+  tickParts();
+
+  if(e < 0.8){
+    // breathing dot
+    const pulse=0.5+0.5*Math.sin(e*Math.PI*5);
+    drawDot(cx, cy, 6+pulse*5, 0.8+pulse*0.2);
+    spawned=false; triSpawned=false;
+
+  } else if(e < 1.8){
+    // dot → ring expansion
+    const t=eio((e-0.8)/1.0);
+    const dotR=lerp(9,0,eo(t));
+    const ringR=lerp(4,RING_R,eo(t));
+    const ringW=lerp(9,1.8,t);
+    drawDot(cx,cy,dotR,1-t*0.8);
+    drawRing(ringR,ringW,eo(t));
+
+  } else if(e < 2.8){
+    // ring holds + orbit dots spin in
+    const t=eio((e-1.8)/1.0);
+    drawRing(RING_R,1.8,0.12);
+    drawRingTicks(t);
+    drawRadiate(spinT,t);
+    for(let i=0;i<3;i++){
+      const dt=clamp(t*4-i*0.8,0,1);
+      if(dt<=0) continue;
+      const pos=getOrbitPos(i,spinT);
+      drawDot(pos[0],pos[1],5,eo(dt)*0.9);
+    }
+
+  } else if(e < 3.8){
+    // orbit → triangle corners
+    const t=eio((e-2.8)/1.0);
+    drawRing(RING_R,1.8,(1-t)*0.12);
+    drawRingTicks(1-t);
+    for(let i=0;i<3;i++){
+      const orb=getOrbitPos(i,spinT);
+      const tri=TRI[i];
+      const px=lerp(orb[0],tri[0],eio(t));
+      const py=lerp(orb[1],tri[1],eio(t));
+      drawDot(px,py,5,0.9);
+    }
+    // triangle outline starts at 60%
+    if(t>0.5){
+      const tp=clamp((t-0.5)/0.5,0,1);
+      drawTriangleOutline(eio(tp)*0.5,tp*0.6);
+    }
+    if(!spawned && t>0.5){ spawnParts(cx,cy,10); spawned=true; }
+
+  } else if(e < 4.8){
+    // triangle fully draws
+    const t=eio((e-3.8)/1.0);
+    for(let i=0;i<3;i++) drawDot(TRI[i][0],TRI[i][1],5,1-t*0.6);
+    drawTriangleOutline(0.7,t);
+
+  } else if(e < 5.8){
+    // triangle corners migrate to play shape, fill appears
+    const t=eio((e-4.8)/1.0);
+    drawTriangleOutline(Math.max(0,1-t*1.8)*0.7,1);
+    for(let i=0;i<3;i++){
+      const from=TRI[i], to=PLAY[i];
+      const px=lerp(from[0],to[0],eio(t));
+      const py=lerp(from[1],to[1],eio(t));
+      const dotA=Math.max(0,1-t*2)*0.9;
+      drawDot(px,py,lerp(5,0,eo(clamp(t*2,0,1))),dotA);
+    }
+    drawPlayFill(eo(clamp((t-0.25)/0.75,0,1)));
+    if(!triSpawned && t>0.3){ spawnParts(cx,cy,14); triSpawned=true; }
+
+  } else if(e < 6.6){
+    // hold play — subtle pulse
+    const pulse=0.5+0.5*Math.sin((e-5.8)*Math.PI*2.5);
+    const sc=1+pulse*0.018;
+    ctx.save();ctx.translate(cx,cy);ctx.scale(sc,sc);ctx.translate(-cx,-cy);
+    drawPlayFill(1);
+    ctx.restore();
+
+  } else {
+    // fade out
+    const t=eio((e-6.6)/0.4);
+    drawPlayFill(1-t);
+  }
+
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+// typewriter
+const phrases=['Initialising pipeline...','Loading models...','Preparing workspace...'];
+let pi=0,ci=0,cur='';
+const el=document.getElementById('tw');
+function tick(){
+  const p=phrases[pi];
+  if(ci<p.length){cur+=p[ci++];el.textContent=cur;setTimeout(tick,60+Math.random()*25);}
+  else{setTimeout(()=>{cur='';el.textContent='';ci=0;pi=(pi+1)%phrases.length;tick();},1500);}
+}
+tick();
+</script>
+</body>
+</html>

@@ -52,7 +52,7 @@ def _process_video_sync(video_id):
         
         # Update status
         video.status = 'processing'
-        video.processing_stage = 'uploaded'
+        video.processing_stage = 'starting_up'
         video.save()
         
         # Get the uploaded video file path (Django media file)
@@ -68,6 +68,13 @@ def _process_video_sync(video_id):
         audio_dir = SCRIPTS_DIR / 'audios'
         json_dir = SCRIPTS_DIR / 'jsons'
         chunks_dir = audio_dir / 'chunks'
+
+        # Ensure absolute output directories exist before invoking ffmpeg.
+        # The legacy ensure_dirs() helper uses relative paths and may create
+        # folders under a different CWD.
+        audio_dir.mkdir(parents=True, exist_ok=True)
+        json_dir.mkdir(parents=True, exist_ok=True)
+        chunks_dir.mkdir(parents=True, exist_ok=True)
         
         # Clean filename for audio/json
         base_name = pipelIne_api.clean_filename(video_filename.rsplit('.', 1)[0])
@@ -124,7 +131,7 @@ def _process_video_sync(video_id):
 
         # ── Step 1: Convert to MP3 ─────────────────────────────────────────
         logger.info("Step 1/5: Converting video to audio...")
-        video.processing_stage = 'audio_converted'
+        video.processing_stage = 'converting_video_to_audio'
         video.save()
         
         if not audio_path.exists():
@@ -142,7 +149,7 @@ def _process_video_sync(video_id):
         
         # Step 2/5: Transcribe using Groq
         logger.info("Step 2/5: Transcribing audio to text...")
-        video.processing_stage = 'transcribing'
+        video.processing_stage = 'transcribing_audio'
         video.save()
         
         if not json_path.exists():
@@ -297,16 +304,16 @@ def _process_video_sync(video_id):
                 json.dump({"chunks": all_chunks, "text": full_text.strip()}, f, indent=2)
 
             logger.info(f"Transcription complete ({len(all_chunks)} segments), saved to {json_path}")
-            video.processing_stage = 'transcribed'
+            video.processing_stage = 'transcribing_audio'
             video.save()
         else:
             logger.info("JSON file already exists, skipping transcription")
-            video.processing_stage = 'transcribed'
+            video.processing_stage = 'transcribing_audio'
             video.save()
         
         # Step 3/5: Generate embeddings (OpenAI text-embedding-3-small, 1536-dim)
         logger.info("Step 3/5: Generating embeddings...")
-        video.processing_stage = 'embedding'
+        video.processing_stage = 'generating_embeddings'
         video.save()
 
         # Load or create embeddings dataframe
@@ -379,13 +386,13 @@ def _process_video_sync(video_id):
         else:
             logger.info("No new chunks to embed")
 
-        video.processing_stage = 'embedded'
+        video.processing_stage = 'generating_embeddings'
         video.save()
         logger.info("Embeddings generation complete")
         
         # Step 4/5: Generate PDF
         logger.info("Step 4/5: Generating PDF...")
-        video.processing_stage = 'generating_pdf'
+        video.processing_stage = 'creating_pdf'
         video.save()
 
         from . import pdf_gen
@@ -394,7 +401,7 @@ def _process_video_sync(video_id):
         logger.info("PDF generation complete")
 
         # Only mark as pdf_generated AFTER it actually succeeded
-        video.processing_stage = 'pdf_generated'
+        video.processing_stage = 'creating_pdf'
         video.save()
         
         # Mark as completed

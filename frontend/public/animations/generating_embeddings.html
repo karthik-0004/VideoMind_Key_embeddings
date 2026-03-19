@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generating Embeddings</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: #ffffff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  @keyframes dotFloat1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(2px,-4px)} }
+  @keyframes dotFloat2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-3px,2px)} }
+  @keyframes dotFloat3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(3px,3px)} }
+  @keyframes dotFloat4 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-2px,-3px)} }
+  @keyframes dotFloat5 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(2px,3px)} }
+  @keyframes lineGrow   { 0%,100%{stroke-dashoffset:36} 50%{stroke-dashoffset:0} }
+  @keyframes vecScroll  { 0%{transform:translateY(0)} 100%{transform:translateY(-50%)} }
+  @keyframes arrowPulse { 0%,100%{opacity:0.1} 50%{opacity:0.7} }
+  @keyframes cursor     { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #aaaaaa;
+  }
+
+  .visual {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* Dot cluster */
+  .cluster {
+    position: relative;
+    width: 56px;
+    height: 56px;
+  }
+  .dot {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #111111;
+  }
+  .dot.sm { width: 4px; height: 4px; opacity: 0.35; }
+  .d1{top:8px; left:16px; animation:dotFloat1 2.2s ease-in-out infinite}
+  .d2{top:20px;left:36px; animation:dotFloat2 2.6s ease-in-out infinite 0.3s}
+  .d3{top:36px;left:10px; animation:dotFloat3 2s   ease-in-out infinite 0.6s}
+  .d4{top:10px;left:40px; animation:dotFloat4 2.4s ease-in-out infinite 0.1s}
+  .d5{top:40px;left:28px; animation:dotFloat5 1.9s ease-in-out infinite 0.4s}
+  .d6{top:26px;left:20px; animation:dotFloat1 2.3s ease-in-out infinite 0.5s}
+
+  .lines-svg {
+    position: absolute;
+    top: 0; left: 0;
+  }
+  .eline {
+    stroke: #cccccc;
+    stroke-width: 0.8;
+    stroke-dasharray: 36;
+    stroke-dashoffset: 36;
+    animation: lineGrow 2.2s ease-in-out infinite;
+    fill: none;
+  }
+  .el2 { animation-delay: 0.5s; }
+  .el3 { animation-delay: 1s;   }
+
+  /* Arrows */
+  .arrows {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+  .arr {
+    width: 6px; height: 6px;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    transform: rotate(45deg);
+    animation: arrowPulse 0.85s ease-in-out infinite;
+  }
+  .arr:nth-child(2) { animation-delay: 0.2s; }
+
+  /* Vector grid */
+  .vec-strip {
+    overflow: hidden;
+    height: 52px;
+    width: 52px;
+  }
+  .vec-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    animation: vecScroll 2.6s linear infinite;
+  }
+  .vec-row {
+    display: flex;
+    gap: 3px;
+  }
+  .vc {
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    border: 0.8px solid #e8e8e8;
+    background: #f7f7f7;
+    flex-shrink: 0;
+  }
+  .vc.lit {
+    background: #111111;
+    border-color: #111111;
+    opacity: 0.85;
+  }
+
+  .title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111111;
+    letter-spacing: 0.01em;
+  }
+  .sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #aaaaaa;
+    display: flex;
+    align-items: center;
+    min-height: 16px;
+  }
+  .cursor {
+    display: inline-block;
+    width: 1.5px;
+    height: 10px;
+    background: #aaaaaa;
+    border-radius: 1px;
+    margin-left: 2px;
+    animation: cursor 0.9s step-end infinite;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="label">Step 03</span>
+
+  <div class="visual">
+    <div class="cluster">
+      <svg class="lines-svg" width="56" height="56">
+        <line class="eline"     x1="19" y1="11" x2="39" y2="23"/>
+        <line class="eline el2" x1="13" y1="39" x2="19" y2="23"/>
+        <line class="eline el3" x1="31" y1="43" x2="39" y2="23"/>
+      </svg>
+      <div class="dot d1"></div>
+      <div class="dot d2"></div>
+      <div class="dot sm d3"></div>
+      <div class="dot sm d4"></div>
+      <div class="dot d5"></div>
+      <div class="dot sm d6"></div>
+    </div>
+
+    <div class="arrows">
+      <div class="arr"></div>
+      <div class="arr"></div>
+    </div>
+
+    <div class="vec-strip">
+      <div class="vec-inner">
+        <div class="vec-row"><div class="vc lit"></div><div class="vc"></div><div class="vc lit"></div><div class="vc"></div></div>
+        <div class="vec-row"><div class="vc"></div><div class="vc lit"></div><div class="vc"></div><div class="vc lit"></div></div>
+        <div class="vec-row"><div class="vc lit"></div><div class="vc lit"></div><div class="vc"></div><div class="vc"></div></div>
+        <div class="vec-row"><div class="vc"></div><div class="vc"></div><div class="vc lit"></div><div class="vc lit"></div></div>
+        <div class="vec-row"><div class="vc lit"></div><div class="vc"></div><div class="vc"></div><div class="vc lit"></div></div>
+        <div class="vec-row"><div class="vc"></div><div class="vc lit"></div><div class="vc lit"></div><div class="vc"></div></div>
+        <div class="vec-row"><div class="vc lit"></div><div class="vc"></div><div class="vc lit"></div><div class="vc"></div></div>
+        <div class="vec-row"><div class="vc"></div><div class="vc lit"></div><div class="vc"></div><div class="vc lit"></div></div>
+        <!-- duplicate for seamless scroll -->
+        <div class="vec-row"><div class="vc lit"></div><div class="vc"></div><div class="vc lit"></div><div class="vc"></div></div>
+        <div class="vec-row"><div class="vc"></div><div class="vc lit"></div><div class="vc"></div><div class="vc lit"></div></div>
+        <div class="vec-row"><div class="vc lit"></div><div class="vc lit"></div><div class="vc"></div><div class="vc"></div></div>
+        <div class="vec-row"><div class="vc"></div><div class="vc"></div><div class="vc lit"></div><div class="vc lit"></div></div>
+        <div class="vec-row"><div class="vc lit"></div><div class="vc"></div><div class="vc"></div><div class="vc lit"></div></div>
+        <div class="vec-row"><div class="vc"></div><div class="vc lit"></div><div class="vc lit"></div><div class="vc"></div></div>
+        <div class="vec-row"><div class="vc lit"></div><div class="vc"></div><div class="vc lit"></div><div class="vc"></div></div>
+        <div class="vec-row"><div class="vc"></div><div class="vc lit"></div><div class="vc"></div><div class="vc lit"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+    <div class="title">Generating embeddings</div>
+    <div class="sub"><span id="tw"></span><span class="cursor"></span></div>
+  </div>
+</div>
+
+<script>
+  const phrases = ['Encoding semantic vectors...', 'Mapping to latent space...', 'Storing embeddings...'];
+  let pi = 0, ci = 0, cur = '';
+  const el = document.getElementById('tw');
+  function tick() {
+    const p = phrases[pi];
+    if (ci < p.length) { cur += p[ci++]; el.textContent = cur; setTimeout(tick, 55 + Math.random()*30); }
+    else { setTimeout(() => { cur=''; el.textContent=''; ci=0; pi=(pi+1)%phrases.length; tick(); }, 1500); }
+  }
+  tick();
+</script>
+</body>
+</html>

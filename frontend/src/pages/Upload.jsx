@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useNavigate } from 'react-router-dom';
 import { AppLayout } from '../components/AppLayout';
@@ -11,19 +11,54 @@ import { UploadOnboarding } from '../components/UploadOnboarding';
 import { TutorialOverlay } from '../components/TutorialOverlay';
 import './Upload.css';
 
-// Maps backend processing_stage → { pct: progress %, label: human string }
-const STAGE_MAP = {
-    uploaded: { pct: 5, label: 'Starting… 🔄' },
-    compressing: { pct: 15, label: 'Compressing Video ⚡' },
-    audio_converted: { pct: 35, label: 'Converting to Audio 🎵' },
-    transcribing: { pct: 45, label: 'Transcribing Audio 📝' },
-    transcribed: { pct: 58, label: 'Transcription Complete 📝' },
-    embedding: { pct: 68, label: 'Generating Embeddings 🧠' },
-    embedded: { pct: 78, label: 'Embeddings Complete 🧠' },
-    generating_pdf: { pct: 85, label: 'Creating PDF 📄' },
-    pdf_generated: { pct: 93, label: 'PDF Ready 📄' },
-    completed: { pct: 100, label: 'Completed ✅' },
-    failed: { pct: 100, label: 'Failed ❌' },
+const STAGE_ORDER = [
+    'starting_up',
+    'converting_video_to_audio',
+    'transcribing_audio',
+    'generating_embeddings',
+    'creating_pdf',
+];
+
+const BACKEND_TO_PIPELINE_STAGE = {
+    uploaded: 'starting_up',
+    compressing: 'starting_up',
+    starting_up: 'starting_up',
+
+    audio_converted: 'converting_video_to_audio',
+    converting_video_to_audio: 'converting_video_to_audio',
+
+    transcribing: 'transcribing_audio',
+    transcribed: 'transcribing_audio',
+    transcribing_audio: 'transcribing_audio',
+
+    embedding: 'generating_embeddings',
+    embedded: 'generating_embeddings',
+    generating_embeddings: 'generating_embeddings',
+
+    generating_pdf: 'creating_pdf',
+    pdf_generated: 'creating_pdf',
+    creating_pdf: 'creating_pdf',
+    completed: 'creating_pdf',
+};
+
+const STAGE_LABEL_MAP = {
+    starting_up: 'Starting up',
+    converting_video_to_audio: 'Converting video to audio',
+    transcribing_audio: 'Transcribing audio',
+    generating_embeddings: 'Generating embeddings',
+    creating_pdf: 'Creating PDF',
+};
+
+const normalizeStage = (stage) => BACKEND_TO_PIPELINE_STAGE[stage] ?? 'starting_up';
+
+const getStageProgress = (stage) => {
+    const index = STAGE_ORDER.indexOf(stage);
+    const step = index === -1 ? 1 : index + 1;
+    return {
+        step,
+        total: STAGE_ORDER.length,
+        pct: Math.round((step / STAGE_ORDER.length) * 100),
+    };
 };
 
 export const Upload = () => {
@@ -32,7 +67,8 @@ export const Upload = () => {
     const [toastVisible, setToastVisible] = useState(false);
     const [toastVideoTitle, setToastVideoTitle] = useState('');
     const [isProcessing, setIsProcessing] = useState(false);
-    const [processingStage, setProcessingStage] = useState('uploaded');
+    const [currentProcessingVideoId, setCurrentProcessingVideoId] = useState(null);
+    const [processingStage, setProcessingStage] = useState('starting_up');
     const [processingError, setProcessingError] = useState('');
     const [uploadMode, setUploadMode] = useState('local');
     const [youtubeUrl, setYoutubeUrl] = useState('');
@@ -45,6 +81,7 @@ export const Upload = () => {
 
         if (processingItem && processingItem.videoId) {
             setIsProcessing(true);
+            setCurrentProcessingVideoId(processingItem.videoId);
             setProcessingError('');
 
             const interval = setInterval(async () => {
@@ -53,13 +90,18 @@ export const Upload = () => {
                     const { status, processing_stage, error_message } = response.data;
 
                     if (processing_stage) {
-                        setProcessingStage(processing_stage);
+                        const normalizedStage = normalizeStage(processing_stage);
+                        setProcessingStage(normalizedStage);
                         // Keep queue badge label in sync too
-                        const stageInfo = STAGE_MAP[processing_stage];
+                        const stageInfo = getStageProgress(normalizedStage);
                         if (stageInfo) {
                             setUploadQueue(prev => prev.map(i =>
                                 i.id === processingItem.id
-                                    ? { ...i, stageLabel: stageInfo.label, stagePct: stageInfo.pct }
+                                    ? {
+                                        ...i,
+                                        stageLabel: normalizedStage.replaceAll('_', ' '),
+                                        stagePct: stageInfo.pct,
+                                    }
                                     : i
                             ));
                         }
@@ -75,6 +117,10 @@ export const Upload = () => {
                         setToastVideoTitle(processingItem.displayName || 'Your video');
                         setToastVisible(true);
                         setIsProcessing(false);
+                        // Keep videoId visible for 2 seconds so banner stays accessible
+                        setTimeout(() => {
+                            setCurrentProcessingVideoId(null);
+                        }, 2000);
                         setTimeout(() => {
                             setToastVisible(false);
                         }, 3000);
@@ -281,19 +327,22 @@ export const Upload = () => {
         setUploadQueue(prev => prev.filter(i => i.id !== id));
     };
 
+    const stageProgress = useMemo(
+        () => getStageProgress(processingStage),
+        [processingStage]
+    );
+
     return (
         <>
             <AppLayout>
                 <TutorialOverlay page="upload" />
                 {isProcessing && (
                     <ProcessingScreen
-                        videos={[
-                            '/new_anime.mp4',
-                            '/Robot_and_Human_Collaboration_Animation.mp4'
-                        ]}
                         processingStage={processingStage}
-                        stagePct={STAGE_MAP[processingStage]?.pct ?? 5}
-                        videoId={uploadQueue.find(i => i.status === 'processing')?.videoId}
+                        stagePct={stageProgress.pct}
+                        stageStep={stageProgress.step}
+                        stageTotal={stageProgress.total}
+                        videoId={currentProcessingVideoId}
                     />
                 )}
 
@@ -403,11 +452,11 @@ export const Upload = () => {
                                                 <div className="progress-bar stage-progress-bar">
                                                     <div
                                                         className="progress-fill stage-progress-fill"
-                                                        style={{ width: `${item.stagePct ?? STAGE_MAP['uploaded'].pct}%` }}
+                                                        style={{ width: `${item.stagePct ?? 20}%` }}
                                                     />
                                                 </div>
                                                 <div className="stage-label">
-                                                    {item.stageLabel ?? STAGE_MAP['uploaded'].label}
+                                                    {item.stageLabel ?? STAGE_LABEL_MAP['starting_up']}
                                                 </div>
                                             </>
                                         )}
@@ -420,7 +469,7 @@ export const Upload = () => {
                                                 {item.status === 'failed'
                                                     ? (item.message || 'Processing failed')
                                                     : item.status === 'processing'
-                                                        ? (item.stageLabel ?? STAGE_MAP['uploaded'].label)
+                                                        ? (item.stageLabel ?? STAGE_LABEL_MAP['starting_up'])
                                                         : item.message}
                                             </Badge>
                                         </div>
