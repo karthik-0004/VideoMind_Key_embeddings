@@ -9,6 +9,7 @@ import threading
 import shutil
 import subprocess
 import json
+import tempfile
 from pathlib import Path
 from django.conf import settings
 import logging
@@ -46,6 +47,7 @@ def _process_video_sync(video_id):
     import pandas as pd
     
     video = None
+    local_temp_video_path = None
     try:
         video = Video.objects.get(id=video_id)
         logger.info(f"Starting video processing for video ID: {video_id}, file: {video.file.name}")
@@ -55,8 +57,21 @@ def _process_video_sync(video_id):
         video.processing_stage = 'starting_up'
         video.save()
         
-        # Get the uploaded video file path (Django media file)
-        video_path = Path(video.file.path)
+        # Get a local video path for ffmpeg-based processing.
+        # Cloud storages can omit .path, so create a temp local copy as fallback.
+        try:
+            video_path = Path(video.file.path)
+        except Exception:
+            suffix = Path(video.file.name).suffix or '.mp4'
+            temp_dir = Path(settings.BASE_DIR) / 'tmp_processing'
+            temp_dir.mkdir(parents=True, exist_ok=True)
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix, dir=temp_dir) as temp_file:
+                with video.file.open('rb') as source_file:
+                    shutil.copyfileobj(source_file, temp_file)
+                local_temp_video_path = Path(temp_file.name)
+            video_path = local_temp_video_path
+            logger.info(f"Created local temp video copy at: {video_path}")
+
         video_filename = video_path.name
         logger.info(f"Django video path: {video_path}")
         
@@ -113,8 +128,6 @@ def _process_video_sync(video_id):
                     f"({reduction_pct:.0f}% reduction)"
                 )
                 compressed_path.replace(video_path)  # atomic rename on same filesystem
-                # Refresh the path object after replacement
-                video_path = Path(video.file.path)
 
             except Exception as compress_err:
                 logger.warning(
@@ -427,5 +440,11 @@ def _process_video_sync(video_id):
             else:
                 video.error_message = error_message
             video.save()
+    finally:
+        if local_temp_video_path and local_temp_video_path.exists():
+            try:
+                local_temp_video_path.unlink(missing_ok=True)
+            except Exception:
+                logger.warning(f"Could not remove temp file: {local_temp_video_path}")
 
 

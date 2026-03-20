@@ -8,6 +8,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from rest_framework.authtoken.models import Token
+from rest_framework.exceptions import ValidationError
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
@@ -250,7 +251,9 @@ class VideoViewSet(viewsets.ModelViewSet):
             logger.info(f"Uploading video: {uploaded_file.name}, size: {uploaded_file.size} bytes")
             
             video = serializer.save(user=self.request.user, status='uploading')
-            logger.info(f"Video created with ID: {video.id}, file path: {video.file.path}")
+            # Cloud-backed storages (for example Cloudinary) do not expose a local .path.
+            file_ref = video.file.name
+            logger.info(f"Video created with ID: {video.id}, file ref: {file_ref}")
             
             # Trigger background processing
             # TODO: Move to Celery task for production
@@ -259,7 +262,7 @@ class VideoViewSet(viewsets.ModelViewSet):
             
         except ValueError as e:
             logger.error(f"Validation error during upload: {e}")
-            raise
+            raise ValidationError({'error': str(e)})
         except Exception as e:
             logger.error(f"Error during video upload: {e}", exc_info=True)
             raise
