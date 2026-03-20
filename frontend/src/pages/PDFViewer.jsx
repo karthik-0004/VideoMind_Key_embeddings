@@ -12,6 +12,8 @@ export const PDFViewer = () => {
     const [pdf, setPdf] = useState(null);
     const [video, setVideo] = useState(null);
     const [loading, setLoading] = useState(true);
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+    const backendOrigin = apiBaseUrl.replace(/\/api\/?$/, '');
 
     useEffect(() => {
         Promise.all([
@@ -29,7 +31,8 @@ export const PDFViewer = () => {
     const getPdfUrl = (fileUrl) => {
         if (!fileUrl) return '';
         if (fileUrl.startsWith('http')) return fileUrl;
-        return `http://localhost:8000${fileUrl}`;
+        const normalizedPath = fileUrl.startsWith('/') ? fileUrl : `/${fileUrl}`;
+        return `${backendOrigin}${normalizedPath}`;
     };
 
     const handleDownload = async () => {

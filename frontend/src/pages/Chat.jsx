@@ -24,6 +24,8 @@ export const Chat = () => {
     const [loading, setLoading] = useState(false);
     const [showAI, setShowAI] = useState(false);
     const messagesEndRef = useRef(null);
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+    const backendOrigin = apiBaseUrl.replace(/\/api\/?$/, '');
 
     // Draggable divider state
     const [leftWidth, setLeftWidth] = useState(40); // percent
@@ -120,7 +122,8 @@ export const Chat = () => {
     const getPdfUrl = (fileUrl) => {
         if (!fileUrl) return '';
         if (fileUrl.startsWith('http')) return fileUrl;
-        return `http://localhost:8000${fileUrl}`;
+        const normalizedPath = fileUrl.startsWith('/') ? fileUrl : `/${fileUrl}`;
+        return `${backendOrigin}${normalizedPath}`;
     };
 
     const handleOpenPdf = async () => {
