@@ -829,10 +829,41 @@ class VideoViewSet(viewsets.ModelViewSet):
 
         file_bytes = None
 
+        # Prefer local PDF bytes first to avoid Cloudinary raw URL auth issues.
         try:
-            pdf.file.open('rb')
-            file_bytes = pdf.file.read()
+            import pipelIne_api
+            video_filename = Path(video.file.name).name
+            base_name = pipelIne_api.clean_filename(video_filename.rsplit('.', 1)[0])
+            local_pdf_name = f"{base_name.replace('_', ' ').title()}.pdf"
+            local_pdf_path = settings.MEDIA_ROOT / 'pdfs' / local_pdf_name
         except Exception:
+            local_pdf_path = None
+
+        if not local_pdf_path or not local_pdf_path.exists():
+            try:
+                from video_processor.pdf_gen import generate_pdf
+                pdf = generate_pdf(video.id)
+                video.processing_stage = 'pdf_generated'
+                if video.error_message and 'PDF generation pending:' in (video.error_message or ''):
+                    video.error_message = None
+                video.save(update_fields=['processing_stage', 'error_message'])
+
+                import pipelIne_api
+                video_filename = Path(video.file.name).name
+                base_name = pipelIne_api.clean_filename(video_filename.rsplit('.', 1)[0])
+                local_pdf_name = f"{base_name.replace('_', ' ').title()}.pdf"
+                local_pdf_path = settings.MEDIA_ROOT / 'pdfs' / local_pdf_name
+            except Exception:
+                pass
+
+        if local_pdf_path and local_pdf_path.exists():
+            try:
+                with open(local_pdf_path, 'rb') as fh:
+                    file_bytes = fh.read()
+            except Exception:
+                file_bytes = None
+
+        if not file_bytes:
             # Try signed raw URL first (works for restricted Cloudinary raw resources).
             try:
                 signed_raw_url = cloudinary_url(
@@ -845,14 +876,27 @@ class VideoViewSet(viewsets.ModelViewSet):
                 remote.raise_for_status()
                 file_bytes = remote.content
             except Exception:
-                # Fallback to storage URL.
+                # Try authenticated URL variant for locked assets.
                 try:
-                    pdf_url = pdf.file.url
-                    remote = httpx.get(pdf_url, timeout=90.0)
+                    signed_auth_url = cloudinary_url(
+                        pdf.file.name,
+                        resource_type='raw',
+                        type='authenticated',
+                        sign_url=True,
+                        secure=True,
+                    )[0]
+                    remote = httpx.get(signed_auth_url, timeout=90.0)
                     remote.raise_for_status()
                     file_bytes = remote.content
-                except Exception as url_err:
-                    return Response({'error': f'Failed to download PDF: {url_err}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                except Exception:
+                    # Fallback to storage URL.
+                    try:
+                        pdf_url = pdf.file.url
+                        remote = httpx.get(pdf_url, timeout=90.0)
+                        remote.raise_for_status()
+                        file_bytes = remote.content
+                    except Exception as url_err:
+                        return Response({'error': f'Failed to download PDF: {url_err}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         if not file_bytes:
             return Response({'error': 'PDF file is empty or unavailable.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
