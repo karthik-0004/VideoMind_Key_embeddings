@@ -810,83 +810,57 @@ class VideoViewSet(viewsets.ModelViewSet):
         try:
             pdf = video.pdf
         except PDF.DoesNotExist:
-            # If no PDF exists yet, trigger async generation and return quickly
-            # so this request does not block other API calls (AI/timestamps).
-            if video.processing_stage != 'creating_pdf':
+            # First click should complete the PDF creation path and return file.
+            from video_processor.pdf_gen import generate_pdf
+            try:
                 video.processing_stage = 'creating_pdf'
                 video.save(update_fields=['processing_stage'])
 
-                def _build_pdf_async(video_id):
-                    from api.models import Video as _Video
-                    from video_processor.pdf_gen import generate_pdf as _generate_pdf
-                    try:
-                        _generate_pdf(video_id)
-                        _video = _Video.objects.get(id=video_id)
-                        _video.processing_stage = 'pdf_generated'
-                        if _video.error_message and 'PDF generation pending:' in (_video.error_message or ''):
-                            _video.error_message = None
-                        _video.save(update_fields=['processing_stage', 'error_message'])
-                    except Exception as _e:
-                        logger.error(f"Async PDF generation failed for video {video_id}: {_e}", exc_info=True)
-                        try:
-                            _video = _Video.objects.get(id=video_id)
-                            _video.processing_stage = 'embedded'
-                            _video.error_message = f"PDF generation pending: {_e}"
-                            _video.save(update_fields=['processing_stage', 'error_message'])
-                        except Exception:
-                            pass
-
-                threading.Thread(target=_build_pdf_async, args=(video.id,), daemon=True).start()
-
-            return Response(
-                {'error': 'PDF is still being generated. Please try again in a few seconds.'},
-                status=status.HTTP_409_CONFLICT
-            )
+                pdf = generate_pdf(video.id)
+                video.processing_stage = 'pdf_generated'
+                if video.error_message and 'PDF generation pending:' in (video.error_message or ''):
+                    video.error_message = None
+                video.save(update_fields=['processing_stage', 'error_message'])
+            except Exception as e:
+                return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         safe_title = re.sub(r'[^A-Za-z0-9._-]+', '_', (video.title or 'study_notes')).strip('_') or 'study_notes'
         filename = f"{safe_title}.pdf"
 
+        file_bytes = None
+
         try:
             pdf.file.open('rb')
             file_bytes = pdf.file.read()
-            response = HttpResponse(file_bytes, content_type='application/pdf')
         except Exception:
+            # Try signed raw URL first (works for restricted Cloudinary raw resources).
             try:
-                from video_processor.pdf_gen import generate_pdf
-                import pipelIne_api
-
-                # Regenerate once to ensure a fresh local artifact exists.
-                generate_pdf(video.id)
-                video_filename = Path(video.file.name).name
-                base_name = pipelIne_api.clean_filename(video_filename.rsplit('.', 1)[0])
-                local_pdf_name = f"{base_name.replace('_', ' ').title()}.pdf"
-                local_pdf_path = settings.MEDIA_ROOT / 'pdfs' / local_pdf_name
-                if local_pdf_path.exists():
-                    with open(local_pdf_path, 'rb') as fh:
-                        response = HttpResponse(fh.read(), content_type='application/pdf')
-                else:
-                    raise FileNotFoundError(f"Local PDF not found at {local_pdf_path}")
+                signed_raw_url = cloudinary_url(
+                    pdf.file.name,
+                    resource_type='raw',
+                    sign_url=True,
+                    secure=True,
+                )[0]
+                remote = httpx.get(signed_raw_url, timeout=90.0)
+                remote.raise_for_status()
+                file_bytes = remote.content
             except Exception:
+                # Fallback to storage URL.
                 try:
                     pdf_url = pdf.file.url
-                    remote = httpx.get(pdf_url, timeout=60.0)
+                    remote = httpx.get(pdf_url, timeout=90.0)
                     remote.raise_for_status()
-                    response = HttpResponse(remote.content, content_type='application/pdf')
-                except Exception:
-                    try:
-                        signed_raw_url = cloudinary_url(
-                            pdf.file.name,
-                            resource_type='raw',
-                            sign_url=True,
-                            secure=True,
-                        )[0]
-                        remote = httpx.get(signed_raw_url, timeout=60.0)
-                        remote.raise_for_status()
-                        response = HttpResponse(remote.content, content_type='application/pdf')
-                    except Exception as signed_err:
-                        return Response({'error': f'Failed to download PDF: {signed_err}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                    file_bytes = remote.content
+                except Exception as url_err:
+                    return Response({'error': f'Failed to download PDF: {url_err}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        if not file_bytes:
+            return Response({'error': 'PDF file is empty or unavailable.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        response = HttpResponse(file_bytes, content_type='application/pdf')
 
         response['Content-Disposition'] = f'attachment; filename="{filename}"'
+        response['Content-Length'] = str(len(file_bytes))
         return response
 
 
