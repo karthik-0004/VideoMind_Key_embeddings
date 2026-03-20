@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ProcessingScreen } from '../components/ProcessingScreen';
 import { authStorage, videoAPI } from '../services/api';
 
@@ -47,7 +47,6 @@ const getStageProgress = (stage) => {
 
 export const ProcessingView = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
     const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
     const backendOrigin = apiBaseUrl.replace(/\/api\/?$/, '');
     const [processingStage, setProcessingStage] = useState('starting_up');
@@ -55,7 +54,6 @@ export const ProcessingView = () => {
     const [stageStep, setStageStep] = useState(1);
     const [stageTotal] = useState(STAGE_ORDER.length);
     const latestStepRef = useRef(1);
-    const autoNavigatedRef = useRef(false);
     const stageQueueRef = useRef([]);
     const stageTimerRef = useRef(null);
 
@@ -123,17 +121,6 @@ export const ProcessingView = () => {
 
             if (!isMounted) return;
             enqueueStagesThrough(normalizedStage);
-
-            const stageReadyForStudyRoom = ['generating_pdf', 'creating_pdf', 'pdf_generated', 'completed'];
-            const status = payload?.status;
-            if (!autoNavigatedRef.current && status !== 'failed' && stageReadyForStudyRoom.includes(rawStage)) {
-                autoNavigatedRef.current = true;
-                localStorage.setItem('videomind_pending_pdf', JSON.stringify({
-                    videoId: id,
-                    timestamp: Date.now(),
-                }));
-                navigate(`/study-room/${id}`);
-            }
         };
 
         const poll = async () => {
@@ -191,7 +178,7 @@ export const ProcessingView = () => {
                 clearInterval(pollInterval);
             }
         };
-    }, [id, navigate]);
+    }, [id]);
 
     return (
         <ProcessingScreen

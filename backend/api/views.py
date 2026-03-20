@@ -41,6 +41,7 @@ import json
 import time
 import httpx
 from django.http import StreamingHttpResponse, HttpResponse, FileResponse
+from cloudinary.utils import cloudinary_url
 
 logger = logging.getLogger(__name__)
 YOUTUBE_DOWNLOAD_TASKS = {}
@@ -832,7 +833,18 @@ class VideoViewSet(viewsets.ModelViewSet):
                 remote.raise_for_status()
                 response = HttpResponse(remote.content, content_type='application/pdf')
             except Exception as e:
-                return Response({'error': f'Failed to download PDF: {e}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                try:
+                    signed_raw_url = cloudinary_url(
+                        pdf.file.name,
+                        resource_type='raw',
+                        sign_url=True,
+                        secure=True,
+                    )[0]
+                    remote = httpx.get(signed_raw_url, timeout=60.0)
+                    remote.raise_for_status()
+                    response = HttpResponse(remote.content, content_type='application/pdf')
+                except Exception as signed_err:
+                    return Response({'error': f'Failed to download PDF: {signed_err}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         response['Content-Disposition'] = f'attachment; filename="{filename}"'
         return response

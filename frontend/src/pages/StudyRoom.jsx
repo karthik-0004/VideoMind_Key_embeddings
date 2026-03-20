@@ -220,12 +220,14 @@ export const StudyRoom = () => {
 
     /* ── export PDF as download ── */
     const [pdfAlert, setPdfAlert] = useState(false);
+    const [pdfAlertMessage, setPdfAlertMessage] = useState('PDF is still being processed. Please wait a moment and try again.');
 
     const handleExportPDF = async () => {
         try {
             const res = await videoAPI.downloadPDF(id);
             const blob = res?.data;
             if (!blob) {
+                setPdfAlertMessage('PDF is still being processed. Please wait a moment and try again.');
                 setPdfAlert(true);
                 return;
             }
@@ -240,6 +242,8 @@ export const StudyRoom = () => {
             a.remove();
             setTimeout(() => URL.revokeObjectURL(downloadUrl), 60000);
         } catch (err) {
+            const backendMessage = err?.response?.data?.error;
+            setPdfAlertMessage(backendMessage || 'PDF is still being processed. Please wait a moment and try again.');
             setPdfAlert(true);
         }
     };
@@ -685,7 +689,7 @@ export const StudyRoom = () => {
                 isOpen={pdfAlert}
                 variant="info"
                 title="PDF Processing"
-                message="PDF is still being processed. Please wait a moment and try again."
+                message={pdfAlertMessage}
                 onConfirm={() => setPdfAlert(false)}
                 alertOnly
             />
