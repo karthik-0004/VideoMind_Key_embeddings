@@ -226,6 +226,26 @@ export const StudyRoom = () => {
     const [pdfDownloading, setPdfDownloading] = useState(false);
     const [pdfDownloadProgress, setPdfDownloadProgress] = useState(0);
 
+    useEffect(() => {
+        if (!pdfDownloading) {
+            return;
+        }
+
+        // Browser progress events for blob downloads are not always reliable.
+        // Keep visible progress moving until the request completes.
+        const timer = setInterval(() => {
+            setPdfDownloadProgress((prev) => {
+                if (prev >= 95) {
+                    return prev;
+                }
+                const step = prev < 20 ? 6 : prev < 60 ? 4 : 2;
+                return Math.min(95, prev + step);
+            });
+        }, 400);
+
+        return () => clearInterval(timer);
+    }, [pdfDownloading]);
+
     const handleExportPDF = async () => {
         try {
             setPdfDownloading(true);
@@ -236,9 +256,6 @@ export const StudyRoom = () => {
                 if (event.total && event.total > 0) {
                     const pct = Math.max(0, Math.min(100, Math.round((event.loaded * 100) / event.total)));
                     setPdfDownloadProgress(pct);
-                } else if (event.loaded > 0) {
-                    // Server may stream without total length; show active progress state.
-                    setPdfDownloadProgress((prev) => (prev < 95 ? prev + 5 : prev));
                 }
             });
             const blob = res?.data;
