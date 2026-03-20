@@ -108,6 +108,7 @@ def _process_video_sync(video_id):
             logger.info(f"Created local temp video copy at: {video_path}")
 
         video_filename = video_path.name
+        storage_video_filename = Path(video.file.name).name
         logger.info(f"Django video path: {video_path}")
         
         # Ensure the original script directories exist
@@ -126,8 +127,9 @@ def _process_video_sync(video_id):
         json_dir.mkdir(parents=True, exist_ok=True)
         chunks_dir.mkdir(parents=True, exist_ok=True)
         
-        # Clean filename for audio/json
-        base_name = pipelIne_api.clean_filename(video_filename.rsplit('.', 1)[0])
+        # Clean filename for audio/json using storage filename so all stages
+        # (pipeline/query/pdf) resolve the same artifact names.
+        base_name = pipelIne_api.clean_filename(storage_video_filename.rsplit('.', 1)[0])
         audio_filename = f"0_{base_name}.mp3"
         audio_path = audio_dir / audio_filename
         json_filename = f"{audio_filename}.json"
