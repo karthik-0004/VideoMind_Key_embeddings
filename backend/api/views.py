@@ -33,7 +33,7 @@ import re
 from datetime import datetime, timedelta
 from django.db.models import Count
 from django.db.models.functions import TruncDate
-from django.db import OperationalError
+from django.db import OperationalError, ProgrammingError
 from collections import OrderedDict
 from urllib.parse import urlparse
 import json
@@ -962,7 +962,7 @@ class AuthViewSet(viewsets.ViewSet):
             profile, _ = UserProfile.objects.get_or_create(user=user)
 
             token, _ = Token.objects.get_or_create(user=user)
-        except OperationalError:
+        except (OperationalError, ProgrammingError):
             logger.exception('Database connection failed during register')
             return self._database_unavailable_response()
 
@@ -993,7 +993,7 @@ class AuthViewSet(viewsets.ViewSet):
 
         try:
             user = User.objects.filter(email__iexact=email).first()
-        except OperationalError:
+        except (OperationalError, ProgrammingError):
             logger.exception('Database connection failed during login')
             return self._database_unavailable_response()
 
@@ -1015,7 +1015,7 @@ class AuthViewSet(viewsets.ViewSet):
             profile, _ = UserProfile.objects.get_or_create(user=authenticated_user)
             profile.last_login = timezone.now()
             profile.save(update_fields=['last_login'])
-        except OperationalError:
+        except (OperationalError, ProgrammingError):
             logger.exception('Database connection failed while finalizing login')
             return self._database_unavailable_response()
 
@@ -1090,7 +1090,7 @@ class AuthViewSet(viewsets.ViewSet):
             profile.save()
 
             token, _ = Token.objects.get_or_create(user=user)
-        except OperationalError:
+        except (OperationalError, ProgrammingError):
             logger.exception('Database connection failed during google login')
             return self._database_unavailable_response()
 
