@@ -32,6 +32,9 @@ export const Chat = () => {
     const dragStartWidth = useRef(40);
     const chatBodyRef = useRef(null);
 
+    const processingReadyStages = ['embedded', 'generating_pdf', 'pdf_generated'];
+    const isQueryReady = !!video && (video.status === 'completed' || processingReadyStages.includes(video.processing_stage));
+
     useEffect(() => {
         videoAPI.getVideo(id)
             .then(res => setVideo(res.data))
@@ -67,9 +70,10 @@ export const Chat = () => {
 
         try {
             localStorage.setItem(chatStorageKey, JSON.stringify(messages));
+                        disabled={!isQueryReady}
         } catch (error) {
             console.error('Failed to save chat messages:', error);
-        }
+                    <Button onClick={handleSend} disabled={!input.trim() || loading || !isQueryReady}>
     }, [messages, chatStorageKey, isMessagesHydrated]);
 
     useEffect(() => {
@@ -139,6 +143,15 @@ export const Chat = () => {
     const handleSend = async () => {
         if (!input.trim() || loading) return;
 
+        if (!isQueryReady) {
+            const stage = video?.processing_stage ? `Current stage: ${video.processing_stage}.` : 'Processing is in progress.';
+            setMessages(prev => [...prev, {
+                role: 'assistant',
+                content: `Video is still processing. ${stage} Please wait a bit and try again.`
+            }]);
+            return;
+        }
+
         const userMessage = { role: 'user', content: input };
         setMessages(prev => [...prev, userMessage]);
         setInput('');
@@ -155,9 +168,10 @@ export const Chat = () => {
             };
             setMessages(prev => [...prev, aiMessage]);
         } catch (err) {
+            const backendError = err?.response?.data?.error;
             setMessages(prev => [...prev, {
                 role: 'assistant',
-                content: 'Sorry, there was an error processing your question.'
+                content: backendError || 'Sorry, there was an error processing your question.'
             }]);
         } finally {
             setLoading(false);
@@ -317,9 +331,9 @@ export const Chat = () => {
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                                 placeholder="Ask a question..."
-                                disabled={loading}
+                                disabled={loading || !isQueryReady}
                             />
-                            <Button onClick={handleSend} disabled={loading || !input.trim()} style={{ height: '52px', width: '52px' }}>
+                            <Button onClick={handleSend} disabled={loading || !input.trim() || !isQueryReady} style={{ height: '52px', width: '52px' }}>
                                 <Send size={20} />
                             </Button>
                         </div>

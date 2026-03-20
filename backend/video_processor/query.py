@@ -59,10 +59,10 @@ def query_video(video_id, question):
     df_video = df[df['title'] == base_name]
     
     if len(df_video) == 0:
-        logger.warning(f"No chunks found for base_name '{base_name}', using all chunks")
-        df_video = df
-    else:
-        logger.info(f"Found {len(df_video)} chunks for video '{base_name}'")
+        logger.warning(f"No chunks found for base_name '{base_name}'")
+        raise ValueError("Embeddings are not ready for this video yet. Please wait until processing completes.")
+
+    logger.info(f"Found {len(df_video)} chunks for video '{base_name}'")
     
     # Search chunks (this includes timestamp refinement via Ollama)
     # NOTE: Timestamp refinement adds API calls but improves precision

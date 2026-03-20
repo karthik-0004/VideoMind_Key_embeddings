@@ -705,7 +705,12 @@ class VideoViewSet(viewsets.ModelViewSet):
         embeddings_ready = video.processing_stage in ('embedded', 'generating_pdf', 'pdf_generated')
         if video.status != 'completed' and not embeddings_ready:
             return Response(
-                {'error': 'Video processing not complete'},
+                {
+                    'error': 'Video is still processing. Please try again in a moment.',
+                    'code': 'video_processing_not_complete',
+                    'status': video.status,
+                    'processing_stage': video.processing_stage,
+                },
                 status=status.HTTP_400_BAD_REQUEST
             )
         
@@ -743,6 +748,7 @@ class VideoViewSet(viewsets.ModelViewSet):
             })
         
         except Exception as e:
+            logger.error(f"Video query failed for video={video.id}: {e}", exc_info=True)
             return Response(
                 {'error': str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
