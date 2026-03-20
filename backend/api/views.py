@@ -33,6 +33,7 @@ import re
 from datetime import datetime, timedelta
 from django.db.models import Count
 from django.db.models.functions import TruncDate
+from django.db import OperationalError
 from collections import OrderedDict
 from urllib.parse import urlparse
 import json
@@ -934,6 +935,15 @@ class AuthViewSet(viewsets.ViewSet):
             suffix += 1
         return username
 
+    def _database_unavailable_response(self):
+        return Response(
+            {
+                'error': 'Database is temporarily unreachable. Please try again in a minute.',
+                'code': 'database_unavailable',
+            },
+            status=status.HTTP_503_SERVICE_UNAVAILABLE,
+        )
+
     @action(detail=False, methods=['post'])
     def register(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -941,16 +951,21 @@ class AuthViewSet(viewsets.ViewSet):
 
         email = serializer.validated_data['email']
         password = serializer.validated_data['password']
-        username = self._unique_username(email)
+        try:
+            username = self._unique_username(email)
 
-        user = User.objects.create_user(
-            username=username,
-            email=email,
-            password=password,
-        )
-        profile, _ = UserProfile.objects.get_or_create(user=user)
+            user = User.objects.create_user(
+                username=username,
+                email=email,
+                password=password,
+            )
+            profile, _ = UserProfile.objects.get_or_create(user=user)
 
-        token, _ = Token.objects.get_or_create(user=user)
+            token, _ = Token.objects.get_or_create(user=user)
+        except OperationalError:
+            logger.exception('Database connection failed during register')
+            return self._database_unavailable_response()
+
         response_user = {
             'id': user.id,
             'username': user.email.split('@')[0],
@@ -976,7 +991,12 @@ class AuthViewSet(viewsets.ViewSet):
         email = serializer.validated_data['email'].strip().lower()
         password = serializer.validated_data['password']
 
-        user = User.objects.filter(email__iexact=email).first()
+        try:
+            user = User.objects.filter(email__iexact=email).first()
+        except OperationalError:
+            logger.exception('Database connection failed during login')
+            return self._database_unavailable_response()
+
         if not user:
             return Response(
                 {'error': 'Register first with this email before logging in.'},
@@ -990,10 +1010,14 @@ class AuthViewSet(viewsets.ViewSet):
                 status=status.HTTP_401_UNAUTHORIZED,
             )
 
-        token, _ = Token.objects.get_or_create(user=authenticated_user)
-        profile, _ = UserProfile.objects.get_or_create(user=authenticated_user)
-        profile.last_login = timezone.now()
-        profile.save(update_fields=['last_login'])
+        try:
+            token, _ = Token.objects.get_or_create(user=authenticated_user)
+            profile, _ = UserProfile.objects.get_or_create(user=authenticated_user)
+            profile.last_login = timezone.now()
+            profile.save(update_fields=['last_login'])
+        except OperationalError:
+            logger.exception('Database connection failed while finalizing login')
+            return self._database_unavailable_response()
 
         response_user = {
             'id': authenticated_user.id,
@@ -1044,27 +1068,32 @@ class AuthViewSet(viewsets.ViewSet):
         picture = decoded.get('picture') or ''
         google_sub = decoded.get('sub') or ''
 
-        user = User.objects.filter(email__iexact=email).first()
-        created = False
-        if not user:
-            created = True
-            username = self._unique_username(email)
-            user = User.objects.create_user(
-                username=username,
-                email=email,
-                first_name=name,
-                password=User.objects.make_random_password(length=20),
-            )
+        try:
+            user = User.objects.filter(email__iexact=email).first()
+            created = False
+            if not user:
+                created = True
+                username = self._unique_username(email)
+                user = User.objects.create_user(
+                    username=username,
+                    email=email,
+                    first_name=name,
+                    password=User.objects.make_random_password(length=20),
+                )
 
-        profile, _ = UserProfile.objects.get_or_create(user=user)
-        if google_sub and profile.google_id != google_sub:
-            profile.google_id = google_sub
-        if picture:
-            profile.picture = picture
-        profile.last_login = timezone.now()
-        profile.save()
+            profile, _ = UserProfile.objects.get_or_create(user=user)
+            if google_sub and profile.google_id != google_sub:
+                profile.google_id = google_sub
+            if picture:
+                profile.picture = picture
+            profile.last_login = timezone.now()
+            profile.save()
 
-        token, _ = Token.objects.get_or_create(user=user)
+            token, _ = Token.objects.get_or_create(user=user)
+        except OperationalError:
+            logger.exception('Database connection failed during google login')
+            return self._database_unavailable_response()
+
         response_user = {
             'id': user.id,
             'username': user.email.split('@')[0],
