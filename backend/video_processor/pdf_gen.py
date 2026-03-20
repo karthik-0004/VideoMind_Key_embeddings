@@ -296,11 +296,15 @@ def _generate_pdf_content(raw_text, transcript_chunks, enhance_and_pdf):
         return content
     except Exception as groq_err:
         logger.error(f"Groq fallback also failed: {groq_err}", exc_info=True)
-        # Last resort: plain beautified text — PDF will still be created
-        logger.warning("Using plain beautify_text as last-resort fallback.")
-        chunks = enhance_and_pdf.split_text_by_tokens(raw_text)
-        parts = [enhance_and_pdf.beautify_text(c) for c in chunks]
-        return "\n\n".join(parts)
+        # Last resort: plain transcript text with minimal structure. Do NOT call
+        # any AI enhancement here so PDF generation always succeeds.
+        logger.warning("Using raw transcript as last-resort PDF content.")
+        return (
+            "SECTION: Transcript\n\n"
+            + raw_text.strip()
+            + "\n\nKEY TAKEAWAYS:\n"
+            + "- PDF generated using raw transcript fallback due to AI service failure."
+        )
 
 
 # ---------------------------------------------------------------------------

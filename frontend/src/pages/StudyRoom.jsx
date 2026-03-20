@@ -242,7 +242,21 @@ export const StudyRoom = () => {
             a.remove();
             setTimeout(() => URL.revokeObjectURL(downloadUrl), 60000);
         } catch (err) {
-            const backendMessage = err?.response?.data?.error;
+            let backendMessage = err?.response?.data?.error;
+            const payload = err?.response?.data;
+            if (!backendMessage && payload instanceof Blob) {
+                try {
+                    const text = await payload.text();
+                    try {
+                        const parsed = JSON.parse(text);
+                        backendMessage = parsed?.error || text;
+                    } catch {
+                        backendMessage = text;
+                    }
+                } catch {
+                    // Keep default fallback message below.
+                }
+            }
             setPdfAlertMessage(backendMessage || 'PDF is still being processed. Please wait a moment and try again.');
             setPdfAlert(true);
         }

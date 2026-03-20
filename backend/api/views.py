@@ -825,26 +825,43 @@ class VideoViewSet(viewsets.ModelViewSet):
 
         try:
             pdf.file.open('rb')
-            response = FileResponse(pdf.file, content_type='application/pdf')
+            file_bytes = pdf.file.read()
+            response = HttpResponse(file_bytes, content_type='application/pdf')
         except Exception:
             try:
-                pdf_url = pdf.file.url
-                remote = httpx.get(pdf_url, timeout=60.0)
-                remote.raise_for_status()
-                response = HttpResponse(remote.content, content_type='application/pdf')
-            except Exception as e:
+                from video_processor.pdf_gen import generate_pdf
+                import pipelIne_api
+
+                # Regenerate once to ensure a fresh local artifact exists.
+                generate_pdf(video.id)
+                video_filename = Path(video.file.name).name
+                base_name = pipelIne_api.clean_filename(video_filename.rsplit('.', 1)[0])
+                local_pdf_name = f"{base_name.replace('_', ' ').title()}.pdf"
+                local_pdf_path = settings.MEDIA_ROOT / 'pdfs' / local_pdf_name
+                if local_pdf_path.exists():
+                    with open(local_pdf_path, 'rb') as fh:
+                        response = HttpResponse(fh.read(), content_type='application/pdf')
+                else:
+                    raise FileNotFoundError(f"Local PDF not found at {local_pdf_path}")
+            except Exception:
                 try:
-                    signed_raw_url = cloudinary_url(
-                        pdf.file.name,
-                        resource_type='raw',
-                        sign_url=True,
-                        secure=True,
-                    )[0]
-                    remote = httpx.get(signed_raw_url, timeout=60.0)
+                    pdf_url = pdf.file.url
+                    remote = httpx.get(pdf_url, timeout=60.0)
                     remote.raise_for_status()
                     response = HttpResponse(remote.content, content_type='application/pdf')
-                except Exception as signed_err:
-                    return Response({'error': f'Failed to download PDF: {signed_err}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                except Exception:
+                    try:
+                        signed_raw_url = cloudinary_url(
+                            pdf.file.name,
+                            resource_type='raw',
+                            sign_url=True,
+                            secure=True,
+                        )[0]
+                        remote = httpx.get(signed_raw_url, timeout=60.0)
+                        remote.raise_for_status()
+                        response = HttpResponse(remote.content, content_type='application/pdf')
+                    except Exception as signed_err:
+                        return Response({'error': f'Failed to download PDF: {signed_err}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         response['Content-Disposition'] = f'attachment; filename="{filename}"'
         return response
