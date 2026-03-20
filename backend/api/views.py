@@ -810,15 +810,38 @@ class VideoViewSet(viewsets.ModelViewSet):
         try:
             pdf = video.pdf
         except PDF.DoesNotExist:
-            from video_processor.pdf_gen import generate_pdf
-            try:
-                pdf = generate_pdf(video.id)
-                video.processing_stage = 'pdf_generated'
-                if video.error_message and 'PDF generation pending:' in video.error_message:
-                    video.error_message = None
-                video.save(update_fields=['processing_stage', 'error_message'])
-            except Exception as e:
-                return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            # If no PDF exists yet, trigger async generation and return quickly
+            # so this request does not block other API calls (AI/timestamps).
+            if video.processing_stage != 'creating_pdf':
+                video.processing_stage = 'creating_pdf'
+                video.save(update_fields=['processing_stage'])
+
+                def _build_pdf_async(video_id):
+                    from api.models import Video as _Video
+                    from video_processor.pdf_gen import generate_pdf as _generate_pdf
+                    try:
+                        _generate_pdf(video_id)
+                        _video = _Video.objects.get(id=video_id)
+                        _video.processing_stage = 'pdf_generated'
+                        if _video.error_message and 'PDF generation pending:' in (_video.error_message or ''):
+                            _video.error_message = None
+                        _video.save(update_fields=['processing_stage', 'error_message'])
+                    except Exception as _e:
+                        logger.error(f"Async PDF generation failed for video {video_id}: {_e}", exc_info=True)
+                        try:
+                            _video = _Video.objects.get(id=video_id)
+                            _video.processing_stage = 'embedded'
+                            _video.error_message = f"PDF generation pending: {_e}"
+                            _video.save(update_fields=['processing_stage', 'error_message'])
+                        except Exception:
+                            pass
+
+                threading.Thread(target=_build_pdf_async, args=(video.id,), daemon=True).start()
+
+            return Response(
+                {'error': 'PDF is still being generated. Please try again in a few seconds.'},
+                status=status.HTTP_409_CONFLICT
+            )
 
         safe_title = re.sub(r'[^A-Za-z0-9._-]+', '_', (video.title or 'study_notes')).strip('_') or 'study_notes'
         filename = f"{safe_title}.pdf"
