@@ -100,7 +100,7 @@ Full transcript:
 # OpenAI-based generation (primary)
 # ---------------------------------------------------------------------------
 
-def _generate_with_openai(raw_text):
+def _generate_with_openai(raw_text, fast_mode=False):
     """
     Send the entire transcript to OpenAI gpt-4o-mini in a single call.
     gpt-4o-mini supports a 128k-token context window, so even long transcripts
@@ -114,7 +114,7 @@ def _generate_with_openai(raw_text):
     client = OpenAI(api_key=api_key)
     model = os.getenv("OPENAI_PDF_MODEL", "gpt-4o-mini")
 
-    max_input_chars = int(os.getenv("PDF_MAX_INPUT_CHARS", "60000"))
+    max_input_chars = int(os.getenv("PDF_MAX_INPUT_CHARS_FAST", "30000")) if fast_mode else int(os.getenv("PDF_MAX_INPUT_CHARS", "60000"))
     if len(raw_text) > max_input_chars:
         logger.info(
             f"Trimming transcript for faster PDF generation: {len(raw_text):,} -> {max_input_chars:,} chars"
@@ -132,7 +132,11 @@ def _generate_with_openai(raw_text):
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.2,
-            max_tokens=int(os.getenv("PDF_OPENAI_MAX_TOKENS", "2800")),
+            max_tokens=(
+                int(os.getenv("PDF_OPENAI_MAX_TOKENS_FAST", "1400"))
+                if fast_mode
+                else int(os.getenv("PDF_OPENAI_MAX_TOKENS", "2800"))
+            ),
         )
         result = response.choices[0].message.content.strip()
         logger.info(f"OpenAI response received: {len(result):,} chars")
@@ -282,20 +286,29 @@ def _generate_with_groq_fallback(raw_text, transcript_chunks, enhance_and_pdf):
 # Main orchestrator
 # ---------------------------------------------------------------------------
 
-def _generate_pdf_content(raw_text, transcript_chunks, enhance_and_pdf):
+def _generate_pdf_content(raw_text, transcript_chunks, enhance_and_pdf, fast_mode=False):
     """
     Try OpenAI gpt-4o-mini first (entire transcript, single call — 128k context).
     Fall back to Groq LLaMA chunk-by-chunk if OpenAI fails.
     """
     # --- Primary: OpenAI gpt-4o-mini ---
     try:
-        content = _generate_with_openai(raw_text)
+        content = _generate_with_openai(raw_text, fast_mode=fast_mode)
         logger.info("PDF content generated successfully via OpenAI gpt-4o-mini.")
         return content
     except Exception as openai_err:
         logger.warning(
             f"OpenAI PDF generation failed ({openai_err}). "
             "Falling back to Groq chunk-by-chunk processing..."
+        )
+
+    if fast_mode:
+        logger.warning("Fast PDF mode enabled; skipping Groq fallback for speed.")
+        return (
+            "SECTION: Transcript\n\n"
+            + raw_text.strip()
+            + "\n\nKEY TAKEAWAYS:\n"
+            + "- PDF generated in fast mode."
         )
 
     if os.getenv("PDF_ENABLE_GROQ_FALLBACK", "false").lower() not in ("1", "true", "yes"):
@@ -329,7 +342,7 @@ def _generate_pdf_content(raw_text, transcript_chunks, enhance_and_pdf):
 # Public entry point
 # ---------------------------------------------------------------------------
 
-def generate_pdf(video_id):
+def generate_pdf(video_id, fast_mode=False):
     """
     Generate PDF for a video.
     Returns PDF model instance.
@@ -380,7 +393,7 @@ def generate_pdf(video_id):
 
         # Generate AI-enhanced content (OpenAI → Groq fallback → plain text)
         logger.info("Starting PDF content generation...")
-        enhanced_text = _generate_pdf_content(raw_text, transcript_chunks, enhance_and_pdf)
+        enhanced_text = _generate_pdf_content(raw_text, transcript_chunks, enhance_and_pdf, fast_mode=fast_mode)
         logger.info("PDF content generation complete.")
 
         # Build the PDF with ReportLab (unchanged)

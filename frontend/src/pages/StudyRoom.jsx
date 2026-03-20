@@ -225,6 +225,20 @@ export const StudyRoom = () => {
     const [pdfAlertMessage, setPdfAlertMessage] = useState('PDF is still being processed. Please wait a moment and try again.');
     const [pdfDownloading, setPdfDownloading] = useState(false);
     const [pdfDownloadProgress, setPdfDownloadProgress] = useState(0);
+    const [fastPdfMode, setFastPdfMode] = useState(() => {
+        try {
+            const saved = localStorage.getItem('videomind_fast_pdf_mode');
+            return saved ? saved === '1' : true;
+        } catch {
+            return true;
+        }
+    });
+
+    useEffect(() => {
+        try {
+            localStorage.setItem('videomind_fast_pdf_mode', fastPdfMode ? '1' : '0');
+        } catch {}
+    }, [fastPdfMode]);
 
     const handleExportPDF = async () => {
         try {
@@ -237,7 +251,7 @@ export const StudyRoom = () => {
                     const pct = Math.max(0, Math.min(100, Math.round((event.loaded * 100) / event.total)));
                     setPdfDownloadProgress(pct);
                 }
-            });
+            }, { fastMode: fastPdfMode });
             const blob = res?.data;
             if (!blob) {
                 setPdfAlertMessage('PDF is still being processed. Please wait a moment and try again.');
@@ -413,6 +427,14 @@ export const StudyRoom = () => {
                         </span>
                         <button className="sr-theme-btn" onClick={toggleTheme} title="Toggle theme">
                             {isDark ? '☀️' : '🌙'}
+                        </button>
+                        <button
+                            className="sr-theme-btn"
+                            onClick={() => setFastPdfMode((v) => !v)}
+                            title="Toggle quick PDF mode"
+                            style={{ minWidth: '72px', width: 'auto', padding: '0 10px', fontSize: '0.68rem' }}
+                        >
+                            {fastPdfMode ? 'Quick PDF' : 'Full PDF'}
                         </button>
                         <button className="sr-pdf-btn" onClick={handleExportPDF} disabled={pdfDownloading}>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="13" height="13"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><polyline points="14,2 14,8 20,8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg>

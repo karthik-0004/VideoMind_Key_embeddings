@@ -106,10 +106,15 @@ export const videoAPI = {
     queryVideo: (id, question) => api.post(`/videos/${id}/query/`, { question }),
 
     // Get PDF
-    getPDF: (id) => api.get(`/videos/${id}/pdf/`),
+    getPDF: (id, options = {}) => {
+        const params = new URLSearchParams();
+        if (options.fastMode) params.set('fast', '1');
+        const query = params.toString();
+        return api.get(`/videos/${id}/pdf/${query ? `?${query}` : ''}`);
+    },
 
     // Download PDF as authenticated blob
-    downloadPDF: (id, onDownloadProgress) => api.get(`/videos/${id}/pdf_download/`, {
+    downloadPDF: (id, onDownloadProgress, options = {}) => api.get(`/videos/${id}/pdf_download/${options.fastMode ? '?fast=1' : ''}`, {
         responseType: 'blob',
         timeout: 300000,
         onDownloadProgress,

@@ -850,6 +850,7 @@ class VideoViewSet(viewsets.ModelViewSet):
             )
         
         refresh = str(request.query_params.get('refresh', '')).lower() in ['1', 'true', 'yes']
+        fast_mode = str(request.query_params.get('fast', '')).lower() in ['1', 'true', 'yes']
 
         # Check if PDF exists
         try:
@@ -862,7 +863,7 @@ class VideoViewSet(viewsets.ModelViewSet):
         # Generate or regenerate PDF
         from video_processor.pdf_gen import generate_pdf
         try:
-            pdf = generate_pdf(video.id)
+            pdf = generate_pdf(video.id, fast_mode=fast_mode)
             video.processing_stage = 'pdf_generated'
             if video.error_message and 'PDF generation pending:' in video.error_message:
                 video.error_message = None
@@ -878,6 +879,7 @@ class VideoViewSet(viewsets.ModelViewSet):
     def pdf_download(self, request, pk=None):
         """Download PDF file as attachment via authenticated backend endpoint."""
         video = self.get_object()
+        fast_mode = str(request.query_params.get('fast', '')).lower() in ['1', 'true', 'yes']
 
         if video.status != 'completed' and video.processing_stage not in ('creating_pdf', 'pdf_generated'):
             return Response(
@@ -894,7 +896,7 @@ class VideoViewSet(viewsets.ModelViewSet):
                 video.processing_stage = 'creating_pdf'
                 video.save(update_fields=['processing_stage'])
 
-                pdf = generate_pdf(video.id)
+                pdf = generate_pdf(video.id, fast_mode=fast_mode)
                 video.processing_stage = 'pdf_generated'
                 if video.error_message and 'PDF generation pending:' in (video.error_message or ''):
                     video.error_message = None
@@ -920,7 +922,7 @@ class VideoViewSet(viewsets.ModelViewSet):
         if not local_pdf_path or not local_pdf_path.exists():
             try:
                 from video_processor.pdf_gen import generate_pdf
-                pdf = generate_pdf(video.id)
+                pdf = generate_pdf(video.id, fast_mode=fast_mode)
                 video.processing_stage = 'pdf_generated'
                 if video.error_message and 'PDF generation pending:' in (video.error_message or ''):
                     video.error_message = None
