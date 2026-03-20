@@ -107,6 +107,9 @@ export const videoAPI = {
     // Get PDF
     getPDF: (id) => api.get(`/videos/${id}/pdf/`),
 
+    // Download PDF as authenticated blob
+    downloadPDF: (id) => api.get(`/videos/${id}/pdf_download/`, { responseType: 'blob' }),
+
     // Delete video
     deleteVideo: (id) => api.delete(`/videos/${id}/`),
 

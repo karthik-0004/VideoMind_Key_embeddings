@@ -39,7 +39,8 @@ from collections import OrderedDict
 from urllib.parse import urlparse
 import json
 import time
-from django.http import StreamingHttpResponse
+import httpx
+from django.http import StreamingHttpResponse, HttpResponse, FileResponse
 
 logger = logging.getLogger(__name__)
 YOUTUBE_DOWNLOAD_TASKS = {}
@@ -793,6 +794,48 @@ class VideoViewSet(viewsets.ModelViewSet):
                 {'error': str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+
+    @action(detail=True, methods=['get'])
+    def pdf_download(self, request, pk=None):
+        """Download PDF file as attachment via authenticated backend endpoint."""
+        video = self.get_object()
+
+        if video.status != 'completed' and video.processing_stage not in ('creating_pdf', 'pdf_generated'):
+            return Response(
+                {'error': 'PDF is not ready yet. Please wait for processing to complete.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            pdf = video.pdf
+        except PDF.DoesNotExist:
+            from video_processor.pdf_gen import generate_pdf
+            try:
+                pdf = generate_pdf(video.id)
+                video.processing_stage = 'pdf_generated'
+                if video.error_message and 'PDF generation pending:' in video.error_message:
+                    video.error_message = None
+                video.save(update_fields=['processing_stage', 'error_message'])
+            except Exception as e:
+                return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        safe_title = re.sub(r'[^A-Za-z0-9._-]+', '_', (video.title or 'study_notes')).strip('_') or 'study_notes'
+        filename = f"{safe_title}.pdf"
+
+        try:
+            pdf.file.open('rb')
+            response = FileResponse(pdf.file, content_type='application/pdf')
+        except Exception:
+            try:
+                pdf_url = pdf.file.url
+                remote = httpx.get(pdf_url, timeout=60.0)
+                remote.raise_for_status()
+                response = HttpResponse(remote.content, content_type='application/pdf')
+            except Exception as e:
+                return Response({'error': f'Failed to download PDF: {e}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        response['Content-Disposition'] = f'attachment; filename="{filename}"'
+        return response
 
 
     @action(detail=True, methods=['post'])

@@ -124,7 +124,7 @@ export const ProcessingView = () => {
             if (!isMounted) return;
             enqueueStagesThrough(normalizedStage);
 
-            const stageReadyForStudyRoom = ['embedded', 'generating_pdf', 'creating_pdf', 'pdf_generated', 'completed'];
+            const stageReadyForStudyRoom = ['generating_pdf', 'creating_pdf', 'pdf_generated', 'completed'];
             const status = payload?.status;
             if (!autoNavigatedRef.current && status !== 'failed' && stageReadyForStudyRoom.includes(rawStage)) {
                 autoNavigatedRef.current = true;

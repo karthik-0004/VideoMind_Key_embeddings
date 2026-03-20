@@ -218,28 +218,27 @@ export const StudyRoom = () => {
             : `${backendOrigin}${video.file.startsWith('/') ? video.file : `/${video.file}`}`;
     }, [video?.file]);
 
-    /* ── export PDF in new tab ── */
+    /* ── export PDF as download ── */
     const [pdfAlert, setPdfAlert] = useState(false);
 
     const handleExportPDF = async () => {
         try {
-            const res = await videoAPI.getPDF(id);
-            const fileUrl = res?.data?.file;
-            if (!fileUrl) { setPdfAlert(true); return; }
-            const fullUrl = fileUrl.startsWith('http')
-                ? fileUrl
-                : `${backendOrigin}${fileUrl.startsWith('/') ? fileUrl : `/${fileUrl}`}`;
-            try {
-                const response = await fetch(fullUrl);
-                if (!response.ok) throw new Error(`PDF fetch failed: ${response.status}`);
-                const arrayBuffer = await response.arrayBuffer();
-                const blob = new Blob([arrayBuffer], { type: 'application/pdf' });
-                const blobUrl = URL.createObjectURL(blob);
-                window.open(blobUrl, '_blank', 'noopener,noreferrer');
-                setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
-            } catch (blobError) {
-                window.open(fullUrl, '_blank', 'noopener,noreferrer');
+            const res = await videoAPI.downloadPDF(id);
+            const blob = res?.data;
+            if (!blob) {
+                setPdfAlert(true);
+                return;
             }
+
+            const downloadUrl = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = downloadUrl;
+            const title = (video?.title || 'study_notes').replace(/[^a-zA-Z0-9._-]+/g, '_');
+            a.download = `${title}.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(downloadUrl), 60000);
         } catch (err) {
             setPdfAlert(true);
         }
@@ -340,7 +339,7 @@ export const StudyRoom = () => {
                             <strong>PDF is ready!</strong>
                             <span>Your study notes have been generated.</span>
                         </div>
-                        <button className="sr-pdf-toast-action" onClick={handleExportPDF}>View PDF</button>
+                        <button className="sr-pdf-toast-action" onClick={handleExportPDF}>Download PDF</button>
                         <button className="sr-pdf-toast-close" onClick={() => setPdfNotification(null)}>×</button>
                     </div>
                 )}

@@ -79,8 +79,8 @@ export const ProcessingScreen = ({
 
     const label = STAGE_LABEL_MAP[processingStage] || 'Processing';
     const stageIndex = STAGE_ORDER.indexOf(processingStage);
-    const embeddingsIndex = STAGE_ORDER.indexOf('generating_embeddings');
-    const showEarlyAccess = stageIndex >= embeddingsIndex && Boolean(videoId);
+    const pdfStartIndex = STAGE_ORDER.indexOf('creating_pdf');
+    const showEarlyAccess = stageIndex >= pdfStartIndex && Boolean(videoId);
 
     const handleGoToStudyRoom = () => {
         if (!videoId) return;
