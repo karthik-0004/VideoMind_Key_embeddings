@@ -436,7 +436,7 @@ def _process_video_sync(video_id):
         else:
             logger.info("No new chunks to embed")
 
-        video.processing_stage = 'generating_embeddings'
+        video.processing_stage = 'embedded'
         video.save()
         logger.info("Embeddings generation complete")
         
@@ -445,16 +445,22 @@ def _process_video_sync(video_id):
         video.processing_stage = 'creating_pdf'
         video.save()
 
+        pdf_generation_error = None
         from . import pdf_gen
         logger.info(f"Calling generate_pdf for video {video.id}")
-        pdf_gen.generate_pdf(video_id)
-        logger.info("PDF generation complete")
+        try:
+            pdf_gen.generate_pdf(video_id)
+            logger.info("PDF generation complete")
+            video.processing_stage = 'pdf_generated'
+        except Exception as pdf_err:
+            # Keep the video usable for study/query. Users can trigger on-demand
+            # regeneration from the PDF endpoint later.
+            pdf_generation_error = str(pdf_err)
+            logger.error(f"Background PDF generation failed for video {video_id}: {pdf_generation_error}", exc_info=True)
+            video.processing_stage = 'embedded'
+            video.error_message = f"PDF generation pending: {pdf_generation_error}"
 
-        # Only mark as pdf_generated AFTER it actually succeeded
-        video.processing_stage = 'creating_pdf'
-        video.save()
-        
-        # Mark as completed
+        # Mark as completed regardless of background PDF outcome.
         video.status = 'completed'
         video.save()
         logger.info(f"Video processing completed successfully for video ID: {video_id}")

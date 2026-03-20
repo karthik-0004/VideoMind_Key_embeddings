@@ -783,6 +783,10 @@ class VideoViewSet(viewsets.ModelViewSet):
         from video_processor.pdf_gen import generate_pdf
         try:
             pdf = generate_pdf(video.id)
+            video.processing_stage = 'pdf_generated'
+            if video.error_message and 'PDF generation pending:' in video.error_message:
+                video.error_message = None
+            video.save(update_fields=['processing_stage', 'error_message'])
             return Response(PDFSerializer(pdf).data)
         except Exception as e:
             return Response(
