@@ -34,7 +34,7 @@ export const Chat = () => {
     const dragStartWidth = useRef(40);
     const chatBodyRef = useRef(null);
 
-    const processingReadyStages = ['embedded', 'generating_pdf', 'pdf_generated'];
+    const processingReadyStages = ['embedded', 'generating_pdf', 'creating_pdf', 'pdf_generated'];
     const isQueryReady = !!video && (video.status === 'completed' || processingReadyStages.includes(video.processing_stage));
 
     useEffect(() => {

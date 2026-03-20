@@ -54,6 +54,7 @@ export const StudyRoom = () => {
     });
     const [aiInput, setAiInput] = useState('');
     const [aiLoading, setAiLoading] = useState(false);
+    const [aiErrorMessage, setAiErrorMessage] = useState('');
     const [aiHistory, setAiHistory] = useState(() => {
         try { const s = localStorage.getItem(`sr-ai-hist-${id}`); return s ? JSON.parse(s) : []; } catch { return []; }
     });
@@ -64,6 +65,7 @@ export const StudyRoom = () => {
     });
     const [tsInput, setTsInput] = useState('');
     const [tsLoading, setTsLoading] = useState(false);
+    const [tsErrorMessage, setTsErrorMessage] = useState('');
 
     /* ── persist chat & timestamps to localStorage ── */
     useEffect(() => { try { localStorage.setItem(`sr-ai-msgs-${id}`, JSON.stringify(aiMessages)); } catch {} }, [aiMessages, id]);
@@ -265,6 +267,7 @@ export const StudyRoom = () => {
     /* ── send AI question ── */
     const handleAiSend = async () => {
         if (!aiInput.trim() || aiLoading) return;
+        setAiErrorMessage('');
         const message = aiInput.trim();
         setAiInput('');
         setAiMessages(prev => [...prev, { role: 'user', content: message }]);
@@ -278,7 +281,10 @@ export const StudyRoom = () => {
             { role: 'assistant', content: reply }
             ]);
         } catch (e) {
-            setAiMessages(prev => [...prev, { role: 'assistant', content: 'Error. Please try again.' }]);
+            const backendMessage = e?.response?.data?.error;
+            const displayMessage = backendMessage || 'Error. Please try again.';
+            setAiErrorMessage(displayMessage);
+            setAiMessages(prev => [...prev, { role: 'assistant', content: displayMessage }]);
         } finally {
             setAiLoading(false);
         }
@@ -286,6 +292,7 @@ export const StudyRoom = () => {
 
     const handleTsSend = async () => {
         if (!tsInput.trim() || tsLoading) return;
+        setTsErrorMessage('');
         const question = tsInput.trim();
         setTsInput('');
         setTsLoading(true);
@@ -317,6 +324,10 @@ export const StudyRoom = () => {
                 }
             }
         } catch (e) {
+            const backendMessage = e?.response?.data?.error;
+            if (backendMessage) {
+                setTsErrorMessage(backendMessage);
+            }
             setTsMessages(prev => [...prev, { question, timestamp_start: null, timestamp_end: null, youtube_url: '' }]);
         } finally {
             setTsLoading(false);
