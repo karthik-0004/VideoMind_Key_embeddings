@@ -173,7 +173,7 @@ CLOUDINARY_STORAGE = {
 }
 
 if os.getenv('USE_CLOUD_STORAGE', 'False') == 'True':
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    DEFAULT_FILE_STORAGE = 'config.storage.CloudinaryAutoResourceStorage'
 else:
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
