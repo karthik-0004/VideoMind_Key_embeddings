@@ -72,10 +72,9 @@ export const Chat = () => {
 
         try {
             localStorage.setItem(chatStorageKey, JSON.stringify(messages));
-                        disabled={!isQueryReady}
         } catch (error) {
             console.error('Failed to save chat messages:', error);
-                    <Button onClick={handleSend} disabled={!input.trim() || loading || !isQueryReady}>
+        }
     }, [messages, chatStorageKey, isMessagesHydrated]);
 
     useEffect(() => {
@@ -135,8 +134,21 @@ export const Chat = () => {
                 setModalState({ open: true, variant: 'info', title: 'PDF Not Ready', message: 'PDF is not available yet for this video. Please wait for processing to complete.' });
                 return;
             }
-
-            window.open(getPdfUrl(fileUrl), '_blank', 'noopener,noreferrer');
+            const resolvedUrl = getPdfUrl(fileUrl);
+            try {
+                const response = await fetch(resolvedUrl);
+                if (!response.ok) {
+                    throw new Error(`PDF fetch failed: ${response.status}`);
+                }
+                const arrayBuffer = await response.arrayBuffer();
+                const blob = new Blob([arrayBuffer], { type: 'application/pdf' });
+                const blobUrl = URL.createObjectURL(blob);
+                window.open(blobUrl, '_blank', 'noopener,noreferrer');
+                setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
+            } catch (blobError) {
+                // Fallback to direct URL if blob fetch is blocked by CORS/CDN policy.
+                window.open(resolvedUrl, '_blank', 'noopener,noreferrer');
+            }
         } catch (error) {
             console.error('Failed to open PDF:', error);
             setModalState({ open: true, variant: 'warning', title: 'PDF Unavailable', message: 'Could not open PDF right now. Please try again.' });

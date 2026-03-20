@@ -88,7 +88,21 @@ export const PDFViewer = () => {
 
     const handleOpenNewTab = () => {
         if (pdf?.file) {
-            window.open(getPdfUrl(pdf.file), '_blank');
+            const resolvedUrl = getPdfUrl(pdf.file);
+            fetch(resolvedUrl)
+                .then((res) => {
+                    if (!res.ok) throw new Error(`PDF fetch failed: ${res.status}`);
+                    return res.arrayBuffer();
+                })
+                .then((buffer) => {
+                    const blob = new Blob([buffer], { type: 'application/pdf' });
+                    const blobUrl = URL.createObjectURL(blob);
+                    window.open(blobUrl, '_blank', 'noopener,noreferrer');
+                    setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
+                })
+                .catch(() => {
+                    window.open(resolvedUrl, '_blank', 'noopener,noreferrer');
+                });
         }
     };
 

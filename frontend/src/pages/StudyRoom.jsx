@@ -229,7 +229,17 @@ export const StudyRoom = () => {
             const fullUrl = fileUrl.startsWith('http')
                 ? fileUrl
                 : `${backendOrigin}${fileUrl.startsWith('/') ? fileUrl : `/${fileUrl}`}`;
-            window.open(fullUrl, '_blank', 'noopener,noreferrer');
+            try {
+                const response = await fetch(fullUrl);
+                if (!response.ok) throw new Error(`PDF fetch failed: ${response.status}`);
+                const arrayBuffer = await response.arrayBuffer();
+                const blob = new Blob([arrayBuffer], { type: 'application/pdf' });
+                const blobUrl = URL.createObjectURL(blob);
+                window.open(blobUrl, '_blank', 'noopener,noreferrer');
+                setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
+            } catch (blobError) {
+                window.open(fullUrl, '_blank', 'noopener,noreferrer');
+            }
         } catch (err) {
             setPdfAlert(true);
         }
