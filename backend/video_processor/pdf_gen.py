@@ -114,7 +114,16 @@ def _generate_with_openai(raw_text):
     client = OpenAI(api_key=api_key)
     model = os.getenv("OPENAI_PDF_MODEL", "gpt-4o-mini")
 
-    prompt = _build_prompt(raw_text)
+    max_input_chars = int(os.getenv("PDF_MAX_INPUT_CHARS", "60000"))
+    if len(raw_text) > max_input_chars:
+        logger.info(
+            f"Trimming transcript for faster PDF generation: {len(raw_text):,} -> {max_input_chars:,} chars"
+        )
+        raw_text_for_prompt = raw_text[:max_input_chars]
+    else:
+        raw_text_for_prompt = raw_text
+
+    prompt = _build_prompt(raw_text_for_prompt)
 
     logger.info(f"Calling OpenAI {model} with full transcript ({len(raw_text):,} chars)...")
 
@@ -123,7 +132,7 @@ def _generate_with_openai(raw_text):
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.2,
-            max_tokens=8192,
+            max_tokens=int(os.getenv("PDF_OPENAI_MAX_TOKENS", "2800")),
         )
         result = response.choices[0].message.content.strip()
         logger.info(f"OpenAI response received: {len(result):,} chars")
@@ -287,6 +296,15 @@ def _generate_pdf_content(raw_text, transcript_chunks, enhance_and_pdf):
         logger.warning(
             f"OpenAI PDF generation failed ({openai_err}). "
             "Falling back to Groq chunk-by-chunk processing..."
+        )
+
+    if os.getenv("PDF_ENABLE_GROQ_FALLBACK", "false").lower() not in ("1", "true", "yes"):
+        logger.warning("Groq fallback disabled; using raw transcript fallback for speed.")
+        return (
+            "SECTION: Transcript\n\n"
+            + raw_text.strip()
+            + "\n\nKEY TAKEAWAYS:\n"
+            + "- PDF generated using fast raw transcript fallback."
         )
 
     # --- Fallback: Groq LLaMA ---

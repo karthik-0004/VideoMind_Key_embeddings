@@ -138,6 +138,7 @@ class VideoViewSet(viewsets.ModelViewSet):
         """Background task that downloads YouTube video and triggers processing"""
         temp_dir = None
         downloaded_path = None
+        info = {}
 
         try:
             import yt_dlp
@@ -175,18 +176,95 @@ class VideoViewSet(viewsets.ModelViewSet):
                         progress=100,
                     )
 
-            ydl_opts = {
-                'format': 'best[ext=mp4]/best',
+            base_ydl_opts = {
                 'outtmpl': os.path.join(temp_dir, '%(title).200B [%(id)s].%(ext)s'),
                 'noplaylist': True,
                 'quiet': True,
                 'no_warnings': True,
                 'progress_hooks': [progress_hook],
+                'retries': 5,
+                'fragment_retries': 5,
+                'extractor_retries': 3,
+                'concurrent_fragment_downloads': 1,
+                'socket_timeout': 30,
+                'http_headers': {
+                    'User-Agent': (
+                        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                        'AppleWebKit/537.36 (KHTML, like Gecko) '
+                        'Chrome/122.0.0.0 Safari/537.36'
+                    )
+                },
+                'geo_bypass': True,
+                'nocheckcertificate': True,
             }
 
-            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                info = ydl.extract_info(youtube_url, download=True)
-                downloaded_path = info_ref.get('downloaded_path') or ydl.prepare_filename(info)
+            # Some videos fail with the default client due to bot checks. Retry with
+            # alternate clients/format chains before failing the upload.
+            attempt_options = [
+                {
+                    'label': 'primary-progressive',
+                    # Prefer already-muxed progressive streams first to avoid ffmpeg merge issues.
+                    'format': 'best[ext=mp4][acodec!=none][vcodec!=none]/best[acodec!=none][vcodec!=none]/best',
+                    'extractor_args': {
+                        'youtube': {
+                            'player_client': ['android'],
+                        }
+                    },
+                },
+                {
+                    'label': 'fallback-ios',
+                    'format': 'best[ext=mp4]/best',
+                    'extractor_args': {
+                        'youtube': {
+                            'player_client': ['ios', 'android'],
+                        }
+                    },
+                },
+                {
+                    'label': 'fallback-tv-embedded',
+                    'format': 'best[ext=mp4]/best',
+                    'extractor_args': {
+                        'youtube': {
+                            'player_client': ['tv_embedded', 'android'],
+                        }
+                    },
+                },
+            ]
+
+            last_download_error = None
+            for attempt in attempt_options:
+                info_ref.clear()
+                ydl_opts = {**base_ydl_opts, **attempt}
+                try:
+                    logger.info(f"YouTube download attempt '{attempt['label']}' for task {task_id}")
+                    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                        info = ydl.extract_info(youtube_url, download=True)
+                        downloaded_path = info_ref.get('downloaded_path') or ydl.prepare_filename(info)
+
+                    if downloaded_path and os.path.exists(downloaded_path):
+                        break
+                except Exception as dl_err:
+                    last_download_error = dl_err
+                    logger.warning(
+                        f"YouTube download attempt '{attempt['label']}' failed for task {task_id}: {dl_err}"
+                    )
+
+            if not downloaded_path or not os.path.exists(downloaded_path):
+                if last_download_error:
+                    err_text = str(last_download_error)
+                    lowered = err_text.lower()
+                    if (
+                        'sign in to confirm' in lowered
+                        or 'not a bot' in lowered
+                        or 'this video is private' in lowered
+                        or 'age-restricted' in lowered
+                    ):
+                        raise ValueError(
+                            'YouTube blocked this link for automated download (bot-check, private, or restricted). '
+                            'Try another public video URL or upload the video file directly.'
+                        )
+                    raise ValueError(f'Failed to download video from YouTube: {err_text}')
+                raise ValueError('Failed to download video from YouTube')
 
             if not downloaded_path or not os.path.exists(downloaded_path):
                 downloaded_files = [
