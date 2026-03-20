@@ -39,6 +39,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
+    "videomind-api.onrender.com",
     os.getenv("RENDER_EXTERNAL_HOSTNAME", ""),
     *get_csv_env("ALLOWED_HOSTS"),
 ]
@@ -191,6 +192,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5174",
     "http://localhost:5175",
     "http://127.0.0.1:5175",
+    "https://video-mind-key-embeddings.vercel.app",
     *get_csv_env("CORS_ALLOWED_ORIGINS"),
 ]
 
@@ -280,8 +282,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 SOCIALACCOUNT_AUTO_SIGNUP = True
-LOGIN_REDIRECT_URL = 'http://localhost:5173/dashboard'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'http://localhost:5173/login'
+LOGIN_REDIRECT_URL = 'https://video-mind-key-embeddings.vercel.app/dashboard'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'https://video-mind-key-embeddings.vercel.app/login'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
