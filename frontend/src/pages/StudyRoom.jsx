@@ -223,16 +223,33 @@ export const StudyRoom = () => {
     /* ── export PDF as download ── */
     const [pdfAlert, setPdfAlert] = useState(false);
     const [pdfAlertMessage, setPdfAlertMessage] = useState('PDF is still being processed. Please wait a moment and try again.');
+    const [pdfDownloading, setPdfDownloading] = useState(false);
+    const [pdfDownloadProgress, setPdfDownloadProgress] = useState(0);
 
     const handleExportPDF = async () => {
         try {
-            const res = await videoAPI.downloadPDF(id);
+            setPdfDownloading(true);
+            setPdfDownloadProgress(0);
+
+            const res = await videoAPI.downloadPDF(id, (event) => {
+                if (!event) return;
+                if (event.total && event.total > 0) {
+                    const pct = Math.max(0, Math.min(100, Math.round((event.loaded * 100) / event.total)));
+                    setPdfDownloadProgress(pct);
+                } else if (event.loaded > 0) {
+                    // Server may stream without total length; show active progress state.
+                    setPdfDownloadProgress((prev) => (prev < 95 ? prev + 5 : prev));
+                }
+            });
             const blob = res?.data;
             if (!blob) {
                 setPdfAlertMessage('PDF is still being processed. Please wait a moment and try again.');
                 setPdfAlert(true);
+                setPdfDownloading(false);
                 return;
             }
+
+            setPdfDownloadProgress(100);
 
             const downloadUrl = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -261,6 +278,9 @@ export const StudyRoom = () => {
             }
             setPdfAlertMessage(backendMessage || 'PDF is still being processed. Please wait a moment and try again.');
             setPdfAlert(true);
+        } finally {
+            setPdfDownloading(false);
+            setPdfDownloadProgress(0);
         }
     };
 
@@ -368,7 +388,9 @@ export const StudyRoom = () => {
                             <strong>PDF is ready!</strong>
                             <span>Your study notes have been generated.</span>
                         </div>
-                        <button className="sr-pdf-toast-action" onClick={handleExportPDF}>Download PDF</button>
+                        <button className="sr-pdf-toast-action" onClick={handleExportPDF} disabled={pdfDownloading}>
+                            {pdfDownloading ? `Downloading ${pdfDownloadProgress}%` : 'Download PDF'}
+                        </button>
                         <button className="sr-pdf-toast-close" onClick={() => setPdfNotification(null)}>×</button>
                     </div>
                 )}
@@ -395,9 +417,9 @@ export const StudyRoom = () => {
                         <button className="sr-theme-btn" onClick={toggleTheme} title="Toggle theme">
                             {isDark ? '☀️' : '🌙'}
                         </button>
-                        <button className="sr-pdf-btn" onClick={handleExportPDF}>
+                        <button className="sr-pdf-btn" onClick={handleExportPDF} disabled={pdfDownloading}>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="13" height="13"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><polyline points="14,2 14,8 20,8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg>
-                            Export PDF
+                            {pdfDownloading ? `Downloading ${pdfDownloadProgress}%` : 'Export PDF'}
                         </button>
                     </div>
                 </div>
