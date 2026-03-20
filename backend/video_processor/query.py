@@ -33,7 +33,7 @@ def query_video(video_id, question):
     
     video = Video.objects.get(id=video_id)
     
-    embeddings_ready = video.processing_stage in ('embedded', 'generating_pdf', 'pdf_generated')
+    embeddings_ready = video.processing_stage in ('embedded', 'generating_pdf', 'creating_pdf', 'pdf_generated')
     if video.status != 'completed' and not embeddings_ready:
         raise ValueError("Video processing not complete")
     
