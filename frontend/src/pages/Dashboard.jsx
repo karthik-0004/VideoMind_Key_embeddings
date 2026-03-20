@@ -49,6 +49,8 @@ export const Dashboard = () => {
         total_pdfs: 0,
         total_processing_hours: 0,
     });
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+    const backendOrigin = apiBaseUrl.replace(/\/api\/?$/, '');
     const [videos, setVideos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedVideo, setSelectedVideo] = useState(null);
@@ -401,7 +403,7 @@ export const Dashboard = () => {
                                             <source
                                                 src={selectedVideo.file.startsWith('http')
                                                     ? selectedVideo.file
-                                                    : `http://localhost:8000${selectedVideo.file}`}
+                                                    : `${backendOrigin}${selectedVideo.file.startsWith('/') ? selectedVideo.file : `/${selectedVideo.file}`}`}
                                                 type="video/mp4"
                                             />
                                             Your browser does not support video playback.

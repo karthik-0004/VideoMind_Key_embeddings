@@ -336,6 +336,10 @@ def generate_pdf(video_id):
             logger.warning(f"JSON not found at {json_path}, searching for fallback...")
             json_files = list(json_dir.glob(f"*{base_name}*.json"))
             if not json_files:
+                legacy_base_name = re.sub(r'_[a-z0-9]{6,}$', '', base_name, flags=re.IGNORECASE)
+                if legacy_base_name and legacy_base_name != base_name:
+                    json_files = list(json_dir.glob(f"*{legacy_base_name}*.json"))
+            if not json_files:
                 raise FileNotFoundError(f"No JSON file found for video: {base_name}")
             json_path = json_files[0]
             logger.warning(f"Using fallback JSON: {json_path}")

@@ -29,8 +29,10 @@ const AudioWaveformPlayer = ({ videoId, duration }) => {
     const [barHeights, setBarHeights] = useState(() => Array(BAR_COUNT).fill(0));
     const [volume, setVolume] = useState(1);
 
-    const token = localStorage.getItem('token');
-    const audioUrl = `http://localhost:8000/api/videos/${videoId}/audio/${token ? `?token=${token}` : ''}`;
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+    const backendOrigin = apiBaseUrl.replace(/\/api\/?$/, '');
+    const token = localStorage.getItem('authToken') || localStorage.getItem('token');
+    const audioUrl = `${backendOrigin}/api/videos/${videoId}/audio/${token ? `?token=${token}` : ''}`;
 
     // Format seconds to mm:ss
     const fmt = (s) => {

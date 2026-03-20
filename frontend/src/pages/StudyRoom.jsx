@@ -22,6 +22,8 @@ const SPEEDS = [0.5, 0.75, 1, 1.25, 1.5, 2];
 export const StudyRoom = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+    const backendOrigin = apiBaseUrl.replace(/\/api\/?$/, '');
 
     /* ── video state ── */
     const videoRef = useRef(null);
@@ -213,7 +215,7 @@ export const StudyRoom = () => {
         if (!video?.file) return '';
         return video.file.startsWith('http')
             ? video.file
-            : `http://localhost:8000${video.file}`;
+            : `${backendOrigin}${video.file.startsWith('/') ? video.file : `/${video.file}`}`;
     }, [video?.file]);
 
     /* ── export PDF in new tab ── */
@@ -226,7 +228,7 @@ export const StudyRoom = () => {
             if (!fileUrl) { setPdfAlert(true); return; }
             const fullUrl = fileUrl.startsWith('http')
                 ? fileUrl
-                : `http://localhost:8000${fileUrl}`;
+                : `${backendOrigin}${fileUrl.startsWith('/') ? fileUrl : `/${fileUrl}`}`;
             window.open(fullUrl, '_blank', 'noopener,noreferrer');
         } catch (err) {
             setPdfAlert(true);

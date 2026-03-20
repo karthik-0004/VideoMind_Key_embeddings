@@ -3,6 +3,7 @@ Query Processing Integration
 Wraps existing rag_query.py logic with performance optimizations
 """
 import sys
+import re
 from pathlib import Path
 from django.conf import settings
 import logging
@@ -59,8 +60,15 @@ def query_video(video_id, question):
     df_video = df[df['title'] == base_name]
     
     if len(df_video) == 0:
-        logger.warning(f"No chunks found for base_name '{base_name}'")
-        raise ValueError("Embeddings are not ready for this video yet. Please wait until processing completes.")
+        # Compatibility fallback for previously processed videos where
+        # naming may not include cloud-random suffixes.
+        legacy_base_name = re.sub(r'_[a-z0-9]{6,}$', '', base_name, flags=re.IGNORECASE)
+        if legacy_base_name and legacy_base_name != base_name:
+            df_video = df[df['title'] == legacy_base_name]
+
+        if len(df_video) == 0:
+            logger.warning(f"No chunks found for base_name '{base_name}'")
+            raise ValueError("Embeddings are not ready for this video yet. Please wait until processing completes.")
 
     logger.info(f"Found {len(df_video)} chunks for video '{base_name}'")
     

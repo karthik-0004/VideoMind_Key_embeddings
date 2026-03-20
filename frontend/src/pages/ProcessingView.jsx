@@ -47,6 +47,8 @@ const getStageProgress = (stage) => {
 
 export const ProcessingView = () => {
     const { id } = useParams();
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+    const backendOrigin = apiBaseUrl.replace(/\/api\/?$/, '');
     const [processingStage, setProcessingStage] = useState('starting_up');
     const [stagePct, setStagePct] = useState(getStageProgress('starting_up').pct);
     const [stageStep, setStageStep] = useState(1);
@@ -138,7 +140,7 @@ export const ProcessingView = () => {
 
         const token = authStorage.getToken();
         const streamUrl = token
-            ? `http://localhost:8000/api/videos/${id}/status_stream/?token=${encodeURIComponent(token)}`
+            ? `${backendOrigin}/api/videos/${id}/status_stream/?token=${encodeURIComponent(token)}`
             : null;
 
         if (streamUrl) {

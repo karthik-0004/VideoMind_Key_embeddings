@@ -690,7 +690,11 @@ class VideoViewSet(viewsets.ModelViewSet):
         # ── Headers required for browser seeking ──
         response['Accept-Ranges']                = 'bytes'
         response['Cache-Control']                = 'no-cache'
-        response['Access-Control-Allow-Origin']  = 'http://localhost:5173'
+        origin = request.headers.get('Origin')
+        if origin and origin in settings.CORS_ALLOWED_ORIGINS:
+            response['Access-Control-Allow-Origin'] = origin
+        elif settings.CORS_ALLOWED_ORIGINS:
+            response['Access-Control-Allow-Origin'] = settings.CORS_ALLOWED_ORIGINS[0]
         response['Access-Control-Allow-Headers'] = 'Range'
         response['Access-Control-Expose-Headers'] = 'Accept-Ranges, Content-Range, Content-Length'
         response['Content-Disposition'] = f'inline; filename="{audio_file.name}"'
@@ -828,8 +832,16 @@ class VideoViewSet(viewsets.ModelViewSet):
                     data = json_mod.load(f)
                     transcript_text = data.get('text', '')
             else:
-                logger.warning(f"Transcript not found at {json_path}")
-                transcript_text = "No transcript available for this video."
+                legacy_base_name = re.sub(r'_[a-z0-9]{6,}$', '', base_name, flags=re.IGNORECASE)
+                fallback_path = SCRIPTS_DIR / 'jsons' / f'0_{legacy_base_name}.mp3.json'
+                if legacy_base_name and legacy_base_name != base_name and fallback_path.exists():
+                    logger.warning(f"Transcript fallback used: {fallback_path}")
+                    with open(fallback_path, 'r', encoding='utf-8') as f:
+                        data = json_mod.load(f)
+                        transcript_text = data.get('text', '')
+                else:
+                    logger.warning(f"Transcript not found at {json_path}")
+                    transcript_text = "No transcript available for this video."
 
             # Truncate transcript if too long (Groq context limit)
             max_chars = 12000
