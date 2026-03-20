@@ -12,9 +12,18 @@ class CloudinaryAutoResourceStorage(MediaCloudinaryStorage):
     }
 
     def _get_resource_type(self, name):
+        normalized_name = (name or '').replace('\\', '/').lower()
+
+        # Prefer folder-based routing because Cloudinary video public IDs
+        # often do not preserve file extensions.
+        if '/videos/' in normalized_name or normalized_name.startswith('videos/'):
+            return RESOURCE_TYPES['VIDEO']
+        if '/pdfs/' in normalized_name or normalized_name.startswith('pdfs/'):
+            return RESOURCE_TYPES['RAW']
+
         extension = ''
-        if '.' in name:
-            extension = name.rsplit('.', 1)[-1].lower()
+        if '.' in normalized_name:
+            extension = normalized_name.rsplit('.', 1)[-1]
 
         if extension in self.VIDEO_EXTENSIONS:
             return RESOURCE_TYPES['VIDEO']

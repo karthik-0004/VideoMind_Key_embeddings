@@ -15,6 +15,7 @@ from django.conf import settings
 import logging
 from dotenv import load_dotenv
 import httpx
+from cloudinary.utils import cloudinary_url
 
 # Load .env from the RAG scripts directory
 _ENV_PATH = Path(settings.BASE_DIR).parent / 'Video-Knowledge-Extraction-Semantic-Search-System-RAG-based-' / '.env'
@@ -66,8 +67,42 @@ def _process_video_sync(video_id):
             temp_dir = Path(settings.BASE_DIR) / 'tmp_processing'
             temp_dir.mkdir(parents=True, exist_ok=True)
             with tempfile.NamedTemporaryFile(delete=False, suffix=suffix, dir=temp_dir) as temp_file:
-                with video.file.open('rb') as source_file:
-                    shutil.copyfileobj(source_file, temp_file)
+                copied = False
+                try:
+                    with video.file.open('rb') as source_file:
+                        shutil.copyfileobj(source_file, temp_file)
+                    copied = True
+                except Exception:
+                    # Some cloud backends cannot reopen media by path-only IDs.
+                    # Fallback to explicit HTTP download from media URL.
+                    candidate_urls = []
+                    try:
+                        candidate_urls.append(video.file.url)
+                    except Exception:
+                        pass
+
+                    public_id = (video.file.name or '').replace('\\', '/')
+                    if public_id:
+                        candidate_urls.append(cloudinary_url(public_id, resource_type='video', secure=True)[0])
+                        candidate_urls.append(cloudinary_url(public_id, resource_type='raw', secure=True)[0])
+
+                    last_error = None
+                    for candidate_url in candidate_urls:
+                        if not candidate_url:
+                            continue
+                        try:
+                            response = httpx.get(candidate_url, timeout=60.0)
+                            response.raise_for_status()
+                            temp_file.write(response.content)
+                            copied = True
+                            logger.info(f"Fetched cloud media via URL for processing: {candidate_url}")
+                            break
+                        except Exception as url_error:
+                            last_error = url_error
+
+                    if not copied:
+                        raise RuntimeError(f"Unable to retrieve cloud media file for processing: {last_error}")
+
                 local_temp_video_path = Path(temp_file.name)
             video_path = local_temp_video_path
             logger.info(f"Created local temp video copy at: {video_path}")
