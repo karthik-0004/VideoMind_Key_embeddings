@@ -98,15 +98,6 @@ class VideoViewSet(viewsets.ModelViewSet):
         if file_ext not in allowed_extensions:
             raise ValueError(f"Invalid file type. Allowed: {', '.join(allowed_extensions)}")
 
-    def _is_youtube_url(self, value):
-        """Check if URL is from YouTube"""
-        try:
-            parsed = urlparse(value)
-            host = (parsed.netloc or '').lower()
-            return any(domain in host for domain in ['youtube.com', 'youtu.be'])
-        except Exception:
-            return False
-
     
     def perform_create(self, serializer):
         """Handle video upload with proper error handling and logging"""
@@ -138,46 +129,6 @@ class VideoViewSet(viewsets.ModelViewSet):
             logger.error(f"Error during video upload: {e}", exc_info=True)
             raise
 
-    @action(detail=False, methods=['post'])
-    def upload_youtube(self, request):
-        """Create a YouTube-backed Video immediately and process transcript asynchronously."""
-        youtube_url = (request.data.get('youtube_url') or '').strip()
-        custom_title = (request.data.get('title') or '').strip()
-
-        if not youtube_url:
-            return Response({'error': 'youtube_url is required'}, status=status.HTTP_400_BAD_REQUEST)
-
-        if not self._is_youtube_url(youtube_url):
-            return Response({'error': 'Only YouTube links are supported'}, status=status.HTTP_400_BAD_REQUEST)
-
-        from video_processor.youtube_pipeline import (
-            build_youtube_base_name,
-            extract_youtube_video_id,
-            process_youtube_video_async,
-        )
-
-        youtube_video_id = extract_youtube_video_id(youtube_url)
-        if not youtube_video_id:
-            return Response({'error': 'Invalid YouTube URL'}, status=status.HTTP_400_BAD_REQUEST)
-
-        final_title = custom_title or youtube_url
-        base_name = build_youtube_base_name(final_title, fallback=f'youtube_{youtube_video_id}')
-
-        video = Video.objects.create(
-            user=request.user,
-            title=final_title,
-            file=f'videos/{base_name}.mp4',
-            status='processing',
-            processing_stage='starting_up',
-            source='youtube',
-            youtube_url=youtube_url,
-            audio_path=None,
-        )
-
-        process_youtube_video_async(video.id)
-
-        return Response({'video_id': video.id, 'status': 'processing'}, status=status.HTTP_202_ACCEPTED)
-    
     @action(detail=False, methods=['get'])
     def by_date(self, request):
         """Get videos grouped by upload date"""

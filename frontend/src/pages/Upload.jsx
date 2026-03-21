@@ -70,10 +70,6 @@ export const Upload = () => {
     const [currentProcessingVideoId, setCurrentProcessingVideoId] = useState(null);
     const [processingStage, setProcessingStage] = useState('starting_up');
     const [processingError, setProcessingError] = useState('');
-    const [uploadMode, setUploadMode] = useState('local');
-    const [youtubeUrl, setYoutubeUrl] = useState('');
-    const [youtubeTitle, setYoutubeTitle] = useState('');
-    const [youtubeError, setYoutubeError] = useState('');
 
     // Poll for status updates for processing items
     useEffect(() => {
@@ -184,70 +180,6 @@ export const Upload = () => {
         });
     };
 
-    const isYouTubeUrl = (value) => {
-        try {
-            const parsed = new URL(value);
-            const host = parsed.hostname.toLowerCase();
-            return host.includes('youtube.com') || host.includes('youtu.be');
-        } catch {
-            return false;
-        }
-    };
-
-    const clearYouTubeInputs = () => {
-        setYoutubeUrl('');
-        setYoutubeTitle('');
-        setYoutubeError('');
-    };
-
-    const handleYouTubeUpload = async () => {
-        const trimmedUrl = youtubeUrl.trim();
-        const trimmedTitle = youtubeTitle.trim();
-
-        if (!trimmedUrl) {
-            setYoutubeError('Please paste a YouTube URL.');
-            return;
-        }
-
-        if (!isYouTubeUrl(trimmedUrl)) {
-            setYoutubeError('Only YouTube links are supported.');
-            return;
-        }
-
-        setYoutubeError('');
-
-        const item = {
-            id: Date.now() + Math.random(),
-            displayName: trimmedTitle || trimmedUrl,
-            progress: 0,
-            status: 'uploading',
-            message: 'Starting YouTube transcript processing...'
-        };
-
-        setUploadQueue(prev => [...prev, item]);
-
-        try {
-            const response = await videoAPI.uploadYouTube(trimmedUrl, trimmedTitle);
-            const videoId = response.data.video_id;
-            const finalTitle = trimmedTitle || trimmedUrl;
-
-            setUploadQueue(prev => prev.map(i =>
-                i.id === item.id
-                    ? { ...i, displayName: finalTitle, status: 'processing', progress: 100, videoId, message: 'Processing...' }
-                    : i
-            ));
-
-            clearYouTubeInputs();
-        } catch (error) {
-            const errorMessage = error.response?.data?.error || error.message;
-            setUploadQueue(prev => prev.map(i =>
-                i.id === item.id
-                    ? { ...i, status: 'failed', message: errorMessage }
-                    : i
-            ));
-        }
-    };
-
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
         accept: {
@@ -284,86 +216,14 @@ export const Upload = () => {
                 <div className="upload-page">
                 <h1>Upload Video</h1>
 
-                <div className="upload-mode-toggle">
-                    <button
-                        type="button"
-                        className={`mode-btn ${uploadMode === 'local' ? 'active' : ''}`}
-                        onClick={() => setUploadMode('local')}
-                        disabled={isProcessing}
-                    >
-                        Local File
-                    </button>
-                    <button
-                        type="button"
-                        className={`mode-btn ${uploadMode === 'youtube' ? 'active' : ''}`}
-                        onClick={() => setUploadMode('youtube')}
-                        disabled={isProcessing}
-                    >
-                        YouTube Link
-                    </button>
+                <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
+                    <input {...getInputProps()} />
+                    <UploadIcon size={48} color="var(--primary)" />
+                    <p className="dropzone-text">
+                        {isDragActive ? 'Drop video here...' : 'Drag & drop video here or click to browse'}
+                    </p>
+                    <p className="dropzone-hint">Supported: MP4, MOV, AVI, MKV, WEBM</p>
                 </div>
-
-                {uploadMode === 'local' ? (
-                    <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
-                        <input {...getInputProps()} />
-                        <UploadIcon size={48} color="var(--primary)" />
-                        <p className="dropzone-text">
-                            {isDragActive ? 'Drop video here...' : 'Drag & drop video here or click to browse'}
-                        </p>
-                        <p className="dropzone-hint">Supported: MP4, MOV, AVI, MKV, WEBM</p>
-                    </div>
-                ) : (
-                    <div className="youtube-panel">
-                        <label className="youtube-label" htmlFor="youtube-url">YouTube URL</label>
-                        <div className="youtube-input-row">
-                            <input
-                                id="youtube-url"
-                                type="url"
-                                className="youtube-input"
-                                placeholder="https://www.youtube.com/watch?v=..."
-                                value={youtubeUrl}
-                                onChange={(event) => {
-                                    setYoutubeUrl(event.target.value);
-                                    if (youtubeError) setYoutubeError('');
-                                }}
-                                disabled={isProcessing}
-                            />
-                            <button
-                                type="button"
-                                className="remove-btn youtube-clear-btn"
-                                onClick={clearYouTubeInputs}
-                                disabled={isProcessing || (!youtubeUrl && !youtubeTitle)}
-                                title="Clear link"
-                            >
-                                <X size={20} />
-                            </button>
-                        </div>
-
-                        <p className="youtube-hint">Tip: use a video with captions/subtitles enabled for faster and more reliable processing.</p>
-
-                        <label className="youtube-label" htmlFor="youtube-title">Title (optional)</label>
-                        <input
-                            id="youtube-title"
-                            type="text"
-                            className="youtube-input"
-                            placeholder="Custom title"
-                            value={youtubeTitle}
-                            onChange={(event) => setYoutubeTitle(event.target.value)}
-                            disabled={isProcessing}
-                        />
-
-                        {youtubeError && <p className="youtube-error">{youtubeError}</p>}
-
-                        <button
-                            type="button"
-                            className="youtube-submit-btn"
-                            onClick={handleYouTubeUpload}
-                            disabled={isProcessing || !youtubeUrl.trim()}
-                        >
-                            Download & Upload
-                        </button>
-                    </div>
-                )}
 
                 {uploadQueue.length > 0 && (
                     <div className="upload-queue">
