@@ -145,73 +145,6 @@ export const Upload = () => {
         setIsProcessing(false);
     }, [uploadQueue, navigate]);
 
-    // Poll YouTube download tasks for percentage/status updates
-    useEffect(() => {
-        const youtubeItems = uploadQueue.filter(item =>
-            item.youtubeTaskId && ['queued', 'downloading', 'downloaded'].includes(item.status)
-        );
-
-        if (youtubeItems.length === 0) {
-            return;
-        }
-
-        const interval = setInterval(async () => {
-            for (const item of youtubeItems) {
-                try {
-                    const response = await videoAPI.getYouTubeDownloadStatus(item.youtubeTaskId);
-                    const task = response.data;
-
-                    setUploadQueue(prev => prev.map(queueItem => {
-                        if (queueItem.id !== item.id) {
-                            return queueItem;
-                        }
-
-                        if (task.status === 'failed') {
-                            return {
-                                ...queueItem,
-                                status: 'failed',
-                                progress: 0,
-                                message: task.message || 'YouTube download failed',
-                            };
-                        }
-
-                        if (task.status === 'processing' && task.video_id) {
-                            return {
-                                ...queueItem,
-                                status: 'processing',
-                                progress: 100,
-                                videoId: task.video_id,
-                                displayName: task.title || queueItem.displayName,
-                                message: task.message || 'Processing...',
-                            };
-                        }
-
-                        const progressValue = Number.isFinite(task.progress)
-                            ? task.progress
-                            : queueItem.progress;
-
-                        let statusMessage = task.message || queueItem.message;
-                        if (task.status === 'downloading' && Number.isFinite(progressValue)) {
-                            statusMessage = `Downloading from YouTube... ${progressValue}%`;
-                        }
-
-                        return {
-                            ...queueItem,
-                            status: task.status || queueItem.status,
-                            progress: progressValue,
-                            message: statusMessage,
-                            displayName: task.title || queueItem.displayName,
-                        };
-                    }));
-                } catch (error) {
-                    console.error('Error polling YouTube status:', error);
-                }
-            }
-        }, 1500);
-
-        return () => clearInterval(interval);
-    }, [uploadQueue]);
-
     const onDrop = (acceptedFiles) => {
         acceptedFiles.forEach(file => {
             const item = {
@@ -287,20 +220,20 @@ export const Upload = () => {
             id: Date.now() + Math.random(),
             displayName: trimmedTitle || trimmedUrl,
             progress: 0,
-            status: 'queued',
-            message: 'Queued for download...'
+            status: 'uploading',
+            message: 'Starting YouTube transcript processing...'
         };
 
         setUploadQueue(prev => [...prev, item]);
 
         try {
             const response = await videoAPI.uploadYouTube(trimmedUrl, trimmedTitle);
-            const taskId = response.data.task_id;
+            const videoId = response.data.video_id;
             const finalTitle = trimmedTitle || trimmedUrl;
 
             setUploadQueue(prev => prev.map(i =>
                 i.id === item.id
-                    ? { ...i, displayName: finalTitle, youtubeTaskId: taskId, status: 'queued', progress: 0, message: 'Queued for download...' }
+                    ? { ...i, displayName: finalTitle, status: 'processing', progress: 100, videoId, message: 'Processing...' }
                     : i
             ));
 
@@ -440,7 +373,7 @@ export const Upload = () => {
                                         <div className="upload-filename">{item.displayName || item.file?.name || 'Video upload'}</div>
 
                                         {/* Byte-upload progress bar (while file is uploading) */}
-                                        {['uploading', 'queued', 'downloading', 'downloaded'].includes(item.status) && (
+                                        {item.status === 'uploading' && (
                                             <div className="progress-bar">
                                                 <div className="progress-fill" style={{ width: `${item.progress}%` }} />
                                             </div>

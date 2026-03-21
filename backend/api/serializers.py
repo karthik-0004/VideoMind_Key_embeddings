@@ -26,7 +26,7 @@ class VideoSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'user', 'title', 'file', 'upload_date', 
             'status', 'processing_stage', 'duration_seconds',
-            'error_message', 'audio_path', 'json_path', 'youtube_url'
+            'error_message', 'audio_path', 'json_path', 'source', 'youtube_url'
         ]
         read_only_fields = [
             'id', 'user', 'upload_date', 'status', 
@@ -40,7 +40,7 @@ class VideoListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Video
-        fields = ['id', 'title', 'file', 'upload_date', 'status', 'processing_stage', 'duration_seconds', 'youtube_url', 'audio_path']
+        fields = ['id', 'title', 'file', 'upload_date', 'status', 'processing_stage', 'duration_seconds', 'source', 'youtube_url', 'audio_path']
 
 
 class QuerySerializer(serializers.ModelSerializer):

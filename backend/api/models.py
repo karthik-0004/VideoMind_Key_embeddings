@@ -46,6 +46,11 @@ class Video(models.Model):
     json_path = models.CharField(max_length=500, null=True, blank=True)
     
     # Source URL (for YouTube videos)
+    source = models.CharField(
+        max_length=10,
+        choices=[('local', 'Local File'), ('youtube', 'YouTube')],
+        default='local'
+    )
     youtube_url = models.URLField(max_length=500, null=True, blank=True)
     
     class Meta:

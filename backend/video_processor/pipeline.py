@@ -37,6 +37,76 @@ def process_video_async(video_id):
     thread.start()
 
 
+def _run_embeddings(video_id, json_path, base_name):
+    """Shared embedding routine used by local and YouTube pipelines."""
+    import joblib
+    import pandas as pd
+
+    embedding_file = SCRIPTS_DIR / 'embeddings.joblib'
+    if embedding_file.exists():
+        df_existing = joblib.load(str(embedding_file))
+        next_id = int(df_existing["chunk_id"].max()) + 1 if len(df_existing) else 0
+        embedded_keys = set(df_existing["title"].astype(str) + "__" + df_existing["start"].astype(str))
+    else:
+        df_existing = pd.DataFrame()
+        next_id = 0
+        embedded_keys = set()
+
+    with open(json_path, encoding="utf-8") as f:
+        content = json.load(f)
+
+    chunks = content.get("chunks", [])
+    new_chunks = [c for c in chunks if f'{c["title"]}__{c["start"]}' not in embedded_keys]
+
+    if new_chunks:
+        logger.info(f"Generating embeddings for {len(new_chunks)} new chunks...")
+        texts = [c["text"] for c in new_chunks]
+
+        from openai import OpenAI as _OpenAI
+        OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+        if not OPENAI_API_KEY:
+            raise EnvironmentError("OPENAI_API_KEY is not set in environment / .env")
+        openai_client = _OpenAI(
+            api_key=OPENAI_API_KEY,
+            timeout=120.0,
+        )
+        OPENAI_EMBED_MODEL = "text-embedding-3-small"
+        OPENAI_BATCH_SIZE = 2048
+
+        embeddings = []
+        total_batches = (len(texts) + OPENAI_BATCH_SIZE - 1) // OPENAI_BATCH_SIZE
+        for batch_num, i in enumerate(range(0, len(texts), OPENAI_BATCH_SIZE), start=1):
+            batch = texts[i : i + OPENAI_BATCH_SIZE]
+            logger.info(f"  Embedding batch {batch_num}/{total_batches} ({len(batch)} texts)...")
+            try:
+                response = openai_client.embeddings.create(
+                    model=OPENAI_EMBED_MODEL,
+                    input=batch,
+                )
+                embeddings.extend([item.embedding for item in response.data])
+                logger.info(f"  Batch {batch_num}/{total_batches} embedded successfully.")
+            except Exception as embed_err:
+                logger.error(
+                    f"  OpenAI embedding failed on batch {batch_num}/{total_batches}: {embed_err}",
+                    exc_info=True,
+                )
+                raise
+
+        rows = []
+        for c, emb in zip(new_chunks, embeddings):
+            c["chunk_id"] = next_id
+            c["embedding"] = emb
+            rows.append(c)
+            next_id += 1
+
+        df_new = pd.DataFrame(rows)
+        df_final = pd.concat([df_existing, df_new], ignore_index=True) if len(df_existing) else df_new
+        joblib.dump(df_final, str(embedding_file))
+        logger.info(f"Embeddings updated, total chunks: {len(df_final)}")
+    else:
+        logger.info("No new chunks to embed")
+
+
 def _process_video_sync(video_id):
     """
     Actual video processing logic - processes individual video file directly
@@ -44,8 +114,6 @@ def _process_video_sync(video_id):
     from api.models import Video, PDF
     import pipelIne_api
     from groq import Groq
-    import joblib
-    import pandas as pd
     
     video = None
     local_temp_video_path = None
@@ -366,75 +434,7 @@ def _process_video_sync(video_id):
         video.processing_stage = 'generating_embeddings'
         video.save()
 
-        # Load or create embeddings dataframe
-        embedding_file = SCRIPTS_DIR / 'embeddings.joblib'
-        if embedding_file.exists():
-            df_existing = joblib.load(str(embedding_file))
-            next_id = int(df_existing["chunk_id"].max()) + 1 if len(df_existing) else 0
-            embedded_keys = set(df_existing["title"].astype(str) + "__" + df_existing["start"].astype(str))
-        else:
-            df_existing = pd.DataFrame()
-            next_id = 0
-            embedded_keys = set()
-
-        # Load JSON and check for new chunks
-        with open(json_path, encoding="utf-8") as f:
-            content = json.load(f)
-
-        chunks = content.get("chunks", [])
-        new_chunks = [c for c in chunks if f'{c["title"]}__{c["start"]}' not in embedded_keys]
-
-        if new_chunks:
-            logger.info(f"Generating embeddings for {len(new_chunks)} new chunks...")
-            texts = [c["text"] for c in new_chunks]
-
-            # --- OpenAI client setup ---
-            from openai import OpenAI as _OpenAI
-            OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-            if not OPENAI_API_KEY:
-                raise EnvironmentError("OPENAI_API_KEY is not set in environment / .env")
-            openai_client = _OpenAI(
-                api_key=OPENAI_API_KEY,
-                timeout=120.0,  # prevent indefinite hangs
-            )
-            OPENAI_EMBED_MODEL = "text-embedding-3-small"  # 1536-dim vectors
-            OPENAI_BATCH_SIZE = 2048  # OpenAI allows up to 2048 texts per request
-
-            # --- batch embedding ---
-            embeddings = []
-            total_batches = (len(texts) + OPENAI_BATCH_SIZE - 1) // OPENAI_BATCH_SIZE
-            for batch_num, i in enumerate(range(0, len(texts), OPENAI_BATCH_SIZE), start=1):
-                batch = texts[i : i + OPENAI_BATCH_SIZE]
-                logger.info(f"  Embedding batch {batch_num}/{total_batches} ({len(batch)} texts)...")
-                try:
-                    response = openai_client.embeddings.create(
-                        model=OPENAI_EMBED_MODEL,
-                        input=batch,
-                    )
-                    # response.data is ordered to match input order
-                    embeddings.extend([item.embedding for item in response.data])
-                    logger.info(f"  Batch {batch_num}/{total_batches} embedded successfully.")
-                except Exception as embed_err:
-                    logger.error(
-                        f"  OpenAI embedding failed on batch {batch_num}/{total_batches}: {embed_err}",
-                        exc_info=True,
-                    )
-                    raise
-
-            # Save embeddings BEFORE moving to next step
-            rows = []
-            for c, emb in zip(new_chunks, embeddings):
-                c["chunk_id"] = next_id
-                c["embedding"] = emb
-                rows.append(c)
-                next_id += 1
-
-            df_new = pd.DataFrame(rows)
-            df_final = pd.concat([df_existing, df_new], ignore_index=True) if len(df_existing) else df_new
-            joblib.dump(df_final, str(embedding_file))
-            logger.info(f"Embeddings updated, total chunks: {len(df_final)}")
-        else:
-            logger.info("No new chunks to embed")
+        _run_embeddings(video_id, json_path, base_name)
 
         video.processing_stage = 'embedded'
         video.save()

@@ -101,10 +101,6 @@ export const videoAPI = {
             }
         ),
 
-    // Poll YouTube download status
-    getYouTubeDownloadStatus: (taskId) =>
-        api.get(`/videos/youtube_status/?task_id=${encodeURIComponent(taskId)}`),
-
     // Get video status
     getVideoStatus: (id) => api.get(`/videos/${id}/status/`),
 
