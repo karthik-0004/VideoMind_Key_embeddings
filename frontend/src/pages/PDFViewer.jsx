@@ -9,38 +9,27 @@ import './PDFViewer.css';
 export const PDFViewer = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [pdf, setPdf] = useState(null);
     const [video, setVideo] = useState(null);
+    const [pdfReady, setPdfReady] = useState(false);
     const [loading, setLoading] = useState(true);
-    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
-    const backendOrigin = apiBaseUrl.replace(/\/api\/?$/, '');
-
     useEffect(() => {
-        Promise.all([
-            videoAPI.getVideo(id),
-            videoAPI.getPDF(id)
-        ])
+        Promise.all([videoAPI.getVideo(id), videoAPI.downloadPDF(id, undefined, { fastMode: true })])
             .then(([videoRes, pdfRes]) => {
                 setVideo(videoRes.data);
-                setPdf(pdfRes.data);
+                setPdfReady(Boolean(pdfRes?.data));
             })
             .catch(err => console.error(err))
             .finally(() => setLoading(false));
     }, [id]);
 
-    const getPdfUrl = (fileUrl) => {
-        if (!fileUrl) return '';
-        if (fileUrl.startsWith('http')) return fileUrl;
-        const normalizedPath = fileUrl.startsWith('/') ? fileUrl : `/${fileUrl}`;
-        return `${backendOrigin}${normalizedPath}`;
-    };
-
     const handleDownload = async () => {
-        if (pdf?.file) {
+        if (video?.id) {
             try {
-                const pdfUrl = getPdfUrl(pdf.file);
-                const response = await fetch(pdfUrl);
-                const blob = await response.blob();
+                const response = await videoAPI.downloadPDF(video.id, undefined, { fastMode: true });
+                const blob = response?.data;
+                if (!blob) {
+                    return;
+                }
                 const fileName = video?.title ? `${video.title}.pdf` : 'document.pdf';
 
                 if (window.showSaveFilePicker) {
@@ -77,31 +66,22 @@ export const PDFViewer = () => {
                 }
             } catch (error) {
                 console.error('Download failed:', error);
-                // Last resort fallback using original URL
-                const link = document.createElement('a');
-                link.href = getPdfUrl(pdf.file);
-                link.download = video?.title || 'document.pdf';
-                link.click();
             }
         }
     };
 
     const handleOpenNewTab = () => {
-        if (pdf?.file) {
-            const resolvedUrl = getPdfUrl(pdf.file);
-            fetch(resolvedUrl)
+        if (video?.id) {
+            videoAPI.downloadPDF(video.id, undefined, { fastMode: true })
                 .then((res) => {
-                    if (!res.ok) throw new Error(`PDF fetch failed: ${res.status}`);
-                    return res.arrayBuffer();
-                })
-                .then((buffer) => {
-                    const blob = new Blob([buffer], { type: 'application/pdf' });
+                    const blob = res?.data;
+                    if (!blob) throw new Error('PDF blob missing');
                     const blobUrl = URL.createObjectURL(blob);
                     window.open(blobUrl, '_blank', 'noopener,noreferrer');
                     setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
                 })
-                .catch(() => {
-                    window.open(resolvedUrl, '_blank', 'noopener,noreferrer');
+                .catch((err) => {
+                    console.error('Open PDF failed:', err);
                 });
         }
     };
@@ -119,7 +99,7 @@ export const PDFViewer = () => {
 
                 {loading ? (
                     <div className="loading-state">Preparing your document...</div>
-                ) : pdf ? (
+                ) : pdfReady ? (
                     <div style={{
                         flex: 1,
                         display: 'flex',

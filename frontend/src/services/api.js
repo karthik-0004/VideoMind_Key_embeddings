@@ -105,6 +105,9 @@ export const videoAPI = {
     // Download PDF as authenticated blob
     downloadPDF: (id, onDownloadProgress, options = {}) => api.get(`/videos/${id}/pdf_download/${options.fastMode ? '?fast=1' : ''}`, {
         responseType: 'blob',
+        headers: {
+            Accept: 'application/pdf, application/json;q=0.9, */*;q=0.8',
+        },
         timeout: 300000,
         onDownloadProgress,
     }),

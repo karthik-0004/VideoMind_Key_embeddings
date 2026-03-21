@@ -127,28 +127,16 @@ export const Chat = () => {
 
     const handleOpenPdf = async () => {
         try {
-            const pdfRes = await videoAPI.getPDF(id);
-            const fileUrl = pdfRes?.data?.file;
-
-            if (!fileUrl) {
+            const res = await videoAPI.downloadPDF(id, undefined, { fastMode: true });
+            const blob = res?.data;
+            if (!blob) {
                 setModalState({ open: true, variant: 'info', title: 'PDF Not Ready', message: 'PDF is not available yet for this video. Please wait for processing to complete.' });
                 return;
             }
-            const resolvedUrl = getPdfUrl(fileUrl);
-            try {
-                const response = await fetch(resolvedUrl);
-                if (!response.ok) {
-                    throw new Error(`PDF fetch failed: ${response.status}`);
-                }
-                const arrayBuffer = await response.arrayBuffer();
-                const blob = new Blob([arrayBuffer], { type: 'application/pdf' });
-                const blobUrl = URL.createObjectURL(blob);
-                window.open(blobUrl, '_blank', 'noopener,noreferrer');
-                setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
-            } catch (blobError) {
-                // Fallback to direct URL if blob fetch is blocked by CORS/CDN policy.
-                window.open(resolvedUrl, '_blank', 'noopener,noreferrer');
-            }
+
+            const blobUrl = URL.createObjectURL(blob);
+            window.open(blobUrl, '_blank', 'noopener,noreferrer');
+            setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
         } catch (error) {
             console.error('Failed to open PDF:', error);
             setModalState({ open: true, variant: 'warning', title: 'PDF Unavailable', message: 'Could not open PDF right now. Please try again.' });

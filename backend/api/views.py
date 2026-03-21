@@ -636,6 +636,14 @@ class VideoViewSet(viewsets.ModelViewSet):
 
         file_bytes = None
 
+        # Most reliable path: read bytes directly from configured Django storage.
+        # This avoids CDN/provider URL restrictions that can return 406.
+        try:
+            with pdf.file.open('rb') as stored_pdf:
+                file_bytes = stored_pdf.read()
+        except Exception as storage_err:
+            logger.warning(f"Storage read failed for PDF {pdf.id}: {storage_err}")
+
         # Prefer local PDF bytes first to avoid Cloudinary raw URL auth issues.
         try:
             import pipelIne_api
