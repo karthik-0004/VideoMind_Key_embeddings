@@ -6,6 +6,18 @@ import { authAPI } from '../services/api';
 import './Landing.css';
 
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+const ALLOWED_AUTH_EMAILS = (import.meta.env.VITE_AUTH_ALLOWED_EMAILS || '')
+    .split(',')
+    .map((email) => email.trim().toLowerCase())
+    .filter(Boolean);
+const ENFORCE_ALLOWED_AUTH_EMAILS = String(import.meta.env.VITE_ENFORCE_ALLOWED_EMAILS || 'false').toLowerCase() === 'true';
+
+const getAllowedEmailMessage = () => {
+    if (ALLOWED_AUTH_EMAILS.length === 1) {
+        return `Only ${ALLOWED_AUTH_EMAILS[0]} can sign in.`;
+    }
+    return 'This email is not allowed to sign in.';
+};
 
 export const Landing = () => {
     const navigate = useNavigate();
@@ -222,7 +234,7 @@ export const Landing = () => {
         const email = form.email.trim().toLowerCase();
         const password = form.password;
         if (!email || !password) return setError('Please fill in all fields.');
-        if (!email.endsWith('@gmail.com')) return setError('Please use a valid Gmail address.');
+        if (ENFORCE_ALLOWED_AUTH_EMAILS && ALLOWED_AUTH_EMAILS.length > 0 && !ALLOWED_AUTH_EMAILS.includes(email)) return setError(getAllowedEmailMessage());
         try {
             setSubmitting(true);
             const response = await authAPI.login(email, password);
@@ -245,7 +257,7 @@ export const Landing = () => {
         const email = form.email.trim().toLowerCase();
         const password = form.password;
         if (!email || !password) return setError('Please fill in all fields.');
-        if (!email.endsWith('@gmail.com')) return setError('Please use a valid Gmail address.');
+        if (ENFORCE_ALLOWED_AUTH_EMAILS && ALLOWED_AUTH_EMAILS.length > 0 && !ALLOWED_AUTH_EMAILS.includes(email)) return setError(getAllowedEmailMessage());
         if (password.length < 6) return setError('Password must be at least 6 characters.');
         if (form.confirmPassword !== password) return setError('Passwords do not match.');
         try {
@@ -300,7 +312,7 @@ export const Landing = () => {
 
                         <div className="divider">or sign in with email</div>
 
-                        <div className="field"><label>Email</label><input type="email" placeholder="you@gmail.com" value={form.email} onChange={e => handleField('email', e.target.value)} /></div>
+                        <div className="field"><label>Email</label><input type="email" placeholder="you@example.com" value={form.email} onChange={e => handleField('email', e.target.value)} /></div>
                         <div className="field"><label>Password</label><input type="password" placeholder="••••••••" value={form.password} onChange={e => handleField('password', e.target.value)} onKeyDown={e => { if (e.key === 'Enter') doLogin(); }} /></div>
                         <button className="modal-submit" onClick={doLogin} disabled={submitting}>{submitting ? 'Signing in...' : 'Sign In →'}</button>
                         <div className="modal-switch">No account? <button onClick={() => switchModal('register')}>Register here</button></div>
@@ -334,7 +346,7 @@ export const Landing = () => {
 
                         <div className="divider">or register with email</div>
 
-                        <div className="field"><label>Email</label><input type="email" placeholder="you@gmail.com" value={form.email} onChange={e => handleField('email', e.target.value)} /></div>
+                        <div className="field"><label>Email</label><input type="email" placeholder="you@example.com" value={form.email} onChange={e => handleField('email', e.target.value)} /></div>
                         <div className="field"><label>Password</label><input type="password" placeholder="Min. 6 characters" value={form.password} onChange={e => handleField('password', e.target.value)} /></div>
                         <div className="field"><label>Confirm Password</label><input type="password" placeholder="Re-enter password" value={form.confirmPassword} onChange={e => handleField('confirmPassword', e.target.value)} onKeyDown={e => { if (e.key === 'Enter') doRegister(); }} /></div>
                         <button className="modal-submit" onClick={doRegister} disabled={submitting}>{submitting ? 'Creating...' : 'Create Account →'}</button>

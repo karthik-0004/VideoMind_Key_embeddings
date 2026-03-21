@@ -4,6 +4,7 @@ DRF Serializers for Video RAG API
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
+from django.conf import settings
 from .models import Video, Query, PDF, UserProfile
 
 
@@ -102,8 +103,12 @@ class RegisterSerializer(serializers.Serializer):
 
     def validate_email(self, value):
         normalized_email = value.strip().lower()
-        if not normalized_email.endswith('@gmail.com'):
-            raise serializers.ValidationError('Please use a valid Gmail address.')
+        allowed_emails = getattr(settings, 'AUTH_ALLOWED_EMAILS', [])
+        enforce_allowlist = getattr(settings, 'AUTH_ENFORCE_ALLOWED_EMAILS', False)
+        if enforce_allowlist and allowed_emails and normalized_email not in allowed_emails:
+            if len(allowed_emails) == 1:
+                raise serializers.ValidationError(f"Only {allowed_emails[0]} is allowed to register.")
+            raise serializers.ValidationError('This email is not allowed for registration.')
 
         if User.objects.filter(email__iexact=normalized_email).exists():
             raise serializers.ValidationError('This email is already registered. Please log in.')

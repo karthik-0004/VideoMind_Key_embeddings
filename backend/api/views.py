@@ -897,6 +897,23 @@ class AuthViewSet(viewsets.ViewSet):
             status=status.HTTP_503_SERVICE_UNAVAILABLE,
         )
 
+    def _is_email_allowed(self, email):
+        enforce_allowlist = getattr(settings, 'AUTH_ENFORCE_ALLOWED_EMAILS', False)
+        if not enforce_allowlist:
+            return True
+        allowed_emails = getattr(settings, 'AUTH_ALLOWED_EMAILS', [])
+        if not allowed_emails:
+            return True
+        return (email or '').lower() in allowed_emails
+
+    def _not_allowed_email_response(self, action_label='sign in'):
+        allowed_emails = getattr(settings, 'AUTH_ALLOWED_EMAILS', [])
+        if len(allowed_emails) == 1:
+            message = f'Only {allowed_emails[0]} is allowed to {action_label}.'
+        else:
+            message = f'This email is not allowed to {action_label}.'
+        return Response({'error': message}, status=status.HTTP_400_BAD_REQUEST)
+
     @action(detail=False, methods=['post'])
     def register(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -943,6 +960,9 @@ class AuthViewSet(viewsets.ViewSet):
 
         email = serializer.validated_data['email'].strip().lower()
         password = serializer.validated_data['password']
+
+        if not self._is_email_allowed(email):
+            return self._not_allowed_email_response('sign in')
 
         try:
             user = User.objects.filter(email__iexact=email).first()
@@ -1011,11 +1031,8 @@ class AuthViewSet(viewsets.ViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        if not email.endswith('@gmail.com'):
-            return Response(
-                {'error': 'Please use a valid Gmail account.'},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+        if not self._is_email_allowed(email):
+            return self._not_allowed_email_response('sign in with Google')
 
         name = decoded.get('name') or email.split('@')[0]
         picture = decoded.get('picture') or ''

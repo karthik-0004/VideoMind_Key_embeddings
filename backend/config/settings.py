@@ -271,6 +271,11 @@ LOGGING = {
 
 CORS_ALLOW_ALL_ORIGINS = False
 
+# Optional allowlist for email/password + Google auth.
+# Example: AUTH_ALLOWED_EMAILS=you@example.com,another@example.com
+AUTH_ALLOWED_EMAILS = [email.lower() for email in get_csv_env('AUTH_ALLOWED_EMAILS')]
+AUTH_ENFORCE_ALLOWED_EMAILS = os.getenv('AUTH_ENFORCE_ALLOWED_EMAILS', 'False') == 'True'
+
 # Google OAuth Configuration
 SITE_ID = 1
 

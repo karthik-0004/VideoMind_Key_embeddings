@@ -95,7 +95,6 @@ export const AuthProvider = ({ children }) => {
         setUser(null);
         localStorage.removeItem('user');
         authStorage.clearToken();
-        window.location.href = '/login';
     };
 
     const isAuthenticated = !!user;

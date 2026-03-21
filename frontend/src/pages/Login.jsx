@@ -6,6 +6,19 @@ import { authAPI } from '../services/api';
 import { ShieldCheck, Mail, Lock, UserPlus, LogIn } from 'lucide-react';
 import './Login.css';
 
+const ALLOWED_AUTH_EMAILS = (import.meta.env.VITE_AUTH_ALLOWED_EMAILS || '')
+    .split(',')
+    .map((email) => email.trim().toLowerCase())
+    .filter(Boolean);
+const ENFORCE_ALLOWED_AUTH_EMAILS = String(import.meta.env.VITE_ENFORCE_ALLOWED_EMAILS || 'false').toLowerCase() === 'true';
+
+const getAllowedEmailMessage = () => {
+    if (ALLOWED_AUTH_EMAILS.length === 1) {
+        return `Only ${ALLOWED_AUTH_EMAILS[0]} can sign in.`;
+    }
+    return 'This email is not allowed to sign in.';
+};
+
 export const Login = () => {
     const { login, register, isAuthenticated } = useAuth();
     const navigate = useNavigate();
@@ -67,8 +80,8 @@ export const Login = () => {
             return;
         }
 
-        if (!email.endsWith('@gmail.com')) {
-            setError('Please use a valid Gmail address.');
+        if (ENFORCE_ALLOWED_AUTH_EMAILS && ALLOWED_AUTH_EMAILS.length > 0 && !ALLOWED_AUTH_EMAILS.includes(email)) {
+            setError(getAllowedEmailMessage());
             return;
         }
 
@@ -165,7 +178,7 @@ export const Login = () => {
                                 <input
                                     id="email"
                                     type="email"
-                                    placeholder="you@gmail.com"
+                                    placeholder="you@example.com"
                                     value={form.email}
                                     onChange={(event) => handleChange('email', event.target.value)}
                                     autoComplete="email"
