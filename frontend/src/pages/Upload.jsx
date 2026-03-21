@@ -339,6 +339,8 @@ export const Upload = () => {
                             </button>
                         </div>
 
+                        <p className="youtube-hint">Tip: use a video with captions/subtitles enabled for faster and more reliable processing.</p>
+
                         <label className="youtube-label" htmlFor="youtube-title">Title (optional)</label>
                         <input
                             id="youtube-title"

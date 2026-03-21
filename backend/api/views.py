@@ -601,6 +601,12 @@ class VideoViewSet(viewsets.ModelViewSet):
                 'youtube_url': video.youtube_url or '',
             })
         
+        except ValueError as e:
+            logger.warning(f"Video query rejected for video={video.id}: {e}")
+            return Response(
+                {'error': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
         except Exception as e:
             logger.error(f"Video query failed for video={video.id}: {e}", exc_info=True)
             return Response(

@@ -56,11 +56,17 @@ def _fetch_transcript(video_key):
     try:
         return YouTubeTranscriptApi.get_transcript(video_key, languages=['en'])
     except (TranscriptsDisabled, NoTranscriptFound):
-        raise
+        # Fall back to transcript discovery instead of failing immediately.
+        pass
     except Exception:
         pass
 
     transcripts = YouTubeTranscriptApi.list_transcripts(video_key)
+
+    try:
+        return transcripts.find_transcript(['en']).fetch()
+    except (NoTranscriptFound, TranscriptsDisabled):
+        pass
 
     try:
         return transcripts.find_generated_transcript(['en']).fetch()
