@@ -159,6 +159,7 @@ export const Dashboard = () => {
     }, [videos]);
 
     const [deleteTarget, setDeleteTarget] = useState(null);
+    const [pdfDownloadingId, setPdfDownloadingId] = useState(null);
 
     const handleDelete = (videoId, videoTitle) => {
         setDeleteTarget({ id: videoId, title: videoTitle });
@@ -176,6 +177,31 @@ export const Dashboard = () => {
             console.error('Error deleting video:', error);
         } finally {
             setDeleteTarget(null);
+        }
+    };
+
+    const handleDownloadPDF = async (video) => {
+        if (!video?.id || video.status !== 'completed') return;
+
+        try {
+            setPdfDownloadingId(video.id);
+            const res = await videoAPI.downloadPDF(video.id, undefined, { fastMode: true });
+            const blob = res?.data;
+            if (!blob) return;
+
+            const downloadUrl = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = downloadUrl;
+            const title = (video?.title || 'study_notes').replace(/[^a-zA-Z0-9._-]+/g, '_');
+            a.download = `${title}.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(downloadUrl), 60000);
+        } catch (error) {
+            console.error('Error downloading PDF:', error);
+        } finally {
+            setPdfDownloadingId(null);
         }
     };
 
@@ -445,6 +471,15 @@ export const Dashboard = () => {
 
                                 {/* Action Buttons */}
                                 <div className="detail-actions">
+                                    <button
+                                        className="action-btn action-pdf"
+                                        onClick={() => handleDownloadPDF(selectedVideo)}
+                                        disabled={selectedVideo.status !== 'completed' || pdfDownloadingId === selectedVideo.id}
+                                        title={selectedVideo.status === 'completed' ? 'Download PDF' : 'PDF is not ready yet'}
+                                    >
+                                        <FileText size={15} />
+                                        {pdfDownloadingId === selectedVideo.id ? 'Downloading...' : 'Download PDF'}
+                                    </button>
                                     <button
                                         className="action-btn action-delete"
                                         onClick={() => handleDelete(selectedVideo.id, selectedVideo.title)}

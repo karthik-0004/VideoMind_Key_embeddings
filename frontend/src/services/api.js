@@ -90,10 +90,16 @@ export const videoAPI = {
 
     // Start upload from YouTube URL (backend downloads to local disk first)
     uploadYouTube: (youtubeUrl, title = '') =>
-        api.post('/videos/upload_youtube/', {
-            youtube_url: youtubeUrl,
-            title,
-        }),
+        api.post(
+            '/videos/upload_youtube/',
+            {
+                youtube_url: youtubeUrl,
+                title,
+            },
+            {
+                timeout: 120000,
+            }
+        ),
 
     // Poll YouTube download status
     getYouTubeDownloadStatus: (taskId) =>

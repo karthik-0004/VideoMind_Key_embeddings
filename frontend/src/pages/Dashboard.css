@@ -577,6 +577,11 @@
     border: 1px solid transparent;
 }
 
+.action-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
 .action-chat {
     background: var(--primary);
     color: var(--text-on-primary);
