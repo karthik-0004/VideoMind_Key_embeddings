@@ -1,6 +1,8 @@
 import json
 import logging
 import re
+import subprocess
+import tempfile
 import threading
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -100,6 +102,69 @@ def _fetch_transcript(video_key):
     raise NoTranscriptFound(video_key, [], {})
 
 
+def _parse_json3_to_entries(json3_path):
+    with open(json3_path, 'r', encoding='utf-8') as fp:
+        payload = json.load(fp)
+
+    entries = []
+    for event in payload.get('events', []):
+        segs = event.get('segs') or []
+        text = ''.join(seg.get('utf8', '') for seg in segs).replace('\n', ' ').strip()
+        if not text:
+            continue
+
+        start_ms = float(event.get('tStartMs', 0.0))
+        duration_ms = float(event.get('dDurationMs', 0.0))
+        entries.append(
+            {
+                'start': start_ms / 1000.0,
+                'duration': max(0.0, duration_ms / 1000.0),
+                'text': text,
+            }
+        )
+
+    return entries
+
+
+def _fetch_transcript_via_ytdlp(video_key):
+    """Fallback transcript retrieval through yt-dlp subtitle download."""
+    url = f'https://www.youtube.com/watch?v={video_key}'
+    with tempfile.TemporaryDirectory(prefix='yt_subs_') as tmp_dir:
+        output_template = str(Path(tmp_dir) / '%(id)s.%(ext)s')
+        cmd = [
+            'yt-dlp',
+            '--no-playlist',
+            '--skip-download',
+            '--write-auto-subs',
+            '--write-subs',
+            '--sub-langs',
+            'en.*,en',
+            '--sub-format',
+            'json3',
+            '-o',
+            output_template,
+            url,
+        ]
+
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode != 0:
+            raise RuntimeError(f'yt-dlp subtitle fetch failed: {result.stderr or result.stdout}')
+
+        json3_files = sorted(Path(tmp_dir).glob(f'{video_key}*.json3'))
+        if not json3_files:
+            raise NoTranscriptFound(video_key, [], {})
+
+        for json3_file in json3_files:
+            try:
+                entries = _parse_json3_to_entries(json3_file)
+                if entries:
+                    return entries
+            except Exception:
+                continue
+
+    raise NoTranscriptFound(video_key, [], {})
+
+
 def _process_youtube_sync(video_id):
     from api.models import Video
     from video_processor.pdf_gen import generate_pdf
@@ -117,7 +182,13 @@ def _process_youtube_sync(video_id):
         if not youtube_key:
             raise ValueError('Invalid YouTube URL')
 
-        transcript_entries = _fetch_transcript(youtube_key)
+        try:
+            transcript_entries = _fetch_transcript(youtube_key)
+        except (TranscriptsDisabled, NoTranscriptFound):
+            logger.warning(
+                f'Primary transcript API failed for {youtube_key}; attempting yt-dlp subtitle fallback.'
+            )
+            transcript_entries = _fetch_transcript_via_ytdlp(youtube_key)
 
         base_name = build_youtube_base_name(video.title, fallback=f'youtube_{video.id}')
         json_filename = f'0_{base_name}.mp3.json'
