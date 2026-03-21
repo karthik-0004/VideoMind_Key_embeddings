@@ -53,10 +53,20 @@ def build_youtube_base_name(title_value, fallback='youtube_video'):
 
 
 def _fetch_transcript(video_key):
+    preferred_en_codes = ['en', 'en-US', 'en-GB', 'en-IN']
+
     try:
-        return YouTubeTranscriptApi.get_transcript(video_key, languages=['en'])
+        return YouTubeTranscriptApi.get_transcript(video_key, languages=preferred_en_codes)
     except (TranscriptsDisabled, NoTranscriptFound):
         # Fall back to transcript discovery instead of failing immediately.
+        pass
+    except Exception:
+        pass
+
+    # Try API default selection (any available language).
+    try:
+        return YouTubeTranscriptApi.get_transcript(video_key)
+    except (TranscriptsDisabled, NoTranscriptFound):
         pass
     except Exception:
         pass
@@ -64,14 +74,22 @@ def _fetch_transcript(video_key):
     transcripts = YouTubeTranscriptApi.list_transcripts(video_key)
 
     try:
-        return transcripts.find_transcript(['en']).fetch()
+        return transcripts.find_transcript(preferred_en_codes).fetch()
     except (NoTranscriptFound, TranscriptsDisabled):
         pass
 
     try:
-        return transcripts.find_generated_transcript(['en']).fetch()
+        return transcripts.find_generated_transcript(preferred_en_codes).fetch()
     except (NoTranscriptFound, TranscriptsDisabled):
         pass
+
+    # If any transcript can be translated to English, use that.
+    for transcript in transcripts:
+        try:
+            if getattr(transcript, 'is_translatable', False):
+                return transcript.translate('en').fetch()
+        except Exception:
+            continue
 
     for transcript in transcripts:
         try:
