@@ -1,0 +1,3043 @@
+{
+  "wireMagic": "pb3",
+  "pens": [ {
+  
+  } ],
+  "wsWinStyles": [ {
+  
+  } ],
+  "wpWinPositions": [ {
+  
+  } ],
+  "events": [ {
+    "tStartMs": 8566,
+    "dDurationMs": 400,
+    "segs": [ {
+      "utf8": "In this"
+    } ]
+  }, {
+    "tStartMs": 8966,
+    "dDurationMs": 3067,
+    "segs": [ {
+      "utf8": "video, I'll be showing you\nevery built in Python function."
+    } ]
+  }, {
+    "tStartMs": 12266,
+    "dDurationMs": 1834,
+    "segs": [ {
+      "utf8": "I'll run through a quick example of each"
+    } ]
+  }, {
+    "tStartMs": 14100,
+    "dDurationMs": 2700,
+    "segs": [ {
+      "utf8": "and I guarantee you that you will learn\nsomething in this video"
+    } ]
+  }, {
+    "tStartMs": 16800,
+    "dDurationMs": 3566,
+    "segs": [ {
+      "utf8": "and that you will see a ton of\nintermediate and advanced python examples"
+    } ]
+  }, {
+    "tStartMs": 20666,
+    "dDurationMs": 1467,
+    "segs": [ {
+      "utf8": "for every single one of these functions."
+    } ]
+  }, {
+    "tStartMs": 22133,
+    "dDurationMs": 1733,
+    "segs": [ {
+      "utf8": "I will explain the basic usage."
+    } ]
+  }, {
+    "tStartMs": 23866,
+    "dDurationMs": 3067,
+    "segs": [ {
+      "utf8": "I'll throw the definition on the screen\nand afterwards you will know"
+    } ]
+  }, {
+    "tStartMs": 26933,
+    "dDurationMs": 3167,
+    "segs": [ {
+      "utf8": "a bunch of functions that you did not know\nbefore and probably see"
+    } ]
+  }, {
+    "tStartMs": 30100,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "a bunch of advanced python code\nthat you can then go and learn more about."
+    } ]
+  }, {
+    "tStartMs": 34033,
+    "dDurationMs": 1367,
+    "segs": [ {
+      "utf8": "Now, I did learn a little bit here."
+    } ]
+  }, {
+    "tStartMs": 35400,
+    "dDurationMs": 1800,
+    "segs": [ {
+      "utf8": "There's a lot of built\nin Python functions,"
+    } ]
+  }, {
+    "tStartMs": 37200,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "so I'm actually split this into two parts."
+    } ]
+  }, {
+    "tStartMs": 39200,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "In this first part, I'm going to show you"
+    } ]
+  }, {
+    "tStartMs": 40700,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "approximately half of them,\nwhich is about 35 functions."
+    } ]
+  }, {
+    "tStartMs": 43766,
+    "dDurationMs": 2200,
+    "segs": [ {
+      "utf8": "Then in the next part,\nI will show you the rest."
+    } ]
+  }, {
+    "tStartMs": 45966,
+    "dDurationMs": 2667,
+    "segs": [ {
+      "utf8": "However, I will give you one bonus item\nin this video,"
+    } ]
+  }, {
+    "tStartMs": 48766,
+    "dDurationMs": 2334,
+    "segs": [ {
+      "utf8": "and that is the sponsor of this video."
+    } ]
+  }, {
+    "tStartMs": 51133,
+    "dDurationMs": 3433,
+    "segs": [ {
+      "utf8": "Thanks to IEEE staff\nfor sponsoring this video with Easter,"
+    } ]
+  }, {
+    "tStartMs": 54566,
+    "dDurationMs": 2867,
+    "segs": [ {
+      "utf8": "you can create a full stack web app\nin just 5 minutes."
+    } ]
+  }, {
+    "tStartMs": 57633,
+    "dDurationMs": 4567,
+    "segs": [ {
+      "utf8": "Generate a CRUD API in seconds\nand have their magic cloud automagically."
+    } ]
+  }, {
+    "tStartMs": 62200,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Create your web app without coding."
+    } ]
+  }, {
+    "tStartMs": 64633,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "One of the best parts of their magic cloud\nis it can wrap new"
+    } ]
+  }, {
+    "tStartMs": 67633,
+    "dDurationMs": 4633,
+    "segs": [ {
+      "utf8": "or existing databases in a CRUD API\nand add security automatically,"
+    } ]
+  }, {
+    "tStartMs": 72366,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "making you ten times more productive\nand saving you hours of work."
+    } ]
+  }, {
+    "tStartMs": 76000,
+    "dDurationMs": 4266,
+    "segs": [ {
+      "utf8": "Now not only do you get pre generated\nCRUD APIs and effortless security,"
+    } ]
+  }, {
+    "tStartMs": 80400,
+    "dDurationMs": 3533,
+    "segs": [ {
+      "utf8": "you can also have magic generate\na front end user interface for you."
+    } ]
+  }, {
+    "tStartMs": 84333,
+    "dDurationMs": 3333,
+    "segs": [ {
+      "utf8": "This interface is fully featured,\nallowing you to view and interact"
+    } ]
+  }, {
+    "tStartMs": 87666,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "with your database\nand even access administrative controls."
+    } ]
+  }, {
+    "tStartMs": 91133,
+    "dDurationMs": 4067,
+    "segs": [ {
+      "utf8": "Once you're all set up, you can schedule\nhyper lambda tasks and use their hyper ID"
+    } ]
+  }, {
+    "tStartMs": 95700,
+    "dDurationMs": 2200,
+    "segs": [ {
+      "utf8": "to edit your files\ndirectly on your server."
+    } ]
+  }, {
+    "tStartMs": 98266,
+    "dDurationMs": 3467,
+    "segs": [ {
+      "utf8": "Start taking advantage of low\nand no code software development today"
+    } ]
+  }, {
+    "tStartMs": 101733,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "by getting started with Aisa and Magic\nCloud and getting one free month of usage."
+    } ]
+  }, {
+    "tStartMs": 106200,
+    "dDurationMs": 3333,
+    "segs": [ {
+      "utf8": "Go to IEEE Starcom and sign up\nnow for your free trial."
+    } ]
+  }, {
+    "tStartMs": 109733,
+    "dDurationMs": 1400,
+    "segs": [ {
+      "utf8": "So let's get right into it here."
+    } ]
+  }, {
+    "tStartMs": 111133,
+    "dDurationMs": 3767,
+    "segs": [ {
+      "utf8": "After I tell you that I do have a\nprograming course programing expert audio."
+    } ]
+  }, {
+    "tStartMs": 114900,
+    "dDurationMs": 633,
+    "segs": [ {
+      "utf8": "If you want to learn"
+    } ]
+  }, {
+    "tStartMs": 115533,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "more about Python, learn,\ngo and learn advanced python specifically."
+    } ]
+  }, {
+    "tStartMs": 119333,
+    "dDurationMs": 2267,
+    "segs": [ {
+      "utf8": "Check out that course.\nI'll leave a link in the description."
+    } ]
+  }, {
+    "tStartMs": 121600,
+    "dDurationMs": 1200,
+    "segs": [ {
+      "utf8": "Anyways, let's dove in here."
+    } ]
+  }, {
+    "tStartMs": 122800,
+    "dDurationMs": 3433,
+    "segs": [ {
+      "utf8": "At the first function we have is ABC\nstanding for absolute value."
+    } ]
+  }, {
+    "tStartMs": 126533,
+    "dDurationMs": 2700,
+    "segs": [ {
+      "utf8": "Now absolute value can be used on\nanything that implements"
+    } ]
+  }, {
+    "tStartMs": 129233,
+    "dDurationMs": 2067,
+    "segs": [ {
+      "utf8": "the underscore underscore ABC method."
+    } ]
+  }, {
+    "tStartMs": 131500,
+    "dDurationMs": 2033,
+    "segs": [ {
+      "utf8": "Now that means we can use this on floats."
+    } ]
+  }, {
+    "tStartMs": 133533,
+    "dDurationMs": 1533,
+    "segs": [ {
+      "utf8": "We can use this on INS."
+    } ]
+  }, {
+    "tStartMs": 135066,
+    "dDurationMs": 2934,
+    "segs": [ {
+      "utf8": "And you can see here\nthat if I run my code here that I get the"
+    } ]
+  }, {
+    "tStartMs": 138000,
+    "dDurationMs": 4133,
+    "segs": [ {
+      "utf8": "absolute value, which is just the positive\nrepresentation of these numbers."
+    } ]
+  }, {
+    "tStartMs": 142133,
+    "dDurationMs": 3333,
+    "segs": [ {
+      "utf8": "So positive nine and positive 100.876."
+    } ]
+  }, {
+    "tStartMs": 145766,
+    "dDurationMs": 4100,
+    "segs": [ {
+      "utf8": "Now notice that I wrote this custom class\nhere where I implemented my ABC method."
+    } ]
+  }, {
+    "tStartMs": 150066,
+    "dDurationMs": 2334,
+    "segs": [ {
+      "utf8": "Now this allows me\nto return anything that I want."
+    } ]
+  }, {
+    "tStartMs": 152566,
+    "dDurationMs": 3667,
+    "segs": [ {
+      "utf8": "And now when I call ABC, my custom object,\nwhich implements ABC,"
+    } ]
+  }, {
+    "tStartMs": 156233,
+    "dDurationMs": 1467,
+    "segs": [ {
+      "utf8": "it's going to return to me. Hello."
+    } ]
+  }, {
+    "tStartMs": 157700,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "Which is just the lowercase\nversion of the string."
+    } ]
+  }, {
+    "tStartMs": 160100,
+    "dDurationMs": 466,
+    "segs": [ {
+      "utf8": "Hello."
+    } ]
+  }, {
+    "tStartMs": 160566,
+    "dDurationMs": 4567,
+    "segs": [ {
+      "utf8": "Next function we have is a itor now\nader stands for asynchronous iterator"
+    } ]
+  }, {
+    "tStartMs": 165133,
+    "dDurationMs": 4133,
+    "segs": [ {
+      "utf8": "and this returns to the asynchronous\niterator associated with an object."
+    } ]
+  }, {
+    "tStartMs": 169433,
+    "dDurationMs": 3167,
+    "segs": [ {
+      "utf8": "Now, obviously this is a little bit\nadvanced, but an asynchronous iterator"
+    } ]
+  }, {
+    "tStartMs": 172600,
+    "dDurationMs": 3566,
+    "segs": [ {
+      "utf8": "can be returned from any object\nthat implements the later method."
+    } ]
+  }, {
+    "tStartMs": 176500,
+    "dDurationMs": 3233,
+    "segs": [ {
+      "utf8": "So if we have a look here at this example\nfunction, we can see that"
+    } ]
+  }, {
+    "tStartMs": 179733,
+    "dDurationMs": 3267,
+    "segs": [ {
+      "utf8": "we create an instance\nof our asynchronous iterator right here."
+    } ]
+  }, {
+    "tStartMs": 183000,
+    "dDurationMs": 2233,
+    "segs": [ {
+      "utf8": "We pass an a start and a stop value."
+    } ]
+  }, {
+    "tStartMs": 185466,
+    "dDurationMs": 3134,
+    "segs": [ {
+      "utf8": "We then get the iterator\nby calling the ater function."
+    } ]
+  }, {
+    "tStartMs": 188800,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "Now this is similar to the inner function,\nwhich you can call it anything"
+    } ]
+  }, {
+    "tStartMs": 191600,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "that is iterable adder\nis the asynchronous iterable version."
+    } ]
+  }, {
+    "tStartMs": 195300,
+    "dDurationMs": 3866,
+    "segs": [ {
+      "utf8": "So here it's going to return to\nus, our self, which is just this object."
+    } ]
+  }, {
+    "tStartMs": 199333,
+    "dDurationMs": 2133,
+    "segs": [ {
+      "utf8": "And now if I print this out,\nyou'll see the iterator,"
+    } ]
+  }, {
+    "tStartMs": 201466,
+    "dDurationMs": 3034,
+    "segs": [ {
+      "utf8": "and then we can loop through the iterator\nusing an asynchronous for loop."
+    } ]
+  }, {
+    "tStartMs": 204833,
+    "dDurationMs": 3833,
+    "segs": [ {
+      "utf8": "Now, what I do inside of here is\nI actually will automatically await"
+    } ]
+  }, {
+    "tStartMs": 208666,
+    "dDurationMs": 2834,
+    "segs": [ {
+      "utf8": "the value coming from my async\nnext method."
+    } ]
+  }, {
+    "tStartMs": 211800,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "Now, if I run, you can see that it's\ngoing to take a second and every second"
+    } ]
+  }, {
+    "tStartMs": 215700,
+    "dDurationMs": 3466,
+    "segs": [ {
+      "utf8": "is going to print out the next value\ncoming from my asynchronous iterator."
+    } ]
+  }, {
+    "tStartMs": 219366,
+    "dDurationMs": 2334,
+    "segs": [ {
+      "utf8": "I'm not going to explain\nasync programing in this video"
+    } ]
+  }, {
+    "tStartMs": 221700,
+    "dDurationMs": 1766,
+    "segs": [ {
+      "utf8": "because we don't have enough time.\nIf you want to learn"
+    } ]
+  }, {
+    "tStartMs": 223466,
+    "dDurationMs": 2134,
+    "segs": [ {
+      "utf8": "that, you can check out\nsomething like programing expert."
+    } ]
+  }, {
+    "tStartMs": 225866,
+    "dDurationMs": 1634,
+    "segs": [ {
+      "utf8": "So the next function we have is all."
+    } ]
+  }, {
+    "tStartMs": 227500,
+    "dDurationMs": 3533,
+    "segs": [ {
+      "utf8": "Now this tells you if all of the values\nin an iterable object are true."
+    } ]
+  }, {
+    "tStartMs": 231333,
+    "dDurationMs": 3167,
+    "segs": [ {
+      "utf8": "So I can print this out and you can see\nthat we get false for the first one."
+    } ]
+  }, {
+    "tStartMs": 234500,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "The reason we get false is because\nzero is not a true three value."
+    } ]
+  }, {
+    "tStartMs": 237833,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "So every single value in Python or literal\nthat we can type out like this"
+    } ]
+  }, {
+    "tStartMs": 241500,
+    "dDurationMs": 1800,
+    "segs": [ {
+      "utf8": "is either true or false."
+    } ]
+  }, {
+    "tStartMs": 243300,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "Something like zero is going to be false."
+    } ]
+  }, {
+    "tStartMs": 245200,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "Something like an empty string\nwould be false as well."
+    } ]
+  }, {
+    "tStartMs": 248400,
+    "dDurationMs": 3633,
+    "segs": [ {
+      "utf8": "Something like an empty array or an empty\nlist is going to be false as well."
+    } ]
+  }, {
+    "tStartMs": 252033,
+    "dDurationMs": 2167,
+    "segs": [ {
+      "utf8": "And that's why you could see that\nwe're getting the results like this."
+    } ]
+  }, {
+    "tStartMs": 254500,
+    "dDurationMs": 1033,
+    "segs": [ {
+      "utf8": "So fairly useful."
+    } ]
+  }, {
+    "tStartMs": 255533,
+    "dDurationMs": 2833,
+    "segs": [ {
+      "utf8": "One thing to note about,\nsay an example like this where we have DE"
+    } ]
+  }, {
+    "tStartMs": 258600,
+    "dDurationMs": 3633,
+    "segs": [ {
+      "utf8": "is that since we have elements\ninside of our nested list,"
+    } ]
+  }, {
+    "tStartMs": 262500,
+    "dDurationMs": 2966,
+    "segs": [ {
+      "utf8": "this actually counts as true, which\nyou can see that's printing out here."
+    } ]
+  }, {
+    "tStartMs": 265500,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "So even though these values\nare a false value,"
+    } ]
+  }, {
+    "tStartMs": 268733,
+    "dDurationMs": 3733,
+    "segs": [ {
+      "utf8": "since this here has elements inside of it,\nit's a truth value."
+    } ]
+  }, {
+    "tStartMs": 272633,
+    "dDurationMs": 3733,
+    "segs": [ {
+      "utf8": "And since we have all truth values\ninside of our list,"
+    } ]
+  }, {
+    "tStartMs": 276366,
+    "dDurationMs": 2534,
+    "segs": [ {
+      "utf8": "we get true when we print out all of B."
+    } ]
+  }, {
+    "tStartMs": 279066,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "So the next function we have here is a\nnext annex stands for asynchronous next."
+    } ]
+  }, {
+    "tStartMs": 283533,
+    "dDurationMs": 2667,
+    "segs": [ {
+      "utf8": "And this is\nwhat is called on an asynchronous iterator"
+    } ]
+  }, {
+    "tStartMs": 286200,
+    "dDurationMs": 1433,
+    "segs": [ {
+      "utf8": "to get the next value."
+    } ]
+  }, {
+    "tStartMs": 287633,
+    "dDurationMs": 3333,
+    "segs": [ {
+      "utf8": "Now, you may not know this, but when you\nuse a for loop, it automatically calls"
+    } ]
+  }, {
+    "tStartMs": 290966,
+    "dDurationMs": 3634,
+    "segs": [ {
+      "utf8": "the next or a next method, depending on\nif you're using an asynchronous for loop"
+    } ]
+  }, {
+    "tStartMs": 294833,
+    "dDurationMs": 1400,
+    "segs": [ {
+      "utf8": "or a regular for loop."
+    } ]
+  }, {
+    "tStartMs": 296233,
+    "dDurationMs": 1100,
+    "segs": [ {
+      "utf8": "And in this example here,"
+    } ]
+  }, {
+    "tStartMs": 297333,
+    "dDurationMs": 3967,
+    "segs": [ {
+      "utf8": "we can actually manually call the next\nmethod from an iterator using index."
+    } ]
+  }, {
+    "tStartMs": 301300,
+    "dDurationMs": 3866,
+    "segs": [ {
+      "utf8": "If you look down here, you can see I'm\nawaiting the next value by calling a next."
+    } ]
+  }, {
+    "tStartMs": 305366,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "I need to use a weight here\nbecause this is an asynchronous function"
+    } ]
+  }, {
+    "tStartMs": 308800,
+    "dDurationMs": 2566,
+    "segs": [ {
+      "utf8": "and this has a code routine,\nthis being a weighted inside of it."
+    } ]
+  }, {
+    "tStartMs": 311366,
+    "dDurationMs": 4567,
+    "segs": [ {
+      "utf8": "So if I run this, you can see that\nwe get one, two and then three."
+    } ]
+  }, {
+    "tStartMs": 316233,
+    "dDurationMs": 2567,
+    "segs": [ {
+      "utf8": "Now, I could also have iterated\nthrough this using a for loop"
+    } ]
+  }, {
+    "tStartMs": 318800,
+    "dDurationMs": 2133,
+    "segs": [ {
+      "utf8": "if I want,\nbut I wanted to show you the next method,"
+    } ]
+  }, {
+    "tStartMs": 320933,
+    "dDurationMs": 3467,
+    "segs": [ {
+      "utf8": "which again just gives you the next value\nin the iterable sequence"
+    } ]
+  }, {
+    "tStartMs": 324633,
+    "dDurationMs": 1933,
+    "segs": [ {
+      "utf8": "coming from an asynchronous iterator."
+    } ]
+  }, {
+    "tStartMs": 326566,
+    "dDurationMs": 1867,
+    "segs": [ {
+      "utf8": "The next function that we have is any now."
+    } ]
+  }, {
+    "tStartMs": 328433,
+    "dDurationMs": 700,
+    "segs": [ {
+      "utf8": "And he's going to tell you"
+    } ]
+  }, {
+    "tStartMs": 329133,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "if any of the values inside of an iterable\nobject are true."
+    } ]
+  }, {
+    "tStartMs": 332400,
+    "dDurationMs": 1633,
+    "segs": [ {
+      "utf8": "Pretty straightforward,\nsimilar to all, but"
+    } ]
+  }, {
+    "tStartMs": 334033,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "only one of the values needs to be true."
+    } ]
+  }, {
+    "tStartMs": 335933,
+    "dDurationMs": 2367,
+    "segs": [ {
+      "utf8": "So if I run this here, you can see that\nI get true, true, true, true."
+    } ]
+  }, {
+    "tStartMs": 338500,
+    "dDurationMs": 1433,
+    "segs": [ {
+      "utf8": "Until the very end where I get false"
+    } ]
+  }, {
+    "tStartMs": 339933,
+    "dDurationMs": 2700,
+    "segs": [ {
+      "utf8": "because every single value here\nis a false value."
+    } ]
+  }, {
+    "tStartMs": 342733,
+    "dDurationMs": 3567,
+    "segs": [ {
+      "utf8": "So the next function that we have here\nis bin bin stands for binary"
+    } ]
+  }, {
+    "tStartMs": 346300,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "and it's going to give you\nthe binary representation of an integer."
+    } ]
+  }, {
+    "tStartMs": 349933,
+    "dDurationMs": 4367,
+    "segs": [ {
+      "utf8": "So in this case, we can print out\nthe binary representation of 100 and -100,"
+    } ]
+  }, {
+    "tStartMs": 354500,
+    "dDurationMs": 3233,
+    "segs": [ {
+      "utf8": "and notice that rather than giving us\nthe two complement representation,"
+    } ]
+  }, {
+    "tStartMs": 357900,
+    "dDurationMs": 2566,
+    "segs": [ {
+      "utf8": "it just gives us a negative\nsign here in front of the zero."
+    } ]
+  }, {
+    "tStartMs": 360466,
+    "dDurationMs": 3200,
+    "segs": [ {
+      "utf8": "B Whenever you have a binary value,\nit's going to be denoted zero."
+    } ]
+  }, {
+    "tStartMs": 363666,
+    "dDurationMs": 1467,
+    "segs": [ {
+      "utf8": "B You can strip that off."
+    } ]
+  }, {
+    "tStartMs": 365133,
+    "dDurationMs": 2667,
+    "segs": [ {
+      "utf8": "If you first say converted this\nto a string and then strip it,"
+    } ]
+  }, {
+    "tStartMs": 368233,
+    "dDurationMs": 733,
+    "segs": [ {
+      "utf8": "it's kind of up to you."
+    } ]
+  }, {
+    "tStartMs": 368966,
+    "dDurationMs": 1967,
+    "segs": [ {
+      "utf8": "You can also use a format method\nto do this."
+    } ]
+  }, {
+    "tStartMs": 370933,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "However, this is the bin function."
+    } ]
+  }, {
+    "tStartMs": 372833,
+    "dDurationMs": 1833,
+    "segs": [ {
+      "utf8": "So the next function I have here is bool."
+    } ]
+  }, {
+    "tStartMs": 374666,
+    "dDurationMs": 4367,
+    "segs": [ {
+      "utf8": "Now bool is actually the constructor for\nthe boolean type or for the boolean class."
+    } ]
+  }, {
+    "tStartMs": 379266,
+    "dDurationMs": 1934,
+    "segs": [ {
+      "utf8": "So when I pass a value here to the pool"
+    } ]
+  }, {
+    "tStartMs": 381200,
+    "dDurationMs": 2666,
+    "segs": [ {
+      "utf8": "function,\nit gives me a new boolean object."
+    } ]
+  }, {
+    "tStartMs": 384100,
+    "dDurationMs": 2866,
+    "segs": [ {
+      "utf8": "So you can see here that when I run this\nand I print out just bool,"
+    } ]
+  }, {
+    "tStartMs": 386966,
+    "dDurationMs": 2134,
+    "segs": [ {
+      "utf8": "which is the function,\nit's actually giving me class."
+    } ]
+  }, {
+    "tStartMs": 389266,
+    "dDurationMs": 3067,
+    "segs": [ {
+      "utf8": "So this isn't really a function,\nit's actually a class."
+    } ]
+  }, {
+    "tStartMs": 392333,
+    "dDurationMs": 3067,
+    "segs": [ {
+      "utf8": "But when we call it,\nthen we get the constructor of that class."
+    } ]
+  }, {
+    "tStartMs": 395700,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "Anyways, I can pass to this\nany value that I want"
+    } ]
+  }, {
+    "tStartMs": 398300,
+    "dDurationMs": 2666,
+    "segs": [ {
+      "utf8": "and if this value is a false value, it's\ngoing to give me false."
+    } ]
+  }, {
+    "tStartMs": 400966,
+    "dDurationMs": 2334,
+    "segs": [ {
+      "utf8": "If it's a truth,\nyou value like one or something"
+    } ]
+  }, {
+    "tStartMs": 403300,
+    "dDurationMs": 2466,
+    "segs": [ {
+      "utf8": "that's just not false,\nthen it's going to give me true."
+    } ]
+  }, {
+    "tStartMs": 405966,
+    "dDurationMs": 2867,
+    "segs": [ {
+      "utf8": "So notice here, if I pass like an empty\ndictionary, that's going to be false."
+    } ]
+  }, {
+    "tStartMs": 409100,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "If I pass an empty list,\nthat would have been false."
+    } ]
+  }, {
+    "tStartMs": 411000,
+    "dDurationMs": 2933,
+    "segs": [ {
+      "utf8": "In this case, it's true.\nEven a number like negative one."
+    } ]
+  }, {
+    "tStartMs": 413966,
+    "dDurationMs": 1934,
+    "segs": [ {
+      "utf8": "This is going to be true\nbecause it's not zero."
+    } ]
+  }, {
+    "tStartMs": 415900,
+    "dDurationMs": 3233,
+    "segs": [ {
+      "utf8": "The only falsely integer value is zero."
+    } ]
+  }, {
+    "tStartMs": 419700,
+    "dDurationMs": 2333,
+    "segs": [ {
+      "utf8": "The next function\nthat I have is known as callable."
+    } ]
+  }, {
+    "tStartMs": 422066,
+    "dDurationMs": 2734,
+    "segs": [ {
+      "utf8": "Now callable is going to tell you\nif something is callable,"
+    } ]
+  }, {
+    "tStartMs": 425000,
+    "dDurationMs": 2033,
+    "segs": [ {
+      "utf8": "so that means you can call it\nlike a function."
+    } ]
+  }, {
+    "tStartMs": 427400,
+    "dDurationMs": 2866,
+    "segs": [ {
+      "utf8": "So in this case, if I'm saying callable of\nclass, this is going to return."
+    } ]
+  }, {
+    "tStartMs": 430266,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "True, because I can call the class\nby putting parentheses like this,"
+    } ]
+  }, {
+    "tStartMs": 433800,
+    "dDurationMs": 3033,
+    "segs": [ {
+      "utf8": "which is going to give me the constructor\nof the class even if it doesn't exist."
+    } ]
+  }, {
+    "tStartMs": 437133,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "Next I have func."
+    } ]
+  }, {
+    "tStartMs": 438633,
+    "dDurationMs": 2833,
+    "segs": [ {
+      "utf8": "Now Func is of course a function,\nso it is callable."
+    } ]
+  }, {
+    "tStartMs": 441500,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "Now notice I'm not putting the parentheses\nhere."
+    } ]
+  }, {
+    "tStartMs": 443400,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "I'm just writing the actual name\nof the function, which is the object."
+    } ]
+  }, {
+    "tStartMs": 446900,
+    "dDurationMs": 2300,
+    "segs": [ {
+      "utf8": "I'm checking if it's callable or not."
+    } ]
+  }, {
+    "tStartMs": 449200,
+    "dDurationMs": 2933,
+    "segs": [ {
+      "utf8": "Next I have function to,\nbut I'm actually calling this function."
+    } ]
+  }, {
+    "tStartMs": 452366,
+    "dDurationMs": 1200,
+    "segs": [ {
+      "utf8": "Now when I call this function,"
+    } ]
+  }, {
+    "tStartMs": 453566,
+    "dDurationMs": 3034,
+    "segs": [ {
+      "utf8": "it returns a function\nand that function will be callable."
+    } ]
+  }, {
+    "tStartMs": 456600,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "So this will return true."
+    } ]
+  }, {
+    "tStartMs": 458100,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "Next I have func three,\nwhich is a lambda or anonymous function"
+    } ]
+  }, {
+    "tStartMs": 461600,
+    "dDurationMs": 1100,
+    "segs": [ {
+      "utf8": "and this will be callable."
+    } ]
+  }, {
+    "tStartMs": 462700,
+    "dDurationMs": 3133,
+    "segs": [ {
+      "utf8": "I can pass a parameter to this\nand call it like any other function."
+    } ]
+  }, {
+    "tStartMs": 466033,
+    "dDurationMs": 2567,
+    "segs": [ {
+      "utf8": "Then I have something like a string,\nwhich of course is not callable."
+    } ]
+  }, {
+    "tStartMs": 468600,
+    "dDurationMs": 1200,
+    "segs": [ {
+      "utf8": "So if I run this here,"
+    } ]
+  }, {
+    "tStartMs": 469800,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "you can see we get true for the first four\nand then false for the last one."
+    } ]
+  }, {
+    "tStartMs": 472933,
+    "dDurationMs": 2967,
+    "segs": [ {
+      "utf8": "The next function I have here\nis C or char. Now"
+    } ]
+  }, {
+    "tStartMs": 475900,
+    "dDurationMs": 3200,
+    "segs": [ {
+      "utf8": "this is going to give you the character\nthat's associated with an integer."
+    } ]
+  }, {
+    "tStartMs": 479333,
+    "dDurationMs": 2633,
+    "segs": [ {
+      "utf8": "This integer is also referred\nto as the ordinal value."
+    } ]
+  }, {
+    "tStartMs": 482166,
+    "dDurationMs": 4734,
+    "segs": [ {
+      "utf8": "So in this case, 65 represents our capital\nA and 97 represents our lowercase A."
+    } ]
+  }, {
+    "tStartMs": 487100,
+    "dDurationMs": 4133,
+    "segs": [ {
+      "utf8": "It's not necessarily intuitive what number\nrepresents which character continuing?"
+    } ]
+  }, {
+    "tStartMs": 491233,
+    "dDurationMs": 3233,
+    "segs": [ {
+      "utf8": "If we print this out, you see that\nwe get a and a because when passed"
+    } ]
+  }, {
+    "tStartMs": 494466,
+    "dDurationMs": 2500,
+    "segs": [ {
+      "utf8": "65, it gives us the character\nwhich is capital."
+    } ]
+  }, {
+    "tStartMs": 497633,
+    "dDurationMs": 3167,
+    "segs": [ {
+      "utf8": "Now this is often useful when you want\nto generate a sequence of characters"
+    } ]
+  }, {
+    "tStartMs": 501333,
+    "dDurationMs": 2267,
+    "segs": [ {
+      "utf8": "and you don't want to say,\nI have to type a bunch of them out."
+    } ]
+  }, {
+    "tStartMs": 504000,
+    "dDurationMs": 2366,
+    "segs": [ {
+      "utf8": "So if I wanted to get\nmaybe the entire alphabet"
+    } ]
+  }, {
+    "tStartMs": 506500,
+    "dDurationMs": 2933,
+    "segs": [ {
+      "utf8": "or just a bunch of different characters,\nrather than having to type"
+    } ]
+  }, {
+    "tStartMs": 509433,
+    "dDurationMs": 1833,
+    "segs": [ {
+      "utf8": "all of them out on my keyboard\nand put them in a list,"
+    } ]
+  }, {
+    "tStartMs": 511266,
+    "dDurationMs": 3767,
+    "segs": [ {
+      "utf8": "I would just increment the ordinal value\nand pass that to my C r function."
+    } ]
+  }, {
+    "tStartMs": 515100,
+    "dDurationMs": 3066,
+    "segs": [ {
+      "utf8": "It would then give me that character\nand then I could say Auto populate a list"
+    } ]
+  }, {
+    "tStartMs": 518166,
+    "dDurationMs": 1234,
+    "segs": [ {
+      "utf8": "that contains the alphabet."
+    } ]
+  }, {
+    "tStartMs": 519400,
+    "dDurationMs": 2766,
+    "segs": [ {
+      "utf8": "The next function that I have for\nyou here is class method."
+    } ]
+  }, {
+    "tStartMs": 522300,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "Now, class method is used as a decorator\non top of a method"
+    } ]
+  }, {
+    "tStartMs": 525600,
+    "dDurationMs": 3533,
+    "segs": [ {
+      "utf8": "that you want to have access to the class,\nnot to the instance itself."
+    } ]
+  }, {
+    "tStartMs": 529333,
+    "dDurationMs": 4233,
+    "segs": [ {
+      "utf8": "Whenever you decorate something with that\nclass method by default, be class itself."
+    } ]
+  }, {
+    "tStartMs": 533566,
+    "dDurationMs": 3967,
+    "segs": [ {
+      "utf8": "So actually this class name will be passed\ninside as the class parameter."
+    } ]
+  }, {
+    "tStartMs": 537700,
+    "dDurationMs": 3966,
+    "segs": [ {
+      "utf8": "You will not have access to the instance,\neven if you call this using an instance."
+    } ]
+  }, {
+    "tStartMs": 541933,
+    "dDurationMs": 1733,
+    "segs": [ {
+      "utf8": "So you can see we have a regular method."
+    } ]
+  }, {
+    "tStartMs": 543666,
+    "dDurationMs": 3934,
+    "segs": [ {
+      "utf8": "This regular method just prints itself,\nwhich is going to go to this string method"
+    } ]
+  }, {
+    "tStartMs": 547600,
+    "dDurationMs": 1300,
+    "segs": [ {
+      "utf8": "right here that I implemented."
+    } ]
+  }, {
+    "tStartMs": 548900,
+    "dDurationMs": 3466,
+    "segs": [ {
+      "utf8": "So you can see when I say T equals\ntest class and then t dot regular method"
+    } ]
+  }, {
+    "tStartMs": 552600,
+    "dDurationMs": 1966,
+    "segs": [ {
+      "utf8": "that it prints out my test instance."
+    } ]
+  }, {
+    "tStartMs": 554566,
+    "dDurationMs": 3534,
+    "segs": [ {
+      "utf8": "Whereas when I call the class method,\neither on my instance or on the class"
+    } ]
+  }, {
+    "tStartMs": 558100,
+    "dDurationMs": 2066,
+    "segs": [ {
+      "utf8": "itself, both are valid\nand do the same thing."
+    } ]
+  }, {
+    "tStartMs": 560333,
+    "dDurationMs": 3467,
+    "segs": [ {
+      "utf8": "I actually get the class\nwhen I print it out because it's not using"
+    } ]
+  }, {
+    "tStartMs": 563900,
+    "dDurationMs": 3066,
+    "segs": [ {
+      "utf8": "the representation of the object\nor of the instance."
+    } ]
+  }, {
+    "tStartMs": 567500,
+    "dDurationMs": 1333,
+    "segs": [ {
+      "utf8": "Next, we have a complex."
+    } ]
+  }, {
+    "tStartMs": 568833,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "No, I don't really know\nmuch about complex numbers,"
+    } ]
+  }, {
+    "tStartMs": 570833,
+    "dDurationMs": 2300,
+    "segs": [ {
+      "utf8": "but this is how you can generate\ncomplex numbers."
+    } ]
+  }, {
+    "tStartMs": 573133,
+    "dDurationMs": 2133,
+    "segs": [ {
+      "utf8": "You can pass one argument\nwhich is a string,"
+    } ]
+  }, {
+    "tStartMs": 575266,
+    "dDurationMs": 2034,
+    "segs": [ {
+      "utf8": "and it gives you\nthe complex number for that."
+    } ]
+  }, {
+    "tStartMs": 577466,
+    "dDurationMs": 1267,
+    "segs": [ {
+      "utf8": "Or you can pass two arguments,"
+    } ]
+  }, {
+    "tStartMs": 578733,
+    "dDurationMs": 2567,
+    "segs": [ {
+      "utf8": "which I guess are the components\nof the complex number."
+    } ]
+  }, {
+    "tStartMs": 581500,
+    "dDurationMs": 2266,
+    "segs": [ {
+      "utf8": "I'm not a physics guy,\nso I don't really know how this works."
+    } ]
+  }, {
+    "tStartMs": 583766,
+    "dDurationMs": 2567,
+    "segs": [ {
+      "utf8": "But there you go.\nYou can see complex numbers."
+    } ]
+  }, {
+    "tStartMs": 586500,
+    "dDurationMs": 2566,
+    "segs": [ {
+      "utf8": "The next function I have for\nyou here is known as Del Adder."
+    } ]
+  }, {
+    "tStartMs": 589066,
+    "dDurationMs": 1967,
+    "segs": [ {
+      "utf8": "Now this stands for Delete Attribute"
+    } ]
+  }, {
+    "tStartMs": 591033,
+    "dDurationMs": 2667,
+    "segs": [ {
+      "utf8": "and it simply deletes the attribute\nfrom an object."
+    } ]
+  }, {
+    "tStartMs": 593966,
+    "dDurationMs": 2067,
+    "segs": [ {
+      "utf8": "So what I've done\nhere is set up a custom class."
+    } ]
+  }, {
+    "tStartMs": 596033,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "We defined the X attribute\non our instance."
+    } ]
+  }, {
+    "tStartMs": 598800,
+    "dDurationMs": 3433,
+    "segs": [ {
+      "utf8": "We say C is equal to my class\nand then I can print out of X."
+    } ]
+  }, {
+    "tStartMs": 602233,
+    "dDurationMs": 1667,
+    "segs": [ {
+      "utf8": "This will be valid. I'll get ten."
+    } ]
+  }, {
+    "tStartMs": 603900,
+    "dDurationMs": 666,
+    "segs": [ {
+      "utf8": "Then when I do"
+    } ]
+  }, {
+    "tStartMs": 604566,
+    "dDurationMs": 3700,
+    "segs": [ {
+      "utf8": "del outer first I pass the object that\nI want to be deleting the attribute from."
+    } ]
+  }, {
+    "tStartMs": 608433,
+    "dDurationMs": 2433,
+    "segs": [ {
+      "utf8": "Then I pass the name of the attribute\nas a string."
+    } ]
+  }, {
+    "tStartMs": 610900,
+    "dDurationMs": 2033,
+    "segs": [ {
+      "utf8": "Don't try to do something like this\nthat's not going to work."
+    } ]
+  }, {
+    "tStartMs": 612933,
+    "dDurationMs": 1633,
+    "segs": [ {
+      "utf8": "You need to pass it as a string."
+    } ]
+  }, {
+    "tStartMs": 614566,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "Then it will actually delete the attribute\nand then you won't be able to access it."
+    } ]
+  }, {
+    "tStartMs": 617966,
+    "dDurationMs": 2100,
+    "segs": [ {
+      "utf8": "So when I do this here, notice\nI get an error on this line"
+    } ]
+  }, {
+    "tStartMs": 620066,
+    "dDurationMs": 1734,
+    "segs": [ {
+      "utf8": "because the attribute is now deleted."
+    } ]
+  }, {
+    "tStartMs": 621800,
+    "dDurationMs": 1300,
+    "segs": [ {
+      "utf8": "Now this is completely equivalent"
+    } ]
+  }, {
+    "tStartMs": 623100,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "to doing Del Dot\nand then this is going to be c x."
+    } ]
+  }, {
+    "tStartMs": 626700,
+    "dDurationMs": 1933,
+    "segs": [ {
+      "utf8": "It is literally the exact same thing."
+    } ]
+  }, {
+    "tStartMs": 628633,
+    "dDurationMs": 2367,
+    "segs": [ {
+      "utf8": "The next function that I have for\nyou here is known as DICT."
+    } ]
+  }, {
+    "tStartMs": 631000,
+    "dDurationMs": 1633,
+    "segs": [ {
+      "utf8": "Now this is going to create a dictionary."
+    } ]
+  }, {
+    "tStartMs": 632633,
+    "dDurationMs": 2633,
+    "segs": [ {
+      "utf8": "This is actually the constructor\nfor the dictionary class."
+    } ]
+  }, {
+    "tStartMs": 635533,
+    "dDurationMs": 1567,
+    "segs": [ {
+      "utf8": "So notice here that I have a list."
+    } ]
+  }, {
+    "tStartMs": 637100,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "Now this contains key value pairs,\nso I have a and one."
+    } ]
+  }, {
+    "tStartMs": 640700,
+    "dDurationMs": 2033,
+    "segs": [ {
+      "utf8": "So this will be my key,\nthis will be my value."
+    } ]
+  }, {
+    "tStartMs": 642900,
+    "dDurationMs": 1800,
+    "segs": [ {
+      "utf8": "Then I can create a dictionary using this."
+    } ]
+  }, {
+    "tStartMs": 644700,
+    "dDurationMs": 2666,
+    "segs": [ {
+      "utf8": "So let's see how this works. Notice\nI get a one and b one."
+    } ]
+  }, {
+    "tStartMs": 647400,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "Now let's just add another value here to\nsomething like two one and print this out"
+    } ]
+  }, {
+    "tStartMs": 651600,
+    "dDurationMs": 2866,
+    "segs": [ {
+      "utf8": "and notice like an error\nbecause I don't have exactly two elements."
+    } ]
+  }, {
+    "tStartMs": 654833,
+    "dDurationMs": 2333,
+    "segs": [ {
+      "utf8": "So this has length three. Two is required."
+    } ]
+  }, {
+    "tStartMs": 657566,
+    "dDurationMs": 1134,
+    "segs": [ {
+      "utf8": "So there's a few different ways\nthat you can"
+    } ]
+  }, {
+    "tStartMs": 658700,
+    "dDurationMs": 2133,
+    "segs": [ {
+      "utf8": "initialize a dictionary\nusing something like a list."
+    } ]
+  }, {
+    "tStartMs": 661033,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "In this case, since we have two elements,\nthis is going to work."
+    } ]
+  }, {
+    "tStartMs": 663433,
+    "dDurationMs": 1567,
+    "segs": [ {
+      "utf8": "Even if we change this to a list,"
+    } ]
+  }, {
+    "tStartMs": 665966,
+    "dDurationMs": 1300,
+    "segs": [ {
+      "utf8": "we'll be able to initialize."
+    } ]
+  }, {
+    "tStartMs": 667266,
+    "dDurationMs": 3834,
+    "segs": [ {
+      "utf8": "So actually let's make it mixed type and\nrun this and notice it's the same thing."
+    } ]
+  }, {
+    "tStartMs": 671100,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "This is fine."
+    } ]
+  }, {
+    "tStartMs": 672100,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "The next function that I have here\nis known as Dir."
+    } ]
+  }, {
+    "tStartMs": 674100,
+    "dDurationMs": 1966,
+    "segs": [ {
+      "utf8": "Now I think Dir stands for directory"
+    } ]
+  }, {
+    "tStartMs": 676066,
+    "dDurationMs": 2100,
+    "segs": [ {
+      "utf8": "and this is going to give you\nall of the different members"
+    } ]
+  }, {
+    "tStartMs": 678166,
+    "dDurationMs": 4034,
+    "segs": [ {
+      "utf8": "that are available on a specific package\nor a class or whatever you call it on."
+    } ]
+  }, {
+    "tStartMs": 682500,
+    "dDurationMs": 2066,
+    "segs": [ {
+      "utf8": "So in this case, I'm\ncalling it on the math package."
+    } ]
+  }, {
+    "tStartMs": 684866,
+    "dDurationMs": 2134,
+    "segs": [ {
+      "utf8": "So if I run this, you can see it's\ngoing to give me everything"
+    } ]
+  }, {
+    "tStartMs": 687000,
+    "dDurationMs": 2433,
+    "segs": [ {
+      "utf8": "inside of the math package,\nwhich in this case, I guess"
+    } ]
+  }, {
+    "tStartMs": 689433,
+    "dDurationMs": 2267,
+    "segs": [ {
+      "utf8": "is all of the functions\nor methods that you can use."
+    } ]
+  }, {
+    "tStartMs": 691966,
+    "dDurationMs": 2334,
+    "segs": [ {
+      "utf8": "Now, we can also call this on\nsomething like say"
+    } ]
+  }, {
+    "tStartMs": 695366,
+    "dDurationMs": 1600,
+    "segs": [ {
+      "utf8": "let's create something like dict."
+    } ]
+  }, {
+    "tStartMs": 696966,
+    "dDurationMs": 3134,
+    "segs": [ {
+      "utf8": "So okay, if I call this on dict, it's\ngoing to give me all of the methods."
+    } ]
+  }, {
+    "tStartMs": 700366,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Hopefully that makes sense. That is dir."
+    } ]
+  }, {
+    "tStartMs": 702366,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "The next function I have for\nyou here is known as div mode."
+    } ]
+  }, {
+    "tStartMs": 704966,
+    "dDurationMs": 734,
+    "segs": [ {
+      "utf8": "Now this is kind of a"
+    } ]
+  }, {
+    "tStartMs": 705700,
+    "dDurationMs": 3766,
+    "segs": [ {
+      "utf8": "combination of your division\nand your modulo or modulus operator."
+    } ]
+  }, {
+    "tStartMs": 709466,
+    "dDurationMs": 1734,
+    "segs": [ {
+      "utf8": "So now what this is going to return to you"
+    } ]
+  }, {
+    "tStartMs": 711200,
+    "dDurationMs": 3733,
+    "segs": [ {
+      "utf8": "is the whole number of quotient\nas well as the remainder after division."
+    } ]
+  }, {
+    "tStartMs": 714933,
+    "dDurationMs": 2133,
+    "segs": [ {
+      "utf8": "So if I do something like ten\ndivided by three,"
+    } ]
+  }, {
+    "tStartMs": 717233,
+    "dDurationMs": 2200,
+    "segs": [ {
+      "utf8": "then this is going to give me three\nremainder one."
+    } ]
+  }, {
+    "tStartMs": 719433,
+    "dDurationMs": 767,
+    "segs": [ {
+      "utf8": "Let's print this out"
+    } ]
+  }, {
+    "tStartMs": 720200,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "and I get three one in next function\nthat I have is known as enumerate."
+    } ]
+  }, {
+    "tStartMs": 723600,
+    "dDurationMs": 2233,
+    "segs": [ {
+      "utf8": "Now enumerate allows you\nto have access to the index"
+    } ]
+  }, {
+    "tStartMs": 725833,
+    "dDurationMs": 3700,
+    "segs": [ {
+      "utf8": "as well as the value when you're\niterating over and it will object."
+    } ]
+  }, {
+    "tStartMs": 729533,
+    "dDurationMs": 2867,
+    "segs": [ {
+      "utf8": "In this case, I'm iterating over the list\nand I want both those things."
+    } ]
+  }, {
+    "tStartMs": 732400,
+    "dDurationMs": 3066,
+    "segs": [ {
+      "utf8": "So rather than using the range\nor just getting the different values,"
+    } ]
+  }, {
+    "tStartMs": 735633,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "I'll get both using enumerate."
+    } ]
+  }, {
+    "tStartMs": 737133,
+    "dDurationMs": 1967,
+    "segs": [ {
+      "utf8": "When I print this out,\nyou can see that's what I get."
+    } ]
+  }, {
+    "tStartMs": 739100,
+    "dDurationMs": 4100,
+    "segs": [ {
+      "utf8": "Now, just to show you how this actually\nworks, let's print the list of enumerate"
+    } ]
+  }, {
+    "tStartMs": 743433,
+    "dDurationMs": 1033,
+    "segs": [ {
+      "utf8": "and then values."
+    } ]
+  }, {
+    "tStartMs": 744466,
+    "dDurationMs": 1634,
+    "segs": [ {
+      "utf8": "The reason I need to make a list here"
+    } ]
+  }, {
+    "tStartMs": 746100,
+    "dDurationMs": 2100,
+    "segs": [ {
+      "utf8": "is because enumerate\nis going to return an iterator."
+    } ]
+  }, {
+    "tStartMs": 748200,
+    "dDurationMs": 1666,
+    "segs": [ {
+      "utf8": "It doesn't actually give you a list,"
+    } ]
+  }, {
+    "tStartMs": 749866,
+    "dDurationMs": 3434,
+    "segs": [ {
+      "utf8": "so I need to convert my iterator to a list\nso they get all the values."
+    } ]
+  }, {
+    "tStartMs": 753566,
+    "dDurationMs": 1334,
+    "segs": [ {
+      "utf8": "Now, when I do this, notice that it's"
+    } ]
+  }, {
+    "tStartMs": 754900,
+    "dDurationMs": 3966,
+    "segs": [ {
+      "utf8": "actually just going to give me tuples\ncontaining the index as well as the value."
+    } ]
+  }, {
+    "tStartMs": 758866,
+    "dDurationMs": 2634,
+    "segs": [ {
+      "utf8": "And that's\nwhy I'm able to use index comma value."
+    } ]
+  }, {
+    "tStartMs": 761733,
+    "dDurationMs": 2433,
+    "segs": [ {
+      "utf8": "This will actually work\nwhen you're iterating over an object"
+    } ]
+  }, {
+    "tStartMs": 764166,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "that has multiple values."
+    } ]
+  }, {
+    "tStartMs": 765666,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "So if I do something like index value\nin, say, values"
+    } ]
+  }, {
+    "tStartMs": 769566,
+    "dDurationMs": 2467,
+    "segs": [ {
+      "utf8": "like this,\nnow it's going to give me the index"
+    } ]
+  }, {
+    "tStartMs": 772033,
+    "dDurationMs": 1733,
+    "segs": [ {
+      "utf8": "and the value\nfor every single one of these, right?"
+    } ]
+  }, {
+    "tStartMs": 773766,
+    "dDurationMs": 1667,
+    "segs": [ {
+      "utf8": "So it's going to be the exact same thing."
+    } ]
+  }, {
+    "tStartMs": 775433,
+    "dDurationMs": 1067,
+    "segs": [ {
+      "utf8": "The next function that I have for"
+    } ]
+  }, {
+    "tStartMs": 776500,
+    "dDurationMs": 3433,
+    "segs": [ {
+      "utf8": "you here is known as eval in the stands\nfor evaluator evaluation."
+    } ]
+  }, {
+    "tStartMs": 779933,
+    "dDurationMs": 3567,
+    "segs": [ {
+      "utf8": "This allows you to evaluate an expression\nthat is from a string."
+    } ]
+  }, {
+    "tStartMs": 783533,
+    "dDurationMs": 2500,
+    "segs": [ {
+      "utf8": "So in this case, I can actually ask\nthe user to enter some code."
+    } ]
+  }, {
+    "tStartMs": 786200,
+    "dDurationMs": 3200,
+    "segs": [ {
+      "utf8": "And then based on what they enter, I can\nevaluate that now before I even run this."
+    } ]
+  }, {
+    "tStartMs": 789400,
+    "dDurationMs": 666,
+    "segs": [ {
+      "utf8": "I will mention"
+    } ]
+  }, {
+    "tStartMs": 790066,
+    "dDurationMs": 3967,
+    "segs": [ {
+      "utf8": "that eval can be pretty dangerous,\nso don't implement this in your code"
+    } ]
+  }, {
+    "tStartMs": 794200,
+    "dDurationMs": 2733,
+    "segs": [ {
+      "utf8": "unless you're very certain what it's doing\nand how it works."
+    } ]
+  }, {
+    "tStartMs": 797100,
+    "dDurationMs": 2333,
+    "segs": [ {
+      "utf8": "This allows you to\nwell evaluate expressions"
+    } ]
+  }, {
+    "tStartMs": 799433,
+    "dDurationMs": 2167,
+    "segs": [ {
+      "utf8": "and that can cause harm\nor do things in your code."
+    } ]
+  }, {
+    "tStartMs": 802133,
+    "dDurationMs": 1933,
+    "segs": [ {
+      "utf8": "Now what I will do\nis just run this script."
+    } ]
+  }, {
+    "tStartMs": 804066,
+    "dDurationMs": 1434,
+    "segs": [ {
+      "utf8": "I'm going to say Python emailed up,"
+    } ]
+  }, {
+    "tStartMs": 805500,
+    "dDurationMs": 4766,
+    "segs": [ {
+      "utf8": "I enter some code, let's do something\nlike print and then hello like that."
+    } ]
+  }, {
+    "tStartMs": 810433,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "And notice it actually prints out hello."
+    } ]
+  }, {
+    "tStartMs": 812333,
+    "dDurationMs": 1300,
+    "segs": [ {
+      "utf8": "Now obviously I'm not cheating here."
+    } ]
+  }, {
+    "tStartMs": 813633,
+    "dDurationMs": 3567,
+    "segs": [ {
+      "utf8": "If I change this and do something\nlike print x, it's going to print out x."
+    } ]
+  }, {
+    "tStartMs": 817500,
+    "dDurationMs": 2133,
+    "segs": [ {
+      "utf8": "The next function that I have here\nis known as exac."
+    } ]
+  }, {
+    "tStartMs": 819633,
+    "dDurationMs": 3267,
+    "segs": [ {
+      "utf8": "Now this stands for execution\nand this actually allows you to evaluate"
+    } ]
+  }, {
+    "tStartMs": 822900,
+    "dDurationMs": 2933,
+    "segs": [ {
+      "utf8": "Python statements, not just expressions."
+    } ]
+  }, {
+    "tStartMs": 826000,
+    "dDurationMs": 3766,
+    "segs": [ {
+      "utf8": "So in the previous example, I couldn't\ndo something like create a variable"
+    } ]
+  }, {
+    "tStartMs": 829766,
+    "dDurationMs": 3134,
+    "segs": [ {
+      "utf8": "or sign to a variable here\nthough I actually can do that."
+    } ]
+  }, {
+    "tStartMs": 833100,
+    "dDurationMs": 733,
+    "segs": [ {
+      "utf8": "So let's run this."
+    } ]
+  }, {
+    "tStartMs": 833833,
+    "dDurationMs": 2300,
+    "segs": [ {
+      "utf8": "Let's say python exact pi."
+    } ]
+  }, {
+    "tStartMs": 836366,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "Now let's do something like x equals\nzero semicolon x"
+    } ]
+  }, {
+    "tStartMs": 841200,
+    "dDurationMs": 2866,
+    "segs": [ {
+      "utf8": "plus equals one and then print out x"
+    } ]
+  }, {
+    "tStartMs": 844366,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and we'll put a semicolon and notice\nI get one"
+    } ]
+  }, {
+    "tStartMs": 846366,
+    "dDurationMs": 2334,
+    "segs": [ {
+      "utf8": "so I can actually build\ndifferent statements"
+    } ]
+  }, {
+    "tStartMs": 848700,
+    "dDurationMs": 3233,
+    "segs": [ {
+      "utf8": "here, have those executed\nand I could change the value of variables."
+    } ]
+  }, {
+    "tStartMs": 851933,
+    "dDurationMs": 2167,
+    "segs": [ {
+      "utf8": "So be very careful if you're using exac,"
+    } ]
+  }, {
+    "tStartMs": 854100,
+    "dDurationMs": 2033,
+    "segs": [ {
+      "utf8": "but I figured I'd show it to you\nbecause it's kind of cool."
+    } ]
+  }, {
+    "tStartMs": 856133,
+    "dDurationMs": 2133,
+    "segs": [ {
+      "utf8": "The next function that I have here\nis known as Filter."
+    } ]
+  }, {
+    "tStartMs": 858266,
+    "dDurationMs": 3200,
+    "segs": [ {
+      "utf8": "Now this allows you to filter\nthrough values in an iterable object."
+    } ]
+  }, {
+    "tStartMs": 861733,
+    "dDurationMs": 3667,
+    "segs": [ {
+      "utf8": "In this case, I have a list and I want to\nfilter out all of the even values."
+    } ]
+  }, {
+    "tStartMs": 865633,
+    "dDurationMs": 2433,
+    "segs": [ {
+      "utf8": "The way the filter works is\nyou pass a filter function."
+    } ]
+  }, {
+    "tStartMs": 868066,
+    "dDurationMs": 3134,
+    "segs": [ {
+      "utf8": "If this filter function returns true\nwhen the value is passed to it,"
+    } ]
+  }, {
+    "tStartMs": 871333,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "then it includes that value in the filter\nobject or whatever it returns."
+    } ]
+  }, {
+    "tStartMs": 875433,
+    "dDurationMs": 1167,
+    "segs": [ {
+      "utf8": "Otherwise it does not."
+    } ]
+  }, {
+    "tStartMs": 876600,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "Now you can pass an anonymous function\nlike a lambda function,"
+    } ]
+  }, {
+    "tStartMs": 879200,
+    "dDurationMs": 2133,
+    "segs": [ {
+      "utf8": "or you can just pass a normal function\nlike this."
+    } ]
+  }, {
+    "tStartMs": 881600,
+    "dDurationMs": 3533,
+    "segs": [ {
+      "utf8": "Notice here that I'm returning\nif this value is divisible by two or not."
+    } ]
+  }, {
+    "tStartMs": 885400,
+    "dDurationMs": 1533,
+    "segs": [ {
+      "utf8": "So let's just print this out."
+    } ]
+  }, {
+    "tStartMs": 886933,
+    "dDurationMs": 2167,
+    "segs": [ {
+      "utf8": "Notice that when I just print the filter\nobject itself."
+    } ]
+  }, {
+    "tStartMs": 889100,
+    "dDurationMs": 1300,
+    "segs": [ {
+      "utf8": "So we move this down a little bit."
+    } ]
+  }, {
+    "tStartMs": 890400,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "When I'm just printing this,\nit gives me this weird filter object."
+    } ]
+  }, {
+    "tStartMs": 893800,
+    "dDurationMs": 1833,
+    "segs": [ {
+      "utf8": "That's because this is an iterator."
+    } ]
+  }, {
+    "tStartMs": 895633,
+    "dDurationMs": 2167,
+    "segs": [ {
+      "utf8": "This is not actually something\nthat you can view."
+    } ]
+  }, {
+    "tStartMs": 897800,
+    "dDurationMs": 1833,
+    "segs": [ {
+      "utf8": "So what I need to do\nis convert this to a list."
+    } ]
+  }, {
+    "tStartMs": 899633,
+    "dDurationMs": 1667,
+    "segs": [ {
+      "utf8": "If I want to be able to print it out\nand view it."
+    } ]
+  }, {
+    "tStartMs": 901300,
+    "dDurationMs": 2033,
+    "segs": [ {
+      "utf8": "However, typically\nyou're just going to use this object"
+    } ]
+  }, {
+    "tStartMs": 903333,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "because you can say, iterate\nthrough this object with no issues."
+    } ]
+  }, {
+    "tStartMs": 906233,
+    "dDurationMs": 2733,
+    "segs": [ {
+      "utf8": "You don't need to convert it to a list\nunless you're trying to say, Look at it."
+    } ]
+  }, {
+    "tStartMs": 909000,
+    "dDurationMs": 2366,
+    "segs": [ {
+      "utf8": "The next function I have for\nyou here is known as Float."
+    } ]
+  }, {
+    "tStartMs": 911400,
+    "dDurationMs": 2566,
+    "segs": [ {
+      "utf8": "Now this is again\nthe constructor for the float type."
+    } ]
+  }, {
+    "tStartMs": 914200,
+    "dDurationMs": 4100,
+    "segs": [ {
+      "utf8": "This allows you to convert something\nto a float, so most useful for a string."
+    } ]
+  }, {
+    "tStartMs": 918433,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "However, you can also convert\na regular integer to a float."
+    } ]
+  }, {
+    "tStartMs": 921833,
+    "dDurationMs": 3167,
+    "segs": [ {
+      "utf8": "Now notice here that we also have a few\nspecial things we can pass to float."
+    } ]
+  }, {
+    "tStartMs": 925000,
+    "dDurationMs": 2366,
+    "segs": [ {
+      "utf8": "So if you're trying to represent infinity,\nthen you can pass in."
+    } ]
+  }, {
+    "tStartMs": 927500,
+    "dDurationMs": 3866,
+    "segs": [ {
+      "utf8": "And this is going to give you whatever\nthe python representation of infinity is."
+    } ]
+  }, {
+    "tStartMs": 931533,
+    "dDurationMs": 2867,
+    "segs": [ {
+      "utf8": "You can also pass negative enough\nand then you can do something like"
+    } ]
+  }, {
+    "tStartMs": 934400,
+    "dDurationMs": 4033,
+    "segs": [ {
+      "utf8": "use your scientific notation,\nsomething like one E -0 zero three"
+    } ]
+  }, {
+    "tStartMs": 938433,
+    "dDurationMs": 2967,
+    "segs": [ {
+      "utf8": "and then if I print this out, you see that\nI get all of these values."
+    } ]
+  }, {
+    "tStartMs": 941633,
+    "dDurationMs": 3667,
+    "segs": [ {
+      "utf8": "Now if a negative are actually valid\nas infinity in Python."
+    } ]
+  }, {
+    "tStartMs": 945300,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "So keep that in mind."
+    } ]
+  }, {
+    "tStartMs": 946300,
+    "dDurationMs": 2866,
+    "segs": [ {
+      "utf8": "That's probably the most useful aspect\nof this float function."
+    } ]
+  }, {
+    "tStartMs": 949400,
+    "dDurationMs": 2500,
+    "segs": [ {
+      "utf8": "The next function I have to show you\nhere is known as format."
+    } ]
+  }, {
+    "tStartMs": 951900,
+    "dDurationMs": 1766,
+    "segs": [ {
+      "utf8": "Now, I don't have an hour to explain\nto you"
+    } ]
+  }, {
+    "tStartMs": 953666,
+    "dDurationMs": 1834,
+    "segs": [ {
+      "utf8": "all of the formatting rules\nthat you can use."
+    } ]
+  }, {
+    "tStartMs": 955500,
+    "dDurationMs": 1333,
+    "segs": [ {
+      "utf8": "I've just put them here."
+    } ]
+  }, {
+    "tStartMs": 956833,
+    "dDurationMs": 3333,
+    "segs": [ {
+      "utf8": "You can see that you can use this format\nfunction to generate a string"
+    } ]
+  }, {
+    "tStartMs": 960366,
+    "dDurationMs": 3567,
+    "segs": [ {
+      "utf8": "that allows you to say a line\nspecific characters or change"
+    } ]
+  }, {
+    "tStartMs": 963933,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "the width of something or the precision\nor the different type that you're showing."
+    } ]
+  }, {
+    "tStartMs": 967700,
+    "dDurationMs": 3466,
+    "segs": [ {
+      "utf8": "You can also use it to create\na binary representation of an integer,"
+    } ]
+  }, {
+    "tStartMs": 971166,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "which is kind of interesting."
+    } ]
+  }, {
+    "tStartMs": 972166,
+    "dDurationMs": 4267,
+    "segs": [ {
+      "utf8": "I can format 100 as the type B and\nthis is going to give me the binary type."
+    } ]
+  }, {
+    "tStartMs": 976700,
+    "dDurationMs": 2233,
+    "segs": [ {
+      "utf8": "So if I print this out here, notice\nthat I get binary."
+    } ]
+  }, {
+    "tStartMs": 979133,
+    "dDurationMs": 3367,
+    "segs": [ {
+      "utf8": "And if we're looking here\nat this front example or this top example,"
+    } ]
+  }, {
+    "tStartMs": 982500,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "I guess notice that there is a dot format\nthat you have access to on a string,"
+    } ]
+  }, {
+    "tStartMs": 986600,
+    "dDurationMs": 2833,
+    "segs": [ {
+      "utf8": "and I believe the formatting options\nare pretty much the exact same."
+    } ]
+  }, {
+    "tStartMs": 989633,
+    "dDurationMs": 1567,
+    "segs": [ {
+      "utf8": "It just works a little bit different\nin terms"
+    } ]
+  }, {
+    "tStartMs": 991200,
+    "dDurationMs": 2033,
+    "segs": [ {
+      "utf8": "of how you write to be formatted string."
+    } ]
+  }, {
+    "tStartMs": 993233,
+    "dDurationMs": 1600,
+    "segs": [ {
+      "utf8": "Next, we have a frozen set."
+    } ]
+  }, {
+    "tStartMs": 994833,
+    "dDurationMs": 4267,
+    "segs": [ {
+      "utf8": "Now the frozen set function is going\nto give you an immutable version of a set."
+    } ]
+  }, {
+    "tStartMs": 999366,
+    "dDurationMs": 3767,
+    "segs": [ {
+      "utf8": "So what I do is I pass whatever items\nI want to be in my immutable set"
+    } ]
+  }, {
+    "tStartMs": 1003366,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "and then this is going to give it to me."
+    } ]
+  }, {
+    "tStartMs": 1004866,
+    "dDurationMs": 3734,
+    "segs": [ {
+      "utf8": "So I have my regular set\nwhere I have access like add, delete, etc."
+    } ]
+  }, {
+    "tStartMs": 1008766,
+    "dDurationMs": 1667,
+    "segs": [ {
+      "utf8": "and then I have my frozen set."
+    } ]
+  }, {
+    "tStartMs": 1010433,
+    "dDurationMs": 2500,
+    "segs": [ {
+      "utf8": "Now the whole point of the frozen set\nis that it's immutable,"
+    } ]
+  }, {
+    "tStartMs": 1012933,
+    "dDurationMs": 3433,
+    "segs": [ {
+      "utf8": "not mutable, like a set, meaning\nI can't change my frozen set,"
+    } ]
+  }, {
+    "tStartMs": 1016533,
+    "dDurationMs": 4867,
+    "segs": [ {
+      "utf8": "and since my frozen set is immutable, I'm\nable to use it as a key for a dictionary."
+    } ]
+  }, {
+    "tStartMs": 1021666,
+    "dDurationMs": 3067,
+    "segs": [ {
+      "utf8": "So that's probably the most useful aspect\nof your frozen set."
+    } ]
+  }, {
+    "tStartMs": 1024733,
+    "dDurationMs": 3767,
+    "segs": [ {
+      "utf8": "It's kind of a hash table type and again,\nthat allows you to use it as a key."
+    } ]
+  }, {
+    "tStartMs": 1028700,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "The next function that I have here\nis known as Get Atom stands for"
+    } ]
+  }, {
+    "tStartMs": 1031600,
+    "dDurationMs": 3333,
+    "segs": [ {
+      "utf8": "Get Attribute pretty straightforward work\nsimilar to Dell attribute."
+    } ]
+  }, {
+    "tStartMs": 1035133,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "You can see that I pass my object\nas well as the string representation"
+    } ]
+  }, {
+    "tStartMs": 1038233,
+    "dDurationMs": 2033,
+    "segs": [ {
+      "utf8": "of the attribute and I'm able to get that."
+    } ]
+  }, {
+    "tStartMs": 1040400,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "The next function I have you\nhere is known as globals."
+    } ]
+  }, {
+    "tStartMs": 1043000,
+    "dDurationMs": 1566,
+    "segs": [ {
+      "utf8": "Now globals is going to give you access"
+    } ]
+  }, {
+    "tStartMs": 1044566,
+    "dDurationMs": 2500,
+    "segs": [ {
+      "utf8": "to all of the global variables\nin the current namespace."
+    } ]
+  }, {
+    "tStartMs": 1047333,
+    "dDurationMs": 4633,
+    "segs": [ {
+      "utf8": "So if I print this out here, you can see\nI have my name Main, I have my file,"
+    } ]
+  }, {
+    "tStartMs": 1051966,
+    "dDurationMs": 3467,
+    "segs": [ {
+      "utf8": "I have if this is cached, I have built in\nblah blah blah won't go through this."
+    } ]
+  }, {
+    "tStartMs": 1055433,
+    "dDurationMs": 1367,
+    "segs": [ {
+      "utf8": "It's fairly advanced."
+    } ]
+  }, {
+    "tStartMs": 1056800,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "The next function I have here is my\nhas outer or function."
+    } ]
+  }, {
+    "tStartMs": 1060066,
+    "dDurationMs": 2534,
+    "segs": [ {
+      "utf8": "This tells you\nif an object has a specific attribute,"
+    } ]
+  }, {
+    "tStartMs": 1062833,
+    "dDurationMs": 2467,
+    "segs": [ {
+      "utf8": "this is actually fairly useful\nand allows you to avoid trying"
+    } ]
+  }, {
+    "tStartMs": 1065300,
+    "dDurationMs": 3466,
+    "segs": [ {
+      "utf8": "to do like a try accept block\nto see if something exists or not."
+    } ]
+  }, {
+    "tStartMs": 1069100,
+    "dDurationMs": 3700,
+    "segs": [ {
+      "utf8": "So you can see that I can check\nif X exists on C or y exists on C."
+    } ]
+  }, {
+    "tStartMs": 1072966,
+    "dDurationMs": 3434,
+    "segs": [ {
+      "utf8": "As always, we're using a string here\nrather than typing out what the actual"
+    } ]
+  }, {
+    "tStartMs": 1076733,
+    "dDurationMs": 1433,
+    "segs": [ {
+      "utf8": "I guess character would be."
+    } ]
+  }, {
+    "tStartMs": 1078166,
+    "dDurationMs": 3567,
+    "segs": [ {
+      "utf8": "So if I run this here, notice that C\ndoes have x, but it does not have y."
+    } ]
+  }, {
+    "tStartMs": 1081733,
+    "dDurationMs": 2033,
+    "segs": [ {
+      "utf8": "The next function that I have here\nis known as help."
+    } ]
+  }, {
+    "tStartMs": 1083766,
+    "dDurationMs": 600,
+    "segs": [ {
+      "utf8": "Now this is going to"
+    } ]
+  }, {
+    "tStartMs": 1084366,
+    "dDurationMs": 3534,
+    "segs": [ {
+      "utf8": "give you the documentation\nfor whatever object you call this on."
+    } ]
+  }, {
+    "tStartMs": 1088100,
+    "dDurationMs": 2066,
+    "segs": [ {
+      "utf8": "Doesn't work for everything,\nbut it will work"
+    } ]
+  }, {
+    "tStartMs": 1090166,
+    "dDurationMs": 1834,
+    "segs": [ {
+      "utf8": "for a lot of the built in Python types,"
+    } ]
+  }, {
+    "tStartMs": 1092000,
+    "dDurationMs": 2333,
+    "segs": [ {
+      "utf8": "or at least it will give you\nsome meaningful information."
+    } ]
+  }, {
+    "tStartMs": 1094333,
+    "dDurationMs": 767,
+    "segs": [ {
+      "utf8": "So if I look here"
+    } ]
+  }, {
+    "tStartMs": 1095100,
+    "dDurationMs": 3666,
+    "segs": [ {
+      "utf8": "at the help on the INT class,\nthen you can see I get all of this data."
+    } ]
+  }, {
+    "tStartMs": 1099033,
+    "dDurationMs": 2067,
+    "segs": [ {
+      "utf8": "The next function that I have here\nis known as Hex."
+    } ]
+  }, {
+    "tStartMs": 1101100,
+    "dDurationMs": 1533,
+    "segs": [ {
+      "utf8": "No, this stands for hexadecimal"
+    } ]
+  }, {
+    "tStartMs": 1102633,
+    "dDurationMs": 3267,
+    "segs": [ {
+      "utf8": "and it's going to give you the hexadecimal\nrepresentation of an integer."
+    } ]
+  }, {
+    "tStartMs": 1106200,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Now, this only works on a class\nthat implements the underscore underscore"
+    } ]
+  }, {
+    "tStartMs": 1109200,
+    "dDurationMs": 1166,
+    "segs": [ {
+      "utf8": "index method."
+    } ]
+  }, {
+    "tStartMs": 1110366,
+    "dDurationMs": 3334,
+    "segs": [ {
+      "utf8": "Now, if we create a custom class\nthat implements index, this will work."
+    } ]
+  }, {
+    "tStartMs": 1113700,
+    "dDurationMs": 4100,
+    "segs": [ {
+      "utf8": "It's just going to return the hex value of\nwhatever is returned by index."
+    } ]
+  }, {
+    "tStartMs": 1118100,
+    "dDurationMs": 4266,
+    "segs": [ {
+      "utf8": "So in this case, when I run this,\nI get 0f0x1 in 0xa,"
+    } ]
+  }, {
+    "tStartMs": 1122366,
+    "dDurationMs": 4934,
+    "segs": [ {
+      "utf8": "which is the correct hexadecimal codes\nfor 255 one and then 410,"
+    } ]
+  }, {
+    "tStartMs": 1127300,
+    "dDurationMs": 3933,
+    "segs": [ {
+      "utf8": "which is returned when I call this on C\nbecause it calls the index method."
+    } ]
+  }, {
+    "tStartMs": 1131400,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "The next function I have is known as ID."
+    } ]
+  }, {
+    "tStartMs": 1133400,
+    "dDurationMs": 3233,
+    "segs": [ {
+      "utf8": "Now this is going to give me the\nidentifier for a specific python object."
+    } ]
+  }, {
+    "tStartMs": 1136833,
+    "dDurationMs": 3367,
+    "segs": [ {
+      "utf8": "This is very useful if you want to check\nif two objects are the same or not."
+    } ]
+  }, {
+    "tStartMs": 1140366,
+    "dDurationMs": 2567,
+    "segs": [ {
+      "utf8": "So in this case I have my mutable list."
+    } ]
+  }, {
+    "tStartMs": 1142933,
+    "dDurationMs": 2133,
+    "segs": [ {
+      "utf8": "I then assign y equals to x."
+    } ]
+  }, {
+    "tStartMs": 1145066,
+    "dDurationMs": 1534,
+    "segs": [ {
+      "utf8": "Now this creates an alias, meaning"
+    } ]
+  }, {
+    "tStartMs": 1146600,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "that it's just going to be a reference\nto the exact same object."
+    } ]
+  }, {
+    "tStartMs": 1149600,
+    "dDurationMs": 3833,
+    "segs": [ {
+      "utf8": "So the idea of x and y should be the same\nmeaning anything I change on"
+    } ]
+  }, {
+    "tStartMs": 1153433,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "x will change on y."
+    } ]
+  }, {
+    "tStartMs": 1155433,
+    "dDurationMs": 800,
+    "segs": [ {
+      "utf8": "So let's have a look at this."
+    } ]
+  }, {
+    "tStartMs": 1156233,
+    "dDurationMs": 2367,
+    "segs": [ {
+      "utf8": "Here you can see these two\nIDs are the same."
+    } ]
+  }, {
+    "tStartMs": 1158600,
+    "dDurationMs": 3066,
+    "segs": [ {
+      "utf8": "Meanwhile, if I have something like a\nis equal to and then I believe"
+    } ]
+  }, {
+    "tStartMs": 1161666,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "this is a million and I say B is equal to\nand I've done a plus one minus one."
+    } ]
+  }, {
+    "tStartMs": 1166200,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "You can see that\nI get a different object now."
+    } ]
+  }, {
+    "tStartMs": 1168800,
+    "dDurationMs": 1400,
+    "segs": [ {
+      "utf8": "Kind of an interesting fact here."
+    } ]
+  }, {
+    "tStartMs": 1170200,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "If you do B equals A and you print\nthis out, you're going to get the same ID."
+    } ]
+  }, {
+    "tStartMs": 1175000,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "Now, the reason you get the same ID is not\nbecause these objects are identical,"
+    } ]
+  }, {
+    "tStartMs": 1179000,
+    "dDurationMs": 3333,
+    "segs": [ {
+      "utf8": "but it's has to do\nwith how Python is managing memory."
+    } ]
+  }, {
+    "tStartMs": 1182566,
+    "dDurationMs": 2234,
+    "segs": [ {
+      "utf8": "So that's why I had to do this, plus one\nminus one."
+    } ]
+  }, {
+    "tStartMs": 1184800,
+    "dDurationMs": 1466,
+    "segs": [ {
+      "utf8": "So I get the same value."
+    } ]
+  }, {
+    "tStartMs": 1186266,
+    "dDurationMs": 2767,
+    "segs": [ {
+      "utf8": "However, I get a different object\na little bit weird."
+    } ]
+  }, {
+    "tStartMs": 1189066,
+    "dDurationMs": 2500,
+    "segs": [ {
+      "utf8": "Obviously, if I make a change to\na it's not going to affect"
+    } ]
+  }, {
+    "tStartMs": 1191600,
+    "dDurationMs": 2366,
+    "segs": [ {
+      "utf8": "B, and if I make a change to B,\nit doesn't affect A."
+    } ]
+  }, {
+    "tStartMs": 1194166,
+    "dDurationMs": 3234,
+    "segs": [ {
+      "utf8": "However, to save memory,\nthere's kind of some optimizations"
+    } ]
+  }, {
+    "tStartMs": 1197400,
+    "dDurationMs": 2866,
+    "segs": [ {
+      "utf8": "going on where they're actually pointing\nto the same value."
+    } ]
+  }, {
+    "tStartMs": 1200466,
+    "dDurationMs": 2234,
+    "segs": [ {
+      "utf8": "The next function\nthey have is the input function."
+    } ]
+  }, {
+    "tStartMs": 1202700,
+    "dDurationMs": 3066,
+    "segs": [ {
+      "utf8": "I think you all know what this does,\nbut this allows you to get user input."
+    } ]
+  }, {
+    "tStartMs": 1206000,
+    "dDurationMs": 4333,
+    "segs": [ {
+      "utf8": "Keep in mind the user input is always\nentered as a string and the input will end"
+    } ]
+  }, {
+    "tStartMs": 1210333,
+    "dDurationMs": 4233,
+    "segs": [ {
+      "utf8": "as soon as there is a new line character\nor a carriage return that is entered."
+    } ]
+  }, {
+    "tStartMs": 1214566,
+    "dDurationMs": 3800,
+    "segs": [ {
+      "utf8": "So as soon as you hit enter, then it's\ngoing to stop the input and then return"
+    } ]
+  }, {
+    "tStartMs": 1218366,
+    "dDurationMs": 3534,
+    "segs": [ {
+      "utf8": "whatever you typed in to the variable\nthat you assigned to input."
+    } ]
+  }, {
+    "tStartMs": 1222100,
+    "dDurationMs": 1400,
+    "segs": [ {
+      "utf8": "Next we have the int function."
+    } ]
+  }, {
+    "tStartMs": 1223500,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "Now the end function is going to be\nthe constructor for the into class"
+    } ]
+  }, {
+    "tStartMs": 1227000,
+    "dDurationMs": 1233,
+    "segs": [ {
+      "utf8": "allows you to pass pretty well"
+    } ]
+  }, {
+    "tStartMs": 1228233,
+    "dDurationMs": 3667,
+    "segs": [ {
+      "utf8": "any value here and convert it to an int,\nassuming it's a valid int."
+    } ]
+  }, {
+    "tStartMs": 1232100,
+    "dDurationMs": 2833,
+    "segs": [ {
+      "utf8": "If you try to pass something like hello,\nobviously this isn't going to work"
+    } ]
+  }, {
+    "tStartMs": 1234933,
+    "dDurationMs": 1267,
+    "segs": [ {
+      "utf8": "and it's going to crash."
+    } ]
+  }, {
+    "tStartMs": 1236200,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "But notice here that if I convert one\nor sorry if I convert, true, I get one."
+    } ]
+  }, {
+    "tStartMs": 1239800,
+    "dDurationMs": 2200,
+    "segs": [ {
+      "utf8": "If I convert false I get zero."
+    } ]
+  }, {
+    "tStartMs": 1242000,
+    "dDurationMs": 1600,
+    "segs": [ {
+      "utf8": "Just a valid string like this."
+    } ]
+  }, {
+    "tStartMs": 1243600,
+    "dDurationMs": 733,
+    "segs": [ {
+      "utf8": "One, two, three."
+    } ]
+  }, {
+    "tStartMs": 1244333,
+    "dDurationMs": 3233,
+    "segs": [ {
+      "utf8": "I can even do a negative\nif I do something like a floating point"
+    } ]
+  }, {
+    "tStartMs": 1247566,
+    "dDurationMs": 2700,
+    "segs": [ {
+      "utf8": "value, it's just going to strip off\nwhatever the floating point is."
+    } ]
+  }, {
+    "tStartMs": 1250266,
+    "dDurationMs": 1667,
+    "segs": [ {
+      "utf8": "So it's not going to round it\njust strips it."
+    } ]
+  }, {
+    "tStartMs": 1251933,
+    "dDurationMs": 3767,
+    "segs": [ {
+      "utf8": "So math flaw or yeah, matter of law,\nnot math."
+    } ]
+  }, {
+    "tStartMs": 1255700,
+    "dDurationMs": 1333,
+    "segs": [ {
+      "utf8": "Oxygen gives you nine."
+    } ]
+  }, {
+    "tStartMs": 1257033,
+    "dDurationMs": 2767,
+    "segs": [ {
+      "utf8": "And then if I do something like binary\nand I indicate the base"
+    } ]
+  }, {
+    "tStartMs": 1259800,
+    "dDurationMs": 1733,
+    "segs": [ {
+      "utf8": "that I want to be converting from,"
+    } ]
+  }, {
+    "tStartMs": 1261533,
+    "dDurationMs": 4033,
+    "segs": [ {
+      "utf8": "it will actually give me the integer\nrepresentation of this binary value."
+    } ]
+  }, {
+    "tStartMs": 1265800,
+    "dDurationMs": 2533,
+    "segs": [ {
+      "utf8": "The next function that I have here is\nknown as is instance."
+    } ]
+  }, {
+    "tStartMs": 1268366,
+    "dDurationMs": 2934,
+    "segs": [ {
+      "utf8": "Now this is going to tell you\nif an object is an instance of a class."
+    } ]
+  }, {
+    "tStartMs": 1271566,
+    "dDurationMs": 1867,
+    "segs": [ {
+      "utf8": "So you can see\nI have a few basic examples here."
+    } ]
+  }, {
+    "tStartMs": 1273433,
+    "dDurationMs": 3167,
+    "segs": [ {
+      "utf8": "I'm saying if a is an instance of end,\nif B is an it's a float."
+    } ]
+  }, {
+    "tStartMs": 1276600,
+    "dDurationMs": 1566,
+    "segs": [ {
+      "utf8": "Obviously that is not correct."
+    } ]
+  }, {
+    "tStartMs": 1278166,
+    "dDurationMs": 2734,
+    "segs": [ {
+      "utf8": "If A is an instance of type,\nif you know what type is, you'll know"
+    } ]
+  }, {
+    "tStartMs": 1280900,
+    "dDurationMs": 966,
+    "segs": [ {
+      "utf8": "that's not the case."
+    } ]
+  }, {
+    "tStartMs": 1281866,
+    "dDurationMs": 3734,
+    "segs": [ {
+      "utf8": "However, if we look at int instance\nof type, you'll see this is actually true."
+    } ]
+  }, {
+    "tStartMs": 1285833,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "Now type is kind of the base class. It's"
+    } ]
+  }, {
+    "tStartMs": 1288933,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "not really the best way to describe it,\nbut type is the type of a class."
+    } ]
+  }, {
+    "tStartMs": 1293133,
+    "dDurationMs": 5667,
+    "segs": [ {
+      "utf8": "So int is of type type because\nall of our classes are the type type."
+    } ]
+  }, {
+    "tStartMs": 1298800,
+    "dDurationMs": 1800,
+    "segs": [ {
+      "utf8": "I know that seems really weird,"
+    } ]
+  }, {
+    "tStartMs": 1300600,
+    "dDurationMs": 3133,
+    "segs": [ {
+      "utf8": "but you can mess around with this type\nfunction and maybe you'll see what I mean."
+    } ]
+  }, {
+    "tStartMs": 1303900,
+    "dDurationMs": 2566,
+    "segs": [ {
+      "utf8": "The next function I have you here is\nis subclass."
+    } ]
+  }, {
+    "tStartMs": 1306466,
+    "dDurationMs": 3634,
+    "segs": [ {
+      "utf8": "So again, this is going to tell you if\nsomething is a subclass of another class."
+    } ]
+  }, {
+    "tStartMs": 1310100,
+    "dDurationMs": 1800,
+    "segs": [ {
+      "utf8": "So I have a few classes\nthat I've set up here."
+    } ]
+  }, {
+    "tStartMs": 1311900,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "I've even done a multiple inheritance\nexample and you can see that"
+    } ]
+  }, {
+    "tStartMs": 1314900,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "I first check if C is a subclass of A\nthat is going to be true."
+    } ]
+  }, {
+    "tStartMs": 1318200,
+    "dDurationMs": 1433,
+    "segs": [ {
+      "utf8": "Is de subclass of C?"
+    } ]
+  }, {
+    "tStartMs": 1319633,
+    "dDurationMs": 700,
+    "segs": [ {
+      "utf8": "Well yes it is."
+    } ]
+  }, {
+    "tStartMs": 1320333,
+    "dDurationMs": 3633,
+    "segs": [ {
+      "utf8": "Because it inherits or not inherits,\nbut it is a drive class of C"
+    } ]
+  }, {
+    "tStartMs": 1324266,
+    "dDurationMs": 4634,
+    "segs": [ {
+      "utf8": "is a subclass of a\nwell D is going to be a subclass of A"
+    } ]
+  }, {
+    "tStartMs": 1328900,
+    "dDurationMs": 1633,
+    "segs": [ {
+      "utf8": "because D is a subclass of C"
+    } ]
+  }, {
+    "tStartMs": 1330533,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "and since see is a subclass of A\nthat makes this subclass of a as well."
+    } ]
+  }, {
+    "tStartMs": 1334433,
+    "dDurationMs": 4167,
+    "segs": [ {
+      "utf8": "So it kind of chains like that continuing\nis e subclass very well of course it is"
+    } ]
+  }, {
+    "tStartMs": 1338600,
+    "dDurationMs": 2233,
+    "segs": [ {
+      "utf8": "because we inherit from it\nand is a subclass of B."
+    } ]
+  }, {
+    "tStartMs": 1340833,
+    "dDurationMs": 2267,
+    "segs": [ {
+      "utf8": "Well yes it is\nbecause we inherit from it as well."
+    } ]
+  }, {
+    "tStartMs": 1343100,
+    "dDurationMs": 2433,
+    "segs": [ {
+      "utf8": "Looking here, you can see that\nthese are all true, all right."
+    } ]
+  }, {
+    "tStartMs": 1345533,
+    "dDurationMs": 3033,
+    "segs": [ {
+      "utf8": "So we move on to our last function\nin part one, which is enter."
+    } ]
+  }, {
+    "tStartMs": 1348566,
+    "dDurationMs": 2167,
+    "segs": [ {
+      "utf8": "Now enter is going to give you\nthe iterator associated"
+    } ]
+  }, {
+    "tStartMs": 1350733,
+    "dDurationMs": 3200,
+    "segs": [ {
+      "utf8": "with a regular iterator,\nobviously not an asynchronous iterator."
+    } ]
+  }, {
+    "tStartMs": 1353933,
+    "dDurationMs": 1567,
+    "segs": [ {
+      "utf8": "That would be your editor."
+    } ]
+  }, {
+    "tStartMs": 1355500,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "You can see that\nI've set up a regular iterator"
+    } ]
+  }, {
+    "tStartMs": 1357500,
+    "dDurationMs": 3233,
+    "segs": [ {
+      "utf8": "example here\nand when I call it or on my custom object"
+    } ]
+  }, {
+    "tStartMs": 1360733,
+    "dDurationMs": 4233,
+    "segs": [ {
+      "utf8": "which implements the IT or under method,\nit returns to me that iterator."
+    } ]
+  }, {
+    "tStartMs": 1364966,
+    "dDurationMs": 2567,
+    "segs": [ {
+      "utf8": "I can print out that iterator\nand I can loop through it."
+    } ]
+  }, {
+    "tStartMs": 1367766,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Let's have a look and notice it all works."
+    } ]
+  }, {
+    "tStartMs": 1369766,
+    "dDurationMs": 3800,
+    "segs": [ {
+      "utf8": "So with that said, that will conclude part\none of every Python function."
+    } ]
+  }, {
+    "tStartMs": 1373566,
+    "dDurationMs": 2667,
+    "segs": [ {
+      "utf8": "I apologize if I went too fast for you,\nbut this was really meant"
+    } ]
+  }, {
+    "tStartMs": 1376233,
+    "dDurationMs": 1800,
+    "segs": [ {
+      "utf8": "to be kind of an entertaining\nand just quick"
+    } ]
+  }, {
+    "tStartMs": 1378033,
+    "dDurationMs": 2567,
+    "segs": [ {
+      "utf8": "look at a lot of the different functions\nthat exist here."
+    } ]
+  }, {
+    "tStartMs": 1380900,
+    "dDurationMs": 1233,
+    "segs": [ {
+      "utf8": "Hopefully you learn something."
+    } ]
+  }, {
+    "tStartMs": 1382133,
+    "dDurationMs": 1700,
+    "segs": [ {
+      "utf8": "Hopefully\nyou're looking forward to part two"
+    } ]
+  }, {
+    "tStartMs": 1383833,
+    "dDurationMs": 2867,
+    "segs": [ {
+      "utf8": "and hopefully you're going to go\nby programing expert audio from the link"
+    } ]
+  }, {
+    "tStartMs": 1386700,
+    "dDurationMs": 1666,
+    "segs": [ {
+      "utf8": "in the description,\nwhich is the best platform"
+    } ]
+  }, {
+    "tStartMs": 1388366,
+    "dDurationMs": 2567,
+    "segs": [ {
+      "utf8": "to learn more about Python\nand become a software engineer."
+    } ]
+  }, {
+    "tStartMs": 1391100,
+    "dDurationMs": 9100,
+    "segs": [ {
+      "utf8": "Look forward to seeing you in Part two."
+    } ]
+  } ]
+}
