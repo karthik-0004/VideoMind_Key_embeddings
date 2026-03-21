@@ -284,15 +284,17 @@ export const Landing = () => {
                         {message && <div className="success-msg">{message}</div>}
 
                         <div className="google-auth-wrap">
-                            <GoogleLogin
-                                onSuccess={handleGoogleSuccess}
-                                onError={handleGoogleError}
-                                size="large"
-                                theme="outline"
-                                text="continue_with"
-                                shape="rectangular"
-                                width="350"
-                            />
+                            {activeModal === 'login' && (
+                                <GoogleLogin
+                                    onSuccess={handleGoogleSuccess}
+                                    onError={handleGoogleError}
+                                    size="large"
+                                    theme="outline"
+                                    text="continue_with"
+                                    shape="rectangular"
+                                    width="350"
+                                />
+                            )}
                         </div>
                         {googleLoading && <div className="google-loading-text">Verifying Google account...</div>}
 
@@ -316,15 +318,17 @@ export const Landing = () => {
                         {message && <div className="success-msg">{message}</div>}
 
                         <div className="google-auth-wrap">
-                            <GoogleLogin
-                                onSuccess={handleGoogleSuccess}
-                                onError={handleGoogleError}
-                                size="large"
-                                theme="outline"
-                                text="signup_with"
-                                shape="rectangular"
-                                width="350"
-                            />
+                            {activeModal === 'register' && (
+                                <GoogleLogin
+                                    onSuccess={handleGoogleSuccess}
+                                    onError={handleGoogleError}
+                                    size="large"
+                                    theme="outline"
+                                    text="signup_with"
+                                    shape="rectangular"
+                                    width="350"
+                                />
+                            )}
                         </div>
                         {googleLoading && <div className="google-loading-text">Verifying Google account...</div>}
 

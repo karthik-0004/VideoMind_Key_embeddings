@@ -1,0 +1,603 @@
+/*
+  Mobile-first override pack for VideoMind.
+  Import this file after all existing stylesheets.
+*/
+
+:root {
+    --mobile-bottom-nav-height: 68px;
+}
+
+@media (max-width: 1024px) {
+    .app-layout,
+    .app-container {
+        min-height: 100dvh;
+    }
+
+    .main-content,
+    .kanban-board,
+    .detail-panel,
+    .messages,
+    .search-results,
+    .daily-buckets-container,
+    .sr-msgs,
+    .sr-ts-list,
+    .ts-strip,
+    .study-room-root .msgs,
+    .study-room-root .ts-list {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    input,
+    textarea,
+    select,
+    .search-input,
+    .chat-input input,
+    .youtube-input,
+    .sr-in,
+    .sr-ts-search,
+    .landing-black .field input {
+        font-size: 16px;
+    }
+
+    .topnav-tab,
+    .topnav-icon-btn,
+    .topnav-avatar-btn,
+    .search-action-btn,
+    .confirm-btn,
+    .search-result-item,
+    .week-board-btn,
+    .action-btn,
+    .mode-btn,
+    .remove-btn,
+    .landing-black .lnav-btn,
+    .landing-black .modal-close,
+    .landing-black .modal-submit,
+    .chat-header .btn,
+    .send-btn,
+    .sr-cb,
+    .sr-speed,
+    .sr-theme-btn,
+    .sr-pdf-btn,
+    .sr-chip,
+    .tab {
+        min-height: 44px;
+    }
+
+    .main-content {
+        padding-bottom: calc(var(--mobile-bottom-nav-height) + 1rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .dashboard-workspace,
+    .chat-page,
+    .upload-page,
+    .history-page,
+    .profile-page {
+        min-height: 0;
+    }
+
+    .workspace-body {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: minmax(0, auto);
+        gap: 0.9rem;
+        overflow-y: auto;
+        padding-bottom: 0.25rem;
+    }
+
+    .resize-handle {
+        display: none;
+    }
+
+    .kanban-columns {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .kanban-column {
+        max-height: none;
+    }
+
+    .detail-panel {
+        min-height: 42vh;
+        box-shadow: none;
+    }
+
+    .stats-strip {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .chat-body {
+        flex-direction: column;
+        gap: 0.75rem;
+        overflow: auto;
+    }
+
+    .chat-left-panel,
+    .chat-right-panel {
+        width: 100% !important;
+        min-width: 0;
+        min-height: 46vh;
+    }
+
+    .chat-divider {
+        display: none;
+    }
+
+    .chat-header {
+        gap: 0.5rem;
+    }
+
+    .chat-header .btn {
+        padding: 0.6rem 0.75rem;
+    }
+
+    .study-room-root .main {
+        flex-direction: column;
+        overflow: auto;
+    }
+
+    .study-room-root .video-side,
+    .study-room-root .right-side {
+        width: 100%;
+        border-left: none;
+        border-right: none;
+    }
+
+    .study-room-root .video-side {
+        min-height: 46vh;
+    }
+
+    .study-room-root .video-area {
+        min-height: 42vh;
+        border-radius: 10px;
+    }
+
+    .study-room-root .right-side {
+        min-height: 46vh;
+        box-shadow: none;
+    }
+
+    .study-room-root .tab-bar {
+        position: sticky;
+        top: 0;
+        z-index: 4;
+        background: var(--surface);
+    }
+
+    .study-room-root .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 8;
+    }
+
+    .study-room-root .sr-bc,
+    .study-room-root .sr-sep {
+        display: none;
+    }
+
+    .study-room-root .sr-top-r {
+        gap: 0.4rem;
+    }
+
+    .study-room-root .sr-badge-g,
+    .study-room-root .sr-badge-processing {
+        display: none;
+    }
+
+    .upload-page .upload-item-content {
+        align-items: flex-start;
+    }
+
+    .landing-black .l-hero {
+        min-height: 100dvh;
+        height: auto;
+        padding: 6rem 1rem 2rem;
+        align-items: flex-start;
+    }
+
+    .landing-black .l-hero canvas {
+        opacity: 0.5;
+    }
+
+    .landing-black .hero-left {
+        max-width: 100%;
+    }
+
+    .landing-black .hero-right {
+        position: static;
+        transform: none;
+        margin-top: 1.5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .landing-black .scroll-hint {
+        display: none;
+    }
+
+    .landing-black .term-wrap {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 3rem 1rem;
+    }
+
+    .landing-black .pipe-grid,
+    .landing-black .feat-grid,
+    .landing-black .spd-grid {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
+    }
+
+    .landing-black .lsec,
+    .landing-black .l-spd {
+        padding: 3rem 1rem;
+    }
+
+    .landing-black .cur-dot,
+    .landing-black .cur-ring {
+        display: none;
+    }
+
+    .processing-hud-bar {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .processing-early-access-banner {
+        bottom: calc(var(--mobile-bottom-nav-height) + 10px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        border: none;
+    }
+
+    .main-content {
+        padding: 0.9rem;
+        padding-bottom: calc(var(--mobile-bottom-nav-height) + 1rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .topnav {
+        height: auto;
+        min-height: 56px;
+        position: sticky;
+        top: 0;
+        z-index: 90;
+        overflow: visible;
+    }
+
+    .topnav::after {
+        display: none;
+    }
+
+    .topnav-inner {
+        min-height: 56px;
+        padding: 0.4rem 0.9rem;
+        gap: 0.55rem;
+    }
+
+    .topnav-logo span,
+    .topnav-search,
+    .topnav-icon-btn,
+    .topnav-user,
+    .upload-hint {
+        display: none;
+    }
+
+    .topnav-tabs {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 120;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        height: calc(var(--mobile-bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+        border-top: 1px solid var(--border);
+        backdrop-filter: blur(16px);
+    }
+
+    .topnav-tab {
+        border-radius: 0;
+        height: var(--mobile-bottom-nav-height);
+        min-height: var(--mobile-bottom-nav-height);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+        padding: 0.3rem 0.2rem;
+    }
+
+    .topnav-tab span {
+        display: block;
+        font-size: 0.64rem;
+        letter-spacing: 0.01em;
+        line-height: 1;
+    }
+
+    .topnav-tab:nth-child(1) { order: 1; }
+    .topnav-tab:nth-child(2) { order: 2; }
+    .topnav-tab:nth-child(4) { order: 3; }
+    .topnav-tab:nth-child(3) { order: 4; }
+
+    .topnav-tab.active::after {
+        bottom: auto;
+        top: 0;
+        width: 34px;
+    }
+
+    .workspace-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .workspace-header h1,
+    .upload-page h1,
+    .header-title h1,
+    .profile-page h1 {
+        font-size: clamp(1.35rem, 6vw, 1.7rem);
+    }
+
+    .detail-content {
+        padding: 0.9rem;
+    }
+
+    .detail-title {
+        font-size: 1rem;
+    }
+
+    .detail-actions {
+        gap: 0.5rem;
+    }
+
+    .action-btn,
+    .week-board-btn,
+    .mode-btn,
+    .youtube-submit-btn,
+    .remove-btn,
+    .page-btn {
+        min-height: 44px;
+    }
+
+    .page-btn {
+        min-width: 44px;
+    }
+
+    .chat-page {
+        height: auto;
+    }
+
+    .chat-header h2 {
+        font-size: 1rem;
+        width: 100%;
+        order: -1;
+    }
+
+    .chat-left-panel,
+    .chat-right-panel {
+        min-height: 52vh;
+    }
+
+    .chat-input {
+        padding: 0.65rem;
+    }
+
+    .chat-input input {
+        height: 48px;
+    }
+
+    .history-header,
+    .profile-header-card,
+    .account-actions {
+        gap: 0.8rem;
+    }
+
+    .profile-header-card {
+        padding: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .dropzone {
+        padding: 2.2rem 1rem;
+    }
+
+    .youtube-panel {
+        padding: 1rem;
+    }
+
+    .youtube-input-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .processing-early-access-banner {
+        left: 0.75rem;
+        right: 0.75rem;
+        width: auto;
+        transform: none;
+        bottom: calc(var(--mobile-bottom-nav-height) + 8px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .processing-early-access-btn {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .search-overlay {
+        align-items: flex-end;
+        justify-content: stretch;
+        padding-top: 0;
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .search-modal {
+        width: 100%;
+        max-width: 100%;
+        max-height: min(84dvh, 84vh);
+        border-radius: 16px 16px 0 0;
+        animation: none;
+    }
+
+    .search-input-row,
+    .search-footer {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .confirm-overlay {
+        align-items: flex-end;
+        justify-content: stretch;
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .confirm-modal {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 16px 16px 0 0;
+        padding: 1.2rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+        margin: 0;
+        text-align: left;
+    }
+
+    .confirm-actions {
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+    }
+
+    .confirm-btn,
+    .confirm-btn-full {
+        width: 100%;
+        max-width: none;
+        min-height: 44px;
+    }
+
+    .landing-black .lnav {
+        padding: 0.85rem 1rem;
+    }
+
+    .landing-black .lnav-links {
+        display: none;
+    }
+
+    .landing-black .lnav-r {
+        width: auto;
+    }
+
+    .landing-black .hero-h1 {
+        font-size: clamp(2rem, 11vw, 3.2rem);
+        line-height: 1.03;
+    }
+
+    .landing-black .hero-sub {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .landing-black .hero-btns {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .landing-black .btn-main,
+    .landing-black .btn-line,
+    .landing-black .btn-dash,
+    .landing-black .lnav-btn,
+    .landing-black .modal-submit {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .landing-black .pipe-card,
+    .landing-black .feat-cell,
+    .landing-black .spd-cell {
+        padding: 1.2rem;
+    }
+
+    .landing-black .modal-overlay {
+        align-items: flex-end;
+    }
+
+    .landing-black .modal-box {
+        max-width: 100%;
+        border-radius: 14px 14px 0 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding: 1.1rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+        transform: translateY(100%);
+    }
+
+    .landing-black .modal-overlay.active .modal-box {
+        transform: translateY(0);
+    }
+
+    .landing-black .field input,
+    .landing-black .google-auth-wrap,
+    .landing-black .google-auth-wrap > div {
+        width: 100% !important;
+    }
+
+    .study-room-root {
+        height: 100dvh;
+    }
+
+    .study-room-root .topbar {
+        padding: 0.55rem;
+    }
+
+    .study-room-root .sr-logo-t,
+    .study-room-root .sr-theme-btn:nth-child(2) {
+        display: none;
+    }
+
+    .study-room-root .controls,
+    .study-room-root .ts-strip {
+        padding-left: 0.55rem;
+        padding-right: 0.55rem;
+    }
+
+    .study-room-root .controls {
+        gap: 0.45rem;
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 58px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .study-room-root .sr-vol {
+        margin-left: auto;
+    }
+
+    .study-room-root .tab {
+        min-height: 44px;
+        font-size: 0.75rem;
+    }
+
+    .study-room-root .input-bar {
+        position: sticky;
+        bottom: 0;
+        background: var(--surface);
+        padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .study-room-root .send-btn {
+        width: 44px;
+        min-width: 44px;
+    }
+}
