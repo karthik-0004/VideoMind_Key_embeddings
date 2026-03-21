@@ -30,5 +30,6 @@ psycopg2-binary==2.9.9
 cryptography==43.0.1
 
 urllib3==2.2.3
+chardet<6
 setuptools>=70.0.0
 wheel>=0.43.0

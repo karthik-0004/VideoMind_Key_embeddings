@@ -43,52 +43,21 @@ def _format_seconds(seconds):
 def _build_prompt(raw_text):
     """Build the prompt that processes the entire transcript in a single API call."""
     return f"""You are a senior technical educator writing premium course material from a video transcript.
-
-Your output must be content-focused, complete, and very high quality.
-Do not skip any idea mentioned in the transcript.
-Do not write Q&A sections.
-Do not add markdown symbols outside of code blocks.
-
-Length and depth requirements:
-- Produce substantial detail for each topic.
-- For each TOPIC include rich explanation with practical framing.
-- Target long-form instructional content, not short notes.
-- If multiple micro-topics exist, split into separate TOPIC entries.
-- Aim to cover the ENTIRE transcript — do not stop early.
-
-Required output format (repeat SECTION/TOPIC blocks to cover all content):
+Cover all topics from the transcript without skipping key points.
+Use this format and repeat TOPIC blocks as needed:
 SECTION: [Main section name]
 TOPIC: 1. [Topic name]
-Concept: [Clear and deep explanation]
-Context: [How this fits in the flow of the lesson]
-Explanation: [Detailed teaching-style explanation]
-Example: [Concrete practical example]
-Implementation Notes: [Best practices, edge cases, caveats]
-TOPIC: 2. ...
-
-After all topics, end with exactly these two sections:
-
+Concept: [2-3 sentence explanation]
+Context: [2-3 sentence explanation]
+Explanation: [2-3 sentence explanation]
+Example: [Concrete example; include code block when relevant]
+Implementation Notes: [Best practices and edge cases]
+End with:
 SECTION: Final Summary
-[A comprehensive, meaningful closing summary of the entire video content. Focus on how topics connect.]
-
+[Concise overall wrap-up]
 KEY TAKEAWAYS:
-[12 to 18 high-quality, concrete takeaways, one per line starting with -]
-
-When coding is present in transcript:
-- Include at least one realistic code example.
-- Put code examples inside fenced code blocks using triple backticks.
-- Use language tags like ```python or ```javascript when clear.
-- Every code example must be complete and self-contained.
-- Never reference undefined variables.
-- Include imports and variable initialization before usage.
-- Add a short output line as a comment at the end (for example: # Output: ...).
-- Do not provide pseudo-code; provide executable-style code.
-
-Writing requirements:
-- Keep language precise, professional, and readable.
-- Expand meaningfully, not with filler text.
-- Preserve all technical details and nuances from the transcript.
-
+- [10-15 concrete takeaways, one per line]
+Keep language clear, technical, and concise.
 Full transcript:
 <<<
 {raw_text}
@@ -111,7 +80,7 @@ def _generate_with_openai(raw_text, fast_mode=False):
     if not api_key:
         raise EnvironmentError("OPENAI_API_KEY is not set in environment / .env")
 
-    client = OpenAI(api_key=api_key)
+    client = OpenAI(api_key=api_key, timeout=90.0)
     model = os.getenv("OPENAI_PDF_MODEL", "gpt-4o-mini")
 
     max_input_chars = int(os.getenv("PDF_MAX_INPUT_CHARS_FAST", "30000")) if fast_mode else int(os.getenv("PDF_MAX_INPUT_CHARS", "60000"))
@@ -135,7 +104,7 @@ def _generate_with_openai(raw_text, fast_mode=False):
             max_tokens=(
                 int(os.getenv("PDF_OPENAI_MAX_TOKENS_FAST", "1400"))
                 if fast_mode
-                else int(os.getenv("PDF_OPENAI_MAX_TOKENS", "2800"))
+                else min(int(os.getenv("PDF_OPENAI_MAX_TOKENS", "4096")), 4096)
             ),
         )
         result = response.choices[0].message.content.strip()
@@ -248,7 +217,7 @@ def _generate_with_groq_fallback(raw_text, transcript_chunks, enhance_and_pdf):
     model = os.getenv("GROQ_PDF_MODEL", "llama-3.3-70b-versatile")
     client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-    max_tokens = int(os.getenv("PDF_CHUNK_MAX_TOKENS", "2400"))
+    max_tokens = int(os.getenv("PDF_CHUNK_MAX_TOKENS", "1800"))
     overlap_tokens = int(os.getenv("PDF_CHUNK_OVERLAP_TOKENS", "240"))
     token_chunks = enhance_and_pdf.split_text_by_tokens(
         raw_text, max_tokens=max_tokens, overlap=overlap_tokens

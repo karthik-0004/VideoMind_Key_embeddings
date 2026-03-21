@@ -339,18 +339,16 @@ export const StudyRoom = () => {
             if (timestamp_start != null && videoRef.current) {
                 const tsFloat = parseFloat(timestamp_start);
                 if (!isNaN(tsFloat)) {
-                    // Wait for any pending seeks to settle, then seek
                     const v = videoRef.current;
-                    v.currentTime = tsFloat;
-                    setCurrentTime(tsFloat);
-                    // If the video hasn't loaded enough, wait for it
-                    if (v.readyState < 2) {
-                        const onCanPlay = () => {
+                    if (v.readyState >= 1) {
+                        v.currentTime = tsFloat;
+                        setCurrentTime(tsFloat);
+                    } else {
+                        const onLoadedMetadata = () => {
                             v.currentTime = tsFloat;
                             setCurrentTime(tsFloat);
-                            v.removeEventListener('canplay', onCanPlay);
                         };
-                        v.addEventListener('canplay', onCanPlay);
+                        v.addEventListener('loadedmetadata', onLoadedMetadata, { once: true });
                     }
                 }
             }
@@ -455,10 +453,11 @@ export const StudyRoom = () => {
 
                             {videoSrc ? (
                                 <video
+                                    key={videoSrc}
                                     ref={videoRef}
                                     className={`sr-video-el${videoReady ? ' ready' : ''}`}
                                     src={videoSrc}
-                                    preload="metadata"
+                                    preload="auto"
                                     onClick={togglePlay}
                                     onTimeUpdate={() => {
                                         if (!isSeekingRef.current && videoRef.current) {

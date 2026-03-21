@@ -39,6 +39,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
+    ".onrender.com",
     "videomind-api.onrender.com",
     os.getenv("RENDER_EXTERNAL_HOSTNAME", ""),
     *get_csv_env("ALLOWED_HOSTS"),
@@ -192,6 +193,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5174",
     "http://localhost:5175",
     "http://127.0.0.1:5175",
+    "https://videomind.vercel.app",
     "https://video-mind-key-embeddings.vercel.app",
     *get_csv_env("CORS_ALLOWED_ORIGINS"),
 ]
