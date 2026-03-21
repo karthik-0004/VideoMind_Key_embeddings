@@ -2,7 +2,7 @@
 API Views for Video RAG Application
 """
 from rest_framework import viewsets, status
-from rest_framework.decorators import action
+from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
@@ -40,6 +40,19 @@ from django.http import StreamingHttpResponse, HttpResponse, FileResponse
 from cloudinary.utils import cloudinary_url
 
 logger = logging.getLogger(__name__)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def health_check(request):
+    """Lightweight endpoint for uptime checks."""
+    return Response(
+        {
+            'status': 'ok',
+            'service': 'backend',
+            'timestamp': timezone.now().isoformat(),
+        }
+    )
 
 
 @method_decorator(csrf_exempt, name='dispatch')
