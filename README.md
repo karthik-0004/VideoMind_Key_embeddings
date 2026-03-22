@@ -1,512 +1,154 @@
 # VideoMind
 
-AI-powered video knowledge extraction and semantic search.
+An AI-powered video knowledge extraction, study guide generation, and semantic search system.
 
-VideoMind lets users upload a local video or a YouTube link, then automatically:
+VideoMind lets users upload a local video or provide a YouTube link, then automatically:
 1. Extracts audio
-2. Transcribes speech
-3. Generates embeddings for semantic retrieval
-4. Enables timestamp-aware Q&A
-5. Generates a study PDF
+2. Transcribes speech using Groq (Whisper-v3)
+3. Generates embeddings using OpenAI for semantic retrieval
+4. Enables timestamp-aware Q&A and Chat
+5. Generates comprehensive study PDFs
 
-This README reflects the current codebase state in this workspace.
+## Architectural Design (In One Word)
 
-## Table of Contents
+**RAG**
 
-1. Project Status
-2. Core Features
-3. Architecture
-4. Tech Stack
-5. Repository Structure
-6. How the Data Flows End-to-End
-7. Prerequisites
-8. Environment Variables (Critical)
-9. Local Setup (Step-by-Step)
-10. First End-to-End Test Run
-11. Processing Stages and Lifecycle
-12. API Reference
-13. File and Storage Locations
-14. Typical Developer Workflows
-15. Troubleshooting
-16. Known Limitations
-17. Deployment Notes
+*(Retrieval-Augmented Generation. The system orchestrates an event-driven pipeline that ingests media, splits it into semantically embedded chunks, and retrieves the most relevant transcript segments to answer user queries with timestamp-aware accuracy.)*
 
-## 1. Project Status
+## Key Features
 
-Current implementation status:
+- **Robust Authentication**: Token-based REST API auth with Google OAuth and Email/Password support.
+- **Multiple Upload Channels**: Drag-and-drop local video uploads and direct YouTube URL processing via `yt-dlp`.
+- **Cloud Storage (Cloudinary)**: Fully integrated with Cloudinary for fast, scalable, and secure cloud media storage.
+- **Background Pipeline**: Asynchronous media processing (Audio extraction, chunking, transcription, embedding).
+- **AI-Powered Insights**: Transcript-aware chat assistant with jump-to-timestamp capabilities.
+- **Study Guide Generation**: Automated PDF generation mapping the entire video's knowledge.
 
-- Frontend and backend are integrated and functional for local development.
-- Auth supports:
-  - Email/password registration and login (Gmail addresses only)
-  - Google credential login
-- Video ingestion supports:
-  - Local file upload
-  - YouTube download via background task
-- Processing pipeline runs in background daemon threads (no Celery/Redis queue yet).
-- Semantic query and AI chat are available.
-- PDF generation is available with OpenAI primary and Groq fallback.
-- Status updates are available via polling and Server-Sent Events endpoint.
+## Tech Stack
 
-## 2. Core Features
+**Frontend**:
+- React 19, Vite, React Router DOM
+- Built-in dynamic styling with `lucide-react` icons
+- Axios, Google OAuth (`@react-oauth/google`)
 
-- Authentication with token-based API auth
-- Drag-and-drop video upload (supported formats enforced)
-- YouTube URL upload with progress polling
-- Background pipeline with stage tracking
-- Semantic Q&A with timestamped answer metadata
-- Transcript-aware AI chat assistant
-- PDF generation and download
-- History and profile stats
-- Retry for failed video processing
+**Backend**:
+- Django 5.0, Django REST Framework
+- SQLite / PostgreSQL (via `dj-database-url`)
+- **Cloudinary** & `django-cloudinary-storage` for scalable cloud media
 
-## 3. Architecture
+**AI & Data Processing**:
+- **Groq SDK** and `whisper-large-v3-turbo` for hyper-fast massively parallel transcription
+- **OpenAI SDK** (`text-embedding-3-small`) for semantic chunk embedding
+- FFmpeg & FFprobe for media manipulation
+- Joblib, Pandas, Scikit-learn for vector indexing
+- ReportLab for PDF rendering
+
+## Cloudinary Storage Integration
+
+We have transitioned to **Cloudinary** for our primary cloud storage solution. 
+- Media files (uploaded videos, generated PDFs) are now safely stored and served from Cloudinary.
+- Django leverages `django-cloudinary-storage` with seamless local/cloud fallback based on environment configuration (`USE_CLOUD_STORAGE=True`).
+- Optimized video streaming endpoints leverage Cloudinary's dynamic CDN.
+
+## Repository Structure
 
 ```text
-Frontend (React + Vite)
-  -> Token-authenticated REST calls
-Backend (Django + DRF)
-  -> Video pipeline orchestration (threaded)
-  -> Uses ffmpeg/ffprobe + Groq + OpenAI + yt-dlp
-
-Storage:
-  - SQLite for app metadata
-  - backend/media/videos for uploaded videos
-  - backend/media/pdfs for generated PDFs
-  - legacy script directory for transcripts/audio/embeddings:
-    Video-Knowledge-Extraction-Semantic-Search-System-RAG-based-
-      /jsons
-      /audios
-      /embeddings.joblib
+├── backend/                  # Django REST API and processing daemon
+│   ├── api/                  # Models, views, endpoints, auth
+│   ├── config/               # Settings (Cloudinary, CORS, DB)
+│   ├── video_processor/      # Core pipeline tasks, PDF generation
+│   └── requirements.txt      # Python dependencies
+├── frontend/                 # React SPAs
+│   ├── src/                  # App views, components, API services
+│   └── package.json          # Node dependencies
+└── Video-Knowledge-Extraction-Semantic-Search-System-RAG-based-/
+    ├── embeddings.joblib     # Vector index store
+    ├── jsons/                # Transcript JSON outputs
+    ├── audios/               # Processed audio chunks
+    └── .env                  # Critical Environment file!
 ```
 
-## 4. Tech Stack
+## How the Pipeline Flows
 
-Backend:
-- Django
-- Django REST Framework
-- django-cors-headers
-- SQLite
-- Groq SDK
-- OpenAI SDK (used by code paths)
-- pandas, numpy, scikit-learn, joblib
-- reportlab
-- yt-dlp
-- ffmpeg, ffprobe
+1. **Ingestion**: Video uploaded via POST directly to Cloudinary or YouTube link downloaded via `yt-dlp`.
+2. **Setup**: File size checked; optionally compressed if >50MB via FFmpeg.
+3. **Audio Extraction & Chunking**: Video converted to MP3 and split into 10-minute chunks.
+4. **Transcription**: Chunks sent to Groq (`whisper-large-v3-turbo`) in parallel via `ThreadPoolExecutor` for rapid transcription.
+5. **Embedding**: Text chunked and vectorized using OpenAI API (`text-embedding-3-small`); appended to `embeddings.joblib`.
+6. **PDF Generation**: Final comprehensive notes generated and stored contextually in Cloudinary.
+7. **Semantic Querying**: User queries trigger semantic similarity matching over the specific video's embedded chunks to generate accurate AI answers.
 
-Frontend:
-- React
-- Vite
-- React Router
-- Axios
-- @react-oauth/google
-- react-dropzone
-- lucide-react
+## Local Setup
 
-## 5. Repository Structure
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
+- System Dependencies: `ffmpeg` and `ffprobe` accessible on your PATH
 
-```text
-backend/
-  api/
-    models.py
-    serializers.py
-    urls.py
-    views.py
-    management/commands/
-  config/
-    settings.py
-    urls.py
-    stream.py
-  video_processor/
-    pipeline.py
-    query.py
-    pdf_gen.py
-  media/
-    videos/
-    pdfs/
-  templates/
-  manage.py
-
-frontend/
-  src/
-    pages/
-    components/
-    services/api.js
-    context/
-    App.jsx
-  package.json
-
-Video-Knowledge-Extraction-Semantic-Search-System-RAG-based-/
-  pipelIne_api.py
-  rag_query.py
-  enhance_and_pdf.py
-  embeddings.joblib
-  audios/
-  jsons/
-  pdfs/
-```
-
-## 6. How the Data Flows End-to-End
-
-### A. Authentication
-
-1. User signs in from frontend.
-2. Backend returns DRF token.
-3. Frontend stores token in localStorage.
-4. Axios adds `Authorization: Token <token>` header on API requests.
-
-### B. Local Video Upload
-
-1. Frontend posts multipart upload to `POST /api/videos/`.
-2. Backend validates extension and max file size.
-3. Video row created with uploading state.
-4. Background thread is launched via `process_video_async(video_id)`.
-5. Frontend tracks progress through status endpoint or processing view.
-
-### C. YouTube Upload
-
-1. Frontend posts URL to `POST /api/videos/upload_youtube/`.
-2. Backend creates in-memory task id and starts yt-dlp download thread.
-3. Frontend polls `GET /api/videos/youtube_status/?task_id=...`.
-4. Once downloaded, backend creates a Video record and starts the same pipeline.
-
-### D. Pipeline
-
-1. Optional compress if file > 50 MB.
-2. Convert video to MP3.
-3. Split audio to 10-minute chunks.
-4. Transcribe chunk(s) with Groq Whisper.
-5. Merge segments with corrected offsets.
-6. Save transcript JSON.
-7. Create embeddings (OpenAI text-embedding-3-small) and update `embeddings.joblib`.
-8. Generate PDF content and file.
-9. Mark video status completed.
-
-### E. Querying
-
-1. Frontend posts question to `POST /api/videos/{id}/query/`.
-2. Backend loads cached embeddings (cache invalidates on file change).
-3. Filters chunks by cleaned filename for that video.
-4. Runs semantic retrieval and returns answer + timestamps.
-
-## 7. Prerequisites
-
-Install these before running:
-
-1. Python 3.10+
-2. Node.js 18+
-3. ffmpeg and ffprobe on PATH
-4. API keys for Groq/OpenAI/Google OAuth
-
-Verify tooling:
-
-```bash
-python --version
-node --version
-ffmpeg -version
-ffprobe -version
-```
-
-## 8. Environment Variables (Critical)
-
-Important: backend code currently loads `.env` from:
-
-`Video-Knowledge-Extraction-Semantic-Search-System-RAG-based-/.env`
-
-Create this file:
+### 1. Environment Variables
+Create a file at `Video-Knowledge-Extraction-Semantic-Search-System-RAG-based-/.env`:
 
 ```env
-# Required
+# AI Models
 GROQ_API_KEY=your_groq_api_key
 OPENAI_API_KEY=your_openai_api_key
+OPENAI_PDF_MODEL=gpt-4o-mini
+
+# Google Auth
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 
-# Optional
-OPENAI_PDF_MODEL=gpt-4o-mini
-GROQ_PDF_MODEL=llama-3.3-70b-versatile
-PDF_CHUNK_MAX_TOKENS=2400
-PDF_CHUNK_OVERLAP_TOKENS=240
-PDF_ENHANCE_WORKERS=5
+# Cloudinary Storage
+USE_CLOUD_STORAGE=True
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+# Optional DB
+DATABASE_URL=sqlite:///db.sqlite3
 ```
 
-## 9. Local Setup (Step-by-Step)
-
-### Step 1: Open workspace root
-
-The root contains both `backend` and `frontend` folders.
-
-### Step 2: Create and activate Python environment
-
-Using venv (PowerShell):
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-
-Using conda (optional):
-
-```powershell
-conda create -n videomind python=3.11 -y
-conda activate videomind
-```
-
-### Step 3: Install backend dependencies
-
-```powershell
+### 2. Backend Initialization
+```bash
 cd backend
+python -m venv .venv
+# On Windows: .\.venv\Scripts\Activate.ps1
+# On MacOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
-```
-
-If you see `ModuleNotFoundError: No module named 'openai'`, install:
-
-```powershell
-pip install openai
-```
-
-### Step 4: Run database migrations
-
-```powershell
 python manage.py migrate
-```
-
-Optional admin user:
-
-```powershell
-python manage.py createsuperuser
-```
-
-### Step 5: Start backend server
-
-```powershell
 python manage.py runserver
 ```
 
-Backend URLs:
-- API base: `http://localhost:8000/api/`
-- Admin: `http://localhost:8000/admin/`
-
-### Step 6: Install frontend dependencies
-
-Open a new terminal:
-
-```powershell
+### 3. Frontend Initialization
+Open a new terminal session:
+```bash
 cd frontend
 npm install
-```
-
-### Step 7: Start frontend dev server
-
-```powershell
 npm run dev
 ```
 
-Frontend URL (default): `http://localhost:5173`
+The frontend application will be available at `http://localhost:5173`.
 
-### Step 8: Confirm app is live
+## Typical Developer Workflows
 
-1. Open frontend URL
-2. Register/login
-3. Navigate to upload
+- **Retry a failed video**: `POST /api/videos/{id}/retry/`
+- **Regenerate PDF manually**: `GET /api/videos/{id}/pdf/?refresh=true`
+- **Backfill YouTube URLs**: `python manage.py backfill_youtube_urls`
 
-## 10. First End-to-End Test Run
+## API Overview
 
-Follow exactly:
+The majority of routes use `Authorization: Token <token>`.
 
-1. Start backend and frontend.
-2. Register with a Gmail address or use Google login.
-3. Upload a short MP4 file (recommended first test: 1-3 minutes).
-4. Wait for processing to finish.
-5. Open chat page for that video.
-6. Ask a question like: `What are the key points discussed in the first minute?`
-7. Open PDF page and verify generated study notes.
+- **Auth**: `/api/auth/register`, `/api/auth/login`, `/api/auth/google_login/`
+- **Videos**: `/api/videos/`, `/api/videos/{id}/status/`, `/api/videos/upload_youtube/`
+- **Chat**: `/api/videos/{id}/query/`, `/api/videos/{id}/ai_chat/`
+- **Analytics**: `/api/profile/stats/`
 
-Expected first-run outputs:
-- A row in videos list
-- A transcript JSON file under legacy `jsons/`
-- Embedding rows inside `embeddings.joblib`
-- PDF file under `backend/media/pdfs/`
+## Deployment & Production
+Use the `DEPLOYMENT_GUIDE.md` for the primary deployment walkthrough.
+High-level deployment involves routing the backend through Gunicorn, migrating to PostgreSQL, and fully enabling Cloudinary for production media storage.
 
-## 11. Processing Stages and Lifecycle
+## Known Limitations
 
-Video status values:
-- `uploading`
-- `processing`
-- `completed`
-- `failed`
-
-Backend processing stage values used in model and APIs:
-- `uploaded`
-- `starting_up`
-- `compressing`
-- `converting_video_to_audio`
-- `audio_converted`
-- `transcribing`
-- `transcribing_audio`
-- `transcribed`
-- `embedding`
-- `generating_embeddings`
-- `embedded`
-- `generating_pdf`
-- `creating_pdf`
-- `pdf_generated`
-
-Frontend normalizes these into a 5-step progress UX:
-1. `starting_up`
-2. `converting_video_to_audio`
-3. `transcribing_audio`
-4. `generating_embeddings`
-5. `creating_pdf`
-
-Status tracking methods:
-- Polling: `GET /api/videos/{id}/status/`
-- Streaming: `GET /api/videos/{id}/status_stream/?token=<token>` (SSE)
-
-## 12. API Reference
-
-All endpoints are under `/api/`.
-Most require token auth header: `Authorization: Token <token>`.
-
-### Auth
-
-- `POST /api/auth/register/`
-- `POST /api/auth/login/`
-- `POST /api/auth/google_login/`
-- `POST /api/auth/logout/`
-- `GET /api/auth/me/`
-
-### Videos
-
-- `GET /api/videos/`
-- `POST /api/videos/`
-- `GET /api/videos/{id}/`
-- `DELETE /api/videos/{id}/`
-- `GET /api/videos/{id}/status/`
-- `GET /api/videos/{id}/status_stream/?token=<token>`
-- `POST /api/videos/{id}/retry/`
-- `POST /api/videos/{id}/query/`
-- `POST /api/videos/{id}/ai_chat/`
-- `GET /api/videos/{id}/pdf/`
-- `GET /api/videos/{id}/pdf/?refresh=true`
-- `GET /api/videos/{id}/audio/?token=<token>`
-- `POST /api/videos/upload_youtube/`
-- `GET /api/videos/youtube_status/?task_id=<task_id>`
-- `GET /api/videos/by_date/`
-- `GET /api/videos/daily_stats/`
-- `GET /api/videos/date_range/`
-
-### Queries and Profile
-
-- `GET /api/queries/`
-- `GET /api/profile/stats/`
-
-## 13. File and Storage Locations
-
-### Django-managed storage
-
-- Uploaded videos: `backend/media/videos/`
-- Generated PDFs: `backend/media/pdfs/`
-- Database: `backend/db.sqlite3`
-
-### Legacy script storage (still actively used)
-
-- Transcript JSON files: `Video-Knowledge-Extraction-Semantic-Search-System-RAG-based-/jsons/`
-- Audio/chunks: `Video-Knowledge-Extraction-Semantic-Search-System-RAG-based-/audios/`
-- Embeddings store: `Video-Knowledge-Extraction-Semantic-Search-System-RAG-based-/embeddings.joblib`
-
-## 14. Typical Developer Workflows
-
-### Retry a failed video
-
-API:
-
-```bash
-POST /api/videos/{id}/retry/
-```
-
-### Regenerate a PDF
-
-API:
-
-```bash
-GET /api/videos/{id}/pdf/?refresh=true
-```
-
-### Backfill YouTube URLs from filenames
-
-```powershell
-cd backend
-python manage.py backfill_youtube_urls
-python manage.py backfill_youtube_urls --all
-python manage.py backfill_youtube_urls --dry-run
-```
-
-## 15. Troubleshooting
-
-### ffmpeg or ffprobe not found
-
-Make sure both are installed and discoverable on PATH:
-
-```bash
-ffmpeg -version
-ffprobe -version
-```
-
-### CORS errors from frontend
-
-Update allowed origins in backend settings if frontend uses a non-default port.
-
-### OpenAI key errors during embeddings or PDF
-
-Confirm `OPENAI_API_KEY` exists in the legacy scripts `.env` location.
-
-### Groq errors during transcription or chat
-
-Confirm `GROQ_API_KEY` and retry.
-
-### Processing remains failed
-
-1. Check backend logs
-2. Fix key/dependency issue
-3. Retry with `POST /api/videos/{id}/retry/`
-
-### Missing openai module
-
-Install manually in active environment:
-
-```powershell
-pip install openai
-```
-
-### Migration/database issues
-
-```powershell
-cd backend
-python manage.py migrate --run-syncdb
-```
-
-## 16. Known Limitations
-
-- No distributed task queue; background work uses daemon threads in-process.
-- YouTube task progress is in-memory and resets when server restarts.
-- Embeddings are file-based (`joblib`) rather than vector database.
-- SQLite is suitable for local/dev, not high-concurrency production.
-- Some stage values in DB are broader than the 5-stage frontend display.
-
-## 17. Deployment Notes
-
-Use `DEPLOYMENT_GUIDE.md` as the primary deployment walkthrough.
-
-High-level deployment requirements:
-- Move backend to a persistent server process (e.g., gunicorn).
-- Switch from SQLite to managed PostgreSQL.
-- Configure production CORS/hosts.
-- Set environment variables in hosting platform dashboards.
-- Register production origins/redirects in Google OAuth console.
-
----
-
-If you want, the next update can add:
-1. API request/response payload examples for every endpoint
-2. A contributor guide with coding standards and commit conventions
-3. A production architecture section with Celery/Redis migration plan
+- Uses `joblib` for vector storage; suitable for local and small-to-medium deployments (easily refactorable to Pinecone/PgVector).
+- Processing uses in-memory background threads. For horizontal scaling and distributed deployment, Celery + Redis migration is recommended.
